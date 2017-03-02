@@ -1,0 +1,839 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux,memory," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/wei.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="free命令解析
+free命令可以用来了解当前操作系统整体可用内存的使用情况
+
+详解
+看看free支持的参数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux进程分析之内存">
+<meta property="og:url" content="http://yoursite.com/2016/12/11/LinuxMem/index.html">
+<meta property="og:site_name" content="Time渐行渐远">
+<meta property="og:description" content="free命令解析
+free命令可以用来了解当前操作系统整体可用内存的使用情况
+
+详解
+看看free支持的参数">
+<meta property="og:updated_time" content="2017-03-02T06:36:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux进程分析之内存">
+<meta name="twitter:description" content="free命令解析
+free命令可以用来了解当前操作系统整体可用内存的使用情况
+
+详解
+看看free支持的参数">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/11/LinuxMem/"/>
+
+
+
+
+
+  <title> Linux进程分析之内存 | Time渐行渐远 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Time渐行渐远</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding Changing The World</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/11/LinuxMem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hushiwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wei.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Time渐行渐远">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux进程分析之内存
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-11T20:32:00+08:00">
+                2016-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/11/LinuxMem/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/11/LinuxMem/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="free命令解析"><a href="#free命令解析" class="headerlink" title="free命令解析"></a>free命令解析</h2><blockquote>
+<p>free命令可以用来了解当前操作系统整体可用内存的使用情况</p>
+</blockquote>
+<h3 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h3><ul>
+<li>看看free支持的参数<a id="more"></a>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">hushiwei@hsw:~$ free --help</div><div class="line"></div><div class="line">Usage:</div><div class="line"> free [options]</div><div class="line"></div><div class="line">Options:</div><div class="line"> -b, --bytes         show output in bytes</div><div class="line">     --kilo          show output in kilobytes</div><div class="line">     --mega          show output in megabytes</div><div class="line">     --giga          show output in gigabytes</div><div class="line">     --tera          show output in terabytes</div><div class="line">     --peta          show output in petabytes</div><div class="line"> -k, --kibi          show output in kibibytes</div><div class="line"> -m, --mebi          show output in mebibytes</div><div class="line"> -g, --gibi          show output in gibibytes</div><div class="line">     --tebi          show output in tebibytes</div><div class="line">     --pebi          show output in pebibytes</div><div class="line"> -h, --human         show human-readable output</div><div class="line">     --si            use powers of 1000 not 1024</div><div class="line"> -l, --lohi          show detailed low and high memory statistics</div><div class="line"> -t, --total         show total for RAM + swap</div><div class="line"> -s N, --seconds N   repeat printing every N seconds</div><div class="line"> -c N, --count N     repeat printing N times, then exit</div><div class="line"> -w, --wide          wide output</div><div class="line"></div><div class="line">     --help     display this help and exit</div><div class="line"> -V, --version  output version information and exit</div></pre></td></tr></table></figure>
+<ul>
+<li>以人类可看的方式输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hushiwei@hsw:~$ free -h</div><div class="line">              total        used        free      shared  buff/cache   available</div><div class="line">Mem:           7.7G        4.4G        240M        970M        3.0G        2.1G</div><div class="line">Swap:            0B          0B          0B</div></pre></td></tr></table></figure>
+<p>我用的是Deepin系统，free命令出来的比一般的ubuntu或者linux命令出来的要少一行。</p>
+<p>为了详细的说明，我换一台服务器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[devel@xxx ~]$ free -h</div><div class="line">             total       used       free     shared    buffers     cached</div><div class="line">Mem:           24G        20G       3.6G        18M       358M        13G</div><div class="line">-/+ buffers/cache:       6.9G        17G</div><div class="line">Swap:         4.0G         0B       4.0G</div></pre></td></tr></table></figure></p>
+<ul>
+<li>简单说明：<ul>
+<li>total:24G 即为总的物理内存大小</li>
+<li>used:20G 为当前被系统调度的内存大小</li>
+<li>free:3.6G 当前未被系统调度的内存大小</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意:</strong> 这里的用词是被系统调度，而不是被系统进程物理占用的内存大小</p>
+<p><strong>如何理解:</strong></p>
+<ul>
+<li>used只是被系统调度的内存，系统可以从used里面划分出有效的内存来调度给新进程使用</li>
+<li>只有在可调度内存不够的情况下，才会从free中挪用新内存进行调度。</li>
+</ul>
+<h3 id="used内存会被系统用来做哪些调度"><a href="#used内存会被系统用来做哪些调度" class="headerlink" title="used内存会被系统用来做哪些调度"></a>used内存会被系统用来做哪些调度</h3><ul>
+<li>1.实实在在被进程占用。比如进程申请的栈内存，被分配并被使用的堆内存。在进程存活并未主动释放它的内存情况下，这块内存是无法被系统调度给其他进程使用的。即第三行used=6.9G部分</li>
+<li>2.用于<strong>写buffers</strong>,即上面buffers:358M.对于文件写操作需要经过写buffer的过程再落到磁盘上，而buffer这块内存是可以被系统回收并反复被调度的内存。</li>
+<li>3.用于<strong>读cached</strong>,即上面的cached:13G.系统会将一大部分内存用于cache,比如用于文件预读等，与buffer相同，这部分内存可以被系统重复调度给信息的进程</li>
+</ul>
+<p><strong>总结:</strong></p>
+<ul>
+<li>因此，一个系统<code>**被调度内存大小**=buffers(358M)+cached(13G)+第三行的used(6.9G)=第二行的used(20G)</code></li>
+<li><code>**可用于新进程的内存大小**=free(3.6G)+buffers(358M)+cached(13G)=第三行的free(17G)</code></li>
+<li>所以，这里第三行表示了当前物理内存被系统占用的内存(used)，以及可以被调度的内存大小(free)</li>
+<li>而这里free+used即为total的物理内存大小，也就是机器的所有内存大小。</li>
+<li>所以，在日常工作中，可以通过第三行的信息快速获取机器物理内存被实际占用情况。(Deepin系统居然没有这一行…什么原因)</li>
+<li>理解了之后,这里终于知道这个<code>-/+ buffers/cache:</code>是什么意思了.实际占用内存也就是已被系统调度内存<strong>减去</strong>buffers和cached内存.</li>
+<li>那么实际可用内存也就是系统未被调度内存<strong>加上</strong>buffers和cached内存了</li>
+<li>最后，知道每个部分的意思后，就算没有第三行，自己也可以轻易的看出来系统内存实际使用情况</li>
+</ul>
+<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3><ul>
+<li>vmstat</li>
+</ul>
+<p>free,buffer,cached的值，也可以通过vmstat命令来动态获取它的变化值，比如每隔一秒采集一次，总共采集10次memory的变化；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">hushiwei@hsw:~$ vmstat 1 10</div><div class="line">procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----</div><div class="line"> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st</div><div class="line"> 0  0      0 420908  95636 3952264    0    0   309    89  420 3104 10  3 83  5  0</div><div class="line"> 0  0      0 438580  95636 3932768    0    0     0   360 1548 12740  8  3 88  0  0</div><div class="line"> 0  0      0 438944  95636 3932684    0    0     0     0  788 7131  2  2 96  0  0</div><div class="line"> 1  0      0 439020  95636 3932684    0    0     0     0  817 11039  3  2 95  0  0</div><div class="line"> 2  0      0 423376  95636 3950340    0    0     0     0 1092 8635  7  5 88  0  0</div><div class="line"> 0  0      0 421692  95644 3951528    0    0     0   236 1231 12386 10  3 84  3  0</div><div class="line"> 1  0      0 439968  95644 3932768    0    0     0   360  881 7472  3  2 95  0  0</div><div class="line"> 1  0      0 439800  95644 3932680    0    0     0     0 3319 22657 15  3 81  0  0</div><div class="line"> 0  0      0 439692  95644 3932680    0    0     0     0  737 7149  3  1 96  0  0</div><div class="line"> 2  0      0 422388  95644 3950288    0    0     0     0  916 12164  7  2 91  0  0</div></pre></td></tr></table></figure></p>
+<ul>
+<li>watch</li>
+</ul>
+<p>在linux中可以通过watch命令，实时监控每一条命令执行的结果动态变化。</p>
+<ul>
+<li>watch命令可以实时全屏监控当前命令执行的动态变化结果</li>
+<li>watch命令的常用参数有:<ul>
+<li>-n:时隔多少秒刷新(默认每隔2秒刷一次结果)</li>
+<li>-d:高亮显示动态变化</li>
+<li>-t:关闭命令顶部的时间间隔，命令显示</li>
+</ul>
+</li>
+</ul>
+<p>example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 每隔3秒查看当前系统时间</div><div class="line">watch -n 3 date</div><div class="line"># -d 参数可以高亮显示执行结果的变化</div><div class="line">watch -n 3 -d date</div></pre></td></tr></table></figure></p>
+<p>因此，<strong>watch与free命令配合</strong>，也可以获取到动态的内存变化值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">watch -n 1 -d free</div></pre></td></tr></table></figure></p>
+<h2 id="top命令解析"><a href="#top命令解析" class="headerlink" title="top命令解析"></a>top命令解析</h2><blockquote>
+<p>top不仅仅用于内存分析，还用于进程分析。先说关于内存部分</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">top - 10:28:54 up 19 days, 20:48,  1 user,  load average: 0.00, 0.00, 0.00</div><div class="line">Tasks: 362 total,   1 running, 361 sleeping,   0 stopped,   0 zombie</div><div class="line">Cpu(s):  0.0%us,  0.0%sy,  0.0%ni, 99.9%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st</div><div class="line">Mem:  25402148k total, 22153960k used,  3248188k free,   367512k buffers</div><div class="line">Swap:  4194300k total,        0k used,  4194300k free, 14689300k cached</div><div class="line"></div><div class="line">   PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND</div><div class="line"> 27234 kafka     20   0 9023m 596m  18m S  1.3  2.4 265:13.15 java</div><div class="line">  1344 root       1 -19  510m 284m 1032 S  0.3  1.1  75:39.37 mfsmount</div><div class="line"> 23913 hdfs      20   0 2932m 645m  24m S  0.3  2.6  81:37.27 java</div><div class="line"> 29664 yarn      20   0 2990m 359m  25m S  0.3  1.4  79:56.77 java</div><div class="line"> 36226 hive      20   0 9349m 744m  25m S  0.3  3.0 112:08.36 java</div><div class="line">     1 root      20   0 19356 1540 1228 S  0.0  0.0   0:02.15 init</div><div class="line">     2 root      20   0     0    0    0 S  0.0  0.0   0:00.02 kthreadd</div><div class="line">     3 root      RT   0     0    0    0 S  0.0  0.0   0:01.00 migration/0</div><div class="line">     4 root      20   0     0    0    0 S  0.0  0.0   0:03.30 ksoftirqd/0</div><div class="line">     5 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 stopper/0</div><div class="line">     6 root      RT   0     0    0    0 S  0.0  0.0   0:01.80 watchdog/0</div><div class="line">     7 root      RT   0     0    0    0 S  0.0  0.0   0:01.35 migration/1</div><div class="line">     8 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 stopper/1</div><div class="line">     9 root      20   0     0    0    0 S  0.0  0.0   0:04.01 ksoftirqd/1</div><div class="line">    10 root      RT   0     0    0    0 S  0.0  0.0   0:01.56 watchdog/1</div><div class="line">    11 root      RT   0     0    0    0 S  0.0  0.0   0:01.00 migration/2</div><div class="line">    12 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 stopper/2</div><div class="line">    13 root      20   0     0    0    0 S  0.0  0.0   0:03.74 ksoftirqd/2</div><div class="line">    14 root      RT   0     0    0    0 S  0.0  0.0   0:01.62 watchdog/2</div><div class="line">    15 root      RT   0     0    0    0 S  0.0  0.0   0:01.10 migration/3</div><div class="line">    16 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 stopper/3</div></pre></td></tr></table></figure>
+<p>其中mem部分的total，used，free，buffers，cached与free命令显示的含义是一致的，他们都反应了整个系统的内存消耗情况；</p>
+<p>未完待续。。。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/memory/" rel="tag"># memory</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/11/DeepinSoft/" rel="next" title="配置Ubuntu/Deepin下要安装的常用软件">
+                <i class="fa fa-chevron-left"></i> 配置Ubuntu/Deepin下要安装的常用软件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/12/SparkRdd/" rel="prev" title="RDD究竟是什么">
+                RDD究竟是什么 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/11/LinuxMem/"
+           data-title="Linux进程分析之内存" data-url="http://yoursite.com/2016/12/11/LinuxMem/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/wei.png"
+               alt="Hushiwei" />
+          <p class="site-author-name" itemprop="name">Hushiwei</p>
+           
+              <p class="site-description motion-element" itemprop="description">时间渐行渐远</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Timehsw" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/HswTime" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#free命令解析"><span class="nav-number">1.</span> <span class="nav-text">free命令解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#详解"><span class="nav-number">1.1.</span> <span class="nav-text">详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#used内存会被系统用来做哪些调度"><span class="nav-number">1.2.</span> <span class="nav-text">used内存会被系统用来做哪些调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关命令"><span class="nav-number">1.3.</span> <span class="nav-text">相关命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top命令解析"><span class="nav-number">2.</span> <span class="nav-text">top命令解析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hushiwei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hushiwei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

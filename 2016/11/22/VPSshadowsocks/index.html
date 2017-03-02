@@ -1,0 +1,830 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vps,shadowsocks," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/wei.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="购买自己的VPS服务器购买渠道
+1.http://banwagong.cn/fangan.html
+2.https://hostodo.com/vz.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VPS服务器搭建Shadowsocks服务">
+<meta property="og:url" content="http://yoursite.com/2016/11/22/VPSshadowsocks/index.html">
+<meta property="og:site_name" content="Time渐行渐远">
+<meta property="og:description" content="购买自己的VPS服务器购买渠道
+1.http://banwagong.cn/fangan.html
+2.https://hostodo.com/vz.html">
+<meta property="og:image" content="http://yoursite.com/images/pics/shadowsocks.png">
+<meta property="og:updated_time" content="2017-03-02T06:36:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VPS服务器搭建Shadowsocks服务">
+<meta name="twitter:description" content="购买自己的VPS服务器购买渠道
+1.http://banwagong.cn/fangan.html
+2.https://hostodo.com/vz.html">
+<meta name="twitter:image" content="http://yoursite.com/images/pics/shadowsocks.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/22/VPSshadowsocks/"/>
+
+
+
+
+
+  <title> VPS服务器搭建Shadowsocks服务 | Time渐行渐远 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Time渐行渐远</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding Changing The World</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/22/VPSshadowsocks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hushiwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wei.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Time渐行渐远">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                VPS服务器搭建Shadowsocks服务
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-22T14:23:22+08:00">
+                2016-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/shadowsocks/" itemprop="url" rel="index">
+                    <span itemprop="name">shadowsocks</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/22/VPSshadowsocks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/22/VPSshadowsocks/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="购买自己的VPS服务器"><a href="#购买自己的VPS服务器" class="headerlink" title="购买自己的VPS服务器"></a>购买自己的VPS服务器</h1><h2 id="购买渠道"><a href="#购买渠道" class="headerlink" title="购买渠道"></a>购买渠道</h2><ul>
+<li>1.<a href="http://banwagong.cn/fangan.html" target="_blank" rel="external">http://banwagong.cn/fangan.html</a></li>
+<li>2.<a href="https://hostodo.com/vz.html" target="_blank" rel="external">https://hostodo.com/vz.html</a><a id="more"></a>
+我就只在这两个网站上买过VPS.<br>第一个网站是搬瓦工，好处是可以支付宝支付。最低的包年配置啥的还能接受。搭个梯子，建个blog没啥问题。<br>第二个网站的包年vps的配置比搬瓦工的要好一点，而且价格差不多便宜一半。可惜是不能支付宝支付。</li>
+</ul>
+<h1 id="有了VPS后，在VPS上搭建ShadowSocks"><a href="#有了VPS后，在VPS上搭建ShadowSocks" class="headerlink" title="有了VPS后，在VPS上搭建ShadowSocks"></a>有了VPS后，在VPS上搭建ShadowSocks</h1><blockquote>
+<p>shadowsocks 是一个轻量级隧道代理，用来穿过防火墙。</p>
+</blockquote>
+<p>我的VPS机器安装的是CentOS系统、所以下面的操作都是以CentOS为准、当然你要是用RedHat也是一样的操作方式。</p>
+<h2 id="1-安装Setuptools"><a href="#1-安装Setuptools" class="headerlink" title="1.安装Setuptools"></a>1.安装Setuptools</h2><ul>
+<li>1.先下载Setuptools的egg安装包</li>
+<li>2.然后设置运行权限</li>
+<li>3.最后./运行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">wget --no-check-certificate https://pypi.python.org/packages/2.6/s/setuptools/setuptools-0.6c11-py2.6.egg</div><div class="line"></div><div class="line">chmod +x setuptools-0.6c11-py2.6.egg</div><div class="line"></div><div class="line">./setuptools-0.6c11-py2.6.egg</div></pre></td></tr></table></figure>
+<h2 id="2-安装Python-pip"><a href="#2-安装Python-pip" class="headerlink" title="2.安装Python-pip"></a>2.安装Python-pip</h2><blockquote>
+<p>由于一些第三方库需要用pip来安装所以要把Python-pip安装上。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">wget --no-check-certificate https://pypi.python.org/packages/source/p/pip/pip-1.4.tar.gz</div><div class="line"></div><div class="line">tar -zxvf ./pip-1.4.tar.gz</div><div class="line"></div><div class="line">cd pip-1.4</div><div class="line"></div><div class="line">sudo python setup.py install</div></pre></td></tr></table></figure>
+<h2 id="3-安装Python-Gevent"><a href="#3-安装Python-Gevent" class="headerlink" title="3.安装Python-Gevent"></a>3.安装Python-Gevent</h2><blockquote>
+<p>为了提高性能Python-Gevent还是必须要安装的.</p>
+</blockquote>
+<p>由于gevent需要用到libevent和python-devel所以我们需要现在这个.<br>在CentOS下可以用yum install libevent python-devel来安装<br>如果你的ubuntu的话可以用 apt-get来安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install libevent</div><div class="line">yum install python-devel</div><div class="line">pip install gevent</div></pre></td></tr></table></figure>
+<h2 id="4-安装Python-M2Crypto模块"><a href="#4-安装Python-M2Crypto模块" class="headerlink" title="4.安装Python-M2Crypto模块"></a>4.安装Python-M2Crypto模块</h2><blockquote>
+<p>M2Crypto是用于加密的第三库、由于众所周知的一些原因我们还是需要进行加密的。否则你的梯子可能不几天就被墙了。</p>
+</blockquote>
+<p>首先需要先安装M2Crypto的一些依赖库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum install openssl-devel</div><div class="line">yum install swig</div><div class="line">pip install M2Crypto</div></pre></td></tr></table></figure>
+<h2 id="5-安装ShadowSocks-Python程序"><a href="#5-安装ShadowSocks-Python程序" class="headerlink" title="5.安装ShadowSocks-Python程序"></a>5.安装ShadowSocks-Python程序</h2><blockquote>
+<p>ShadowSocks其实有很多版本可以选择的、这里我是选择了Python版本、当然你可以选择安装Shadowsocks-go、libev、libuv、nodejs、还有erlang版本。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
+<h2 id="6-创建config-json配置文件"><a href="#6-创建config-json配置文件" class="headerlink" title="6.创建config.json配置文件"></a>6.创建config.json配置文件</h2><blockquote>
+<p>ShadowSocks的配置文件你可以随便找个目录自己创建即可.在不同的目录下创建不同端口的config.json文件,然后分别启动.就会生成多个账号</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir ShadowSocks</div><div class="line">cd ShadowSocks</div><div class="line">vim config.json</div></pre></td></tr></table></figure>
+<p>config.json配置文件内容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">&quot;server&quot;:&quot;my_server_ip&quot;,</div><div class="line">&quot;server_port&quot;:8388,</div><div class="line">&quot;local_port&quot;:1080,</div><div class="line">&quot;password&quot;:&quot;barfoo!&quot;,</div><div class="line">&quot;timeout&quot;:600,</div><div class="line">&quot;method&quot;:&quot;aes-256-cfb&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>每一个字段的含义：</p>
+<ul>
+<li>server          服务器 IP (IPv4/IPv6)，注意这也将是服务端监听的 IP 地址</li>
+<li>server_port     服务器端口</li>
+<li>local_port      本地端端口</li>
+<li>password        用来加密的密码</li>
+<li>timeout         超时时间（秒）</li>
+<li>method          加密方法，可选择 “bf-cfb”, “aes-256-cfb”, “des-cfb”, “rc4”, 等等。默认是一种不安全的加密，推荐用 “aes-256-cfb”</li>
+</ul>
+<h2 id="7-运行ShadowSocks程序"><a href="#7-运行ShadowSocks程序" class="headerlink" title="7.运行ShadowSocks程序"></a>7.运行ShadowSocks程序</h2><blockquote>
+<p>在服务器上cd到config.json所在的目录。运行ssserver即可</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sserver</div></pre></td></tr></table></figure>
+<p>一般来说我们都让其在后台一直运行的，所以用如下命令即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nohup ssserver &gt; log &amp;</div></pre></td></tr></table></figure>
+<p>到此ShadowSocks-python服务端的所有安装设置都完成了下面我们需要用到客户端来操作。</p>
+<h2 id="8-下载客户端软件"><a href="#8-下载客户端软件" class="headerlink" title="8.下载客户端软件"></a>8.下载客户端软件</h2><blockquote>
+<p>这里不得不说下ShadowSocks做得如此之好、到底有多么的好、您能常见的系统都有客户端支持。 从Windows、Mac OS、Linux、Android、iOS、甚至支持OpenWRT。</p>
+</blockquote>
+<h3 id="Windows设置"><a href="#Windows设置" class="headerlink" title="Windows设置"></a>Windows设置</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p><a href="https://github.com/shadowsocks/shadowsocks-windows/releases?ShadowsocksR-win-dotnet4.0-3.7.9.7z" target="_blank" rel="external">下载地址1</a><br><a href="https://shadowsocks.org/en/download/clients.html" target="_blank" rel="external">下载地址2</a><br><a href="https://pan.baidu.com/s/1bpvGzDH" target="_blank" rel="external">下载地址3</a></p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>去ShadowSocks官网下载ShadowSocks-gui客户端。解压之后运行exe程序,然后设置好我们前面在config.json里面设置的内容即可。<br>按照截图里进行填写</p>
+<p><img src="/images/pics/shadowsocks.png" alt="配置"></p>
+<h3 id="浏览器设置"><a href="#浏览器设置" class="headerlink" title="浏览器设置"></a>浏览器设置</h3><p>如果是Chrome请使用Proxy SwitchyShar插件、如果是Firefox请使用AutoProxy插件。下面以Chrome为例来说明。</p>
+<p>在 Proxy SwitchyShar中新建立一个SockS5代理。</p>
+<p>设置完成之后、就没有之后了。开始翻越吧少年。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vps/" rel="tag"># vps</a>
+          
+            <a href="/tags/shadowsocks/" rel="tag"># shadowsocks</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/21/CommandPattern/" rel="next" title="设计模式之命令模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之命令模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/23/DecisitionTree/" rel="prev" title="决策树">
+                决策树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/22/VPSshadowsocks/"
+           data-title="VPS服务器搭建Shadowsocks服务" data-url="http://yoursite.com/2016/11/22/VPSshadowsocks/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/wei.png"
+               alt="Hushiwei" />
+          <p class="site-author-name" itemprop="name">Hushiwei</p>
+           
+              <p class="site-description motion-element" itemprop="description">时间渐行渐远</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Timehsw" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/HswTime" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#购买自己的VPS服务器"><span class="nav-number">1.</span> <span class="nav-text">购买自己的VPS服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#购买渠道"><span class="nav-number">1.1.</span> <span class="nav-text">购买渠道</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#有了VPS后，在VPS上搭建ShadowSocks"><span class="nav-number">2.</span> <span class="nav-text">有了VPS后，在VPS上搭建ShadowSocks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装Setuptools"><span class="nav-number">2.1.</span> <span class="nav-text">1.安装Setuptools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装Python-pip"><span class="nav-number">2.2.</span> <span class="nav-text">2.安装Python-pip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装Python-Gevent"><span class="nav-number">2.3.</span> <span class="nav-text">3.安装Python-Gevent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-安装Python-M2Crypto模块"><span class="nav-number">2.4.</span> <span class="nav-text">4.安装Python-M2Crypto模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-安装ShadowSocks-Python程序"><span class="nav-number">2.5.</span> <span class="nav-text">5.安装ShadowSocks-Python程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-创建config-json配置文件"><span class="nav-number">2.6.</span> <span class="nav-text">6.创建config.json配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-运行ShadowSocks程序"><span class="nav-number">2.7.</span> <span class="nav-text">7.运行ShadowSocks程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-下载客户端软件"><span class="nav-number">2.8.</span> <span class="nav-text">8.下载客户端软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows设置"><span class="nav-number">2.8.1.</span> <span class="nav-text">Windows设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载"><span class="nav-number">2.8.1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">2.8.1.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器设置"><span class="nav-number">2.8.2.</span> <span class="nav-text">浏览器设置</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hushiwei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hushiwei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

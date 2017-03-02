@@ -1,0 +1,1025 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="scala," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/wei.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Scala集合scala有一组丰富的集合库:List,Tuple,Option,Map
+
+集合可能是严格或懒惰
+集合可以是可变的或不可变
+不可变的集合可能包含可变项">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scala集合">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/ScalaCollection/index.html">
+<meta property="og:site_name" content="Time渐行渐远">
+<meta property="og:description" content="Scala集合scala有一组丰富的集合库:List,Tuple,Option,Map
+
+集合可能是严格或懒惰
+集合可以是可变的或不可变
+不可变的集合可能包含可变项">
+<meta property="og:updated_time" content="2017-03-02T06:36:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scala集合">
+<meta name="twitter:description" content="Scala集合scala有一组丰富的集合库:List,Tuple,Option,Map
+
+集合可能是严格或懒惰
+集合可以是可变的或不可变
+不可变的集合可能包含可变项">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/14/ScalaCollection/"/>
+
+
+
+
+
+  <title> Scala集合 | Time渐行渐远 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Time渐行渐远</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding Changing The World</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/14/ScalaCollection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hushiwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wei.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Time渐行渐远">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Scala集合
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-14T13:37:00+08:00">
+                2016-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/scala/" itemprop="url" rel="index">
+                    <span itemprop="name">scala</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/14/ScalaCollection/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/14/ScalaCollection/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Scala集合"><a href="#Scala集合" class="headerlink" title="Scala集合"></a>Scala集合</h1><p>scala有一组丰富的集合库:List,Tuple,Option,Map</p>
+<ul>
+<li>集合可能是严格或懒惰</li>
+<li>集合可以是可变的或不可变</li>
+<li>不可变的集合可能包含可变项</li>
+</ul>
+<a id="more"></a>
+<h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><h2 id="List与Array区别"><a href="#List与Array区别" class="headerlink" title="List与Array区别"></a>List与Array区别</h2><ul>
+<li>相同点<ul>
+<li>所有元素都具有相同的类型</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>列表是不可变的,这意味着一个列表的元素可以不被分配来改变.</li>
+<li>列表底层是一个链表,而数组是平坦的.</li>
+</ul>
+</li>
+</ul>
+<h2 id="定义Scala的List列表"><a href="#定义Scala的List列表" class="headerlink" title="定义Scala的List列表"></a>定义Scala的List列表</h2><p>1.有以下几种常用的方式来定义列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// List of Strings</div><div class="line">val fruit: List[String] = List(&quot;apples&quot;, &quot;oranges&quot;, &quot;pears&quot;)</div><div class="line"></div><div class="line">// List of Integers</div><div class="line">val nums: List[Int] = List(1, 2, 3, 4)</div><div class="line"></div><div class="line">// Empty List.</div><div class="line">val empty: List[Nothing] = List()</div><div class="line"></div><div class="line">// Two dimensional list</div><div class="line">val dim: List[List[Int]] =</div><div class="line">   List(</div><div class="line">      List(1, 0, 0),</div><div class="line">      List(0, 1, 0),</div><div class="line">      List(0, 0, 1)</div><div class="line">   )</div></pre></td></tr></table></figure>
+<p>2.所有的列表可以使用两种基本的构建模块来定义,一个无尾Nil和::,但是这有明显的缺点.Nil也代表了空列表.上述的例子,也可以这样写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// List of Strings</div><div class="line">val fruit = &quot;apples&quot; :: (&quot;oranges&quot; :: (&quot;pears&quot; :: Nil))</div><div class="line"></div><div class="line">// List of Integers</div><div class="line">val nums = 1 :: (2 :: (3 :: (4 :: Nil)))</div><div class="line"></div><div class="line">// Empty List.</div><div class="line">val empty = Nil</div><div class="line"></div><div class="line">// Two dimensional list</div><div class="line">val dim = (1 :: (0 :: (0 :: Nil))) ::</div><div class="line">          (0 :: (1 :: (0 :: Nil))) ::</div><div class="line">          (0 :: (0 :: (1 :: Nil))) :: Nil</div></pre></td></tr></table></figure>
+<p><strong>::符号就可以简单的替代了List()方法</strong></p>
+<h2 id="列表的基本操作"><a href="#列表的基本操作" class="headerlink" title="列表的基本操作"></a>列表的基本操作</h2><blockquote>
+<p>主要针对列表的头尾合是否为空来说</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>head</td>
+<td>此方法返回的列表中的第一个元素</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>此方法返回一个由除了第一个元素外的所有元素的列表</td>
+</tr>
+<tr>
+<td>isEmpty</td>
+<td>如果列表为空，此方法返回true，否则为false</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val fruit = &quot;apples&quot; :: (&quot;oranges&quot; :: (&quot;pears&quot; :: Nil))</div><div class="line">      val nums = Nil</div><div class="line"></div><div class="line">      println( &quot;Head of fruit : &quot; + fruit.head )</div><div class="line">      println( &quot;Tail of fruit : &quot; + fruit.tail )</div><div class="line">      println( &quot;Check if fruit is empty : &quot; + fruit.isEmpty )</div><div class="line">      println( &quot;Check if nums is empty : &quot; + nums.isEmpty )</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="串联列表"><a href="#串联列表" class="headerlink" title="串联列表"></a>串联列表</h2><blockquote>
+<p>可以使用::运算符或者列表List.:::()方法来添加两个或多个列表</p>
+</blockquote>
+<p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val fruit1 = &quot;apples&quot; :: (&quot;oranges&quot; :: (&quot;pears&quot; :: Nil))</div><div class="line">      val fruit2 = &quot;mangoes&quot; :: (&quot;banana&quot; :: Nil)</div><div class="line"></div><div class="line">      // use two or more lists with ::: operator</div><div class="line">      var fruit = fruit1 ::: fruit2</div><div class="line">      println( &quot;fruit1 ::: fruit2 : &quot; + fruit )</div><div class="line"></div><div class="line">      // use two lists with Set.:::() method</div><div class="line">      fruit = fruit1.:::(fruit2)</div><div class="line">      println( &quot;fruit1.:::(fruit2) : &quot; + fruit )</div><div class="line"></div><div class="line">      // pass two or more lists as arguments</div><div class="line">      fruit = List.concat(fruit1, fruit2)</div><div class="line">      println( &quot;List.concat(fruit1, fruit2) : &quot; + fruit  )</div><div class="line"></div><div class="line"></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>:: 元素之间进行连接,:::列表之间进行连接</p>
+<h2 id="创建统一列表"><a href="#创建统一列表" class="headerlink" title="创建统一列表"></a>创建统一列表</h2><blockquote>
+<p>可以使用List.fill()方法来创建,包括相同的元素如下的零个或更多个拷贝的列表</p>
+</blockquote>
+<p>eg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val fruit = List.fill(3)(&quot;apples&quot;) // Repeats apples three times.</div><div class="line">      println( &quot;fruit : &quot; + fruit  ) //fruit : List(apples, apples, apples)</div><div class="line"></div><div class="line">      val num = List.fill(10)(2)         // Repeats 2, 10 times.</div><div class="line">      println( &quot;num : &quot; + num  ) //num : List(2, 2, 2, 2, 2, 2, 2, 2, 2, 2)</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="反向列表顺序"><a href="#反向列表顺序" class="headerlink" title="反向列表顺序"></a>反向列表顺序</h2><blockquote>
+<p>可以使用List.reverse方法来扭转列表中的所有元素</p>
+</blockquote>
+<p>eg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val fruit = &quot;apples&quot; :: (&quot;oranges&quot; :: (&quot;pears&quot; :: Nil))</div><div class="line">      println( &quot;Before reverse fruit : &quot; + fruit )</div><div class="line">      // Before reverse fruit : List(apples, oranges, pears)</div><div class="line">      println( &quot;After reverse fruit : &quot; + fruit.reverse )</div><div class="line">      // After reverse fruit : List(pears, oranges, apples)</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Scala列表常用方法"><a href="#Scala列表常用方法" class="headerlink" title="Scala列表常用方法"></a>Scala列表常用方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>def +(elem: A): List[A]</td>
+<td>前置一个元素列表</td>
+</tr>
+<tr>
+<td>def ::(x: A): List[A]</td>
+<td>在这个列表的开头添加的元素。返回一个新的列表</td>
+</tr>
+<tr>
+<td>def :::(prefix: List[A]): List[A]</td>
+<td>增加了一个给定列表中该列表前面的元素。返回一个新的列表</td>
+</tr>
+<tr>
+<td>def contains(elem: Any): Boolean</td>
+<td>测试该列表中是否包含一个给定值作为元素。</td>
+</tr>
+<tr>
+<td>def distinct: List[A]</td>
+<td>建立从列表中没有任何重复的元素的新列表。</td>
+</tr>
+<tr>
+<td>def drop(n: Int): List[A]</td>
+<td>返回除了第n个的所有元素。</td>
+</tr>
+<tr>
+<td>def endsWith<a href="that: Seq[B]" target="_blank" rel="external">B</a>: Boolean</td>
+<td>测试列表是否使用给定序列结束。</td>
+</tr>
+<tr>
+<td>……</td>
+<td>……</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><ul>
+<li>Set集合是不包含重复元素的集合</li>
+<li>默认情况下,Scala中使用不可变的集.如果想使用可变集,必须明确导入sala.collection.mutable.Set类</li>
+</ul>
+<h2 id="声明Set集合类"><a href="#声明Set集合类" class="headerlink" title="声明Set集合类"></a>声明Set集合类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// Empty set of integer type</div><div class="line">var s : Set[Int] = Set()</div><div class="line"></div><div class="line">// Set of integer type</div><div class="line">var s : Set[Int] = Set(1,3,5,7)</div><div class="line">or</div><div class="line">var s = Set(1,3,5,7)</div></pre></td></tr></table></figure>
+<h2 id="集合基本操作"><a href="#集合基本操作" class="headerlink" title="集合基本操作"></a>集合基本操作</h2><blockquote>
+<p>集合所有操作可以体现在以下三个方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>head</td>
+<td>此方法返回集合的第一个元素。</td>
+</tr>
+</tbody>
+</table>
+<p>tail|该方法返回集合由除第一个以外的所有元素。|<br>|isEmpty|如果设置为空，此方法返回true，否则为false。|</p>
+<p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val fruit = Set(&quot;apples&quot;, &quot;oranges&quot;, &quot;pears&quot;)</div><div class="line">      val nums: Set[Int] = Set()</div><div class="line"></div><div class="line">      println( &quot;Head of fruit : &quot; + fruit.head )</div><div class="line">      println( &quot;Tail of fruit : &quot; + fruit.tail )</div><div class="line">      println( &quot;Check if fruit is empty : &quot; + fruit.isEmpty )</div><div class="line">      println( &quot;Check if nums is empty : &quot; + nums.isEmpty )</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="串联Set集合"><a href="#串联Set集合" class="headerlink" title="串联Set集合"></a>串联Set集合</h2><blockquote>
+<p>可以使用++运算符或集。++()方法来连接两个或多个集，但同时增加了集它会删除重复的元素</p>
+</blockquote>
+<p>eg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val fruit1 = Set(&quot;apples&quot;, &quot;oranges&quot;, &quot;pears&quot;)</div><div class="line">      val fruit2 = Set(&quot;mangoes&quot;, &quot;banana&quot;)</div><div class="line"></div><div class="line">      // use two or more sets with ++ as operator</div><div class="line">      var fruit = fruit1 ++ fruit2</div><div class="line">      println( &quot;fruit1 ++ fruit2 : &quot; + fruit )</div><div class="line"></div><div class="line">      // use two sets with ++ as method</div><div class="line">      fruit = fruit1.++(fruit2)</div><div class="line">      println( &quot;fruit1.++(fruit2) : &quot; + fruit )</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="ScalaSet集合常用方法"><a href="#ScalaSet集合常用方法" class="headerlink" title="ScalaSet集合常用方法"></a>ScalaSet集合常用方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>def +(elem: A): Set[A]</td>
+<td>创建一组新的具有附加元件，除非该元件已经存在</td>
+</tr>
+<tr>
+<td>def -(elem: A): Set[A]</td>
+<td>创建一个新的从这个集合中删除一个给定的元素</td>
+</tr>
+<tr>
+<td>def contains(elem: A): Boolean</td>
+<td>如果elem包含在这个集合返回true，否则为false。</td>
+</tr>
+<tr>
+<td>def take(n: Int): Set[A]</td>
+<td>返回前n个元素</td>
+</tr>
+<tr>
+<td>……</td>
+<td>……</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><ul>
+<li>在scala中的映射是键/值对的集合即是Map</li>
+<li>任何值可以根据它的键进行检索</li>
+<li>键是在映射中唯一的,但值不一定是唯一的</li>
+<li>映射也被称为哈希表</li>
+<li>有两种映射,不可变的以及可变的.不可变的意味着对象本身是不可变的.</li>
+<li>默认情况下,scala中使用不可变的映射.要想使用可变集,必须明确导入scala.collection.mutable.Map类</li>
+</ul>
+<h2 id="声明Map类"><a href="#声明Map类" class="headerlink" title="声明Map类"></a>声明Map类</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// Empty hash table whose keys are strings and values are integers:</div><div class="line">var A:Map[Char,Int] = Map()</div><div class="line"></div><div class="line">// A map with keys and values.</div><div class="line">val colors = Map(&quot;red&quot; -&gt; &quot;#FF0000&quot;, &quot;azure&quot; -&gt; &quot;#F0FFFF&quot;)</div></pre></td></tr></table></figure>
+<h2 id="映射的基本操作"><a href="#映射的基本操作" class="headerlink" title="映射的基本操作"></a>映射的基本操作</h2><blockquote>
+<p>在映射上的所有操作可被表示在下面的三种方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>keys</td>
+<td>这个方法返回一个包含映射中的每个键的迭代。</td>
+</tr>
+<tr>
+<td>values</td>
+<td>这个方法返回一个包含映射中的每个值的迭代。</td>
+</tr>
+<tr>
+<td>isEmpty</td>
+<td>如果映射为空此方法返回true，否则为false。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val colors = Map(&quot;red&quot; -&gt; &quot;#FF0000&quot;,</div><div class="line">                       &quot;azure&quot; -&gt; &quot;#F0FFFF&quot;,</div><div class="line">                       &quot;peru&quot; -&gt; &quot;#CD853F&quot;)</div><div class="line"></div><div class="line">      val nums: Map[Int, Int] = Map()</div><div class="line"></div><div class="line">      println( &quot;Keys in colors : &quot; + colors.keys )</div><div class="line">      println( &quot;Values in colors : &quot; + colors.values )</div><div class="line">      println( &quot;Check if colors is empty : &quot; + colors.isEmpty )</div><div class="line">      println( &quot;Check if nums is empty : &quot; + nums.isEmpty )</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="给可变映射添加元素"><a href="#给可变映射添加元素" class="headerlink" title="给可变映射添加元素"></a>给可变映射添加元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">A += (&apos;I&apos; -&gt; 1)</div><div class="line">A += (&apos;J&apos; -&gt; 5)</div><div class="line">A += (&apos;K&apos; -&gt; 10)</div><div class="line">A += (&apos;L&apos; -&gt; 100)</div></pre></td></tr></table></figure>
+<h2 id="串联映射"><a href="#串联映射" class="headerlink" title="串联映射"></a>串联映射</h2><blockquote>
+<p>可以使用++运算符或映射。++()方法来连接两个或更多的映射，但同时增加了映射，将删除重复的键</p>
+</blockquote>
+<p>eg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val colors1 = Map(&quot;red&quot; -&gt; &quot;#FF0000&quot;,</div><div class="line">                        &quot;azure&quot; -&gt; &quot;#F0FFFF&quot;,</div><div class="line">                        &quot;peru&quot; -&gt; &quot;#CD853F&quot;)</div><div class="line">      val colors2 = Map(&quot;blue&quot; -&gt; &quot;#0033FF&quot;,</div><div class="line">                        &quot;yellow&quot; -&gt; &quot;#FFFF00&quot;,</div><div class="line">                        &quot;red&quot; -&gt; &quot;#FF0000&quot;)</div><div class="line"></div><div class="line">      // use two or more Maps with ++ as operator</div><div class="line">      var colors = colors1 ++ colors2</div><div class="line">      println( &quot;colors1 ++ colors2 : &quot; + colors )</div><div class="line"></div><div class="line">      // use two maps with ++ as method</div><div class="line">      colors = colors1.++(colors2)</div><div class="line">      println( &quot;colors1.++(colors2)) : &quot; + colors )</div><div class="line"></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="遍历Map"><a href="#遍历Map" class="headerlink" title="遍历Map"></a>遍历Map</h2><blockquote>
+<p>方法很多,模式匹配最方便了</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">val colors = Map(&quot;red&quot; -&gt; &quot;#FF0000&quot;,</div><div class="line">  &quot;azure&quot; -&gt; &quot;#F0FFFF&quot;,</div><div class="line">  &quot;peru&quot; -&gt; &quot;#CD853F&quot;)</div><div class="line"></div><div class="line">println(&quot;第一种遍历&quot;)</div><div class="line">colors.keys.foreach&#123;key=&gt;</div><div class="line">print(&quot;key= &quot;+key)</div><div class="line">println(&quot; value= &quot;+colors(key))&#125;</div><div class="line"></div><div class="line">println(&quot;第二种遍历&quot;)</div><div class="line"></div><div class="line">for(key &lt;- colors.keySet.toArray) &#123;</div><div class="line">  println(key+&quot; :　&quot;+colors.get(key))</div><div class="line">&#125;</div><div class="line"></div><div class="line">println(&quot;第三种遍历&quot;)</div><div class="line"></div><div class="line">colors.map&#123;</div><div class="line">  case (k,v)=&gt;println(k+&quot; : &quot;+v)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="scala中Map的常用方法"><a href="#scala中Map的常用方法" class="headerlink" title="scala中Map的常用方法"></a>scala中Map的常用方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>def contains(key: A): Boolean</td>
+<td>如果有一个绑定在该映射的键返回true，否则为false。</td>
+</tr>
+<tr>
+<td>def clone(): Map[A, B]</td>
+<td>创建接收器对象的副本</td>
+</tr>
+<tr>
+<td>def clear(): Unit</td>
+<td>从映射中删除所有绑定。在此之后操作已完成时，映射将是空的。</td>
+</tr>
+<tr>
+<td>…..</td>
+<td>…..</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h1><blockquote>
+<p>Scala的元组结合多个固定数量在一起,使它们可以被传来传去作为一个整体.</p>
+</blockquote>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>不像数组或列表,元组可以容纳不同类型的对象</li>
+<li>同时记住,元组也是不可改变的</li>
+<li>scala目前的元组上限在22个</li>
+</ul>
+<h2 id="声明Tuple元组"><a href="#声明Tuple元组" class="headerlink" title="声明Tuple元组"></a>声明Tuple元组</h2><p>一个元组的实际类型取决于它包含的元素和这些元素的类型的数目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">val t = (1, &quot;hello&quot;, Console)</div><div class="line"></div><div class="line">这是语法修饰(快捷方式)以下：</div><div class="line"></div><div class="line">val t = new Tuple3(1, &quot;hello&quot;, Console)</div><div class="line"></div><div class="line">//类型:</div><div class="line">// (99, &quot;Luftballons&quot;) 是 Tuple2[Int, String]</div><div class="line">// (&apos;u&apos;, &apos;r&apos;, &quot;the&quot;, 1, 4, &quot;me&quot;) 的类型是 Tuple6[Char, Char, String, Int, Int, String]</div></pre></td></tr></table></figure>
+<h2 id="访问元组中的元素"><a href="#访问元组中的元素" class="headerlink" title="访问元组中的元素"></a>访问元组中的元素</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val t = (4,3,2,1)</div><div class="line"></div><div class="line">      val sum = t._1 + t._2 + t._3 + t._4</div><div class="line"></div><div class="line">      println( &quot;Sum of elements: &quot;  + sum )</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="遍历元组"><a href="#遍历元组" class="headerlink" title="遍历元组"></a>遍历元组</h2><blockquote>
+<p>可以使用Tuple.productIterator()方法来遍历一个元组的所有元素</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val t = (4,3,2,1)</div><div class="line">      t.productIterator.foreach&#123; i =&gt;println(&quot;Value = &quot; + i )&#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="元组的简单方法"><a href="#元组的简单方法" class="headerlink" title="元组的简单方法"></a>元组的简单方法</h2><p>1.转换为字符串<br>2.交换元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">object Test &#123;</div><div class="line">   def main(args: Array[String]) &#123;</div><div class="line">      val t1 = new Tuple3(1, &quot;hello&quot;, Console)</div><div class="line">      println(&quot;Concatenated String: &quot; + t1.toString() )</div><div class="line"></div><div class="line">      val t2 = new Tuple2(&quot;Scala&quot;, &quot;hello&quot;)</div><div class="line"></div><div class="line">      println(&quot;Swapped Tuple: &quot; + t2.swap )</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/scala/" rel="tag"># scala</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/14/ScalaArray/" rel="next" title="Scala数组">
+                <i class="fa fa-chevron-left"></i> Scala数组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/16/SparkFunctions/" rel="prev" title="Spark算子详解">
+                Spark算子详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/14/ScalaCollection/"
+           data-title="Scala集合" data-url="http://yoursite.com/2016/11/14/ScalaCollection/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/wei.png"
+               alt="Hushiwei" />
+          <p class="site-author-name" itemprop="name">Hushiwei</p>
+           
+              <p class="site-description motion-element" itemprop="description">时间渐行渐远</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Timehsw" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/HswTime" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scala集合"><span class="nav-number">1.</span> <span class="nav-text">Scala集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List"><span class="nav-number">2.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#List与Array区别"><span class="nav-number">2.1.</span> <span class="nav-text">List与Array区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义Scala的List列表"><span class="nav-number">2.2.</span> <span class="nav-text">定义Scala的List列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的基本操作"><span class="nav-number">2.3.</span> <span class="nav-text">列表的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#串联列表"><span class="nav-number">2.4.</span> <span class="nav-text">串联列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建统一列表"><span class="nav-number">2.5.</span> <span class="nav-text">创建统一列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反向列表顺序"><span class="nav-number">2.6.</span> <span class="nav-text">反向列表顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scala列表常用方法"><span class="nav-number">2.7.</span> <span class="nav-text">Scala列表常用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set"><span class="nav-number">3.</span> <span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明Set集合类"><span class="nav-number">3.1.</span> <span class="nav-text">声明Set集合类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合基本操作"><span class="nav-number">3.2.</span> <span class="nav-text">集合基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#串联Set集合"><span class="nav-number">3.3.</span> <span class="nav-text">串联Set集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ScalaSet集合常用方法"><span class="nav-number">3.4.</span> <span class="nav-text">ScalaSet集合常用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map"><span class="nav-number">4.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明Map类"><span class="nav-number">4.1.</span> <span class="nav-text">声明Map类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射的基本操作"><span class="nav-number">4.2.</span> <span class="nav-text">映射的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#举例"><span class="nav-number">4.2.1.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给可变映射添加元素"><span class="nav-number">4.2.2.</span> <span class="nav-text">给可变映射添加元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#串联映射"><span class="nav-number">4.3.</span> <span class="nav-text">串联映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历Map"><span class="nav-number">4.4.</span> <span class="nav-text">遍历Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scala中Map的常用方法"><span class="nav-number">4.5.</span> <span class="nav-text">scala中Map的常用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tuple"><span class="nav-number">5.</span> <span class="nav-text">Tuple</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">5.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明Tuple元组"><span class="nav-number">5.2.</span> <span class="nav-text">声明Tuple元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问元组中的元素"><span class="nav-number">5.3.</span> <span class="nav-text">访问元组中的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历元组"><span class="nav-number">5.4.</span> <span class="nav-text">遍历元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组的简单方法"><span class="nav-number">5.5.</span> <span class="nav-text">元组的简单方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hushiwei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hushiwei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
