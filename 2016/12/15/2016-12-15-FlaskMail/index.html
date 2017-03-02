@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="配置信息，看注释12345678910111213141516171819202122232425basedir = os.path.abspath(os.path.dirname(__file__))app = Flask(__name__)app.config[&amp;apos;SECRET_KEY&amp;apos;] = &amp;apos;hard to guess string&amp;apos;app.confi">
+<meta name="description" content="配置信息，看注释">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flask框架中用QQ邮箱发邮件">
 <meta property="og:url" content="http://yoursite.com/2016/12/15/2016-12-15-FlaskMail/index.html">
 <meta property="og:site_name" content="Time渐行渐远">
-<meta property="og:description" content="配置信息，看注释12345678910111213141516171819202122232425basedir = os.path.abspath(os.path.dirname(__file__))app = Flask(__name__)app.config[&amp;apos;SECRET_KEY&amp;apos;] = &amp;apos;hard to guess string&amp;apos;app.confi">
-<meta property="og:updated_time" content="2017-03-02T06:12:55.000Z">
+<meta property="og:description" content="配置信息，看注释">
+<meta property="og:updated_time" content="2017-03-02T06:36:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask框架中用QQ邮箱发邮件">
-<meta name="twitter:description" content="配置信息，看注释12345678910111213141516171819202122232425basedir = os.path.abspath(os.path.dirname(__file__))app = Flask(__name__)app.config[&amp;apos;SECRET_KEY&amp;apos;] = &amp;apos;hard to guess string&amp;apos;app.confi">
+<meta name="twitter:description" content="配置信息，看注释">
 
 
 
@@ -227,6 +227,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -363,7 +373,8 @@
       
 
       
-        <h2 id="配置信息，看注释"><a href="#配置信息，看注释" class="headerlink" title="配置信息，看注释"></a>配置信息，看注释</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">basedir = os.path.abspath(os.path.dirname(__file__))</div><div class="line"></div><div class="line">app = Flask(__name__)</div><div class="line">app.config[&apos;SECRET_KEY&apos;] = &apos;hard to guess string&apos;</div><div class="line">app.config[&apos;SQLALCHEMY_DATABASE_URI&apos;] =\</div><div class="line">    &apos;sqlite:///&apos; + os.path.join(basedir, &apos;data.sqlite&apos;)</div><div class="line">app.config[&apos;SQLALCHEMY_COMMIT_ON_TEARDOWN&apos;] = True</div><div class="line"># 邮箱提供商服务器，这里是QQ邮箱</div><div class="line">app.config[&apos;MAIL_SERVER&apos;] = &apos;smtp.qq.com&apos;</div><div class="line"># 邮箱服务器端口(QQ邮箱的是465)</div><div class="line">app.config[&apos;MAIL_PORT&apos;] = 465</div><div class="line"># 邮箱通讯协议，注意这里是SSL(选错了邮件发不出的)</div><div class="line">app.config[&apos;MAIL_USE_SSL&apos;] = True</div><div class="line"># 发件邮箱</div><div class="line">app.config[&apos;MAIL_USERNAME&apos;] = &apos;694244330@qq.com&apos;</div><div class="line"># 发件密码</div><div class="line">app.config[&apos;MAIL_PASSWORD&apos;] = &apos;tdjzzgfdiwgobehh&apos;</div><div class="line"># 拼接邮件的主题用，不是必选配置</div><div class="line">app.config[&apos;FLASKY_MAIL_SUBJECT_PREFIX&apos;] = &apos;[Flasky]&apos;</div><div class="line"># 发件邮箱和Mail_username的邮箱要一样</div><div class="line">app.config[&apos;FLASKY_MAIL_SENDER&apos;] = &apos;Flasky Admin &lt;694244330@qq.com&gt;&apos;</div><div class="line"># 收件邮箱</div><div class="line">app.config[&apos;FLASKY_ADMIN&apos;] = &apos;hsw_v5@163.com&apos;</div><div class="line"></div><div class="line">mail = Mail(app)</div></pre></td></tr></table></figure>
+        <h2 id="配置信息，看注释"><a href="#配置信息，看注释" class="headerlink" title="配置信息，看注释"></a>配置信息，看注释</h2><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">basedir = os.path.abspath(os.path.dirname(__file__))</div><div class="line"></div><div class="line">app = Flask(__name__)</div><div class="line">app.config[&apos;SECRET_KEY&apos;] = &apos;hard to guess string&apos;</div><div class="line">app.config[&apos;SQLALCHEMY_DATABASE_URI&apos;] =\</div><div class="line">    &apos;sqlite:///&apos; + os.path.join(basedir, &apos;data.sqlite&apos;)</div><div class="line">app.config[&apos;SQLALCHEMY_COMMIT_ON_TEARDOWN&apos;] = True</div><div class="line"># 邮箱提供商服务器，这里是QQ邮箱</div><div class="line">app.config[&apos;MAIL_SERVER&apos;] = &apos;smtp.qq.com&apos;</div><div class="line"># 邮箱服务器端口(QQ邮箱的是465)</div><div class="line">app.config[&apos;MAIL_PORT&apos;] = 465</div><div class="line"># 邮箱通讯协议，注意这里是SSL(选错了邮件发不出的)</div><div class="line">app.config[&apos;MAIL_USE_SSL&apos;] = True</div><div class="line"># 发件邮箱</div><div class="line">app.config[&apos;MAIL_USERNAME&apos;] = &apos;694244330@qq.com&apos;</div><div class="line"># 发件密码</div><div class="line">app.config[&apos;MAIL_PASSWORD&apos;] = &apos;tdjzzgfdiwgobehh&apos;</div><div class="line"># 拼接邮件的主题用，不是必选配置</div><div class="line">app.config[&apos;FLASKY_MAIL_SUBJECT_PREFIX&apos;] = &apos;[Flasky]&apos;</div><div class="line"># 发件邮箱和Mail_username的邮箱要一样</div><div class="line">app.config[&apos;FLASKY_MAIL_SENDER&apos;] = &apos;Flasky Admin &lt;694244330@qq.com&gt;&apos;</div><div class="line"># 收件邮箱</div><div class="line">app.config[&apos;FLASKY_ADMIN&apos;] = &apos;hsw_v5@163.com&apos;</div><div class="line"></div><div class="line">mail = Mail(app)</div></pre></td></tr></table></figure>
 <p><strong>注意:</strong>上述配置项一个也不要少</p>
 <h2 id="发邮件方法"><a href="#发邮件方法" class="headerlink" title="发邮件方法"></a>发邮件方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">def send_async_email(app, msg):</div><div class="line">    with app.app_context():</div><div class="line">        mail.send(msg)</div><div class="line"></div><div class="line"></div><div class="line">def send_email(to, subject, template, **kwargs):</div><div class="line">    msg = Message(app.config[&apos;FLASKY_MAIL_SUBJECT_PREFIX&apos;] + &apos; &apos; + subject,</div><div class="line">                  sender=app.config[&apos;FLASKY_MAIL_SENDER&apos;], recipients=[to])</div><div class="line">    msg.body = render_template(template + &apos;.txt&apos;, **kwargs)</div><div class="line">    msg.html = render_template(template + &apos;.html&apos;, **kwargs)</div><div class="line">    thr = Thread(target=send_async_email, args=[app, msg])</div><div class="line">    thr.start()</div><div class="line">    return thr</div></pre></td></tr></table></figure>
 
@@ -490,7 +501,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -499,7 +510,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -508,7 +519,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

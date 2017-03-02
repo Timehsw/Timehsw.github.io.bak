@@ -88,30 +88,18 @@
 
 
 <meta name="description" content="spark连接mysql
-问题描述
-1总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误
-
-解决办法1
-121.提交任务的时候带上这个，手动指定mysql jar包的位置                    SPARK_CLASSPATH=/usr/local/spark-1.4.1-bin-hadoop2.6/lib/mysql-connect">
+问题描述1总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spark开发中遇到的问题">
 <meta property="og:url" content="http://yoursite.com/2016/12/19/2016-12-19-SparkBug/index.html">
 <meta property="og:site_name" content="Time渐行渐远">
 <meta property="og:description" content="spark连接mysql
-问题描述
-1总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误
-
-解决办法1
-121.提交任务的时候带上这个，手动指定mysql jar包的位置                    SPARK_CLASSPATH=/usr/local/spark-1.4.1-bin-hadoop2.6/lib/mysql-connect">
-<meta property="og:updated_time" content="2017-03-02T06:12:55.000Z">
+问题描述1总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误">
+<meta property="og:updated_time" content="2017-03-02T06:36:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spark开发中遇到的问题">
 <meta name="twitter:description" content="spark连接mysql
-问题描述
-1总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误
-
-解决办法1
-121.提交任务的时候带上这个，手动指定mysql jar包的位置                    SPARK_CLASSPATH=/usr/local/spark-1.4.1-bin-hadoop2.6/lib/mysql-connect">
+问题描述1总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误">
 
 
 
@@ -242,6 +230,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -379,9 +377,11 @@
 
       
         <h2 id="spark连接mysql"><a href="#spark连接mysql" class="headerlink" title="spark连接mysql"></a>spark连接mysql</h2><ul>
-<li><p>问题描述</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误</div></pre></td></tr></table></figure>
+<li>问题描述<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误</div></pre></td></tr></table></figure>
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>解决办法1</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1.提交任务的时候带上这个，手动指定mysql jar包的位置</div><div class="line">                    SPARK_CLASSPATH=/usr/local/spark-1.4.1-bin-hadoop2.6/lib/mysql-connector-java-5.1.38.jar ./bin/spark-submit --class sparkDemo /root/data/demon-parent-1.0-SNAPSHOT-jar-with-dependencies.jar hdfs://192.168.119.100:9000/examples/custom.txt</div></pre></td></tr></table></figure>
 </li>
@@ -436,8 +436,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/19/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/19/MacbookEnr/" rel="prev" title="Macbook下搭建开发环境">
+                Macbook下搭建开发环境 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -514,7 +514,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -523,7 +523,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -532,7 +532,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

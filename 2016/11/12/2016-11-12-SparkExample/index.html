@@ -97,7 +97,7 @@ DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the lo
 <meta property="og:description" content="第一步:给你的样本日志目录修改这个参数在这个例子里面，我们会用到这个样本文件”/databricks-datasets/sample_logs”,样本数据已经存储到DBFS(Databricks的文件系统)
 
 DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the log file to be analyz">
-<meta property="og:updated_time" content="2017-03-02T05:54:01.000Z">
+<meta property="og:updated_time" content="2017-03-02T06:33:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PySpark做日志分析">
 <meta name="twitter:description" content="第一步:给你的样本日志目录修改这个参数在这个例子里面，我们会用到这个样本文件”/databricks-datasets/sample_logs”,样本数据已经存储到DBFS(Databricks的文件系统)
@@ -233,6 +233,16 @@ DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the lo
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -373,7 +383,8 @@ DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the lo
 <blockquote>
 <p>DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the log file to be analyzed</p>
 </blockquote>
-<h2 id="第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"><a href="#第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象" class="headerlink" title="第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"></a>第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象</h2><h3 id="每行日志的格式"><a href="#每行日志的格式" class="headerlink" title="每行日志的格式"></a>每行日志的格式</h3><p>为了分析这些数据,我们需要去把他们解析成可看的格式<br>对与这个实验，我们要用的日志数据在<a href="http://httpd.apache.org/docs/1.3/logs.html#common" target="_blank" rel="external">Apache Common Log Format( clf)</a>.<br>CLF生产的日志文件条目将如下所示: 127.0.0.1 - - [01/Aug/1995:00:00:01 -0400] “GET /images/launch-logo.gif HTTP/1.0” 200 1839<br>以下是摘要，描述日志记录的每一部分</p>
+<h2 id="第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"><a href="#第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象" class="headerlink" title="第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"></a>第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象</h2><a id="more"></a>
+<h3 id="每行日志的格式"><a href="#每行日志的格式" class="headerlink" title="每行日志的格式"></a>每行日志的格式</h3><p>为了分析这些数据,我们需要去把他们解析成可看的格式<br>对与这个实验，我们要用的日志数据在<a href="http://httpd.apache.org/docs/1.3/logs.html#common" target="_blank" rel="external">Apache Common Log Format( clf)</a>.<br>CLF生产的日志文件条目将如下所示: 127.0.0.1 - - [01/Aug/1995:00:00:01 -0400] “GET /images/launch-logo.gif HTTP/1.0” 200 1839<br>以下是摘要，描述日志记录的每一部分</p>
 <ul>
 <li>127.0.0.1 这个是访问服务器的客户端(远程主机)的IP地址(或者是主机名,可选)</li>
 <li>- 这个”连字符”在输出中表示继续请求的信息(从远程机器来的身份)是不可用的</li>
@@ -537,7 +548,7 @@ DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the lo
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -546,7 +557,7 @@ DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the lo
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -555,7 +566,7 @@ DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the lo
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

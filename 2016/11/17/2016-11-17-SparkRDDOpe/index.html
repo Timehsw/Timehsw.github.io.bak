@@ -94,9 +94,7 @@
 4.调用zipwithpartition算子标记分区
 5.调用foreachPartiton进行输出
 6.调用glom算子收集每个分区的数据
-7.调用flodleft函数处理Array
-
-123456789101112131415161718192021222324252627282930313">
+7.调用flodleft函数处理Array">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark的RDD基础操作">
 <meta property="og:url" content="http://yoursite.com/2016/11/17/2016-11-17-SparkRDDOpe/index.html">
@@ -108,10 +106,8 @@
 4.调用zipwithpartition算子标记分区
 5.调用foreachPartiton进行输出
 6.调用glom算子收集每个分区的数据
-7.调用flodleft函数处理Array
-
-123456789101112131415161718192021222324252627282930313">
-<meta property="og:updated_time" content="2017-03-02T06:03:50.000Z">
+7.调用flodleft函数处理Array">
+<meta property="og:updated_time" content="2017-03-02T06:36:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark的RDD基础操作">
 <meta name="twitter:description" content="简单算子
@@ -121,9 +117,7 @@
 4.调用zipwithpartition算子标记分区
 5.调用foreachPartiton进行输出
 6.调用glom算子收集每个分区的数据
-7.调用flodleft函数处理Array
-
-123456789101112131415161718192021222324252627282930313">
+7.调用flodleft函数处理Array">
 
 
 
@@ -254,6 +248,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -397,9 +401,10 @@
 <li>4.调用zipwithpartition算子标记分区</li>
 <li>5.调用foreachPartiton进行输出</li>
 <li>6.调用glom算子收集每个分区的数据</li>
-<li>7.调用flodleft函数处理Array</li>
-</ul>
+<li>7.调用flodleft函数处理Array<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">    val conf = new SparkConf().setAppName(&quot;SimpleRDD&quot;).setMaster(&quot;local[*]&quot;)</div><div class="line">    val sc = new SparkContext(conf)</div><div class="line">    /**</div><div class="line">      * 1.构造一些数据</div><div class="line">      * 2.用map算子进行一些操作</div><div class="line">      * 3.用mapPartitions算子进行操作</div><div class="line">      * 4.调用zipwithpartition算子标记分区</div><div class="line">      * 5.调用foreachPartiton进行输出</div><div class="line">      * 6.调用glom算子收集每个分区的数据</div><div class="line">      * 7.调用flodleft函数处理Array</div><div class="line">      */</div><div class="line">    def printRDD(rdd:RDD[_])=&#123;</div><div class="line">      val str=rdd.collect().mkString(&quot; , &quot;)</div><div class="line">      println(str)</div><div class="line">    &#125;</div><div class="line">    val numberRDD=sc.parallelize(1 until 10,2)</div><div class="line">    println(&quot;查看原始的RDD中的每一个元素:&quot;)</div><div class="line">//    numberRDD.foreach(println)</div><div class="line">//    printRDD(numberRDD)</div><div class="line">    val numberRDD10=numberRDD.map(_*10)</div><div class="line">    printRDD(numberRDD10)</div><div class="line">    val numberRDDLess=numberRDD10.mapPartitions(iter=&gt; &#123;</div><div class="line">      val arr=new ArrayBuffer[Double]</div><div class="line">      while (iter.hasNext) &#123;</div><div class="line">        val value=iter.next().toDouble/10</div><div class="line">          arr+=value</div><div class="line">      &#125;</div><div class="line">      arr.iterator</div><div class="line">    &#125;)</div><div class="line">    printRDD(numberRDDLess)</div><div class="line"></div><div class="line">    // glom 是把每个分区里面的元素放到一个list里面</div><div class="line">    val partitions=numberRDDLess.glom()</div><div class="line">    println(&quot;构造数据的时候创建了 &quot;+numberRDDLess.partitions.size+&quot; 个分区&quot;)</div><div class="line">    println(&quot;目前经过glom操作后,还有: &quot;+partitions.count()+&quot; 个分区,只是每个分区的数据存到到一个list中去了&quot;)</div><div class="line">    partitions.foreach(arr=&gt;&#123;</div><div class="line">      println(&quot;分区数据:&quot;+arr.mkString(&quot; , &quot;))</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    val numbers=partitions.zipWithIndex()</div><div class="line">    numbers.foreach&#123;</div><div class="line">      case (arr,v)=&gt;</div><div class="line">        println(&quot;第 &quot;+ v+&quot;个分区数据: &quot;+arr.mkString(&quot; , &quot;))</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    partitions.foreach(arr=&gt;&#123;</div><div class="line">      println(&quot;分区内容: &quot;+</div><div class="line">      arr.foldLeft(&quot;&quot;)((x,y)=&gt;x+&quot; &quot;+y))</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <h1 id="Spark懒加载实践"><a href="#Spark懒加载实践" class="headerlink" title="Spark懒加载实践"></a>Spark懒加载实践</h1><blockquote>
 <p>通过例子说明,spark的确是当执行了一个action算子,才会生成一个job.</p>
 </blockquote>
@@ -531,7 +536,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -540,7 +545,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -549,7 +554,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
