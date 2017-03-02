@@ -1,0 +1,796 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="spark,python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/wei.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="第一步:给你的样本日志目录修改这个参数在这个例子里面，我们会用到这个样本文件”/databricks-datasets/sample_logs”,样本数据已经存储到DBFS(Databricks的文件系统)
+
+DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the log file to be analyz">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PySpark做日志分析">
+<meta property="og:url" content="http://yoursite.com/2016/11/12/2016-11-12-SparkExample/index.html">
+<meta property="og:site_name" content="Time渐行渐远">
+<meta property="og:description" content="第一步:给你的样本日志目录修改这个参数在这个例子里面，我们会用到这个样本文件”/databricks-datasets/sample_logs”,样本数据已经存储到DBFS(Databricks的文件系统)
+
+DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the log file to be analyz">
+<meta property="og:updated_time" content="2017-03-02T05:54:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PySpark做日志分析">
+<meta name="twitter:description" content="第一步:给你的样本日志目录修改这个参数在这个例子里面，我们会用到这个样本文件”/databricks-datasets/sample_logs”,样本数据已经存储到DBFS(Databricks的文件系统)
+
+DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the log file to be analyz">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/12/2016-11-12-SparkExample/"/>
+
+
+
+
+
+  <title> PySpark做日志分析 | Time渐行渐远 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Time渐行渐远</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding Changing The World</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/12/2016-11-12-SparkExample/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hushiwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wei.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Time渐行渐远">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PySpark做日志分析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-12T18:24:00+08:00">
+                2016-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spark/" itemprop="url" rel="index">
+                    <span itemprop="name">spark</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/12/2016-11-12-SparkExample/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/12/2016-11-12-SparkExample/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第一步-给你的样本日志目录修改这个参数"><a href="#第一步-给你的样本日志目录修改这个参数" class="headerlink" title="第一步:给你的样本日志目录修改这个参数"></a>第一步:给你的样本日志目录修改这个参数</h2><p>在这个例子里面，我们会用到这个样本文件”/databricks-datasets/sample_logs”,样本数据已经存储到DBFS(Databricks的文件系统)</p>
+<blockquote>
+<p>DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the log file to be analyzed</p>
+</blockquote>
+<h2 id="第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"><a href="#第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象" class="headerlink" title="第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"></a>第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象</h2><h3 id="每行日志的格式"><a href="#每行日志的格式" class="headerlink" title="每行日志的格式"></a>每行日志的格式</h3><p>为了分析这些数据,我们需要去把他们解析成可看的格式<br>对与这个实验，我们要用的日志数据在<a href="http://httpd.apache.org/docs/1.3/logs.html#common" target="_blank" rel="external">Apache Common Log Format( clf)</a>.<br>CLF生产的日志文件条目将如下所示: 127.0.0.1 - - [01/Aug/1995:00:00:01 -0400] “GET /images/launch-logo.gif HTTP/1.0” 200 1839<br>以下是摘要，描述日志记录的每一部分</p>
+<ul>
+<li>127.0.0.1 这个是访问服务器的客户端(远程主机)的IP地址(或者是主机名,可选)</li>
+<li>- 这个”连字符”在输出中表示继续请求的信息(从远程机器来的身份)是不可用的</li>
+<li>- 这个”连字符”在输出中表示继续请求的信息(从本地登录的用户身份)是不可用的</li>
+<li>[01/Aug/1995:00:00:01 -0400] 服务器完成请求的时间.格式是这样的:<ul>
+<li>day=2 digits</li>
+<li>month=3 letters</li>
+<li>year=4 digits</li>
+<li>hour=2 digits</li>
+<li>minute=2 digits</li>
+<li>second=2 digits</li>
+<li>zone=(+|-)4 digits</li>
+</ul>
+</li>
+<li>“GET /images/launch-logo.gif HTTP/1.0” 这个是从客户端来的请求字符串的第一行。它是由三部分组成的:访问的方式(e.g.,GET,POST,etc),终端(统一资源标识符),<br>还有客户端的协议版本</li>
+<li>200 这个是服务器返回给客户端的状态码.这个信息是非常重要的,因为它显示了该请求是否是一个成功的响应(状态码以2开始),<br>一个重定向(状态码以3开始),一个由客户端导致的错误(状态码以4开始),或者一个在服务器的错误(状态码以5开始).可获得的状态代码的完整列表可以在HTTP规范中找到<a href="https://www.ietf.org/rfc/rfc2616.txt" target="_blank" rel="external">RFC 2616 section 10</a></li>
+<li>1839 这最后一个记录显示返回给客户端的对象的大小,不包括响应headers.如果没有内容返回给客户端,那么这个值可能是”-“(或者有时候是0)<br>因此,对于有恶意的客户端可能会插入控制日志文件中的字符,所以必须注意处理源日志.</li>
+</ul>
+<hr>
+<h4 id="日志示例"><a href="#日志示例" class="headerlink" title="日志示例"></a>日志示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">64.242.88.10 - - [07/Mar/2004:16:05:49 -0800] &quot;GET /twiki/bin/edit/Main/Double_bounce_sender?topicparent=Main.ConfigurationVariables HTTP/1.1&quot; 401 12846</div><div class="line">64.242.88.10 - - [07/Mar/2004:16:06:51 -0800] &quot;GET /twiki/bin/rdiff/TWiki/NewUserTemplate?rev1=1.3&amp;rev2=1.2 HTTP/1.1&quot; 200 4523</div><div class="line">64.242.88.10 - - [07/Mar/2004:16:10:02 -0800] &quot;GET /mailman/listinfo/hsdivision HTTP/1.1&quot; 200 6291</div><div class="line">64.242.88.10 - - [07/Mar/2004:16:11:58 -0800] &quot;GET /twiki/bin/view/TWiki/WikiSyntax HTTP/1.1&quot; 200 7352</div><div class="line">64.242.88.10 - - [07/Mar/2004:16:20:55 -0800] &quot;GET /twiki/bin/view/Main/DCCAndPostFix HTTP/1.1&quot; 200 5253</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">import re</div><div class="line">from pyspark.sql import Row</div><div class="line"></div><div class="line">APACHE_ACCESS_LOG_PATTERN=&apos;^(\S+) (\S+) (\S+) \[([\w:/]+\s[+\-]\d&#123;4&#125;)\] &quot;(\S+) (\S+) (\S+)&quot; (\d&#123;3&#125;) (\d+)&apos;</div><div class="line"></div><div class="line">def parse_apache_log_line(logline):</div><div class="line">    match=re.search(APACHE_ACCESS_LOG_PATTERN,logline)</div><div class="line">    if match is None:</div><div class="line">        raise Exception(&quot;Invalid logline: %s&quot; % logline)</div><div class="line">    return Row(</div><div class="line">        ipAddress=match.group(1),</div><div class="line">        clientIdentd=match.group(2),</div><div class="line">        userId=match.group(3),</div><div class="line">        dateTime=match.group(4),</div><div class="line">        method=match.group(5),</div><div class="line">        endpoint=match.group(6),</div><div class="line">        protocol=match.group(7),</div><div class="line">        responseCode=int(match.group(8)),</div><div class="line">        contentSize=long(match.group(9)))</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="第三步-把日志文件的所有行加载到Spark-RDD中-弹性式分布数据集"><a href="#第三步-把日志文件的所有行加载到Spark-RDD中-弹性式分布数据集" class="headerlink" title="第三步:把日志文件的所有行加载到Spark RDD中(弹性式分布数据集)"></a>第三步:把日志文件的所有行加载到Spark RDD中(弹性式分布数据集)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">conf=SparkConf().setAppName(&quot;Parse Apache Log&quot;).setMaster(&quot;local[*]&quot;)</div><div class="line">sc=SparkContext(conf=conf)</div><div class="line">path=&quot;hdfs://ncp162:8020/hsw/access_log&quot;</div><div class="line">access_logs=sc.textFile(path).map(parse_apache_log_line).cache()</div><div class="line">print access_logs.count()</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="第四步-计算统计通过GET请求返回的内容大小"><a href="#第四步-计算统计通过GET请求返回的内容大小" class="headerlink" title="第四步:计算统计通过GET请求返回的内容大小"></a>第四步:计算统计通过GET请求返回的内容大小</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">content_sizes=access_logs.map(lambda row:row.contentSize).cache()</div><div class="line"># 计算页面大小的平均值</div><div class="line">average_content_size=content_sizes.reduce(lambda x,y:x+y)/content_sizes.count()</div><div class="line"># 计算最小的页面</div><div class="line">min_content_size=content_sizes.min()</div><div class="line"># 计算最大的页面</div><div class="line">max_content_size=content_sizes.max()</div><div class="line"></div><div class="line">print &quot;Content Size Statistics:\n Avg: %s\n Min: %s\n Max: %s&quot; % (average_content_size,min_content_size,max_content_size)</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="第5步-计算统计返回状态码"><a href="#第5步-计算统计返回状态码" class="headerlink" title="第5步:计算统计返回状态码"></a>第5步:计算统计返回状态码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 计算各个返回状态码的个数</div><div class="line">response_code_to_count_pair_rdd = access_logs.map(lambda row: (row.responseCode, 1)).reduceByKey(lambda x, y: x + y)</div><div class="line">print response_code_to_count_pair_rdd.take(100)</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="第6步-展示访问这个服务端超过N次的IP列表"><a href="#第6步-展示访问这个服务端超过N次的IP列表" class="headerlink" title="第6步:展示访问这个服务端超过N次的IP列表"></a>第6步:展示访问这个服务端超过N次的IP列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">n=10</div><div class="line">ip_addresses_rdd=access_logs.map(lambda row:(row.ipAddress,1)).reduceByKey(lambda x,y:x+y)\</div><div class="line">    .filter(lambda s:s[1]&gt;n).map(lambda s:Row(ip_address=s[0]))</div><div class="line">print ip_addresses_rdd.collect()</div><div class="line">ip_addresses_dataframe=sqlContext.createDataFrame(ip_addresses_rdd)</div><div class="line">print ip_addresses_dataframe.rdd.toDebugString()</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="第7步-研究统计endpoints信息"><a href="#第7步-研究统计endpoints信息" class="headerlink" title="第7步:研究统计endpoints信息"></a>第7步:研究统计endpoints信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">endpoint_counts_rdd=access_logs.map(lambda row:(row.endpoint,1))\</div><div class="line">    .reduceByKey(lambda x,y:x+y).map(lambda s:Row(endpoint=s[0],num_hits=s[1]))</div><div class="line">print endpoint_counts_rdd.collect()</div><div class="line">top_endpoints_array=endpoint_counts_rdd.takeOrdered(10,lambda row:-1*row.num_hits)</div><div class="line">    top_endpoints_dataframe=sqlContext.createDataFrame(sc.parallelize(top_endpoints_array))</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="附加-在Python中用SQL"><a href="#附加-在Python中用SQL" class="headerlink" title="附加:在Python中用SQL"></a>附加:在Python中用SQL</h2><ul>
+<li>一个dataframe能够被注册成一个临时的SQL表</li>
+<li>然后你能够争对数据做SQL查询</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spark/" rel="tag"># spark</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/12/2016-11-12-ScalaNote/" rel="next" title="ScalaNote">
+                <i class="fa fa-chevron-left"></i> ScalaNote
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/13/2016-11-13-DesignPattern/" rel="prev" title="设计模式">
+                设计模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/12/2016-11-12-SparkExample/"
+           data-title="PySpark做日志分析" data-url="http://yoursite.com/2016/11/12/2016-11-12-SparkExample/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/wei.png"
+               alt="Hushiwei" />
+          <p class="site-author-name" itemprop="name">Hushiwei</p>
+           
+              <p class="site-description motion-element" itemprop="description">时间渐行渐远</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Timehsw" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/HswTime" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步-给你的样本日志目录修改这个参数"><span class="nav-number">1.</span> <span class="nav-text">第一步:给你的样本日志目录修改这个参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"><span class="nav-number">2.</span> <span class="nav-text">第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每行日志的格式"><span class="nav-number">2.1.</span> <span class="nav-text">每行日志的格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#日志示例"><span class="nav-number">2.1.1.</span> <span class="nav-text">日志示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步-把日志文件的所有行加载到Spark-RDD中-弹性式分布数据集"><span class="nav-number">3.</span> <span class="nav-text">第三步:把日志文件的所有行加载到Spark RDD中(弹性式分布数据集)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步-计算统计通过GET请求返回的内容大小"><span class="nav-number">4.</span> <span class="nav-text">第四步:计算统计通过GET请求返回的内容大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第5步-计算统计返回状态码"><span class="nav-number">5.</span> <span class="nav-text">第5步:计算统计返回状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第6步-展示访问这个服务端超过N次的IP列表"><span class="nav-number">6.</span> <span class="nav-text">第6步:展示访问这个服务端超过N次的IP列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第7步-研究统计endpoints信息"><span class="nav-number">7.</span> <span class="nav-text">第7步:研究统计endpoints信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加-在Python中用SQL"><span class="nav-number">8.</span> <span class="nav-text">附加:在Python中用SQL</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hushiwei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hushiwei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

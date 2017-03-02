@@ -1,0 +1,808 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="scala,spark,rdd," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/wei.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="2000W开房数据数据格式
+Name,CardNo,Descriot,CtfTp,CtfId,Gender,Birthday,Address,Zip,Dirty,District1,District2,District3,District4,District5,District6,FirstNm,LastNm,Duty,Mobile,Tel,Fax,EMail,Nation,Taste,Educa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据">
+<meta property="og:url" content="http://yoursite.com/2016/12/01/2016-12-1-SparkExampleCSDN/index.html">
+<meta property="og:site_name" content="Time渐行渐远">
+<meta property="og:description" content="2000W开房数据数据格式
+Name,CardNo,Descriot,CtfTp,CtfId,Gender,Birthday,Address,Zip,Dirty,District1,District2,District3,District4,District5,District6,FirstNm,LastNm,Duty,Mobile,Tel,Fax,EMail,Nation,Taste,Educa">
+<meta property="og:image" content="http://yoursite.com/images/pics/kaifanguser.png">
+<meta property="og:image" content="http://yoursite.com/images/pics/numPW.png">
+<meta property="og:image" content="http://yoursite.com/images/pics/letterPW.png">
+<meta property="og:updated_time" content="2017-03-02T06:14:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据">
+<meta name="twitter:description" content="2000W开房数据数据格式
+Name,CardNo,Descriot,CtfTp,CtfId,Gender,Birthday,Address,Zip,Dirty,District1,District2,District3,District4,District5,District6,FirstNm,LastNm,Duty,Mobile,Tel,Fax,EMail,Nation,Taste,Educa">
+<meta name="twitter:image" content="http://yoursite.com/images/pics/kaifanguser.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/01/2016-12-1-SparkExampleCSDN/"/>
+
+
+
+
+
+  <title> 使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据 | Time渐行渐远 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Time渐行渐远</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding Changing The World</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/01/2016-12-1-SparkExampleCSDN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hushiwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wei.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Time渐行渐远">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-01T14:22:00+08:00">
+                2016-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spark/" itemprop="url" rel="index">
+                    <span itemprop="name">spark</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/01/2016-12-1-SparkExampleCSDN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/01/2016-12-1-SparkExampleCSDN/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="2000W开房数据"><a href="#2000W开房数据" class="headerlink" title="2000W开房数据"></a>2000W开房数据</h2><h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><blockquote>
+<p>Name,CardNo,Descriot,CtfTp,CtfId,Gender,Birthday,Address,Zip,Dirty,District1,<br>District2,District3,District4,District5,District6,FirstNm,LastNm,Duty,Mobile,Tel,<br>Fax,EMail,Nation,Taste,Education,Company,CTel,CAddress,CZip,Family,Version,id</p>
+</blockquote>
+<h3 id="数据预览"><a href="#数据预览" class="headerlink" title="数据预览"></a>数据预览</h3><p>为了保护用户隐私,相关数据打码了.</p>
+<p><img src="/images/pics/kaifanguser.png" alt="用户数据"></p>
+<h3 id="开房数据分析"><a href="#开房数据分析" class="headerlink" title="开房数据分析"></a>开房数据分析</h3><blockquote>
+<p>因为是单机local模式运行,用其中一个文件作为测试数据.感兴趣的可以全部加载进来,放在集群里跑一跑.<br>sortbykey是对每个分区中的数据进行排序,如果想要全局排序,把分区数设置为1</p>
+</blockquote>
+<ul>
+<li>分析开房次数TOP10用户(第0,3,4三个字段确定唯一的用户)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">val conf = new SparkConf().setAppName(&quot;KaiFan&quot;).setMaster(&quot;local[*]&quot;)</div><div class="line">val sc = new SparkContext(conf)</div><div class="line">//    酒店开房数据的字段</div><div class="line">//    Name,CardNo,Descriot,CtfTp,CtfId,Gender,Birthday,Address,Zip,Dirty,District1,District2,District3,District4,District5,District6,FirstNm,LastNm,Duty,Mobile,Tel,Fax,EMail,Nation,Taste,Education,Company,CTel,CAddress,CZip,Family,Version,id</div><div class="line">var hotel1RDD = sc.textFile(&quot;G:\\2000W\\1-200W.csv&quot;)</div><div class="line">//    var hotel2RDD = sc.textFile(&quot;G:\\2000W\\200W-400W.csv&quot;)</div><div class="line">//    var hotel3RDD = sc.textFile(&quot;G:\\2000W\\400W-600W.csv&quot;)</div><div class="line">//    var hotel4RDD = sc.textFile(&quot;G:\\2000W\\600W-800W.csv&quot;)</div><div class="line">//    var hotel5RDD = sc.textFile(&quot;G:\\2000W\\800W-1000W.csv&quot;)</div><div class="line">//    var hotel6RDD = sc.textFile(&quot;G:\\2000W\\1000W-1200W.csv&quot;)</div><div class="line">//    var hotel7RDD = sc.textFile(&quot;G:\\2000W\\1200W-1400W.csv&quot;)</div><div class="line">//    var hotel8RDD = sc.textFile(&quot;G:\\2000W\\1400W-1600W.csv&quot;)</div><div class="line">//    var hotel9RDD = sc.textFile(&quot;G:\\2000W\\1600w-1800w.csv&quot;)</div><div class="line">//    var hotel10RDD = sc.textFile(&quot;G:\\2000W\\1800w-2000w.csv&quot;)</div><div class="line"></div><div class="line">//    var hotelRDD = hotel1RDD ++ hotel2RDD ++ hotel3RDD ++ hotel4RDD ++ hotel5RDD ++ hotel6RDD ++ hotel7RDD ++ hotel8RDD ++ hotel9RDD ++ hotel10RDD</div><div class="line">var hotelRDD = hotel1RDD</div><div class="line"></div><div class="line">//    分析开房次数TOP10用户(第0,3,4三个字段确定唯一的用户)</div><div class="line">val tmpRDD=hotelRDD.map(line=&gt;line.toString().split(&quot;,&quot;)).filter(_.length==33)</div><div class="line">val result=tmpRDD.map(arr=&gt; (arr(0),arr(3),arr(4))).map(arr=&gt;(arr,1)).reduceByKey(_+_).sortBy(arr=&gt;arr._2,false)</div><div class="line">result.take(10).foreach(println)</div></pre></td></tr></table></figure>
+<ul>
+<li>统计一天中,各个小时离店的人数</li>
+</ul>
+<p>先去除脏数据,然后从时间字段里过滤出小时部分.然后统计小时的词频</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">val hourRDD = hotelRDD.map(line =&gt; line.toString().split(&quot;,&quot;)).filter(_.length == 33).filter(arr =&gt; arr(31).trim.length != 0)</div><div class="line">  .map(arr =&gt; arr(31)).map(str =&gt; str.split(&quot;[- :]&quot;)).filter(arr =&gt; arr.length == 6)</div><div class="line">  .map(arr =&gt; arr(3).toInt).map(hour =&gt; (hour, 1)).reduceByKey(_ + _).map &#123; case (x, y) =&gt; (y, x)&#125;</div><div class="line"></div><div class="line">  // 用sortbykey进行排序,然后再取前10</div><div class="line">val sortedHourRDD=hourRDD.sortByKey(false, 1)</div><div class="line">sortedHourRDD.take(10).foreach(println)</div><div class="line"></div><div class="line">println(&quot;--------------------------------&quot;)</div><div class="line">// 对未排序的序列,调用top(n)算子,底层帮你排序,然后取topn数据.</div><div class="line">hourRDD.top(10).foreach(println)</div></pre></td></tr></table></figure>
+<ul>
+<li>性别分布统计</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//    性别分布统计</div><div class="line">    val sexRDD=hotelRDD.map(line=&gt; line.toString().split(&quot;,&quot;)).filter(_.length==33).filter(arr=&gt;arr(31).trim.length!=0)</div><div class="line">      .map(arr=&gt;arr(5))</div><div class="line">//      过滤掉脏数据</div><div class="line">      .filter(_.trim.length==1)</div><div class="line">      .filter(sex=&gt;(sex==&quot;F&quot; || sex==&quot;M&quot;))</div><div class="line">      .map((_,1))</div><div class="line">//      对性别字段进行统计</div><div class="line">      .reduceByKey(_+_)</div><div class="line"></div><div class="line">    sexRDD.foreach(println)</div></pre></td></tr></table></figure>
+<ul>
+<li>开房的年龄分布</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//    年龄分布统计(从身份证中截取出身年份,然后用今年减去即可)</div><div class="line">val ageRDD = hotelRDD.map(line =&gt; line.toString().split(&quot;,&quot;)).filter(_.length == 33)</div><div class="line">  .filter(arr =&gt; arr(3) == &quot;ID&quot;) //只取ID类型的用户</div><div class="line">  .filter(arr =&gt; arr(4).length == 18) //确保身份证号的位数是对的</div><div class="line">  .map(_ (4))</div><div class="line">  .filter(&quot;^[1-9]\\d&#123;5&#125;[1-9]\\d&#123;3&#125;((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d&#123;3&#125;([0-9]|X)$&quot;.r.pattern.matcher(_).matches())</div><div class="line">  .map(num =&gt; num.substring(6, 10)) // 取出年份</div><div class="line">  .map(2016 - _.toInt)</div><div class="line">  .filter(age =&gt; (age &gt; 0 &amp;&amp; age &lt; 110))</div><div class="line">  .map((_, 1))</div><div class="line">  .reduceByKey(_ + _)</div><div class="line">  .map &#123; case (x, y) =&gt; (y, x) &#125;</div><div class="line">  .sortByKey(false, 1)</div><div class="line"></div><div class="line">println(ageRDD.count())</div><div class="line">ageRDD.foreach(println)</div></pre></td></tr></table></figure>
+<h2 id="CSDN用户数据分析"><a href="#CSDN用户数据分析" class="headerlink" title="CSDN用户数据分析"></a>CSDN用户数据分析</h2><h3 id="数据格式预览"><a href="#数据格式预览" class="headerlink" title="数据格式预览"></a>数据格式预览</h3><blockquote>
+<p>以免泄露别人的信息,以下的信息我做了额外的增加</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">zdgs # 12344fd321 # zdfdag@csdn.net</div><div class="line">LaafoZheng # 6702fsd03313747 # chenfdagming_zheng@163.com</div><div class="line">fstfaao # 730df413 # fstafao@tom.com</div><div class="line">hufdwolf # 25352gf63 # hujiadfye@263.net</div><div class="line">cafaddcjl # KIC43aafdk6! # ccegfdsdcjl@21cn.com</div></pre></td></tr></table></figure>
+<h3 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h3><ul>
+<li>分析最多人使用的TOPn个密码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">val csdnRDD = sc.textFile(&quot;G:\\600W-CSDN\\csdnuser.txt&quot;)</div><div class="line">println(s&quot;csdn一共泄露了: $&#123;csdnRDD.count()&#125; 个用户数据&quot;)</div><div class="line">//     cafaddcjl # KIC43aafdk6! # ccegfdsdcjl@21cn.com</div><div class="line">//    分析最多人使用的TOPn个密码</div><div class="line">val pwRDD = csdnRDD.map(line =&gt; line.toString.split(&quot; # &quot;))</div><div class="line">  .map(_ (1))</div><div class="line">  .map((_, 1)).reduceByKey(_ + _)</div><div class="line">  .map &#123; case (x, y) =&gt; (y, x) &#125;.sortByKey(false)</div><div class="line">  .map &#123; case (x, y) =&gt; (y, x) &#125;</div><div class="line">println(&quot;最常用的前50个密码: &quot;)</div><div class="line">pwRDD.take(50).foreach(println)</div></pre></td></tr></table></figure>
+<ul>
+<li>统计使用纯数字作为密码的人数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">val numPwRDD = csdnRDD.map(line =&gt; line.toString.split(&quot; # &quot;))</div><div class="line">  .map(_ (1))</div><div class="line">  .filter(&quot;\\d+&quot;.r.pattern.matcher(_).matches())</div><div class="line">  .map((_, 1)).reduceByKey(_ + _).sortBy(_._2, false)</div><div class="line">println(&quot;最常用的前20个纯数字密码: &quot;)</div><div class="line">numPwRDD.take(20).foreach(println)</div></pre></td></tr></table></figure>
+<p><img src="/images/pics/numPW.png" alt="数字密码"></p>
+<ul>
+<li>统计使用纯字母作为密码的人数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">val letterRDD = csdnRDD.map(line =&gt; line.toString.split(&quot; # &quot;))</div><div class="line">  .map(_ (1))</div><div class="line">  .filter(&quot;[a-zA-Z]+&quot;.r.pattern.matcher(_).matches())</div><div class="line">  .map((_, 1)).reduceByKey(_ + _).sortBy(_._2, false)</div><div class="line">println(&quot;最常用的前20个纯字母密码: &quot;)</div><div class="line">letterRDD.take(20).foreach(println)</div></pre></td></tr></table></figure>
+<p><img src="/images/pics/letterPW.png" alt="字母密码"></p>
+<hr>
+<ul>
+<li>声明:<ul>
+<li>统计指标来源与网络上的博客</li>
+<li>数据也来自于网络,想要数据的可以联系我</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/scala/" rel="tag"># scala</a>
+          
+            <a href="/tags/spark/" rel="tag"># spark</a>
+          
+            <a href="/tags/rdd/" rel="tag"># rdd</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/27/2016-11-27-VPSInstallJekyll/" rel="next" title="在VPS上安装Jekyll,搭建自己的静态博客">
+                <i class="fa fa-chevron-left"></i> 在VPS上安装Jekyll,搭建自己的静态博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/06/2016-12-5-JavaThread/" rel="prev" title="Java多线程总结笔记">
+                Java多线程总结笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/01/2016-12-1-SparkExampleCSDN/"
+           data-title="使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据" data-url="http://yoursite.com/2016/12/01/2016-12-1-SparkExampleCSDN/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/wei.png"
+               alt="Hushiwei" />
+          <p class="site-author-name" itemprop="name">Hushiwei</p>
+           
+              <p class="site-description motion-element" itemprop="description">时间渐行渐远</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Timehsw" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/HswTime" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2000W开房数据"><span class="nav-number">1.</span> <span class="nav-text">2000W开房数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据格式"><span class="nav-number">1.1.</span> <span class="nav-text">数据格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据预览"><span class="nav-number">1.2.</span> <span class="nav-text">数据预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开房数据分析"><span class="nav-number">1.3.</span> <span class="nav-text">开房数据分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSDN用户数据分析"><span class="nav-number">2.</span> <span class="nav-text">CSDN用户数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据格式预览"><span class="nav-number">2.1.</span> <span class="nav-text">数据格式预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据分析"><span class="nav-number">2.2.</span> <span class="nav-text">数据分析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hushiwei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hushiwei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

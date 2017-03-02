@@ -1,0 +1,844 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,datastructure," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/wei.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="什么是队列
+队列是一种受限的线性表,其限制是仅允许在队的一端进行插入,而在队的另一端进行删除.
+在队列中把插入数据元素的一端称为队尾(rear).
+删除数据元素的一端称为队首(front).
+向队尾插入元素称为进队或入队.新元素入队后成为新的队尾元素.
+从队列中删除元素称为离队或出队.元素出队后,其后续元素成为新的队首元素
+因此在队列中,先入队的元素,肯定是先出队.所以称队列为先进先出表(FIFO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java数据结构之队列">
+<meta property="og:url" content="http://yoursite.com/2016/12/07/2016-12-7-Queue/index.html">
+<meta property="og:site_name" content="Time渐行渐远">
+<meta property="og:description" content="什么是队列
+队列是一种受限的线性表,其限制是仅允许在队的一端进行插入,而在队的另一端进行删除.
+在队列中把插入数据元素的一端称为队尾(rear).
+删除数据元素的一端称为队首(front).
+向队尾插入元素称为进队或入队.新元素入队后成为新的队尾元素.
+从队列中删除元素称为离队或出队.元素出队后,其后续元素成为新的队首元素
+因此在队列中,先入队的元素,肯定是先出队.所以称队列为先进先出表(FIFO">
+<meta property="og:image" content="http://yoursite.com/images/pics/queueArray.png">
+<meta property="og:updated_time" content="2017-03-02T06:14:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java数据结构之队列">
+<meta name="twitter:description" content="什么是队列
+队列是一种受限的线性表,其限制是仅允许在队的一端进行插入,而在队的另一端进行删除.
+在队列中把插入数据元素的一端称为队尾(rear).
+删除数据元素的一端称为队首(front).
+向队尾插入元素称为进队或入队.新元素入队后成为新的队尾元素.
+从队列中删除元素称为离队或出队.元素出队后,其后续元素成为新的队首元素
+因此在队列中,先入队的元素,肯定是先出队.所以称队列为先进先出表(FIFO">
+<meta name="twitter:image" content="http://yoursite.com/images/pics/queueArray.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/07/2016-12-7-Queue/"/>
+
+
+
+
+
+  <title> Java数据结构之队列 | Time渐行渐远 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Time渐行渐远</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Coding Changing The World</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/07/2016-12-7-Queue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hushiwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wei.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Time渐行渐远">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java数据结构之队列
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-07T10:01:00+08:00">
+                2016-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/datastructure/" itemprop="url" rel="index">
+                    <span itemprop="name">datastructure</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/07/2016-12-7-Queue/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/07/2016-12-7-Queue/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是队列"><a href="#什么是队列" class="headerlink" title="什么是队列"></a>什么是队列</h2><ul>
+<li>队列是一种受限的线性表,其限制是仅允许在队的一端进行插入,而在队的另一端进行删除.</li>
+<li>在队列中把插入数据元素的一端称为<strong>队尾(rear)</strong>.</li>
+<li>删除数据元素的一端称为<strong>队首(front)</strong>.</li>
+<li>向队尾插入元素称为<strong>进队或入队</strong>.新元素入队后成为新的队尾元素.</li>
+<li>从队列中删除元素称为<strong>离队或出队</strong>.元素出队后,其后续元素成为新的队首元素</li>
+<li>因此在队列中,先入队的元素,肯定是先出队.所以称队列为<strong>先进先出表(FIFO)</strong>.</li>
+</ul>
+<p>队列结构与日常生活中排队等候服务的模型是一致的,最早进入队列的人,最早得到服务从队首离开;最后到来的人只能排在队列的最后,最后得到服务并最后离开.</p>
+<h2 id="队列的常用方法"><a href="#队列的常用方法" class="headerlink" title="队列的常用方法"></a>队列的常用方法</h2><p>队列结构一般都满足以下几个方法:</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getSize()</td>
+<td>返回队列的大小,即队列中元素的个数</td>
+</tr>
+<tr>
+<td>isEmpty()</td>
+<td>判断队列是为空</td>
+</tr>
+<tr>
+<td>enqueue(e)</td>
+<td>将元素e入队</td>
+</tr>
+<tr>
+<td>dequeue</td>
+<td>删除队尾元素</td>
+</tr>
+<tr>
+<td>peek()</td>
+<td>获取队首元素,但不出队</td>
+</tr>
+</tbody>
+</table>
+<p>接口代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Created by HuShiwei on 2016/10/18 0018.</div><div class="line"> * FIFO先进先出</div><div class="line"> */</div><div class="line">public interface Queue &#123;</div><div class="line">    public int getSize();//返回队列的大小</div><div class="line"></div><div class="line">    public boolean isEmpty();//判断队列是否为空</div><div class="line"></div><div class="line">    public void enqueue(Object e);//数据元素e入队</div><div class="line"></div><div class="line">    public Object dequeue();//队首元素出队</div><div class="line"></div><div class="line">    public Object peek();//取队首元素</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="队列的线性表实现"><a href="#队列的线性表实现" class="headerlink" title="队列的线性表实现"></a>队列的线性表实现</h2><h3 id="实现分析"><a href="#实现分析" class="headerlink" title="实现分析"></a>实现分析</h3><blockquote>
+<p>队列的线性表实现:底层是用的数组存储队列元素.</p>
+</blockquote>
+<p><img src="/images/pics/queueArray.png" alt="queueArray"></p>
+<ul>
+<li>如何判断队列是否满队列还是空队列<ul>
+<li>设计了一个循环数组</li>
+<li>设计一个队首指针front,和一个队尾指针rear</li>
+<li>front指向队列的首元素,rear指向队尾的最后一个元素+1的位置</li>
+</ul>
+</li>
+<li>如何判断队列是空队列还是满队列?<ul>
+<li>当是空队列的时候,front=rear,两个指针都指向同一个位置</li>
+<li>当是满队列的时候,因为是循环数组,所以front=rear.这样我们就没办法区分是空队列还是满队列了.</li>
+</ul>
+</li>
+<li>如何解决这个问题呢?<ul>
+<li>把数组的最后一个位置空出来,浪费最后的存储空间.</li>
+<li>这样,判断是满队列的时候,就可以根据(rear+1)%capacity=front</li>
+</ul>
+</li>
+<li>注意点<ul>
+<li>队尾指针rear指向队尾元素+1的位置.这样在队尾入队的时候就可以指针赋值了</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><strong>注意: 在实现队列的时候，一定要记住</strong></p>
+<ul>
+<li>队列的结构特性，FIFO</li>
+<li>如何通过指针来操作</li>
+<li>理解了这些,自己就可以很轻松的实现队列了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 队列的顺序存储实现</div><div class="line"> */</div><div class="line">public class QueueArray implements Queue &#123;</div><div class="line">    private static final int CAP = 7;//队列默认大小</div><div class="line">    private Object[] elements;//数据元素数组</div><div class="line">    private int capacity;//数组的大小</div><div class="line">    private int front;//队首指针</div><div class="line">    private int rear;//队尾指针</div><div class="line"></div><div class="line">    public QueueArray() &#123;</div><div class="line">        this(CAP);</div><div class="line">    &#125;</div><div class="line">//    初始化队列</div><div class="line">    public QueueArray(int cap)&#123;</div><div class="line">        capacity = cap + 1;</div><div class="line">        elements = new Object[capacity];</div><div class="line">        front = rear = 0;</div><div class="line">    &#125;</div><div class="line">//    返回队列的大小</div><div class="line">    @Override</div><div class="line">    public int getSize() &#123;</div><div class="line">        return (rear-front+capacity)%capacity;</div><div class="line">    &#125;</div><div class="line">//    判断队列是否为空</div><div class="line">    @Override</div><div class="line">    public boolean isEmpty() &#123;</div><div class="line">        return front==rear;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">//    数据元素e入队</div><div class="line">    @Override</div><div class="line">    public void enqueue(Object e) &#123;</div><div class="line">        if (getSize()==capacity-1) &#123;</div><div class="line">            expandSpace();</div><div class="line">        &#125;</div><div class="line">        elements[rear] = e;</div><div class="line">        rear = (rear + 1) % capacity;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">//    扩充队列大小</div><div class="line">    private void expandSpace() &#123;</div><div class="line">        Object[] objects = new Object[elements.length * 2];</div><div class="line">        int i=front;</div><div class="line">        int j = 0;</div><div class="line">        while (i != rear) &#123;</div><div class="line">            objects[j++] = elements[i];</div><div class="line">            i = (i + 1) % capacity;</div><div class="line">        &#125;</div><div class="line">        elements = objects;</div><div class="line">        capacity = elements.length;</div><div class="line">//        设置新的队首队尾指针</div><div class="line">        front = 0;</div><div class="line">        rear = j;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">//    队首元素出队</div><div class="line">    @Override</div><div class="line">    public Object dequeue() &#123;</div><div class="line">        if (isEmpty()) &#123;</div><div class="line">            try &#123;</div><div class="line">                throw new Exception(&quot;错误: 队列空了...&quot;);</div><div class="line">            &#125; catch (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        Object element = elements[front];</div><div class="line">        elements[front] = null;</div><div class="line">        front = (front + 1) % capacity;</div><div class="line">        return element;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">//    取队首元素</div><div class="line">    @Override</div><div class="line">    public Object peek() &#123;</div><div class="line">        if (isEmpty()) &#123;</div><div class="line">            try &#123;</div><div class="line">                throw new Exception(&quot;错误: 队列空了...&quot;);</div><div class="line">            &#125; catch (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return elements[front];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="队列的链式存储实现"><a href="#队列的链式存储实现" class="headerlink" title="队列的链式存储实现"></a>队列的链式存储实现</h2><p>未完待续….</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/datastructure/" rel="tag"># datastructure</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/06/2016-12-5-JavaThread/" rel="next" title="Java多线程总结笔记">
+                <i class="fa fa-chevron-left"></i> Java多线程总结笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/09/2016-11-24-BeautifulSoup/" rel="prev" title="python beautifulsoup使用">
+                python beautifulsoup使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/07/2016-12-7-Queue/"
+           data-title="Java数据结构之队列" data-url="http://yoursite.com/2016/12/07/2016-12-7-Queue/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/wei.png"
+               alt="Hushiwei" />
+          <p class="site-author-name" itemprop="name">Hushiwei</p>
+           
+              <p class="site-description motion-element" itemprop="description">时间渐行渐远</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Timehsw" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/HswTime" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是队列"><span class="nav-number">1.</span> <span class="nav-text">什么是队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列的常用方法"><span class="nav-number">2.</span> <span class="nav-text">队列的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列的线性表实现"><span class="nav-number">3.</span> <span class="nav-text">队列的线性表实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现分析"><span class="nav-number">3.1.</span> <span class="nav-text">实现分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">3.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列的链式存储实现"><span class="nav-number">4.</span> <span class="nav-text">队列的链式存储实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hushiwei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"hushiwei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
