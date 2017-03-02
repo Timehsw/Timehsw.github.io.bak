@@ -1063,7 +1063,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/12/SparkExample/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/12/ScalaNote/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hushiwei">
@@ -1085,8 +1085,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/12/SparkExample/" itemprop="url">
-                  PySpark做日志分析
+                <a class="post-title-link" href="/2016/11/12/ScalaNote/" itemprop="url">
+                  ScalaNote
                 </a>
               
             
@@ -1125,8 +1125,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spark/" itemprop="url" rel="index">
-                    <span itemprop="name">spark</span>
+                  <a href="/categories/scala/" itemprop="url" rel="index">
+                    <span itemprop="name">scala</span>
                   </a>
                 </span>
 
@@ -1143,8 +1143,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/11/12/SparkExample/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/12/SparkExample/" itemprop="commentCount"></span>
+                <a href="/2016/11/12/ScalaNote/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/12/ScalaNote/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1171,14 +1171,11 @@
 
       
         
-          <h2 id="第一步-给你的样本日志目录修改这个参数"><a href="#第一步-给你的样本日志目录修改这个参数" class="headerlink" title="第一步:给你的样本日志目录修改这个参数"></a>第一步:给你的样本日志目录修改这个参数</h2><p>在这个例子里面，我们会用到这个样本文件”/databricks-datasets/sample_logs”,样本数据已经存储到DBFS(Databricks的文件系统)</p>
-<blockquote>
-<p>DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the log file to be analyzed</p>
-</blockquote>
-<h2 id="第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"><a href="#第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象" class="headerlink" title="第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"></a>第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象</h2>
+          <h2 id="1-sealed-trait"><a href="#1-sealed-trait" class="headerlink" title="1.sealed trait"></a>1.sealed trait</h2><blockquote>
+<p>被sealed 声明的 trait仅能被同一文件的的类继承。<br>  除了这个，我们通常将sealed用于枚举中，因为编译器在编译的时候知道这个trait被哪些类继承过，因此我们在match时对sealed trait进行case 的时候，如果你没有判断全部编译器在编译时就会报错。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/12/SparkExample/#more" rel="contents">
+            <a class="btn" href="/2016/11/12/ScalaNote/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
