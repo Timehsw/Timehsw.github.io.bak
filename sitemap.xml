@@ -58,6 +58,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2016/11/23/DecisitionTree/</loc>
+    
+    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/02/19/MacbookEnr/</loc>
     
     <lastmod>2017-03-02T10:08:56.000Z</lastmod>
@@ -72,13 +79,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/11/23/DecisitionTree/</loc>
-    
-    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2016/09/23/MavenSkills/</loc>
     
     <lastmod>2017-03-02T10:05:49.000Z</lastmod>
@@ -86,7 +86,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/12/07/Queue/</loc>
+    <loc>http://yoursite.com/2016/11/14/ScalaCollection/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -107,6 +107,20 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2016/12/09/BeautifulSoup/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/12/07/Queue/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/12/11/DeepinSoft/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
@@ -121,21 +135,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/12/09/BeautifulSoup/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2016/11/14/ScalaArray/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/11/14/ScalaCollection/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
