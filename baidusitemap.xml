@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/macbookHexoBlog/</loc>
+    <lastmod>2017-03-06T07:21:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>用hexo搭建博客</title>
+        <pubTime>2017-03-04T03:00:00.000Z</pubTime>
+        
+        <tag>macbook</tag>
+         
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://yoursite.com/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2016/KafkaEnr/</loc>
     <lastmod>2017-03-06T07:04:03.000Z</lastmod>
     <data>
@@ -140,28 +162,6 @@
            
              
               <breadCrumb title="ml" url="http://yoursite.com/categories/ml/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/macbookHexoBlog/</loc>
-    <lastmod>2017-03-02T14:18:38.000Z</lastmod>
-    <data>
-        <display>
-        <title>用hexo搭建博客</title>
-        <pubTime>2017-03-02T02:00:00.000Z</pubTime>
-        
-        <tag>macbook</tag>
-         
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://yoursite.com/categories/hexo/"/>
           
         </display>
     </data>
@@ -375,6 +375,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2016/FlaskMail/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Flask框架中用QQ邮箱发邮件</title>
+        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
+        
+        <tag>flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="flask" url="http://yoursite.com/categories/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2016/BeautifulSoup/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -390,28 +410,6 @@
            
              
               <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/JavaThread/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Java多线程总结笔记</title>
-        <pubTime>2016-12-06T06:22:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>thread</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
           
         </display>
     </data>
@@ -459,19 +457,21 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/FlaskMail/</loc>
+    <loc>http://yoursite.com/2016/JavaThread/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Flask框架中用QQ邮箱发邮件</title>
-        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
+        <title>Java多线程总结笔记</title>
+        <pubTime>2016-12-06T06:22:00.000Z</pubTime>
         
-        <tag>flask</tag>
+        <tag>java</tag>
+         
+        <tag>thread</tag>
          
          
            
              
-              <breadCrumb title="flask" url="http://yoursite.com/categories/flask/"/>
+              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
           
         </display>
     </data>
@@ -523,23 +523,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
+    <loc>http://yoursite.com/2016/DesignPattern/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
-        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
+        <title>设计模式</title>
+        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
         
-        <tag>ubuntu</tag>
-         
-        <tag>deepin</tag>
-         
-        <tag>jekyll</tag>
+        <tag>design</tag>
          
          
            
              
-              <breadCrumb title="ubuntu" url="http://yoursite.com/categories/ubuntu/"/>
+              <breadCrumb title="designpattern" url="http://yoursite.com/categories/designpattern/"/>
           
         </display>
     </data>
@@ -701,19 +697,23 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/DesignPattern/</loc>
+    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>设计模式</title>
-        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
+        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
+        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
         
-        <tag>design</tag>
+        <tag>ubuntu</tag>
+         
+        <tag>deepin</tag>
+         
+        <tag>jekyll</tag>
          
          
            
              
-              <breadCrumb title="designpattern" url="http://yoursite.com/categories/designpattern/"/>
+              <breadCrumb title="ubuntu" url="http://yoursite.com/categories/ubuntu/"/>
           
         </display>
     </data>
