@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Shell Skills]]></title>
+      <url>%2F2017%2FShellSkills%2F</url>
+      <content type="text"><![CDATA[写 shell 脚本两三技巧tag的 .contents 属性可以将tag的子节点以列表的方式输出: 通过tag的 .children 生成器,可以对tag的子节点进行循环: 获取脚本的所处的当前路径1DIR=&quot;$( cd &quot;$( dirname &quot;$&#123;BASH_SOURCE[0]&#125;&quot; )&quot; &amp;&amp; pwd )&quot; 解释 示例: 12345678910111213#DIR=&quot;$( cd &quot;$( dirname &quot;$&#123;BASH_SOURCE[0]&#125;&quot; )&quot; &amp;&amp; pwd )&quot;S0=&quot;$&#123;BASH_SOURCE[0]&#125;&quot;DIRNAME=&quot;$( dirname &quot;$S0&quot;)&quot;DIR=&quot;$( cd &quot;$DIRNAME&quot; &amp;&amp; pwd)&quot;echo &quot;$S0&quot;echo &quot;$DIRNAME&quot;echo &quot;$DIR&quot; 输出: 123./ss.sh./Users/hushiwei/Downloads 解释:S0是脚本相对于当前目录的路径，是相对路径 再用dirname命令得到脚本的目录名，也是相对路径 用cd命令切换到脚本所在目录，再执行pwd命令， 就得到了脚本所在目录的绝对路径]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Zero-Copy&SendFile浅析]]></title>
       <url>%2F2017%2FSendFileZeroCopy%2F</url>
       <content type="text"><![CDATA[为了减少不必要的文件内存拷贝和数据传输.直接在系统内核层进行数据传输会大大的提高速度. 比如消息传输框架kafka,为了提高消息的传输性能,就是用到了 sendFile 机制. 要深入了解 zerocopy和 sendfile,可以参考一些博客 http://blog.csdn.net/oanqoanq/article/details/50865683]]></content>
