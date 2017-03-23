@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="scala,spark,rdd," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -87,20 +87,16 @@
 
 
 
-<meta name="description" content="2000W开房数据数据格式">
+<meta name="description" content="介绍rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据">
-<meta property="og:url" content="http://yoursite.com/2016/SparkExampleCSDN/index.html">
+<meta property="og:title" content="Linux 文件同步工具——rsync">
+<meta property="og:url" content="http://yoursite.com/2017/RsyncSkills/index.html">
 <meta property="og:site_name" content="Time渐行渐远">
-<meta property="og:description" content="2000W开房数据数据格式">
-<meta property="og:image" content="http://yoursite.com/images/pics/kaifanguser.png">
-<meta property="og:image" content="http://yoursite.com/images/pics/numPW.png">
-<meta property="og:image" content="http://yoursite.com/images/pics/letterPW.png">
-<meta property="og:updated_time" content="2017-03-02T06:36:43.000Z">
+<meta property="og:description" content="介绍rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync">
+<meta property="og:updated_time" content="2017-03-23T07:42:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据">
-<meta name="twitter:description" content="2000W开房数据数据格式">
-<meta name="twitter:image" content="http://yoursite.com/images/pics/kaifanguser.png">
+<meta name="twitter:title" content="Linux 文件同步工具——rsync">
+<meta name="twitter:description" content="介绍rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync">
 
 
 
@@ -128,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/SparkExampleCSDN/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/RsyncSkills/"/>
 
 
 
 
 
-  <title> 使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据 | Time渐行渐远 </title>
+  <title> Linux 文件同步工具——rsync | Time渐行渐远 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -334,7 +330,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/SparkExampleCSDN/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/RsyncSkills/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hushiwei">
@@ -355,7 +351,7 @@
             
             
               
-                使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据
+                Linux 文件同步工具——rsync
               
             
           </h1>
@@ -370,8 +366,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-01T14:22:00+08:00">
-                2016-12-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T10:24:00+08:00">
+                2017-03-22
               </time>
             
 
@@ -393,8 +389,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spark/" itemprop="url" rel="index">
-                    <span itemprop="name">spark</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -411,8 +407,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/SparkExampleCSDN/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/SparkExampleCSDN/" itemprop="commentCount"></span>
+                <a href="/2017/RsyncSkills/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/RsyncSkills/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -420,7 +416,7 @@
 
           
           
-             <span id="/2016/SparkExampleCSDN/" class="leancloud_visitors" data-flag-title="使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据">
+             <span id="/2017/RsyncSkills/" class="leancloud_visitors" data-flag-title="Linux 文件同步工具——rsync">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -449,58 +445,86 @@
       
 
       
-        <h2 id="2000W开房数据"><a href="#2000W开房数据" class="headerlink" title="2000W开房数据"></a>2000W开房数据</h2><h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><a id="more"></a>
-<blockquote>
-<p>Name,CardNo,Descriot,CtfTp,CtfId,Gender,Birthday,Address,Zip,Dirty,District1,<br>District2,District3,District4,District5,District6,FirstNm,LastNm,Duty,Mobile,Tel,<br>Fax,EMail,Nation,Taste,Education,Company,CTel,CAddress,CZip,Family,Version,id</p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync<br><a id="more"></a></p>
+<h2 id="rsync服务器安装与搭建"><a href="#rsync服务器安装与搭建" class="headerlink" title="rsync服务器安装与搭建"></a>rsync服务器安装与搭建</h2><h3 id="软件包安装"><a href="#软件包安装" class="headerlink" title="软件包安装"></a>软件包安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　# sudo apt-get  install  rsync  注：在debian、ubuntu 等在线安装方法；</div><div class="line">　　# yum install rsync    注：Fedora、Redhat 等在线安装方法；</div><div class="line">　　# rpm -ivh rsync       注：Fedora、Redhat 等rpm包安装方法；</div></pre></td></tr></table></figure>
+<p>其它Linux发行版，请用相应的软件包管理方法来安装。</p>
+<h3 id="源码包安装"><a href="#源码包安装" class="headerlink" title="源码包安装"></a>源码包安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　tar xvf  rsync-xxx.tar.gz</div><div class="line">　　cd rsync-xxx</div><div class="line">　　./configure --prefix=/usr  ;make ;make install   注：在用源码包编译安装之前，您得安装gcc等编译工具才行；</div></pre></td></tr></table></figure>
+<h2 id="rsync-服务端配置"><a href="#rsync-服务端配置" class="headerlink" title="rsync 服务端配置"></a>rsync 服务端配置</h2><blockquote>
+<p>安装好 rsync 软件后,只需要创建配置好两个文件,然后开启 rsync 服务就可以了</p>
 </blockquote>
-<h3 id="数据预览"><a href="#数据预览" class="headerlink" title="数据预览"></a>数据预览</h3><p>为了保护用户隐私,相关数据打码了.</p>
-<p><img src="/images/pics/kaifanguser.png" alt="用户数据"></p>
-<h3 id="开房数据分析"><a href="#开房数据分析" class="headerlink" title="开房数据分析"></a>开房数据分析</h3><blockquote>
-<p>因为是单机local模式运行,用其中一个文件作为测试数据.感兴趣的可以全部加载进来,放在集群里跑一跑.<br>sortbykey是对每个分区中的数据进行排序,如果想要全局排序,把分区数设置为1</p>
+<p>服务器配置文件(/etc/rsyncd.conf)，该文件默认不存在，请创建它。具体步骤如下</p>
+<ul>
+<li>用root用户创建：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#touch /etc/rsyncd.conf  #创建rsyncd.conf，这是rsync服务器的配置文件。</div><div class="line">#touch /etc/rsyncd.secrets  #创建rsyncd.secrets ，这是用户密码文件。这个密码文件很好的哦，你可以设置一个用户名：密码的数值对，然后在客户端设置一个密码文件，只写密码就可以了，一会细讲。</div><div class="line"></div><div class="line">#chmod 600 /etc/rsyncd.secrets  #将rsyncd.secrets这个密码文件的文件属性设为root拥有, 且权限要设为600, 否则无法备份成功!</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="修改rsyncd-conf文件"><a href="#修改rsyncd-conf文件" class="headerlink" title="修改rsyncd.conf文件"></a>修改rsyncd.conf文件</h3><blockquote>
+<p>rsyncd.conf是rsync服务器主要配置文件</p>
+</blockquote>
+<p>比如我想要把远程机器上的文件,拉到这个服务器上的/home/root/tmp_hsw位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">vi /etc/rsyncd.conf</div><div class="line"></div><div class="line">pid file = /var/run/rsyncd.pid</div><div class="line">port = 873</div><div class="line">uid = root</div><div class="line">gid = root</div><div class="line"></div><div class="line">use chroot = yes</div><div class="line">read only = no</div><div class="line"></div><div class="line">#limit access to private LANs</div><div class="line">hosts allow= 10.10.25.14</div><div class="line">hosts deny=*</div><div class="line"></div><div class="line">max connections = 5</div><div class="line">#motd file = /etc/rsyncd.motd</div><div class="line"></div><div class="line">#This will give you a separate log file</div><div class="line">log file = /var/log/rsync.log</div><div class="line"></div><div class="line">#This will log every file transferred - up to 85,000+ per user, per sync</div><div class="line">transfer logging = yes</div><div class="line"></div><div class="line">log format = %t %a %m %f %b</div><div class="line">syslog facility = local3</div><div class="line">timeout = 300</div><div class="line"></div><div class="line">[getcoolpaddata]</div><div class="line">path = /home/root/tmp_hsw/testRsync</div><div class="line">list=yes</div><div class="line">ignore errors</div><div class="line">auth users = root</div><div class="line">secrets file = /etc/rsyncd.secrets</div><div class="line">comment = This is test for get coolpad data</div><div class="line">#exclude = easylife/  samba/</div></pre></td></tr></table></figure>
+<ul>
+<li>注意: 关于auth users是必须在服务器上存在的真实的系统用户，如果你想用多个用户以,号隔开，比如auth users = easylife,root</li>
+</ul>
+<h4 id="解释rsyncd-conf文件配置项"><a href="#解释rsyncd-conf文件配置项" class="headerlink" title="解释rsyncd.conf文件配置项"></a>解释rsyncd.conf文件配置项</h4><blockquote>
+<p>在rsync 服务器中，全局定义有几个比较关健的，根据我们前面所给的配置文件 rsyncd.conf 文件</p>
 </blockquote>
 <ul>
-<li>分析开房次数TOP10用户(第0,3,4三个字段确定唯一的用户)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">val conf = new SparkConf().setAppName(&quot;KaiFan&quot;).setMaster(&quot;local[*]&quot;)</div><div class="line">val sc = new SparkContext(conf)</div><div class="line">//    酒店开房数据的字段</div><div class="line">//    Name,CardNo,Descriot,CtfTp,CtfId,Gender,Birthday,Address,Zip,Dirty,District1,District2,District3,District4,District5,District6,FirstNm,LastNm,Duty,Mobile,Tel,Fax,EMail,Nation,Taste,Education,Company,CTel,CAddress,CZip,Family,Version,id</div><div class="line">var hotel1RDD = sc.textFile(&quot;G:\\2000W\\1-200W.csv&quot;)</div><div class="line">//    var hotel2RDD = sc.textFile(&quot;G:\\2000W\\200W-400W.csv&quot;)</div><div class="line">//    var hotel3RDD = sc.textFile(&quot;G:\\2000W\\400W-600W.csv&quot;)</div><div class="line">//    var hotel4RDD = sc.textFile(&quot;G:\\2000W\\600W-800W.csv&quot;)</div><div class="line">//    var hotel5RDD = sc.textFile(&quot;G:\\2000W\\800W-1000W.csv&quot;)</div><div class="line">//    var hotel6RDD = sc.textFile(&quot;G:\\2000W\\1000W-1200W.csv&quot;)</div><div class="line">//    var hotel7RDD = sc.textFile(&quot;G:\\2000W\\1200W-1400W.csv&quot;)</div><div class="line">//    var hotel8RDD = sc.textFile(&quot;G:\\2000W\\1400W-1600W.csv&quot;)</div><div class="line">//    var hotel9RDD = sc.textFile(&quot;G:\\2000W\\1600w-1800w.csv&quot;)</div><div class="line">//    var hotel10RDD = sc.textFile(&quot;G:\\2000W\\1800w-2000w.csv&quot;)</div><div class="line"></div><div class="line">//    var hotelRDD = hotel1RDD ++ hotel2RDD ++ hotel3RDD ++ hotel4RDD ++ hotel5RDD ++ hotel6RDD ++ hotel7RDD ++ hotel8RDD ++ hotel9RDD ++ hotel10RDD</div><div class="line">var hotelRDD = hotel1RDD</div><div class="line"></div><div class="line">//    分析开房次数TOP10用户(第0,3,4三个字段确定唯一的用户)</div><div class="line">val tmpRDD=hotelRDD.map(line=&gt;line.toString().split(&quot;,&quot;)).filter(_.length==33)</div><div class="line">val result=tmpRDD.map(arr=&gt; (arr(0),arr(3),arr(4))).map(arr=&gt;(arr,1)).reduceByKey(_+_).sortBy(arr=&gt;arr._2,false)</div><div class="line">result.take(10).foreach(println)</div></pre></td></tr></table></figure>
-<ul>
-<li>统计一天中,各个小时离店的人数</li>
-</ul>
-<p>先去除脏数据,然后从时间字段里过滤出小时部分.然后统计小时的词频</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">val hourRDD = hotelRDD.map(line =&gt; line.toString().split(&quot;,&quot;)).filter(_.length == 33).filter(arr =&gt; arr(31).trim.length != 0)</div><div class="line">  .map(arr =&gt; arr(31)).map(str =&gt; str.split(&quot;[- :]&quot;)).filter(arr =&gt; arr.length == 6)</div><div class="line">  .map(arr =&gt; arr(3).toInt).map(hour =&gt; (hour, 1)).reduceByKey(_ + _).map &#123; case (x, y) =&gt; (y, x)&#125;</div><div class="line"></div><div class="line">  // 用sortbykey进行排序,然后再取前10</div><div class="line">val sortedHourRDD=hourRDD.sortByKey(false, 1)</div><div class="line">sortedHourRDD.take(10).foreach(println)</div><div class="line"></div><div class="line">println(&quot;--------------------------------&quot;)</div><div class="line">// 对未排序的序列,调用top(n)算子,底层帮你排序,然后取topn数据.</div><div class="line">hourRDD.top(10).foreach(println)</div></pre></td></tr></table></figure>
-<ul>
-<li>性别分布统计</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//    性别分布统计</div><div class="line">    val sexRDD=hotelRDD.map(line=&gt; line.toString().split(&quot;,&quot;)).filter(_.length==33).filter(arr=&gt;arr(31).trim.length!=0)</div><div class="line">      .map(arr=&gt;arr(5))</div><div class="line">//      过滤掉脏数据</div><div class="line">      .filter(_.trim.length==1)</div><div class="line">      .filter(sex=&gt;(sex==&quot;F&quot; || sex==&quot;M&quot;))</div><div class="line">      .map((_,1))</div><div class="line">//      对性别字段进行统计</div><div class="line">      .reduceByKey(_+_)</div><div class="line"></div><div class="line">    sexRDD.foreach(println)</div></pre></td></tr></table></figure>
-<ul>
-<li>开房的年龄分布</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//    年龄分布统计(从身份证中截取出身年份,然后用今年减去即可)</div><div class="line">val ageRDD = hotelRDD.map(line =&gt; line.toString().split(&quot;,&quot;)).filter(_.length == 33)</div><div class="line">  .filter(arr =&gt; arr(3) == &quot;ID&quot;) //只取ID类型的用户</div><div class="line">  .filter(arr =&gt; arr(4).length == 18) //确保身份证号的位数是对的</div><div class="line">  .map(_ (4))</div><div class="line">  .filter(&quot;^[1-9]\\d&#123;5&#125;[1-9]\\d&#123;3&#125;((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d&#123;3&#125;([0-9]|X)$&quot;.r.pattern.matcher(_).matches())</div><div class="line">  .map(num =&gt; num.substring(6, 10)) // 取出年份</div><div class="line">  .map(2016 - _.toInt)</div><div class="line">  .filter(age =&gt; (age &gt; 0 &amp;&amp; age &lt; 110))</div><div class="line">  .map((_, 1))</div><div class="line">  .reduceByKey(_ + _)</div><div class="line">  .map &#123; case (x, y) =&gt; (y, x) &#125;</div><div class="line">  .sortByKey(false, 1)</div><div class="line"></div><div class="line">println(ageRDD.count())</div><div class="line">ageRDD.foreach(println)</div></pre></td></tr></table></figure>
-<h2 id="CSDN用户数据分析"><a href="#CSDN用户数据分析" class="headerlink" title="CSDN用户数据分析"></a>CSDN用户数据分析</h2><h3 id="数据格式预览"><a href="#数据格式预览" class="headerlink" title="数据格式预览"></a>数据格式预览</h3><blockquote>
-<p>以免泄露别人的信息,以下的信息我做了额外的增加</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">zdgs # 12344fd321 # zdfdag@csdn.net</div><div class="line">LaafoZheng # 6702fsd03313747 # chenfdagming_zheng@163.com</div><div class="line">fstfaao # 730df413 # fstafao@tom.com</div><div class="line">hufdwolf # 25352gf63 # hujiadfye@263.net</div><div class="line">cafaddcjl # KIC43aafdk6! # ccegfdsdcjl@21cn.com</div></pre></td></tr></table></figure>
-<h3 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h3><ul>
-<li>分析最多人使用的TOPn个密码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">val csdnRDD = sc.textFile(&quot;G:\\600W-CSDN\\csdnuser.txt&quot;)</div><div class="line">println(s&quot;csdn一共泄露了: $&#123;csdnRDD.count()&#125; 个用户数据&quot;)</div><div class="line">//     cafaddcjl # KIC43aafdk6! # ccegfdsdcjl@21cn.com</div><div class="line">//    分析最多人使用的TOPn个密码</div><div class="line">val pwRDD = csdnRDD.map(line =&gt; line.toString.split(&quot; # &quot;))</div><div class="line">  .map(_ (1))</div><div class="line">  .map((_, 1)).reduceByKey(_ + _)</div><div class="line">  .map &#123; case (x, y) =&gt; (y, x) &#125;.sortByKey(false)</div><div class="line">  .map &#123; case (x, y) =&gt; (y, x) &#125;</div><div class="line">println(&quot;最常用的前50个密码: &quot;)</div><div class="line">pwRDD.take(50).foreach(println)</div></pre></td></tr></table></figure>
-<ul>
-<li>统计使用纯数字作为密码的人数</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">val numPwRDD = csdnRDD.map(line =&gt; line.toString.split(&quot; # &quot;))</div><div class="line">  .map(_ (1))</div><div class="line">  .filter(&quot;\\d+&quot;.r.pattern.matcher(_).matches())</div><div class="line">  .map((_, 1)).reduceByKey(_ + _).sortBy(_._2, false)</div><div class="line">println(&quot;最常用的前20个纯数字密码: &quot;)</div><div class="line">numPwRDD.take(20).foreach(println)</div></pre></td></tr></table></figure>
-<p><img src="/images/pics/numPW.png" alt="数字密码"></p>
-<ul>
-<li>统计使用纯字母作为密码的人数</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">val letterRDD = csdnRDD.map(line =&gt; line.toString.split(&quot; # &quot;))</div><div class="line">  .map(_ (1))</div><div class="line">  .filter(&quot;[a-zA-Z]+&quot;.r.pattern.matcher(_).matches())</div><div class="line">  .map((_, 1)).reduceByKey(_ + _).sortBy(_._2, false)</div><div class="line">println(&quot;最常用的前20个纯字母密码: &quot;)</div><div class="line">letterRDD.take(20).foreach(println)</div></pre></td></tr></table></figure>
-<p><img src="/images/pics/letterPW.png" alt="字母密码"></p>
-<hr>
-<ul>
-<li>声明:<ul>
-<li>统计指标来源与网络上的博客</li>
-<li>数据也来自于网络,想要数据的可以联系我</li>
+<li>全局配置<ul>
+<li>pid file = /var/run/rsyncd.pid              注：告诉进程写到 /var/run/rsyncd.pid 文件中；</li>
+<li>port = 873                                  注：指定运行端口，默认是873，您可以自己指定；</li>
+<li>uid = root   </li>
+<li>gid = root                                  注：服务器端传输文件时，要发哪个用户和用户组来执行，默认是nobody。 如果用nobody 用户和用户组，可能遇到权限问题，有些文件从服务器上拉不下来。所以我就偷懒，为了方便，用了root 。不过您可以在定义要同步的目录时定义的模块中指定用户来解决权限的问题。</li>
+<li>use chroot = yes</li>
+<li>read only = yes                             注：read only 是只读选择，也就是说，不让客户端上传文件到服务器上。还有一个 write only选项，自己尝试是做什么用的吧；</li>
+<li>hosts allow= 10.10.25.14                    注: 允许访问的主机 IP</li>
+<li>max connections = 5                         注：客户端最多连接数</li>
+<li>log file = /var/log/rsync.log               注：rsync 服务器的日志；</li>
+<li>transfer logging = yes                      注：这是传输文件的日志 </li>
+<li>log format = %t %a %m %f %b</li>
+<li>syslog facility = local3</li>
+<li>timeout = 300</li>
 </ul>
 </li>
 </ul>
+<blockquote>
+<p>模块定义什么呢？主要是定义服务器哪个目录要被同步。每个模块都要以[name]形式。这个名字就是在rsync 客户端看到的名字，其实有点象Samba服务器提供的共享名。而服务器真正同步的数据是通过path 指定的。我们可以根据自己的需要，来指定多个模块。每个模块要指定认证用户，密码文件、并排除并不是必须的文件</p>
+<ul>
+<li>模块定义<ul>
+<li>[getcoolpaddata]  #模块它为我们提供了一个链接的名字，在本模块中链接到了/home/root/tmp_hsw/testRsync目录；要用[name] 形式</li>
+<li>path = /home    #指定文件目录所在位置，这是必须指定的 </li>
+<li>auth users = root   #认证用户是root  ，是必须在服务器上存在的用户</li>
+<li>list=yes   #list 意思是把rsync 服务器上提供同步数据的目录在服务器上模块是否显示列出来。默认是yes 。如果你不想列出来，就no ；如果是no是比较安全的，至少别人不知道你的服务器上提供了哪些目录。你自己知道就行了；</li>
+<li>ignore errors  #忽略IO错误</li>
+<li>secrets file = /etc/rsyncd.secrets   #密码存在哪个文件</li>
+<li>comment = linuxsir home  data  #注释可以自己定义</li>
+<li>exclude = beinan/ samba/     # exclude是排除的意思，也就是说，要把/home目录下的easylife和samba排除在外； easylife/和samba/目录之间有空格分开</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="设定密码文件-etc-rsyncd-secrets"><a href="#设定密码文件-etc-rsyncd-secrets" class="headerlink" title="设定密码文件/etc/rsyncd.secrets"></a>设定密码文件/etc/rsyncd.secrets</h3><p>密码文件格式很简单，rsyncd.secrets的内容格式为：</p>
+<p>　　用户名:密码</p>
+<p>比如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi /etc/rsyncd.secrets</div><div class="line"></div><div class="line">root:rsy123456</div></pre></td></tr></table></figure></p>
+<p>修改权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chown root.root rsyncd.secrets 　#修改属主</div><div class="line">chmod 600 rsyncd.secrets     #修改权限</div></pre></td></tr></table></figure></p>
+<ul>
+<li>注意<ul>
+<li>1、将rsyncd.secrets这个密码文件的文件属性设为root拥有, 且权限要设为600, 否则无法备份成功! 出于安全目的，文件的属性必需是只有属主可读。</li>
+<li>2、这里的密码值得注意，为了安全你不能把系统用户的密码写在这里。比如你的系统用户root密码是 helloworld，为了安全你可以让rsync中的rsyncd.secrets文件中的密码为为123456。这样，在客户端连接的时候，也是用这个123456会使用这个rsyncd.secrets作为认证文件，不和os有任何牵连。</li>
+</ul>
+</li>
+</ul>
+<h2 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h2><blockquote>
+<p>上面两个配置文件都是在启动 rsycn的服务器端,然而在我们的客户端,我们安装了 rsync后,只需要创建一个密码文件,里面放上服务器上定义的密码即可了</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root: vi /etc/rsyncd.passwd</div><div class="line">rsy123456</div></pre></td></tr></table></figure>
+<h2 id="启动rsync服务器及防火墙的设置"><a href="#启动rsync服务器及防火墙的设置" class="headerlink" title="启动rsync服务器及防火墙的设置"></a>启动rsync服务器及防火墙的设置</h2><blockquote>
+<p>启动rsync服务器相当简单</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">--daemon参数方式，是让rsync以服务器模式运行</div><div class="line"></div><div class="line"># /usr/bin/rsync --daemon  --config=/etc/rsyncd/rsyncd.conf 　#--config用于指定rsyncd.conf的位置,如果在/etc下可以不写</div></pre></td></tr></table></figure>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>把客户端/home/root/tmp_hsw 路径下的文件同步到服务器下.路径为 path 里面定义的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rsync -avz --progress  --password-file=/etc/rsyncd.passwd --delete /home/root/tmp_hsw root@10.10.25.13::getcoolpaddata/</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1.在客户端的时候,你想用客户端的哪个用户传输数据,那么客户端上面的/etc/rsyncd.passwd文件就得是这个用户文件,并且权限是600<br>2.都使用 root 用户肯定是没有问题的<br>3.在服务端的时候,如果不想用 root 用户.那么那两个配置文件的权限都得是 root 用户,然后再 rsync.conf 里面把 uid,cid,auth users改成普通用户即可.</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>配置过程参考文章:<a href="http://blog.csdn.net/cymm_liu/article/details/31347531" target="_blank" rel="external">http://blog.csdn.net/cymm_liu/article/details/31347531</a></p>
 
       
     </div>
@@ -524,11 +548,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/scala/" rel="tag"># scala</a>
-          
-            <a href="/tags/spark/" rel="tag"># spark</a>
-          
-            <a href="/tags/rdd/" rel="tag"># rdd</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -541,8 +561,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/VPSInstallJekyll/" rel="next" title="在VPS上安装Jekyll,搭建自己的静态博客">
-                <i class="fa fa-chevron-left"></i> 在VPS上安装Jekyll,搭建自己的静态博客
+              <a href="/2017/PythonShell/" rel="next" title="用python 写 shell脚本常用模块">
+                <i class="fa fa-chevron-left"></i> 用python 写 shell脚本常用模块
               </a>
             
           </div>
@@ -550,10 +570,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/JavaThread/" rel="prev" title="Java多线程总结笔记">
-                Java多线程总结笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -568,10 +584,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/SparkExampleCSDN/"
-     data-title="使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据"
+        <div class="ds-share flat" data-thread-key="2017/RsyncSkills/"
+     data-title="Linux 文件同步工具——rsync"
      data-content=""
-     data-url="http://yoursite.com/2016/SparkExampleCSDN/">
+     data-url="http://yoursite.com/2017/RsyncSkills/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -598,8 +614,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/SparkExampleCSDN/"
-           data-title="使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据" data-url="http://yoursite.com/2016/SparkExampleCSDN/">
+      <div class="ds-thread" data-thread-key="2017/RsyncSkills/"
+           data-title="Linux 文件同步工具——rsync" data-url="http://yoursite.com/2017/RsyncSkills/">
       </div>
     
   </div>
@@ -721,7 +737,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2000W开房数据"><span class="nav-number">1.</span> <span class="nav-text">2000W开房数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据格式"><span class="nav-number">1.1.</span> <span class="nav-text">数据格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据预览"><span class="nav-number">1.2.</span> <span class="nav-text">数据预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开房数据分析"><span class="nav-number">1.3.</span> <span class="nav-text">开房数据分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSDN用户数据分析"><span class="nav-number">2.</span> <span class="nav-text">CSDN用户数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据格式预览"><span class="nav-number">2.1.</span> <span class="nav-text">数据格式预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据分析"><span class="nav-number">2.2.</span> <span class="nav-text">数据分析</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsync服务器安装与搭建"><span class="nav-number">2.</span> <span class="nav-text">rsync服务器安装与搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件包安装"><span class="nav-number">2.1.</span> <span class="nav-text">软件包安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码包安装"><span class="nav-number">2.2.</span> <span class="nav-text">源码包安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsync-服务端配置"><span class="nav-number">3.</span> <span class="nav-text">rsync 服务端配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改rsyncd-conf文件"><span class="nav-number">3.1.</span> <span class="nav-text">修改rsyncd.conf文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解释rsyncd-conf文件配置项"><span class="nav-number">3.1.1.</span> <span class="nav-text">解释rsyncd.conf文件配置项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设定密码文件-etc-rsyncd-secrets"><span class="nav-number">3.2.</span> <span class="nav-text">设定密码文件/etc/rsyncd.secrets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置客户端"><span class="nav-number">4.</span> <span class="nav-text">配置客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动rsync服务器及防火墙的设置"><span class="nav-number">5.</span> <span class="nav-text">启动rsync服务器及防火墙的设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单使用"><span class="nav-number">6.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
