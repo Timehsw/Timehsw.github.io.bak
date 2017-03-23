@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/RsyncSkills/index.html">
 <meta property="og:site_name" content="Time渐行渐远">
 <meta property="og:description" content="介绍rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync">
-<meta property="og:updated_time" content="2017-03-23T07:42:57.000Z">
+<meta property="og:updated_time" content="2017-03-23T08:04:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 文件同步工具——rsync">
 <meta name="twitter:description" content="介绍rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync">
@@ -488,6 +488,7 @@
 </ul>
 <blockquote>
 <p>模块定义什么呢？主要是定义服务器哪个目录要被同步。每个模块都要以[name]形式。这个名字就是在rsync 客户端看到的名字，其实有点象Samba服务器提供的共享名。而服务器真正同步的数据是通过path 指定的。我们可以根据自己的需要，来指定多个模块。每个模块要指定认证用户，密码文件、并排除并不是必须的文件</p>
+</blockquote>
 <ul>
 <li>模块定义<ul>
 <li>[getcoolpaddata]  #模块它为我们提供了一个链接的名字，在本模块中链接到了/home/root/tmp_hsw/testRsync目录；要用[name] 形式</li>
@@ -501,7 +502,6 @@
 </ul>
 </li>
 </ul>
-</blockquote>
 <h3 id="设定密码文件-etc-rsyncd-secrets"><a href="#设定密码文件-etc-rsyncd-secrets" class="headerlink" title="设定密码文件/etc/rsyncd.secrets"></a>设定密码文件/etc/rsyncd.secrets</h3><p>密码文件格式很简单，rsyncd.secrets的内容格式为：</p>
 <p>　　用户名:密码</p>
 <p>比如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi /etc/rsyncd.secrets</div><div class="line"></div><div class="line">root:rsy123456</div></pre></td></tr></table></figure></p>
