@@ -143,6 +143,13 @@
 
     
     <entry>
+      <title><![CDATA[配置 ssh 免密码登录]]></title>
+      <url>%2F2016%2Fsshlogin%2F</url>
+      <content type="text"><![CDATA[配置 ssh 免密码登录很简单,记住几个命令就行了 生成公钥1ssh-keygen -t rsa 把公钥拷贝到目标机器上即可1ssh-copy-id -i /root/.ssh/id_rsa.pub master(主机名或IP) 1.会提示输入 yes 2.然后输入目标机器的密码即可 3.成功了,会有类似的提示 12345Now try logging into the machine, with &quot;ssh &apos;10.30.23.216&apos;&quot;, and check in: .ssh/authorized_keysto make sure we haven&apos;t added extra keys that you weren&apos;t expecting. 验证1ssh &apos;10.30.23.216&apos; 说明在.ssh 目录下有这么几个文件 123456[root@bigdata .ssh]# lltotal 16-rw------- 1 root root 399 Apr 6 18:24 authorized_keys-rw------- 1 root root 1675 Apr 6 18:23 id_rsa-rw-r--r-- 1 root root 399 Apr 6 18:23 id_rsa.pub-rw-r--r-- 1 root root 2399 Apr 10 12:15 known_hosts 文件名 备注 authorized_keys 这个文件里存储了可以免密码登录到此台服务器的机器 id_rsa 私钥 id_rsa.pub 公钥 known_hosts 这个文件里存储了已经远程登录到此台服务器的机器,不代表可以免密码登录 注意 因此,想要配置免密码登录,也就是把公钥拷贝到服务器的authorized_keys这个文件里就行了. 举例 1.A 机器想要免密码登录到 B 机器 2.A机器生成公钥(没有公钥就执行:ssh-keygen -t rsa.有就不必要不执行了) 3.把 A 机器的公钥拷贝到 B机器的authorized_keys文件里即可. 4.ssh-copy-id -i /root/.ssh/id_rsa.pub master(主机名或IP) 5.上面的命令就是第3步的实现 6.输入 yes,输入远程机器的密码 7.完成]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[python beautifulsoup使用]]></title>
       <url>%2F2016%2FBeautifulSoup%2F</url>
       <content type="text"><![CDATA[操作文档树最简单的方法就是告诉它你想获取的tag的name.如果想获取 标签,只要用 soup.head :tag的 .contents 属性可以将tag的子节点以列表的方式输出: 通过tag的 .children 生成器,可以对tag的子节点进行循环:]]></content>
