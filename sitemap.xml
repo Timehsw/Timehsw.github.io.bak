@@ -65,13 +65,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/PythonShell/</loc>
-    
-    <lastmod>2017-03-20T10:48:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/macbookHexoBlog/</loc>
     
     <lastmod>2017-03-06T07:57:29.000Z</lastmod>
@@ -163,13 +156,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/CentosEnr/</loc>
-    
-    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2016/GitSkills/</loc>
     
     <lastmod>2017-03-02T10:08:56.000Z</lastmod>
@@ -184,6 +170,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2016/CentosEnr/</loc>
+    
+    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/MavenSkills/</loc>
     
     <lastmod>2017-03-02T10:05:49.000Z</lastmod>
@@ -191,7 +184,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/BeautifulSoup/</loc>
+    <loc>http://yoursite.com/2016/ScalaCollection/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -212,6 +205,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2016/BeautifulSoup/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/SparkExampleCSDN/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
@@ -219,14 +219,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/FlaskMail/</loc>
+    <loc>http://yoursite.com/2016/Queue/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -261,6 +254,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2016/Recursion/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/VPSshadowsocks/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
@@ -268,21 +268,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/DesignPattern/</loc>
+    <loc>http://yoursite.com/2016/FlaskMail/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/Queue/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/Recursion/</loc>
+    <loc>http://yoursite.com/2016/LinuxMem/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -296,6 +289,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/JavaThread/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
@@ -303,14 +303,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/ScalaCollection/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/LinuxMem/</loc>
+    <loc>http://yoursite.com/2016/DesignPattern/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
