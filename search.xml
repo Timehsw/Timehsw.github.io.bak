@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[zabbix 部署文档]]></title>
       <url>%2F2017%2FZabbix%2F</url>
-      <content type="text"><![CDATA[记录下搭建过程,以免以后又重复花时间找搭建文档 搭建过程搭建是参照这篇博客来搭建的: http://blog.csdn.net/su1322339466/article/details/53869738]]></content>
+      <content type="text"><![CDATA[记录下搭建过程,以免以后又重复花时间找搭建文档 搭建过程搭建是参照这篇博客来搭建的: http://blog.csdn.net/su1322339466/article/details/53869738 注意安装zabbix_server后,启动 web 页面,默认账号为: 12默认账号: Admin默认密码: zabbix]]></content>
     </entry>
 
     
