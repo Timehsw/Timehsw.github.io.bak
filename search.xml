@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[zabbix 部署文档]]></title>
+      <url>%2F2017%2FZabbix%2F</url>
+      <content type="text"><![CDATA[记录下搭建过程,以免以后又重复花时间找搭建文档 搭建过程搭建是参照这篇博客来搭建的: http://blog.csdn.net/su1322339466/article/details/53869738]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[saltstack web halite 界面部署文档]]></title>
       <url>%2F2017%2FSaltStackWeb%2F</url>
       <content type="text"><![CDATA[安装saltstack webui halite管理界面,方便查看和操作安装部署自动化管理工具SaltStack.在管理多台服务器上,这个工具还是非常好使的,另外由于是 Python写的,也可以很方便的对其进行个性化修改. 安装halite12345cd /var/www/ git clone https://github.com/saltstack/halite[root@master halite]# pwd/var/www/halite/halite[root@master halite]# ./genindex.py -C #生成index.html文件: 安装salt-api1yum install salt-api 配置salt master文件配置salt的master文件，添加：12345678910111213[root@master ~]# vim /etc/salt/masterrest_cherrypy: host: 0.0.0.0 port: 8080 debug: true static: /var/www/halite/halite app: /var/www/halite/halite/index.htmlexternal_auth: pam: rui: - .* - &apos;@runner&apos; - &apos;@wheel&apos; 重启master123[root@master ~]# /etc/init.d/salt-master restartStopping salt-master daemon: [ OK ]Starting salt-master daemon: [ OK ] 添加登陆用户12345678[root@master ~]# useradd rui[root@master ~]# passwd ruiChanging password for user rui.New password:BAD PASSWORD: it is too shortBAD PASSWORD: is too simpleRetype new password:passwd: all authentication tokens updated successfully. 启动 salt-api123salt-api -d 或 cd /var/www/halite/halitepython server_bottle.py -d -C -l debug -s cherrypy 123456789101112131415[root@master ~]# cd /var/www/halite/halite/[root@master halite]# python server_bottle.py -d -C -l debug -s cherrypy20170415_103758.177076 Bottle: Running web application server &apos;cherrypy&apos; on 0.0.0.0:8080.20170415_103758.177237 Bottle: CORS is disabled.20170415_103758.177289 Bottle: TLS/SSL is disabled.20170415_103758.177335 Bottle: Server options:&#123;&#125;20170415_103758.417684 Bottle: Running web application server &apos;cherrypy&apos; on 0.0.0.0:8080.20170415_103758.417833 Bottle: CORS is disabled.20170415_103758.417886 Bottle: TLS/SSL is disabled.20170415_103758.417931 Bottle: Server options:&#123;&#125;Bottle v0.12-dev server starting up (using CherryPyServer())...Listening on http://0.0.0.0:8080/Hit Ctrl-C to quit.]]></content>
