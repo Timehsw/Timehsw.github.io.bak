@@ -579,41 +579,23 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/MakeData/</loc>
+    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>大数据学习时候,造数据的常用方式</title>
-        <pubTime>2016-11-16T02:51:00.000Z</pubTime>
+        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
+        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
         
-        <tag>data</tag>
+        <tag>ubuntu</tag>
+         
+        <tag>deepin</tag>
+         
+        <tag>jekyll</tag>
          
          
            
              
-              <breadCrumb title="bigdata" url="http://yoursite.com/categories/bigdata/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/SparkBug/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>spark开发中遇到的问题</title>
-        <pubTime>2016-12-19T09:00:00.000Z</pubTime>
-        
-        <tag>spark</tag>
-         
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
+              <breadCrumb title="ubuntu" url="http://yoursite.com/categories/ubuntu/"/>
           
         </display>
     </data>
@@ -643,6 +625,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2016/SparkBug/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>spark开发中遇到的问题</title>
+        <pubTime>2016-12-19T09:00:00.000Z</pubTime>
+        
+        <tag>spark</tag>
+         
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2016/SparkExampleCSDN/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -660,6 +664,28 @@
            
              
               <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/LinuxMem/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux进程分析之内存</title>
+        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>memory</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
           
         </display>
     </data>
@@ -704,26 +730,6 @@
            
              
               <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/FlaskMail/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Flask框架中用QQ邮箱发邮件</title>
-        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
-        
-        <tag>flask</tag>
-         
-         
-           
-             
-              <breadCrumb title="flask" url="http://yoursite.com/categories/flask/"/>
           
         </display>
     </data>
@@ -819,21 +825,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/LinuxMem/</loc>
+    <loc>http://yoursite.com/2016/FlaskMail/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Linux进程分析之内存</title>
-        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
+        <title>Flask框架中用QQ邮箱发邮件</title>
+        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
         
-        <tag>linux</tag>
-         
-        <tag>memory</tag>
+        <tag>flask</tag>
          
          
            
              
-              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+              <breadCrumb title="flask" url="http://yoursite.com/categories/flask/"/>
           
         </display>
     </data>
@@ -856,28 +860,6 @@
            
              
               <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/BeautifulSoup/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>python beautifulsoup使用</title>
-        <pubTime>2016-12-09T10:24:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>beautifulsoup</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
           
         </display>
     </data>
@@ -945,23 +927,41 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
+    <loc>http://yoursite.com/2016/MakeData/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
-        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
+        <title>大数据学习时候,造数据的常用方式</title>
+        <pubTime>2016-11-16T02:51:00.000Z</pubTime>
         
-        <tag>ubuntu</tag>
-         
-        <tag>deepin</tag>
-         
-        <tag>jekyll</tag>
+        <tag>data</tag>
          
          
            
              
-              <breadCrumb title="ubuntu" url="http://yoursite.com/categories/ubuntu/"/>
+              <breadCrumb title="bigdata" url="http://yoursite.com/categories/bigdata/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/BeautifulSoup/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>python beautifulsoup使用</title>
+        <pubTime>2016-12-09T10:24:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>beautifulsoup</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
           
         </display>
     </data>
