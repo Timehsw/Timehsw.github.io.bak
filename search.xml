@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Git 常用命令以及笔记]]></title>
+      <url>%2F2017%2FGitSkills%2F</url>
+      <content type="text"><![CDATA[平时一直是用Intellij进行开发,git命令也不会用命令行去输入.导致有些命令都不太熟悉了,每次用到的时候都是google.今天把平时用到的命令做个笔记记录一下. git分布式仓库工作流程这里有个图,非常形象的展示了本地仓库和远程仓库以及常用的一些命令的作用范围]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[zabbix 部署文档]]></title>
       <url>%2F2017%2FZabbix%2F</url>
       <content type="text"><![CDATA[记录下搭建过程,以免以后又重复花时间找搭建文档 搭建过程搭建是参照这篇博客来搭建的: http://blog.csdn.net/su1322339466/article/details/53869738 注意安装zabbix_server后,启动 web 页面,默认账号为: 12默认账号: Admin默认密码: zabbix]]></content>
@@ -164,16 +171,16 @@
 
     
     <entry>
-      <title><![CDATA[python beautifulsoup使用]]></title>
-      <url>%2F2016%2FBeautifulSoup%2F</url>
-      <content type="text"><![CDATA[操作文档树最简单的方法就是告诉它你想获取的tag的name.如果想获取 标签,只要用 soup.head :tag的 .contents 属性可以将tag的子节点以列表的方式输出: 通过tag的 .children 生成器,可以对tag的子节点进行循环:]]></content>
+      <title><![CDATA[配置 ssh 免密码登录]]></title>
+      <url>%2F2016%2Fsshlogin%2F</url>
+      <content type="text"><![CDATA[配置 ssh 免密码登录很简单,记住几个命令就行了 生成公钥1ssh-keygen -t rsa 把公钥拷贝到目标机器上即可1ssh-copy-id -i /root/.ssh/id_rsa.pub master(主机名或IP或用户名@IP) 1.会提示输入 yes 2.然后输入目标机器的密码即可 3.成功了,会有类似的提示 12345Now try logging into the machine, with &quot;ssh &apos;10.30.23.216&apos;&quot;, and check in: .ssh/authorized_keysto make sure we haven&apos;t added extra keys that you weren&apos;t expecting. 验证1ssh &apos;10.30.23.216&apos; 说明在.ssh 目录下有这么几个文件 123456[root@bigdata .ssh]# lltotal 16-rw------- 1 root root 399 Apr 6 18:24 authorized_keys-rw------- 1 root root 1675 Apr 6 18:23 id_rsa-rw-r--r-- 1 root root 399 Apr 6 18:23 id_rsa.pub-rw-r--r-- 1 root root 2399 Apr 10 12:15 known_hosts 文件名 备注 authorized_keys 这个文件里存储了可以免密码登录到此台服务器的机器 id_rsa 私钥 id_rsa.pub 公钥 known_hosts 这个文件里存储了已经远程登录到此台服务器的机器,不代表可以免密码登录 注意 因此,想要配置免密码登录,也就是把公钥拷贝到服务器的authorized_keys这个文件里就行了. 举例 1.A 机器想要免密码登录到 B 机器 2.A机器生成公钥(没有公钥就执行:ssh-keygen -t rsa.有就不必要不执行了) 3.把 A 机器的公钥拷贝到 B机器的authorized_keys文件里即可. 4.ssh-copy-id -i /root/.ssh/id_rsa.pub master(主机名或IP) 5.上面的命令就是第3步的实现 6.输入 yes,输入远程机器的密码 7.完成]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[配置 ssh 免密码登录]]></title>
-      <url>%2F2016%2Fsshlogin%2F</url>
-      <content type="text"><![CDATA[配置 ssh 免密码登录很简单,记住几个命令就行了 生成公钥1ssh-keygen -t rsa 把公钥拷贝到目标机器上即可1ssh-copy-id -i /root/.ssh/id_rsa.pub master(主机名或IP或用户名@IP) 1.会提示输入 yes 2.然后输入目标机器的密码即可 3.成功了,会有类似的提示 12345Now try logging into the machine, with &quot;ssh &apos;10.30.23.216&apos;&quot;, and check in: .ssh/authorized_keysto make sure we haven&apos;t added extra keys that you weren&apos;t expecting. 验证1ssh &apos;10.30.23.216&apos; 说明在.ssh 目录下有这么几个文件 123456[root@bigdata .ssh]# lltotal 16-rw------- 1 root root 399 Apr 6 18:24 authorized_keys-rw------- 1 root root 1675 Apr 6 18:23 id_rsa-rw-r--r-- 1 root root 399 Apr 6 18:23 id_rsa.pub-rw-r--r-- 1 root root 2399 Apr 10 12:15 known_hosts 文件名 备注 authorized_keys 这个文件里存储了可以免密码登录到此台服务器的机器 id_rsa 私钥 id_rsa.pub 公钥 known_hosts 这个文件里存储了已经远程登录到此台服务器的机器,不代表可以免密码登录 注意 因此,想要配置免密码登录,也就是把公钥拷贝到服务器的authorized_keys这个文件里就行了. 举例 1.A 机器想要免密码登录到 B 机器 2.A机器生成公钥(没有公钥就执行:ssh-keygen -t rsa.有就不必要不执行了) 3.把 A 机器的公钥拷贝到 B机器的authorized_keys文件里即可. 4.ssh-copy-id -i /root/.ssh/id_rsa.pub master(主机名或IP) 5.上面的命令就是第3步的实现 6.输入 yes,输入远程机器的密码 7.完成]]></content>
+      <title><![CDATA[python beautifulsoup使用]]></title>
+      <url>%2F2016%2FBeautifulSoup%2F</url>
+      <content type="text"><![CDATA[操作文档树最简单的方法就是告诉它你想获取的tag的name.如果想获取 标签,只要用 soup.head :tag的 .contents 属性可以将tag的子节点以列表的方式输出: 通过tag的 .children 生成器,可以对tag的子节点进行循环:]]></content>
     </entry>
 
     
@@ -318,8 +325,8 @@
 
     
     <entry>
-      <title><![CDATA[Git 常用命令以及笔记]]></title>
-      <url>%2F2016%2FGitSkills%2F</url>
+      <title><![CDATA[Git 命令]]></title>
+      <url>%2F2016%2FGitOrder%2F</url>
       <content type="text"><![CDATA[git 常用命令git 配置命令git init # 初始化本地git仓库（创建新仓库）git config –global user.name “xxx” # 配置用户名git config –global user.email “xxx@xxx.com” # 配置邮件ssh-keygen -t rsa -C xxx@xxx.com # 生成SSH秘钥git config –global color.ui true # git status等命令自动着色git config –global color.status autogit config –global color.diff autogit config –global color.branch autogit config –global color.interactive autogit config –global –unset http.proxy # remove proxy configuration on gitgit clone git+ssh://git@192.168.53.168/VT.git # clone远程仓库git status # 查看当前版本状态（是否修改）git add xyz # 添加xyz文件至indexgit add . # 增加当前子目录下所有更改过的文件至indexgit commit -m ‘xxx’ # 提交git commit –amend -m ‘xxx’ # 合并上一次提交（用于反复修改）git commit -am ‘xxx’ # 将add和commit合为一步 git 删除相关git rm xxx # 删除index中的文件git rm -r * # 递归删除git rm –cached xxx.rb # 将xxx.rb从暂存区删除,但并不从文件系统里移除,只是移出git的管理 git mv README README2 # 重命名文件README为README2 git 日志相关git log # 显示提交日志git log -1 # 显示1行日志 -n为n行git log -5git log –stat # 显示提交日志及相关变动文件git log -p -mgit log v2.0 # 显示v2.0的日志git show dfb02e6e4f2f7b573337763e5c0013802e392818 # 显示某个提交的详细内容git show dfb02 # 可只用commitid的前几位git show HEAD # 显示HEAD提交日志git show HEAD^ # 显示HEAD的父（上一个版本）的提交日志 ^^为上两个版本 ^5为上5个版本git show v2.0 # 显示v2.0的日志及详细内容git show HEAD@{5}git show master@{yesterday} # 显示master分支昨天的状态git show HEAD~3git show -s –pretty=raw 2be7fcb476git tag # 显示已存在的taggit tag -a v2.0 -m ‘xxx’ # 增加v2.0的taggit diff # 显示所有未添加至index的变更git diff –cached # 显示所有已添加index但还未commit的变更git diff HEAD^ # 比较与上一个版本的差异git diff HEAD – ./lib # 比较与HEAD版本lib目录的差异git diff origin/master..master # 比较远程分支master上有本地分支master上没有的git diff origin/master..master –stat # 只显示差异的文件，不显示具体内容git remote add origin git+ssh://git@192.168.53.168/VT.git # 增加远程定义（用于push/pull/fetch） git 分支相关git branch testing # 创建分支testinggit checkout testing # 切换到testing分支git checkout -b testing #创建testing分支，并切换到testing分支，是上面两个命令的合并git log –oneline –decorate –graph –all # 输出你的提交历史、各个分支的指向以及项目的分支分叉情况git branch # 显示本地分支git branch –contains 50089 # 显示包含提交50089的分支git branch -a # 显示所有分支git branch -r # 显示所有原创分支git branch –merged # 显示所有已合并到当前分支的分支git branch –no-merged # 显示所有未合并到当前分支的分支git branch -m master master_copy # 本地分支改名git branch -d hotfixes/BJVEP933 # 删除分支hotfixes/BJVEP933（本分支修改已合并到其他分支）git branch -D hotfixes/BJVEP933 # 强制删除分支hotfixes/BJVEP933git show-branch # 图示当前分支历史git show-branch –all # 图示所有分支历史git checkout -b master_copy # 从当前分支创建新分支master_copy并检出git checkout -b master master_copy # 上面的完整版git checkout features/performance # 检出已存在的features/performance分支git checkout –track hotfixes/BJVEP933 # 检出远程分支hotfixes/BJVEP933并创建本地跟踪分支git checkout v2.0 # 检出版本v2.0git checkout -b devel origin/develop # 从远程分支develop创建新本地分支devel并检出git checkout – README # 检出head版本的README文件（可用于修改错误回退）git merge origin/master # 合并远程master分支至当前分支git cherry-pick ff44785404a8e # 合并提交ff44785404a8e的修改 git 发布相关git push origin master # 将当前分支push到远程master分支git push origin :hotfixes/BJVEP933 # 删除远程仓库的hotfixes/BJVEP933分支git push –tags # 把所有tag推送到远程仓库git fetch # 获取所有远程分支（不更新本地分支，另需merge）git fetch –prune # 获取所有原创分支并清除服务器上已删掉的分支git pull origin master # 获取远程分支master并merge到当前分支 git reset –hard HEAD # 将当前版本重置为HEAD（通常用于merge失败回退）git rebasegit ls-files # 列出git index包含的文件git whatchanged # 显示提交历史对应的文件修改git revert dfb02e6e4f2f7b573337763e5c0013802e392818 # 撤销提交dfb02e6e4f2f7b573337763e5c0013802e392818git ls-tree HEAD # 内部命令：显示某个git对象git rev-parse v2.0 # 内部命令：显示某个ref对于的SHA1 HASHgit reflog # 显示所有提交，包括孤立节点git log –pretty=format:’%h %s’ –graph # 图示提交日志 git 状态相关git stash # 暂存当前修改，将所有至为HEAD状态.你做了一些修改并且向稍后再它们上面工作。你应该保存它们，但是不提交它们git stash list # 查看所有暂存git stash show -p stash@{0} # 参考第一次暂存git stash apply stash@{0} # 应用第一次暂存git grep “delete from” # 文件中搜索文本“delete from”git grep -e ‘#define’ –and -e SORT_DIRENT git 更改分支名字git branch -m old_branch new_branch # Rename branch locallygit push origin :old_branch # Delete the old branchgit push –set-upstream origin new_branch # Push the new branch, set local branch to track the new remote git 查看日志git log –pretty=oneline # 一行显示一次提交信息 git 远程仓库git clone https://github.com/Timehsw/LearnGit # 下载远程仓库git remote -v # 显示当前的远程仓库(简写与其对应的 URL)git remote # 显示当前的远程仓库(只有简写)git remote add # 添加远程仓库(可以用shortname代替url的引用,也就是简写)git fetch [remote-name] # 从远程仓库中抓取与拉取git push -u [remote-name] [branch-name] # 推送到远程仓库(eg:git push origin master)git remote show [remote-name] # 查看远程仓库(eg:git remote show origin)git remote rename [shortname] [newname] # 远程仓库的重命名(eg:git remote rename pb paul)git remote rm [shortname] # 远程仓库的移除(eg:git remote rm paul) git 标签git tag # 列出标签git tag -a v1.0 -m “create v1.0 tag” # 创建附注标签(附注标签会包含一些标签信息)git show v1.0 # 查看标签信息与对应的提交信息git tag v1.1 # 创建轻量标签(轻量标签本质上是将提交校验和存储到一个文件中 - 没有保存任何其他信息)git tag -a v1.2 9fceb02 # 后期打标签(给之前的提交打个标签,v1.2是标签名字 9fceb02是某一次提交的hash值或者部分hash值 )git push origin [tagname] # 共享标签到远程仓库(eg:git push origin v1.0)git push origin –tags # 把所有不在远程仓库服务器上的标签全部传送到那里git checkout -b version2 v1.1 # 检出标签(在特定的标签上创建一个新分支)Git 别名 git 笔记从 git 管理中取消1234我们得先把idea从git的管理里撤销git rm --cached -r .idea/然后提交此次动作git commit -m &quot;rm cached .idea&quot;]]></content>
     </entry>
 
