@@ -3,6 +3,28 @@
 
 
     
+  <url>
+    <loc>http://yoursite.com/2017/DockerInstallGitlab/</loc>
+    <lastmod>2017-07-06T09:48:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu16.04使用Docker部署Gitlab</title>
+        <pubTime>2017-07-05T10:24:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>ubuntu</tag>
+         
+         
+           
+             
+              <breadCrumb title="docker" url="http://yoursite.com/categories/docker/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://yoursite.com/2017/GitSkills/</loc>
@@ -579,26 +601,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/CentosEnr/</loc>
-    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>CentOS 常用开发环境</title>
-        <pubTime>2016-10-20T09:00:00.000Z</pubTime>
-        
-        <tag>centOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="centOS" url="http://yoursite.com/categories/centOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2017/IntellijIdeaForMac/</loc>
     <lastmod>2017-03-02T10:08:56.000Z</lastmod>
     <data>
@@ -614,6 +616,26 @@
            
              
               <breadCrumb title="intellij" url="http://yoursite.com/categories/intellij/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/CentosEnr/</loc>
+    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS 常用开发环境</title>
+        <pubTime>2016-10-20T09:00:00.000Z</pubTime>
+        
+        <tag>centOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="centOS" url="http://yoursite.com/categories/centOS/"/>
           
         </display>
     </data>
@@ -641,21 +663,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/BeautifulSoup/</loc>
+    <loc>http://yoursite.com/2016/DesignPattern/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>python beautifulsoup使用</title>
-        <pubTime>2016-12-09T10:24:00.000Z</pubTime>
+        <title>设计模式</title>
+        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
         
-        <tag>python</tag>
-         
-        <tag>beautifulsoup</tag>
+        <tag>design</tag>
          
          
            
              
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+              <breadCrumb title="designpattern" url="http://yoursite.com/categories/designpattern/"/>
           
         </display>
     </data>
@@ -663,21 +683,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/JavaThread/</loc>
+    <loc>http://yoursite.com/2016/ScalaCollection/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Java多线程总结笔记</title>
-        <pubTime>2016-12-06T06:22:00.000Z</pubTime>
+        <title>Scala集合</title>
+        <pubTime>2016-11-14T05:37:00.000Z</pubTime>
         
-        <tag>java</tag>
-         
-        <tag>thread</tag>
+        <tag>scala</tag>
          
          
            
              
-              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
+              <breadCrumb title="scala" url="http://yoursite.com/categories/scala/"/>
           
         </display>
     </data>
@@ -707,21 +725,21 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/LinuxMem/</loc>
+    <loc>http://yoursite.com/2016/Queue/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Linux进程分析之内存</title>
-        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
+        <title>Java数据结构之队列</title>
+        <pubTime>2016-12-07T02:01:00.000Z</pubTime>
         
-        <tag>linux</tag>
+        <tag>java</tag>
          
-        <tag>memory</tag>
+        <tag>datastructure</tag>
          
          
            
              
-              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+              <breadCrumb title="datastructure" url="http://yoursite.com/categories/datastructure/"/>
           
         </display>
     </data>
@@ -775,50 +793,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/UbuntuSocks/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu/Deepin下用Shadowsocks实现翻墙上网</title>
-        <pubTime>2016-12-11T02:01:00.000Z</pubTime>
-        
-        <tag>vps</tag>
-         
-        <tag>shadowsocks</tag>
-         
-         
-           
-             
-              <breadCrumb title="shadowsocks" url="http://yoursite.com/categories/shadowsocks/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/Queue/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Java数据结构之队列</title>
-        <pubTime>2016-12-07T02:01:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>datastructure</tag>
-         
-         
-           
-             
-              <breadCrumb title="datastructure" url="http://yoursite.com/categories/datastructure/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2016/SparkRdd/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -863,6 +837,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2016/UbuntuSocks/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu/Deepin下用Shadowsocks实现翻墙上网</title>
+        <pubTime>2016-12-11T02:01:00.000Z</pubTime>
+        
+        <tag>vps</tag>
+         
+        <tag>shadowsocks</tag>
+         
+         
+           
+             
+              <breadCrumb title="shadowsocks" url="http://yoursite.com/categories/shadowsocks/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2016/VPSInstallJekyll/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -885,23 +881,43 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
+    <loc>http://yoursite.com/2016/LinuxMem/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
-        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
+        <title>Linux进程分析之内存</title>
+        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
         
-        <tag>ubuntu</tag>
+        <tag>linux</tag>
          
-        <tag>deepin</tag>
-         
-        <tag>jekyll</tag>
+        <tag>memory</tag>
          
          
            
              
-              <breadCrumb title="ubuntu" url="http://yoursite.com/categories/ubuntu/"/>
+              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/JavaThread/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Java多线程总结笔记</title>
+        <pubTime>2016-12-06T06:22:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>thread</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
           
         </display>
     </data>
@@ -951,46 +967,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/DesignPattern/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式</title>
-        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
-        
-        <tag>design</tag>
-         
-         
-           
-             
-              <breadCrumb title="designpattern" url="http://yoursite.com/categories/designpattern/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/ScalaCollection/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Scala集合</title>
-        <pubTime>2016-11-14T05:37:00.000Z</pubTime>
-        
-        <tag>scala</tag>
-         
-         
-           
-             
-              <breadCrumb title="scala" url="http://yoursite.com/categories/scala/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2016/ScalaArray/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -1011,6 +987,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2016/BeautifulSoup/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>python beautifulsoup使用</title>
+        <pubTime>2016-12-09T10:24:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>beautifulsoup</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2016/MakeData/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -1024,6 +1022,30 @@
            
              
               <breadCrumb title="bigdata" url="http://yoursite.com/categories/bigdata/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
+        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
+        
+        <tag>ubuntu</tag>
+         
+        <tag>deepin</tag>
+         
+        <tag>jekyll</tag>
+         
+         
+           
+             
+              <breadCrumb title="ubuntu" url="http://yoursite.com/categories/ubuntu/"/>
           
         </display>
     </data>
