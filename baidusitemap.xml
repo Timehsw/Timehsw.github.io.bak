@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/ReadConfigFile/</loc>
+    <lastmod>2017-07-07T06:06:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>项目中配置文件的读取</title>
+        <pubTime>2017-06-25T03:41:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>scala</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/DockerInstallGitlab/</loc>
     <lastmod>2017-07-06T09:48:45.000Z</lastmod>
     <data>
@@ -11,9 +33,9 @@
         <title>Ubuntu16.04使用Docker部署Gitlab</title>
         <pubTime>2017-07-05T10:24:00.000Z</pubTime>
         
-        <tag>docker</tag>
-         
         <tag>ubuntu</tag>
+         
+        <tag>docker</tag>
          
          
            
@@ -40,28 +62,6 @@
            
              
               <breadCrumb title="git" url="http://yoursite.com/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/ReadConfigFile/</loc>
-    <lastmod>2017-06-26T03:59:41.000Z</lastmod>
-    <data>
-        <display>
-        <title>项目中配置文件的读取</title>
-        <pubTime>2017-06-25T03:41:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>scala</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
           
         </display>
     </data>
@@ -601,6 +601,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2016/CentosEnr/</loc>
+    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS 常用开发环境</title>
+        <pubTime>2016-10-20T09:00:00.000Z</pubTime>
+        
+        <tag>centOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="centOS" url="http://yoursite.com/categories/centOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/IntellijIdeaForMac/</loc>
     <lastmod>2017-03-02T10:08:56.000Z</lastmod>
     <data>
@@ -616,26 +636,6 @@
            
              
               <breadCrumb title="intellij" url="http://yoursite.com/categories/intellij/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/CentosEnr/</loc>
-    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>CentOS 常用开发环境</title>
-        <pubTime>2016-10-20T09:00:00.000Z</pubTime>
-        
-        <tag>centOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="centOS" url="http://yoursite.com/categories/centOS/"/>
           
         </display>
     </data>
@@ -663,19 +663,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/DesignPattern/</loc>
+    <loc>http://yoursite.com/2016/FlaskMail/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>设计模式</title>
-        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
+        <title>Flask框架中用QQ邮箱发邮件</title>
+        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
         
-        <tag>design</tag>
+        <tag>flask</tag>
          
          
            
              
-              <breadCrumb title="designpattern" url="http://yoursite.com/categories/designpattern/"/>
+              <breadCrumb title="flask" url="http://yoursite.com/categories/flask/"/>
           
         </display>
     </data>
@@ -683,19 +683,21 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/ScalaCollection/</loc>
+    <loc>http://yoursite.com/2016/JavaThread/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Scala集合</title>
-        <pubTime>2016-11-14T05:37:00.000Z</pubTime>
+        <title>Java多线程总结笔记</title>
+        <pubTime>2016-12-06T06:22:00.000Z</pubTime>
         
-        <tag>scala</tag>
+        <tag>java</tag>
+         
+        <tag>thread</tag>
          
          
            
              
-              <breadCrumb title="scala" url="http://yoursite.com/categories/scala/"/>
+              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
           
         </display>
     </data>
@@ -771,6 +773,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2016/Recursion/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>递归算法</title>
+        <pubTime>2016-11-27T01:50:00.000Z</pubTime>
+        
+        <tag>algorithm</tag>
+         
+        <tag>recursion</tag>
+         
+         
+           
+             
+              <breadCrumb title="algorithm" url="http://yoursite.com/categories/algorithm/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2016/SparkRDDOpe/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -808,28 +832,6 @@
            
              
               <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/Recursion/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>递归算法</title>
-        <pubTime>2016-11-27T01:50:00.000Z</pubTime>
-        
-        <tag>algorithm</tag>
-         
-        <tag>recursion</tag>
-         
-         
-           
-             
-              <breadCrumb title="algorithm" url="http://yoursite.com/categories/algorithm/"/>
           
         </display>
     </data>
@@ -881,43 +883,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/LinuxMem/</loc>
+    <loc>http://yoursite.com/2016/DesignPattern/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Linux进程分析之内存</title>
-        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
+        <title>设计模式</title>
+        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
         
-        <tag>linux</tag>
-         
-        <tag>memory</tag>
+        <tag>design</tag>
          
          
            
              
-              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/JavaThread/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Java多线程总结笔记</title>
-        <pubTime>2016-12-06T06:22:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>thread</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
+              <breadCrumb title="designpattern" url="http://yoursite.com/categories/designpattern/"/>
           
         </display>
     </data>
@@ -947,39 +925,21 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/FlaskMail/</loc>
+    <loc>http://yoursite.com/2016/LinuxMem/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Flask框架中用QQ邮箱发邮件</title>
-        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
+        <title>Linux进程分析之内存</title>
+        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
         
-        <tag>flask</tag>
+        <tag>linux</tag>
+         
+        <tag>memory</tag>
          
          
            
              
-              <breadCrumb title="flask" url="http://yoursite.com/categories/flask/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/ScalaArray/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Scala数组</title>
-        <pubTime>2016-11-14T02:59:00.000Z</pubTime>
-        
-        <tag>scala</tag>
-         
-         
-           
-             
-              <breadCrumb title="scala" url="http://yoursite.com/categories/scala/"/>
+              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
           
         </display>
     </data>
@@ -1022,6 +982,46 @@
            
              
               <breadCrumb title="bigdata" url="http://yoursite.com/categories/bigdata/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/ScalaArray/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Scala数组</title>
+        <pubTime>2016-11-14T02:59:00.000Z</pubTime>
+        
+        <tag>scala</tag>
+         
+         
+           
+             
+              <breadCrumb title="scala" url="http://yoursite.com/categories/scala/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/ScalaCollection/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Scala集合</title>
+        <pubTime>2016-11-14T05:37:00.000Z</pubTime>
+        
+        <tag>scala</tag>
+         
+         
+           
+             
+              <breadCrumb title="scala" url="http://yoursite.com/categories/scala/"/>
           
         </display>
     </data>
