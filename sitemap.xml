@@ -233,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/VPSshadowsocks/</loc>
+    <loc>http://yoursite.com/2016/JavaThread/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/ScalaCollection/</loc>
+    <loc>http://yoursite.com/2016/Queue/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -254,6 +254,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2016/BeautifulSoup/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/SparkExampleCSDN/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
@@ -261,7 +268,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
+    <loc>http://yoursite.com/2016/LinuxMem/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -275,7 +282,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/Recursion/</loc>
+    <loc>http://yoursite.com/2016/VPSInstallJekyll/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -296,42 +303,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/ScalaArray/</loc>
+    <loc>http://yoursite.com/2016/VPSshadowsocks/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/VPSInstallJekyll/</loc>
+    <loc>http://yoursite.com/2016/Recursion/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/MakeData/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/LinuxMem/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/JavaThread/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/BeautifulSoup/</loc>
+    <loc>http://yoursite.com/2016/DesignPattern/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -345,14 +331,28 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/Queue/</loc>
+    <loc>http://yoursite.com/2016/MakeData/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2016/DesignPattern/</loc>
+    <loc>http://yoursite.com/2016/ScalaArray/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/ScalaCollection/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
