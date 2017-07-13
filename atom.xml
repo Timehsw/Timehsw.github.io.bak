@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-07-13T10:13:49.000Z</updated>
+  <updated>2017-07-13T10:30:54.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>逻辑回归笔记</title>
     <link href="http://dmlcoding.com/2017/LogicalRegression/"/>
     <id>http://dmlcoding.com/2017/LogicalRegression/</id>
-    <published>2017-07-13T09:24:00.000Z</published>
-    <updated>2017-07-13T10:13:49.000Z</updated>
+    <published>2017-07-12T09:24:00.000Z</published>
+    <updated>2017-07-13T10:30:54.000Z</updated>
     
     <content type="html"><![CDATA[<p>不知道什么是逻辑回归,但是也许看完接下来的文章,你会有个大概的印象吧<br><a id="more"></a></p>
 <h1 id="简单介绍Logistic回归"><a href="#简单介绍Logistic回归" class="headerlink" title="简单介绍Logistic回归"></a>简单介绍Logistic回归</h1><h2 id="Logistic回归用到的知识点"><a href="#Logistic回归用到的知识点" class="headerlink" title="Logistic回归用到的知识点"></a>Logistic回归用到的知识点</h2><ul>
@@ -53,6 +53,8 @@
 </ul>
 </li>
 </ul>
+<p>基本公式:<br>Sigmoid函数具体的计算公式</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML">  <mstyle displaystyle="true">    <mi> &#x03C3;<!--greek small letter sigma--> </mi>    <mfenced>      <mrow>        <mi> z </mi>      </mrow>    </mfenced>    <mo> = </mo>    <mfrac>      <mrow>        <mn> 1 </mn>      </mrow>      <mrow>        <mn> 1 </mn>        <mo> + </mo>        <msup>          <mrow>            <mi> e </mi>          </mrow>          <mrow>            <mo> - </mo>            <mi> z </mi>          </mrow>        </msup>      </mrow>    </mfrac>  </mstyle></math>
 ]]></content>
     
     <summary type="html">
