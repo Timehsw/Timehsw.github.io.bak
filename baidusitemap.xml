@@ -4,7 +4,47 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/DruidQuickStart/</loc>
+    <loc>http://dmlcoding.com/2017/LogicalRegression/</loc>
+    <lastmod>2017-07-13T10:13:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>逻辑回归笔记</title>
+        <pubTime>2017-07-13T09:24:00.000Z</pubTime>
+        
+        <tag>ml</tag>
+         
+         
+           
+             
+              <breadCrumb title="ml" url="http://dmlcoding.com/categories/ml/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2017/GitSkills/</loc>
+    <lastmod>2017-07-13T07:08:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git 常用命令以及笔记</title>
+        <pubTime>2017-06-20T06:00:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="http://dmlcoding.com/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2017/DruidQuickStart/</loc>
     <lastmod>2017-07-10T10:27:29.000Z</lastmod>
     <data>
         <display>
@@ -16,7 +56,7 @@
          
            
              
-              <breadCrumb title="druid" url="http://yoursite.com/categories/druid/"/>
+              <breadCrumb title="druid" url="http://dmlcoding.com/categories/druid/"/>
           
         </display>
     </data>
@@ -24,7 +64,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/ReadConfigFile/</loc>
+    <loc>http://dmlcoding.com/2017/ReadConfigFile/</loc>
     <lastmod>2017-07-07T06:08:10.000Z</lastmod>
     <data>
         <display>
@@ -38,7 +78,7 @@
          
            
              
-              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
+              <breadCrumb title="java" url="http://dmlcoding.com/categories/java/"/>
           
         </display>
     </data>
@@ -46,7 +86,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/DockerInstallGitlab/</loc>
+    <loc>http://dmlcoding.com/2017/DockerInstallGitlab/</loc>
     <lastmod>2017-07-06T09:48:45.000Z</lastmod>
     <data>
         <display>
@@ -60,7 +100,7 @@
          
            
              
-              <breadCrumb title="docker" url="http://yoursite.com/categories/docker/"/>
+              <breadCrumb title="docker" url="http://dmlcoding.com/categories/docker/"/>
           
         </display>
     </data>
@@ -69,27 +109,7 @@
     
     
   <url>
-    <loc>http://yoursite.com/2017/GitSkills/</loc>
-    <lastmod>2017-06-26T04:01:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>Git 常用命令以及笔记</title>
-        <pubTime>2017-06-20T06:00:00.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-         
-           
-             
-              <breadCrumb title="git" url="http://yoursite.com/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/PythonSplitFunc/</loc>
+    <loc>http://dmlcoding.com/2017/PythonSplitFunc/</loc>
     <lastmod>2017-06-22T07:36:03.000Z</lastmod>
     <data>
         <display>
@@ -101,7 +121,7 @@
          
            
              
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+              <breadCrumb title="python" url="http://dmlcoding.com/categories/python/"/>
           
         </display>
     </data>
@@ -109,7 +129,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/HexoBlog/</loc>
+    <loc>http://dmlcoding.com/2017/HexoBlog/</loc>
     <lastmod>2017-06-19T10:11:58.000Z</lastmod>
     <data>
         <display>
@@ -123,7 +143,7 @@
          
            
              
-              <breadCrumb title="blog" url="http://yoursite.com/categories/blog/"/>
+              <breadCrumb title="blog" url="http://dmlcoding.com/categories/blog/"/>
           
         </display>
     </data>
@@ -131,7 +151,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/mrs/</loc>
+    <loc>http://dmlcoding.com/2017/mrs/</loc>
     <lastmod>2017-06-19T10:01:50.000Z</lastmod>
     <data>
         <display>
@@ -143,7 +163,7 @@
          
            
              
-              <breadCrumb title="fun" url="http://yoursite.com/categories/fun/"/>
+              <breadCrumb title="fun" url="http://dmlcoding.com/categories/fun/"/>
           
         </display>
     </data>
@@ -151,7 +171,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/GitOrder/</loc>
+    <loc>http://dmlcoding.com/2016/GitOrder/</loc>
     <lastmod>2017-06-19T08:47:41.000Z</lastmod>
     <data>
         <display>
@@ -163,7 +183,7 @@
          
            
              
-              <breadCrumb title="git" url="http://yoursite.com/categories/git/"/>
+              <breadCrumb title="git" url="http://dmlcoding.com/categories/git/"/>
           
         </display>
     </data>
@@ -171,7 +191,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/Zabbix/</loc>
+    <loc>http://dmlcoding.com/2017/Zabbix/</loc>
     <lastmod>2017-04-21T08:31:08.000Z</lastmod>
     <data>
         <display>
@@ -183,7 +203,7 @@
          
            
              
-              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
           
         </display>
     </data>
@@ -191,7 +211,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/SaltStackWeb/</loc>
+    <loc>http://dmlcoding.com/2017/SaltStackWeb/</loc>
     <lastmod>2017-04-19T09:12:17.000Z</lastmod>
     <data>
         <display>
@@ -205,7 +225,7 @@
          
            
              
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+              <breadCrumb title="python" url="http://dmlcoding.com/categories/python/"/>
           
         </display>
     </data>
@@ -213,7 +233,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/SaltStack/</loc>
+    <loc>http://dmlcoding.com/2017/SaltStack/</loc>
     <lastmod>2017-04-19T09:09:59.000Z</lastmod>
     <data>
         <display>
@@ -227,7 +247,7 @@
          
            
              
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
+              <breadCrumb title="python" url="http://dmlcoding.com/categories/python/"/>
           
         </display>
     </data>
@@ -235,7 +255,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/linuxssh/</loc>
+    <loc>http://dmlcoding.com/2016/linuxssh/</loc>
     <lastmod>2017-04-10T10:18:06.000Z</lastmod>
     <data>
         <display>
@@ -247,7 +267,7 @@
          
            
              
-              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
           
         </display>
     </data>
@@ -255,7 +275,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/MacbookEnr/</loc>
+    <loc>http://dmlcoding.com/2017/MacbookEnr/</loc>
     <lastmod>2017-04-10T10:08:09.000Z</lastmod>
     <data>
         <display>
@@ -267,7 +287,7 @@
          
            
              
-              <breadCrumb title="macbook" url="http://yoursite.com/categories/macbook/"/>
+              <breadCrumb title="macbook" url="http://dmlcoding.com/categories/macbook/"/>
           
         </display>
     </data>
@@ -275,7 +295,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/LinuxSymbolicLink/</loc>
+    <loc>http://dmlcoding.com/2016/LinuxSymbolicLink/</loc>
     <lastmod>2017-04-10T10:04:37.000Z</lastmod>
     <data>
         <display>
@@ -287,7 +307,7 @@
          
            
              
-              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
           
         </display>
     </data>
@@ -295,7 +315,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/linuxuser/</loc>
+    <loc>http://dmlcoding.com/2016/linuxuser/</loc>
     <lastmod>2017-04-10T07:55:31.000Z</lastmod>
     <data>
         <display>
@@ -307,7 +327,7 @@
          
            
              
-              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
           
         </display>
     </data>
@@ -315,7 +335,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/mysqlpasswd/</loc>
+    <loc>http://dmlcoding.com/2016/mysqlpasswd/</loc>
     <lastmod>2017-04-10T07:34:05.000Z</lastmod>
     <data>
         <display>
@@ -327,7 +347,7 @@
          
            
              
-              <breadCrumb title="mysql" url="http://yoursite.com/categories/mysql/"/>
+              <breadCrumb title="mysql" url="http://dmlcoding.com/categories/mysql/"/>
           
         </display>
     </data>
@@ -335,7 +355,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/sshlogin/</loc>
+    <loc>http://dmlcoding.com/2016/sshlogin/</loc>
     <lastmod>2017-04-10T05:24:24.000Z</lastmod>
     <data>
         <display>
@@ -349,7 +369,7 @@
          
            
              
-              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
           
         </display>
     </data>
@@ -357,7 +377,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/mysqlprivileges/</loc>
+    <loc>http://dmlcoding.com/2017/mysqlprivileges/</loc>
     <lastmod>2017-04-10T03:31:34.000Z</lastmod>
     <data>
         <display>
@@ -369,7 +389,7 @@
          
            
              
-              <breadCrumb title="mysql" url="http://yoursite.com/categories/mysql/"/>
+              <breadCrumb title="mysql" url="http://dmlcoding.com/categories/mysql/"/>
           
         </display>
     </data>
@@ -377,7 +397,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/RsyncSkills/</loc>
+    <loc>http://dmlcoding.com/2017/RsyncSkills/</loc>
     <lastmod>2017-03-23T08:04:35.000Z</lastmod>
     <data>
         <display>
@@ -389,7 +409,7 @@
          
            
              
-              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
           
         </display>
     </data>
@@ -397,7 +417,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/ShellSkills/</loc>
+    <loc>http://dmlcoding.com/2017/ShellSkills/</loc>
     <lastmod>2017-03-20T10:54:33.000Z</lastmod>
     <data>
         <display>
@@ -409,7 +429,7 @@
          
            
              
-              <breadCrumb title="shell" url="http://yoursite.com/categories/shell/"/>
+              <breadCrumb title="shell" url="http://dmlcoding.com/categories/shell/"/>
           
         </display>
     </data>
@@ -417,7 +437,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/KafkaEnr/</loc>
+    <loc>http://dmlcoding.com/2016/KafkaEnr/</loc>
     <lastmod>2017-03-06T07:04:03.000Z</lastmod>
     <data>
         <display>
@@ -429,7 +449,7 @@
          
            
              
-              <breadCrumb title="kafka" url="http://yoursite.com/categories/kafka/"/>
+              <breadCrumb title="kafka" url="http://dmlcoding.com/categories/kafka/"/>
           
         </display>
     </data>
@@ -437,7 +457,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/SendFileZeroCopy/</loc>
+    <loc>http://dmlcoding.com/2017/SendFileZeroCopy/</loc>
     <lastmod>2017-03-06T03:38:36.000Z</lastmod>
     <data>
         <display>
@@ -449,7 +469,7 @@
          
            
              
-              <breadCrumb title="system" url="http://yoursite.com/categories/system/"/>
+              <breadCrumb title="system" url="http://dmlcoding.com/categories/system/"/>
           
         </display>
     </data>
@@ -457,7 +477,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/BinaryAddition/</loc>
+    <loc>http://dmlcoding.com/2017/BinaryAddition/</loc>
     <lastmod>2017-03-06T02:17:30.000Z</lastmod>
     <data>
         <display>
@@ -469,7 +489,7 @@
          
            
              
-              <breadCrumb title="computer" url="http://yoursite.com/categories/computer/"/>
+              <breadCrumb title="computer" url="http://dmlcoding.com/categories/computer/"/>
           
         </display>
     </data>
@@ -477,7 +497,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/ReadBooks33/</loc>
+    <loc>http://dmlcoding.com/2017/ReadBooks33/</loc>
     <lastmod>2017-03-03T08:44:44.000Z</lastmod>
     <data>
         <display>
@@ -489,7 +509,7 @@
          
            
              
-              <breadCrumb title="book" url="http://yoursite.com/categories/book/"/>
+              <breadCrumb title="book" url="http://dmlcoding.com/categories/book/"/>
           
         </display>
     </data>
@@ -497,7 +517,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/SparkFunctions/</loc>
+    <loc>http://dmlcoding.com/2016/SparkFunctions/</loc>
     <lastmod>2017-03-03T01:53:16.000Z</lastmod>
     <data>
         <display>
@@ -511,7 +531,7 @@
          
            
              
-              <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
           
         </display>
     </data>
@@ -519,7 +539,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/DecisitionTree/</loc>
+    <loc>http://dmlcoding.com/2016/DecisitionTree/</loc>
     <lastmod>2017-03-03T01:04:09.000Z</lastmod>
     <data>
         <display>
@@ -531,7 +551,7 @@
          
            
              
-              <breadCrumb title="ml" url="http://yoursite.com/categories/ml/"/>
+              <breadCrumb title="ml" url="http://dmlcoding.com/categories/ml/"/>
           
         </display>
     </data>
@@ -539,7 +559,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/IntellijSkills/</loc>
+    <loc>http://dmlcoding.com/2017/IntellijSkills/</loc>
     <lastmod>2017-03-02T10:25:36.000Z</lastmod>
     <data>
         <display>
@@ -551,7 +571,7 @@
          
            
              
-              <breadCrumb title="intellij" url="http://yoursite.com/categories/intellij/"/>
+              <breadCrumb title="intellij" url="http://dmlcoding.com/categories/intellij/"/>
           
         </display>
     </data>
@@ -559,7 +579,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/WriterLogical/</loc>
+    <loc>http://dmlcoding.com/2016/WriterLogical/</loc>
     <lastmod>2017-03-02T10:20:14.000Z</lastmod>
     <data>
         <display>
@@ -573,7 +593,7 @@
          
            
              
-              <breadCrumb title="book" url="http://yoursite.com/categories/book/"/>
+              <breadCrumb title="book" url="http://dmlcoding.com/categories/book/"/>
           
         </display>
     </data>
@@ -581,7 +601,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/CommandPattern/</loc>
+    <loc>http://dmlcoding.com/2016/CommandPattern/</loc>
     <lastmod>2017-03-02T10:19:35.000Z</lastmod>
     <data>
         <display>
@@ -593,7 +613,7 @@
          
            
              
-              <breadCrumb title="designpattern" url="http://yoursite.com/categories/designpattern/"/>
+              <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
           
         </display>
     </data>
@@ -601,7 +621,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/DockerSkils/</loc>
+    <loc>http://dmlcoding.com/2017/DockerSkils/</loc>
     <lastmod>2017-03-02T10:17:37.000Z</lastmod>
     <data>
         <display>
@@ -613,7 +633,7 @@
          
            
              
-              <breadCrumb title="docker" url="http://yoursite.com/categories/docker/"/>
+              <breadCrumb title="docker" url="http://dmlcoding.com/categories/docker/"/>
           
         </display>
     </data>
@@ -621,7 +641,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/IntellijIdeaForMac/</loc>
+    <loc>http://dmlcoding.com/2017/IntellijIdeaForMac/</loc>
     <lastmod>2017-03-02T10:08:56.000Z</lastmod>
     <data>
         <display>
@@ -635,7 +655,7 @@
          
            
              
-              <breadCrumb title="intellij" url="http://yoursite.com/categories/intellij/"/>
+              <breadCrumb title="intellij" url="http://dmlcoding.com/categories/intellij/"/>
           
         </display>
     </data>
@@ -643,7 +663,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/CentosEnr/</loc>
+    <loc>http://dmlcoding.com/2016/CentosEnr/</loc>
     <lastmod>2017-03-02T10:08:56.000Z</lastmod>
     <data>
         <display>
@@ -655,7 +675,7 @@
          
            
              
-              <breadCrumb title="centOS" url="http://yoursite.com/categories/centOS/"/>
+              <breadCrumb title="centOS" url="http://dmlcoding.com/categories/centOS/"/>
           
         </display>
     </data>
@@ -663,7 +683,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/MavenSkills/</loc>
+    <loc>http://dmlcoding.com/2016/MavenSkills/</loc>
     <lastmod>2017-03-02T10:05:49.000Z</lastmod>
     <data>
         <display>
@@ -675,7 +695,7 @@
          
            
              
-              <breadCrumb title="maven" url="http://yoursite.com/categories/maven/"/>
+              <breadCrumb title="maven" url="http://dmlcoding.com/categories/maven/"/>
           
         </display>
     </data>
@@ -683,19 +703,21 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/ScalaCollection/</loc>
+    <loc>http://dmlcoding.com/2016/Recursion/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Scala集合</title>
-        <pubTime>2016-11-14T05:37:00.000Z</pubTime>
+        <title>递归算法</title>
+        <pubTime>2016-11-27T01:50:00.000Z</pubTime>
         
-        <tag>scala</tag>
+        <tag>algorithm</tag>
+         
+        <tag>recursion</tag>
          
          
            
              
-              <breadCrumb title="scala" url="http://yoursite.com/categories/scala/"/>
+              <breadCrumb title="algorithm" url="http://dmlcoding.com/categories/algorithm/"/>
           
         </display>
     </data>
@@ -703,21 +725,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/LinuxMem/</loc>
+    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Linux进程分析之内存</title>
-        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
+        <title>设计模式</title>
+        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
         
-        <tag>linux</tag>
-         
-        <tag>memory</tag>
+        <tag>design</tag>
          
          
            
              
-              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+              <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
           
         </display>
     </data>
@@ -725,7 +745,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/SparkBug/</loc>
+    <loc>http://dmlcoding.com/2016/SparkBug/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
@@ -739,7 +759,7 @@
          
            
              
-              <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
           
         </display>
     </data>
@@ -747,49 +767,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/Queue/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Java数据结构之队列</title>
-        <pubTime>2016-12-07T02:01:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>datastructure</tag>
-         
-         
-           
-             
-              <breadCrumb title="datastructure" url="http://yoursite.com/categories/datastructure/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/FlaskMail/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Flask框架中用QQ邮箱发邮件</title>
-        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
-        
-        <tag>flask</tag>
-         
-         
-           
-             
-              <breadCrumb title="flask" url="http://yoursite.com/categories/flask/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/SparkExampleCSDN/</loc>
+    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
@@ -805,7 +783,7 @@
          
            
              
-              <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
           
         </display>
     </data>
@@ -813,21 +791,21 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/SparkRdd/</loc>
+    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>RDD究竟是什么</title>
-        <pubTime>2016-12-12T06:00:00.000Z</pubTime>
+        <title>Linux进程分析之内存</title>
+        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
         
-        <tag>spark</tag>
+        <tag>linux</tag>
          
-        <tag>rdd</tag>
+        <tag>memory</tag>
          
          
            
              
-              <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
+              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
           
         </display>
     </data>
@@ -835,7 +813,27 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/SparkRDDOpe/</loc>
+    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Flask框架中用QQ邮箱发邮件</title>
+        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
+        
+        <tag>flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="flask" url="http://dmlcoding.com/categories/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
@@ -849,7 +847,7 @@
          
            
              
-              <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
           
         </display>
     </data>
@@ -857,7 +855,29 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/UbuntuSocks/</loc>
+    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>RDD究竟是什么</title>
+        <pubTime>2016-12-12T06:00:00.000Z</pubTime>
+        
+        <tag>spark</tag>
+         
+        <tag>rdd</tag>
+         
+         
+           
+             
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
@@ -871,7 +891,7 @@
          
            
              
-              <breadCrumb title="shadowsocks" url="http://yoursite.com/categories/shadowsocks/"/>
+              <breadCrumb title="shadowsocks" url="http://dmlcoding.com/categories/shadowsocks/"/>
           
         </display>
     </data>
@@ -879,7 +899,29 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/VPSInstallJekyll/</loc>
+    <loc>http://dmlcoding.com/2016/BeautifulSoup/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>python beautifulsoup使用</title>
+        <pubTime>2016-12-09T10:24:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>beautifulsoup</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://dmlcoding.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/VPSInstallJekyll/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
@@ -893,7 +935,7 @@
          
            
              
-              <breadCrumb title="vps" url="http://yoursite.com/categories/vps/"/>
+              <breadCrumb title="vps" url="http://dmlcoding.com/categories/vps/"/>
           
         </display>
     </data>
@@ -901,7 +943,27 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/VPSshadowsocks/</loc>
+    <loc>http://dmlcoding.com/2016/MakeData/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>大数据学习时候,造数据的常用方式</title>
+        <pubTime>2016-11-16T02:51:00.000Z</pubTime>
+        
+        <tag>data</tag>
+         
+         
+           
+             
+              <breadCrumb title="bigdata" url="http://dmlcoding.com/categories/bigdata/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/VPSshadowsocks/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
@@ -915,7 +977,7 @@
          
            
              
-              <breadCrumb title="shadowsocks" url="http://yoursite.com/categories/shadowsocks/"/>
+              <breadCrumb title="shadowsocks" url="http://dmlcoding.com/categories/shadowsocks/"/>
           
         </display>
     </data>
@@ -923,21 +985,19 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/Recursion/</loc>
+    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>递归算法</title>
-        <pubTime>2016-11-27T01:50:00.000Z</pubTime>
+        <title>Scala数组</title>
+        <pubTime>2016-11-14T02:59:00.000Z</pubTime>
         
-        <tag>algorithm</tag>
-         
-        <tag>recursion</tag>
+        <tag>scala</tag>
          
          
            
              
-              <breadCrumb title="algorithm" url="http://yoursite.com/categories/algorithm/"/>
+              <breadCrumb title="scala" url="http://dmlcoding.com/categories/scala/"/>
           
         </display>
     </data>
@@ -945,7 +1005,71 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/DeepinSoft/</loc>
+    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Java多线程总结笔记</title>
+        <pubTime>2016-12-06T06:22:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>thread</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://dmlcoding.com/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/ScalaCollection/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Scala集合</title>
+        <pubTime>2016-11-14T05:37:00.000Z</pubTime>
+        
+        <tag>scala</tag>
+         
+         
+           
+             
+              <breadCrumb title="scala" url="http://dmlcoding.com/categories/scala/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/Queue/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Java数据结构之队列</title>
+        <pubTime>2016-12-07T02:01:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>datastructure</tag>
+         
+         
+           
+             
+              <breadCrumb title="datastructure" url="http://dmlcoding.com/categories/datastructure/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
@@ -961,7 +1085,7 @@
          
            
              
-              <breadCrumb title="ubuntu" url="http://yoursite.com/categories/ubuntu/"/>
+              <breadCrumb title="ubuntu" url="http://dmlcoding.com/categories/ubuntu/"/>
           
         </display>
     </data>
@@ -969,111 +1093,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/DesignPattern/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式</title>
-        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
-        
-        <tag>design</tag>
-         
-         
-           
-             
-              <breadCrumb title="designpattern" url="http://yoursite.com/categories/designpattern/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/ScalaArray/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Scala数组</title>
-        <pubTime>2016-11-14T02:59:00.000Z</pubTime>
-        
-        <tag>scala</tag>
-         
-         
-           
-             
-              <breadCrumb title="scala" url="http://yoursite.com/categories/scala/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/BeautifulSoup/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>python beautifulsoup使用</title>
-        <pubTime>2016-12-09T10:24:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>beautifulsoup</tag>
-         
-         
-           
-             
-              <breadCrumb title="python" url="http://yoursite.com/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/MakeData/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>大数据学习时候,造数据的常用方式</title>
-        <pubTime>2016-11-16T02:51:00.000Z</pubTime>
-        
-        <tag>data</tag>
-         
-         
-           
-             
-              <breadCrumb title="bigdata" url="http://yoursite.com/categories/bigdata/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/JavaThread/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Java多线程总结笔记</title>
-        <pubTime>2016-12-06T06:22:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>thread</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/SparkExample/</loc>
+    <loc>http://dmlcoding.com/2016/SparkExample/</loc>
     <lastmod>2017-03-02T06:33:32.000Z</lastmod>
     <data>
         <display>
@@ -1087,7 +1107,7 @@
          
            
              
-              <breadCrumb title="spark" url="http://yoursite.com/categories/spark/"/>
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
           
         </display>
     </data>
@@ -1095,7 +1115,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/ScalaNote/</loc>
+    <loc>http://dmlcoding.com/2016/ScalaNote/</loc>
     <lastmod>2017-03-02T06:33:32.000Z</lastmod>
     <data>
         <display>
@@ -1109,7 +1129,7 @@
          
            
              
-              <breadCrumb title="scala" url="http://yoursite.com/categories/scala/"/>
+              <breadCrumb title="scala" url="http://dmlcoding.com/categories/scala/"/>
           
         </display>
     </data>

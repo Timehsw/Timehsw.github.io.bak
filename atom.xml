@@ -4,9 +4,9 @@
   <subtitle>Coding Changing The World</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2017-07-10T10:27:29.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://dmlcoding.com/"/>
+  <updated>2017-07-13T10:13:49.000Z</updated>
+  <id>http://dmlcoding.com/</id>
   
   <author>
     <name>Hushiwei</name>
@@ -16,9 +16,62 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>逻辑回归笔记</title>
+    <link href="http://dmlcoding.com/2017/LogicalRegression/"/>
+    <id>http://dmlcoding.com/2017/LogicalRegression/</id>
+    <published>2017-07-13T09:24:00.000Z</published>
+    <updated>2017-07-13T10:13:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>不知道什么是逻辑回归,但是也许看完接下来的文章,你会有个大概的印象吧<br><a id="more"></a></p>
+<h1 id="简单介绍Logistic回归"><a href="#简单介绍Logistic回归" class="headerlink" title="简单介绍Logistic回归"></a>简单介绍Logistic回归</h1><h2 id="Logistic回归用到的知识点"><a href="#Logistic回归用到的知识点" class="headerlink" title="Logistic回归用到的知识点"></a>Logistic回归用到的知识点</h2><ul>
+<li>Sigmoid函数和Logistic回归分类器</li>
+<li>最优化理论初步</li>
+<li>梯度下降最优化算法</li>
+<li>数据中的缺失项处理</li>
+</ul>
+<h2 id="Logistic回归的一般过程"><a href="#Logistic回归的一般过程" class="headerlink" title="Logistic回归的一般过程"></a>Logistic回归的一般过程</h2><ul>
+<li>1.收集数据:采用任意方法收集数据</li>
+<li>2.准备数据:由于需要进行距离计算,因此要求数据类型为数值型.另外,结构化数据格式则最佳.</li>
+<li>3.分析数据:采用任意方法对数据进行分析.</li>
+<li>4.训练算法:大部分时间将用于训练,训练的目的是为了找到最佳的分类回归系数.</li>
+<li>5.使用算法:首先,我们需要一些输入数据,并将其转换成对应的结构化数值;接着,基于训练好的回归系数就可以对这些数值进行简单的回归计算,判定他们属于哪个类别;在这之后,我们就可以在输出的类别上做一些其他分析工作.</li>
+</ul>
+<h1 id="基于Logistic回归和Sigmoid函数的分类"><a href="#基于Logistic回归和Sigmoid函数的分类" class="headerlink" title="基于Logistic回归和Sigmoid函数的分类"></a>基于Logistic回归和Sigmoid函数的分类</h1><h2 id="Logistic回归"><a href="#Logistic回归" class="headerlink" title="Logistic回归"></a>Logistic回归</h2><ul>
+<li>优点<ul>
+<li>计算代价不高</li>
+<li>易于理解和实现</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>容易欠拟合</li>
+<li>分类精度可能不高</li>
+</ul>
+</li>
+<li>适用类型<ul>
+<li>数值型(数值型目标变量则可以从无限的数值集合中取值，如0.100，42.001等 (数值型目标变量主要用于回归分析))</li>
+<li>标称型数据(标称型目标变量的结果只在有限目标集中取值，如真与假(标称型目标变量主要用于分类))</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不知道什么是逻辑回归,但是也许看完接下来的文章,你会有个大概的印象吧&lt;br&gt;
+    
+    </summary>
+    
+      <category term="ml" scheme="http://dmlcoding.com/categories/ml/"/>
+    
+    
+      <category term="ml" scheme="http://dmlcoding.com/tags/ml/"/>
+    
+  </entry>
+  
+  <entry>
     <title>druid遇到的坑</title>
-    <link href="http://yoursite.com/2017/DruidQuickStart/"/>
-    <id>http://yoursite.com/2017/DruidQuickStart/</id>
+    <link href="http://dmlcoding.com/2017/DruidQuickStart/"/>
+    <id>http://dmlcoding.com/2017/DruidQuickStart/</id>
     <published>2017-07-09T10:24:00.000Z</published>
     <updated>2017-07-10T10:27:29.000Z</updated>
     
@@ -43,17 +96,17 @@
     
     </summary>
     
-      <category term="druid" scheme="http://yoursite.com/categories/druid/"/>
+      <category term="druid" scheme="http://dmlcoding.com/categories/druid/"/>
     
     
-      <category term="druid" scheme="http://yoursite.com/tags/druid/"/>
+      <category term="druid" scheme="http://dmlcoding.com/tags/druid/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu16.04使用Docker部署Gitlab</title>
-    <link href="http://yoursite.com/2017/DockerInstallGitlab/"/>
-    <id>http://yoursite.com/2017/DockerInstallGitlab/</id>
+    <link href="http://dmlcoding.com/2017/DockerInstallGitlab/"/>
+    <id>http://dmlcoding.com/2017/DockerInstallGitlab/</id>
     <published>2017-07-05T10:24:00.000Z</published>
     <updated>2017-07-06T09:48:45.000Z</updated>
     
@@ -104,19 +157,19 @@
     
     </summary>
     
-      <category term="docker" scheme="http://yoursite.com/categories/docker/"/>
+      <category term="docker" scheme="http://dmlcoding.com/categories/docker/"/>
     
     
-      <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://dmlcoding.com/tags/ubuntu/"/>
     
-      <category term="docker" scheme="http://yoursite.com/tags/docker/"/>
+      <category term="docker" scheme="http://dmlcoding.com/tags/docker/"/>
     
   </entry>
   
   <entry>
     <title>项目中配置文件的读取</title>
-    <link href="http://yoursite.com/2017/ReadConfigFile/"/>
-    <id>http://yoursite.com/2017/ReadConfigFile/</id>
+    <link href="http://dmlcoding.com/2017/ReadConfigFile/"/>
+    <id>http://dmlcoding.com/2017/ReadConfigFile/</id>
     <published>2017-06-25T03:41:00.000Z</published>
     <updated>2017-07-07T06:08:10.000Z</updated>
     
@@ -151,19 +204,19 @@
     
     </summary>
     
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+      <category term="java" scheme="http://dmlcoding.com/categories/java/"/>
     
     
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+      <category term="java" scheme="http://dmlcoding.com/tags/java/"/>
     
-      <category term="scala" scheme="http://yoursite.com/tags/scala/"/>
+      <category term="scala" scheme="http://dmlcoding.com/tags/scala/"/>
     
   </entry>
   
   <entry>
     <title>python 高级特性之切片</title>
-    <link href="http://yoursite.com/2017/PythonSplitFunc/"/>
-    <id>http://yoursite.com/2017/PythonSplitFunc/</id>
+    <link href="http://dmlcoding.com/2017/PythonSplitFunc/"/>
+    <id>http://dmlcoding.com/2017/PythonSplitFunc/</id>
     <published>2017-06-21T07:24:00.000Z</published>
     <updated>2017-06-22T07:36:03.000Z</updated>
     
@@ -183,32 +236,32 @@
     
     </summary>
     
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+      <category term="python" scheme="http://dmlcoding.com/categories/python/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="http://dmlcoding.com/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>Git 常用命令以及笔记</title>
-    <link href="http://yoursite.com/2017/GitSkills/"/>
-    <id>http://yoursite.com/2017/GitSkills/</id>
+    <link href="http://dmlcoding.com/2017/GitSkills/"/>
+    <id>http://dmlcoding.com/2017/GitSkills/</id>
     <published>2017-06-20T06:00:00.000Z</published>
-    <updated>2017-06-26T04:01:53.000Z</updated>
+    <updated>2017-07-13T07:08:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>平时一直是用Intellij进行开发,git命令也不会用命令行去输入.导致有些命令都不太熟悉了,每次用到的时候都是google.<br>今天把平时用到的命令做个笔记记录一下.</p>
 <a id="more"></a>
-<h1 id="git分布式仓库工作流程"><a href="#git分布式仓库工作流程" class="headerlink" title="git分布式仓库工作流程"></a>git分布式仓库工作流程</h1><p>这里有个图,非常形象的展示了本地仓库和远程仓库以及常用的一些命令的作用范围.<br>一图胜千言,图片摘自<a href="http://krishnaiitd.github.io/gitcommands/git-workflow/" target="_blank" rel="external">http://krishnaiitd.github.io/gitcommands/git-workflow/</a><br><img src="/images/pics/GitWorkflow.png" alt="git工作流"></p>
+<h1 id="git分布式仓库工作流程"><a href="#git分布式仓库工作流程" class="headerlink" title="git分布式仓库工作流程"></a>git分布式仓库工作流程</h1><p>这里有个图,非常形象的展示了本地仓库和远程仓库以及常用的一些命令的作用范围.<br>一图胜千言,图片摘自<a href="http://krishnaiitd.github.io/gitcommands/git-workflow/" target="_blank" rel="external">http://krishnaiitd.github.io/gitcommands/git-workflow/</a><br><img src="/images/pics/GitWorkflow.png" alt="git工作流"><br><img src="../images/pics/GitWorkflow.png" alt="git工作流"></p>
 <h1 id="设置-commit-的用户和邮箱"><a href="#设置-commit-的用户和邮箱" class="headerlink" title="设置 commit 的用户和邮箱"></a>设置 commit 的用户和邮箱</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git config user.name &quot;xx&quot;               #设置 commit 的用户</div><div class="line">git config user.email &quot;xx@xx.com&quot;       #设置 commit 的邮箱</div><div class="line">git commit --amend --author &quot;xxx &lt;xxx@gmail.com&gt;&quot;    #修改上次提交的用户信息</div><div class="line">git config format.pretty oneline        #显示历史记录时，每个提交的信息只显示一行</div></pre></td></tr></table></figure>
-<h2 id="配置本地到github的免密"><a href="#配置本地到github的免密" class="headerlink" title="配置本地到github的免密"></a>配置本地到github的免密</h2><p>参考我之前写的 <a href="http://dmlcoding.com/2016/sshlogin/" target="_blank" rel="external">http://dmlcoding.com/2016/sshlogin/</a></p>
+<h2 id="配置本地到github的免密"><a href="#配置本地到github的免密" class="headerlink" title="配置本地到github的免密"></a>配置本地到github的免密</h2><p>参考我之前写的 <a href="http://dmlcoding.com/2016/sshlogin/">http://dmlcoding.com/2016/sshlogin/</a></p>
 <h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><h2 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@server-name:path/repo-name.git  #添加一个远程库</div></pre></td></tr></table></figure>
 <h2 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h2><blockquote>
 <p>origin是远程仓库的别名,约定俗成的叫做original.</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote      #要查看远程库的信息</div><div class="line">git remote -v   #显示更详细的信息</div></pre></td></tr></table></figure>
 <h2 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin master    #推送到远程master分支</div></pre></td></tr></table></figure>
-<h2 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git clone git@server-name:path/repo-name.git   #克隆远程仓库到本地(能看到master分支)</div><div class="line">git checkout -b dev origin/dev  #创建远程origin的dev分支到本地，并命名为dev</div><div class="line">git checkout origin/dev --track #与上面效果一样</div><div class="line">git pull origin master          #从远程分支进行更新 </div><div class="line">git fetch origin master         #获取远程分支上的数据</div></pre></td></tr></table></figure>
+<h2 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git clone git@server-name:path/repo-name.git   #克隆远程仓库到本地(能看到master分支)</div><div class="line">git checkout -b dev origin/dev  #创建远程origin的dev分支到本地，并命名为dev</div><div class="line">git checkout origin/dev --track #与上面效果一样</div><div class="line">git pull origin master          #从远程分支进行更新</div><div class="line">git fetch origin master         #获取远程分支上的数据</div></pre></td></tr></table></figure>
 <h2 id="抓取GitHub上某个pull-request到本地"><a href="#抓取GitHub上某个pull-request到本地" class="headerlink" title="抓取GitHub上某个pull request到本地"></a>抓取GitHub上某个pull request到本地</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git fetch origin pull/ID/head:BRANCHNAME</div><div class="line">git checkout BRANCHNAME</div><div class="line">$ git branch --set-upstream branch-name origin/branch-name，可以建立起本地分支和远程分支的关联，之后可以直接git pull从远程抓取分支。</div><div class="line"></div><div class="line">另外，git pull = git fetch + merge to local</div></pre></td></tr></table></figure>
 <h2 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git push origin --delete bugfix</div><div class="line">To https://github.com/wuchong/jacman</div><div class="line"> - [deleted]         bugfix</div><div class="line"># 或者直接push一个空分支</div><div class="line">$ git push origin :bugfix</div><div class="line">To https://github.com/wuchong/jacman</div><div class="line"> - [deleted]         bugfix</div></pre></td></tr></table></figure>
 <h2 id="更新远程分支信息"><a href="#更新远程分支信息" class="headerlink" title="更新远程分支信息"></a>更新远程分支信息</h2><p>项目往前推进的过程中，远程仓库上经常会增加一些分支、删除一些分支。 所以有时需要与远程同步下分支信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch -p</div></pre></td></tr></table></figure></p>
@@ -217,12 +270,12 @@
 <h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD^    #回退到上一个版本</div><div class="line">git reset --hard cb926e7  #回退到具体某个版</div><div class="line">git reflog                #查看命令历史,常用于帮助找回丢失掉的commit</div></pre></td></tr></table></figure>
 <p>用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，HEAD~100就是上100个版本。</p>
 <h1 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git status              #查看工作区、暂存区的状态</div><div class="line">git checkout -- &lt;file&gt;  #丢弃工作区上某个文件的修改</div><div class="line">git reset HEAD &lt;file&gt;   #丢弃暂存区上某个文件的修改，重新放回工作区</div></pre></td></tr></table></figure>
-<h2 id="查看差异"><a href="#查看差异" class="headerlink" title="查看差异"></a>查看差异</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git diff              #查看未暂存的文件更新 </div><div class="line">git diff --cached     #查看已暂存文件的更新 </div><div class="line">git diff HEAD -- readme.txt  #查看工作区和版本库里面最新版本的区别</div><div class="line">git diff &lt;source_branch&gt; &lt;target_branch&gt;  #在合并改动之前，预览两个分支的差异</div><div class="line">使用内建的图形化git：gitk，可以更方便清晰地查看差异。当然 Github 客户端也不错。</div></pre></td></tr></table></figure>
+<h2 id="查看差异"><a href="#查看差异" class="headerlink" title="查看差异"></a>查看差异</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git diff              #查看未暂存的文件更新</div><div class="line">git diff --cached     #查看已暂存文件的更新</div><div class="line">git diff HEAD -- readme.txt  #查看工作区和版本库里面最新版本的区别</div><div class="line">git diff &lt;source_branch&gt; &lt;target_branch&gt;  #在合并改动之前，预览两个分支的差异</div><div class="line">使用内建的图形化git：gitk，可以更方便清晰地查看差异。当然 Github 客户端也不错。</div></pre></td></tr></table></figure>
 <h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git rm &lt;file&gt;           #直接删除文件</div><div class="line">git rm --cached &lt;file&gt;  #删除文件暂存状态</div></pre></td></tr></table></figure>
 <h2 id="储藏和恢复"><a href="#储藏和恢复" class="headerlink" title="储藏和恢复"></a>储藏和恢复</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git stash           #储藏当前工作</div><div class="line">git stash list      #查看储藏的工作现场</div><div class="line">git stash apply     #恢复工作现场，stash内容并不删除</div><div class="line">git stash pop       #恢复工作现场，并删除stash内容</div></pre></td></tr></table></figure>
 <h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git branch develop              #只创建分支</div><div class="line">git checkout -b master develop  #创建并切换到 develop 分支</div></pre></td></tr></table></figure>
 <h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master         #切换到主分支</div><div class="line">git merge --no-ff develop   #把 develop 合并到 master 分支，no-ff 选项的作用是保留原分支记录</div><div class="line">git branch -d develop       #删除 develop 分支</div></pre></td></tr></table></figure>
-<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><h2 id="显示标签"><a href="#显示标签" class="headerlink" title="显示标签"></a>显示标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag         #列出现有标签 </div><div class="line">git show &lt;tagname&gt;  #显示标签信息</div></pre></td></tr></table></figure>
+<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><h2 id="显示标签"><a href="#显示标签" class="headerlink" title="显示标签"></a>显示标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag         #列出现有标签</div><div class="line">git show &lt;tagname&gt;  #显示标签信息</div></pre></td></tr></table></figure>
 <h2 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git tag v0.1    #新建标签，默认位 HEAD</div><div class="line">git tag v0.1 cb926e7  #对指定的 commit id 打标签</div><div class="line">git tag -a v0.1 -m &apos;version 0.1 released&apos;   #新建带注释标签</div></pre></td></tr></table></figure>
 <h2 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git checkout &lt;tagname&gt;        #切换到标签</div><div class="line">git push origin &lt;tagname&gt;     #推送分支到源上</div><div class="line">git push origin --tags        #一次性推送全部尚未推送到远程的本地标签</div><div class="line">git tag -d &lt;tagname&gt;          #删除标签</div><div class="line">git push origin :refs/tags/&lt;tagname&gt;      #删除远程标签</div><div class="line">Git 设置</div></pre></td></tr></table></figure>
 <p><a href="http://wuchong.me/blog/2015/03/30/git-useful-skills/" target="_blank" rel="external">转载自Jark’s Blog</a></p>
@@ -234,17 +287,17 @@
     
     </summary>
     
-      <category term="git" scheme="http://yoursite.com/categories/git/"/>
+      <category term="git" scheme="http://dmlcoding.com/categories/git/"/>
     
     
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+      <category term="git" scheme="http://dmlcoding.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>zabbix 部署文档</title>
-    <link href="http://yoursite.com/2017/Zabbix/"/>
-    <id>http://yoursite.com/2017/Zabbix/</id>
+    <link href="http://dmlcoding.com/2017/Zabbix/"/>
+    <id>http://dmlcoding.com/2017/Zabbix/</id>
     <published>2017-04-20T10:24:00.000Z</published>
     <updated>2017-04-21T08:31:08.000Z</updated>
     
@@ -260,17 +313,17 @@
     
     </summary>
     
-      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+      <category term="linux" scheme="http://dmlcoding.com/categories/linux/"/>
     
     
-      <category term="zabbix" scheme="http://yoursite.com/tags/zabbix/"/>
+      <category term="zabbix" scheme="http://dmlcoding.com/tags/zabbix/"/>
     
   </entry>
   
   <entry>
     <title>saltstack web halite 界面部署文档</title>
-    <link href="http://yoursite.com/2017/SaltStackWeb/"/>
-    <id>http://yoursite.com/2017/SaltStackWeb/</id>
+    <link href="http://dmlcoding.com/2017/SaltStackWeb/"/>
+    <id>http://dmlcoding.com/2017/SaltStackWeb/</id>
     <published>2017-04-15T04:10:00.000Z</published>
     <updated>2017-04-19T09:12:17.000Z</updated>
     
@@ -289,19 +342,19 @@
     
     </summary>
     
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+      <category term="python" scheme="http://dmlcoding.com/categories/python/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="http://dmlcoding.com/tags/python/"/>
     
-      <category term="saltstack" scheme="http://yoursite.com/tags/saltstack/"/>
+      <category term="saltstack" scheme="http://dmlcoding.com/tags/saltstack/"/>
     
   </entry>
   
   <entry>
     <title>saltstack部署文档</title>
-    <link href="http://yoursite.com/2017/SaltStack/"/>
-    <id>http://yoursite.com/2017/SaltStack/</id>
+    <link href="http://dmlcoding.com/2017/SaltStack/"/>
+    <id>http://dmlcoding.com/2017/SaltStack/</id>
     <published>2017-04-15T02:24:00.000Z</published>
     <updated>2017-04-19T09:09:59.000Z</updated>
     
@@ -349,19 +402,19 @@
     
     </summary>
     
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+      <category term="python" scheme="http://dmlcoding.com/categories/python/"/>
     
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="http://dmlcoding.com/tags/python/"/>
     
-      <category term="saltstack" scheme="http://yoursite.com/tags/saltstack/"/>
+      <category term="saltstack" scheme="http://dmlcoding.com/tags/saltstack/"/>
     
   </entry>
   
   <entry>
     <title>mysql赋给用户权限grant all privileges on</title>
-    <link href="http://yoursite.com/2017/mysqlprivileges/"/>
-    <id>http://yoursite.com/2017/mysqlprivileges/</id>
+    <link href="http://dmlcoding.com/2017/mysqlprivileges/"/>
+    <id>http://dmlcoding.com/2017/mysqlprivileges/</id>
     <published>2017-04-09T10:24:00.000Z</published>
     <updated>2017-04-10T03:31:34.000Z</updated>
     
@@ -398,17 +451,17 @@
     
     </summary>
     
-      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
+      <category term="mysql" scheme="http://dmlcoding.com/categories/mysql/"/>
     
     
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+      <category term="mysql" scheme="http://dmlcoding.com/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>Linux 文件同步工具——rsync</title>
-    <link href="http://yoursite.com/2017/RsyncSkills/"/>
-    <id>http://yoursite.com/2017/RsyncSkills/</id>
+    <link href="http://dmlcoding.com/2017/RsyncSkills/"/>
+    <id>http://dmlcoding.com/2017/RsyncSkills/</id>
     <published>2017-03-22T02:24:00.000Z</published>
     <updated>2017-03-23T08:04:35.000Z</updated>
     
@@ -500,17 +553,17 @@
     
     </summary>
     
-      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+      <category term="linux" scheme="http://dmlcoding.com/categories/linux/"/>
     
     
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+      <category term="linux" scheme="http://dmlcoding.com/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title> Shell Skills</title>
-    <link href="http://yoursite.com/2017/ShellSkills/"/>
-    <id>http://yoursite.com/2017/ShellSkills/</id>
+    <link href="http://dmlcoding.com/2017/ShellSkills/"/>
+    <id>http://dmlcoding.com/2017/ShellSkills/</id>
     <published>2017-03-12T10:24:00.000Z</published>
     <updated>2017-03-20T10:54:33.000Z</updated>
     
@@ -547,17 +600,17 @@
     
     </summary>
     
-      <category term="shell" scheme="http://yoursite.com/categories/shell/"/>
+      <category term="shell" scheme="http://dmlcoding.com/categories/shell/"/>
     
     
-      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
+      <category term="shell" scheme="http://dmlcoding.com/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>Zero-Copy&amp;SendFile浅析</title>
-    <link href="http://yoursite.com/2017/SendFileZeroCopy/"/>
-    <id>http://yoursite.com/2017/SendFileZeroCopy/</id>
+    <link href="http://dmlcoding.com/2017/SendFileZeroCopy/"/>
+    <id>http://dmlcoding.com/2017/SendFileZeroCopy/</id>
     <published>2017-03-06T03:00:00.000Z</published>
     <updated>2017-03-06T03:38:36.000Z</updated>
     
@@ -581,17 +634,17 @@
     
     </summary>
     
-      <category term="system" scheme="http://yoursite.com/categories/system/"/>
+      <category term="system" scheme="http://dmlcoding.com/categories/system/"/>
     
     
-      <category term="system" scheme="http://yoursite.com/tags/system/"/>
+      <category term="system" scheme="http://dmlcoding.com/tags/system/"/>
     
   </entry>
   
   <entry>
     <title>二进制加法与逻辑门的关系</title>
-    <link href="http://yoursite.com/2017/BinaryAddition/"/>
-    <id>http://yoursite.com/2017/BinaryAddition/</id>
+    <link href="http://dmlcoding.com/2017/BinaryAddition/"/>
+    <id>http://dmlcoding.com/2017/BinaryAddition/</id>
     <published>2017-03-05T01:24:00.000Z</published>
     <updated>2017-03-06T02:17:30.000Z</updated>
     
@@ -724,17 +777,17 @@
     
     </summary>
     
-      <category term="computer" scheme="http://yoursite.com/categories/computer/"/>
+      <category term="computer" scheme="http://dmlcoding.com/categories/computer/"/>
     
     
-      <category term="computer" scheme="http://yoursite.com/tags/computer/"/>
+      <category term="computer" scheme="http://dmlcoding.com/tags/computer/"/>
     
   </entry>
   
   <entry>
     <title>用hexo搭建博客</title>
-    <link href="http://yoursite.com/2017/HexoBlog/"/>
-    <id>http://yoursite.com/2017/HexoBlog/</id>
+    <link href="http://dmlcoding.com/2017/HexoBlog/"/>
+    <id>http://dmlcoding.com/2017/HexoBlog/</id>
     <published>2017-03-04T03:00:00.000Z</published>
     <updated>2017-06-19T10:11:58.000Z</updated>
     
@@ -800,19 +853,19 @@
     
     </summary>
     
-      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+      <category term="blog" scheme="http://dmlcoding.com/categories/blog/"/>
     
     
-      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+      <category term="blog" scheme="http://dmlcoding.com/tags/blog/"/>
     
-      <category term="macbook" scheme="http://yoursite.com/tags/macbook/"/>
+      <category term="macbook" scheme="http://dmlcoding.com/tags/macbook/"/>
     
   </entry>
   
   <entry>
     <title>学习摩尔斯码</title>
-    <link href="http://yoursite.com/2017/mrs/"/>
-    <id>http://yoursite.com/2017/mrs/</id>
+    <link href="http://dmlcoding.com/2017/mrs/"/>
+    <id>http://dmlcoding.com/2017/mrs/</id>
     <published>2017-03-03T01:00:00.000Z</published>
     <updated>2017-06-19T10:01:50.000Z</updated>
     
@@ -842,17 +895,17 @@
     
     </summary>
     
-      <category term="fun" scheme="http://yoursite.com/categories/fun/"/>
+      <category term="fun" scheme="http://dmlcoding.com/categories/fun/"/>
     
     
-      <category term="fun" scheme="http://yoursite.com/tags/fun/"/>
+      <category term="fun" scheme="http://dmlcoding.com/tags/fun/"/>
     
   </entry>
   
   <entry>
     <title>17年阅读书单</title>
-    <link href="http://yoursite.com/2017/ReadBooks33/"/>
-    <id>http://yoursite.com/2017/ReadBooks33/</id>
+    <link href="http://dmlcoding.com/2017/ReadBooks33/"/>
+    <id>http://dmlcoding.com/2017/ReadBooks33/</id>
     <published>2017-03-02T14:00:00.000Z</published>
     <updated>2017-03-03T08:44:44.000Z</updated>
     
@@ -965,17 +1018,119 @@
     
     </summary>
     
-      <category term="book" scheme="http://yoursite.com/categories/book/"/>
+      <category term="book" scheme="http://dmlcoding.com/categories/book/"/>
     
     
-      <category term="book" scheme="http://yoursite.com/tags/book/"/>
+      <category term="book" scheme="http://dmlcoding.com/tags/book/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IntellijIdea使用笔记</title>
+    <link href="http://dmlcoding.com/2017/IntellijSkills/"/>
+    <id>http://dmlcoding.com/2017/IntellijSkills/</id>
+    <published>2017-03-02T09:00:00.000Z</published>
+    <updated>2017-03-02T10:25:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="给IDEA设置用户名"><a href="#给IDEA设置用户名" class="headerlink" title="给IDEA设置用户名"></a>给IDEA设置用户名</h3><p>其中${USER}将会被替换成当前登录操作系统的用户名，但有时我们的计算机名有可能是Administrator这样一类的，那应该怎样去修改这个 ${USER}呢？<br>答案在于IntelliJ IDEA的启动配置idea.exe.vmoptions，打开此文件，在最后加上一句：<br>-Duser.name=HuShiwei<br>这样就可以不使用默认的登录名了。<br><a id="more"></a></p>
+<h3 id="修改IntelljIDEA的背景色为护眼色"><a href="#修改IntelljIDEA的背景色为护眼色" class="headerlink" title="修改IntelljIDEA的背景色为护眼色"></a>修改IntelljIDEA的背景色为护眼色</h3><p><img src="/images/pics/intellijColor.png" alt="intellijColor"></p>
+<h3 id="将方法加入到Favorites"><a href="#将方法加入到Favorites" class="headerlink" title="将方法加入到Favorites"></a>将方法加入到Favorites</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alt+shift+f</div></pre></td></tr></table></figure>
+<h3 id="全局搜索内容"><a href="#全局搜索内容" class="headerlink" title="全局搜索内容"></a>全局搜索内容</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shift+shift</td>
+<td>搜索所有</td>
+</tr>
+<tr>
+<td>ctrl+shift+f</td>
+<td>搜索内容</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+A</td>
+<td>搜索命令</td>
+</tr>
+</tbody>
+</table>
+<h3 id="书签功能"><a href="#书签功能" class="headerlink" title="书签功能"></a>书签功能</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + F11</td>
+<td>选中文件 / 文件夹，使用助记符设定 / 取消书签</td>
+</tr>
+<tr>
+<td>F11</td>
+<td>添加书签</td>
+</tr>
+<tr>
+<td>Shift + F11</td>
+<td>弹出书签显示层</td>
+</tr>
+<tr>
+<td>Ctrl + 1,2,3…9</td>
+<td>定位到对应数值的书签位置</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + 1,2,3…9</td>
+<td>快速添加指定数值的书签</td>
+</tr>
+</tbody>
+</table>
+<h3 id="翻译插件"><a href="#翻译插件" class="headerlink" title="翻译插件"></a>翻译插件</h3><ul>
+<li>安装<ul>
+<li><a href="https://github.com/YiiGuxing/TranslationPlugin/releases/tag/v1.3.2" target="_blank" rel="external">离线下载地址</a></li>
+<li>在线安装:Preferences(Settings) &gt; Plugins &gt; Browse repositories… &gt; 搜索并找到”Translation” &gt;Install Plugin</li>
+<li>重启</li>
+</ul>
+</li>
+<li>使用<ul>
+<li>Translation: Alt + 0 打开翻译对话框，默认显示在工具栏上。 </li>
+<li>Translate: Alt + 1 取词并翻译。</li>
+<li>Translate(Inclusive): Alt + 2 取词并翻译。以最大范围自动取词，忽略手动选择的文本。 </li>
+<li>Translate(Exclusive): Alt + 3 取词并翻译。自动取单个词，忽略手动选择的文本</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>设置有道 API KEY: 由于有道的 API 在查询请求数量上存在限制，如果在 1 小时内查询请求次数达到一定数量后将会暂时禁止查询一段时间（大概 1 小时）。如果很多人同时使用同一个 KEY，可能会很容易就达到了限制条件，这就可以通过使用自己的 KEY 来避免（一人一个 KEY 基本足够用了）。</li>
+<li>获取Preferences(Settings) &gt; Other Settings &gt; Translation &gt; 获取有道 API KEY</li>
+<li><a href="http://fanyi.youdao.com/openapi?path=data-mode" target="_blank" rel="external">申请地址</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://idea.iteblog.com/key.php</div></pre></td></tr></table></figure>
+<h3 id="IDEA中编译打包Scala和Java代码命令"><a href="#IDEA中编译打包Scala和Java代码命令" class="headerlink" title="IDEA中编译打包Scala和Java代码命令"></a>IDEA中编译打包Scala和Java代码命令</h3><p>原因是mvn clean package默认只处理java源代码的编译、打包，而不管scala，所以编译时遇到Hello这个由scala语言编写的class，此时scala还没编译生成class，所以找不到相应的调用入口。<br>解决办法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn clean scala:compile compile package</div></pre></td></tr></table></figure>
+<p>如上，在compile前加入scala:compile，这是maven-scala-plugin插件提供的选项，表示编译scala，这样一来，先编译scala，再编译java，最后打包，妥妥滴！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;给IDEA设置用户名&quot;&gt;&lt;a href=&quot;#给IDEA设置用户名&quot; class=&quot;headerlink&quot; title=&quot;给IDEA设置用户名&quot;&gt;&lt;/a&gt;给IDEA设置用户名&lt;/h3&gt;&lt;p&gt;其中${USER}将会被替换成当前登录操作系统的用户名，但有时我们的计算机名有可能是Administrator这样一类的，那应该怎样去修改这个 ${USER}呢？&lt;br&gt;答案在于IntelliJ IDEA的启动配置idea.exe.vmoptions，打开此文件，在最后加上一句：&lt;br&gt;-Duser.name=HuShiwei&lt;br&gt;这样就可以不使用默认的登录名了。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="intellij" scheme="http://dmlcoding.com/categories/intellij/"/>
+    
+    
+      <category term="intellij" scheme="http://dmlcoding.com/tags/intellij/"/>
     
   </entry>
   
   <entry>
     <title>Intellij快捷键 for mac</title>
-    <link href="http://yoursite.com/2017/IntellijIdeaForMac/"/>
-    <id>http://yoursite.com/2017/IntellijIdeaForMac/</id>
+    <link href="http://dmlcoding.com/2017/IntellijIdeaForMac/"/>
+    <id>http://dmlcoding.com/2017/IntellijIdeaForMac/</id>
     <published>2017-03-02T09:00:00.000Z</published>
     <updated>2017-03-02T10:08:56.000Z</updated>
     
@@ -1191,121 +1346,19 @@
     
     </summary>
     
-      <category term="intellij" scheme="http://yoursite.com/categories/intellij/"/>
+      <category term="intellij" scheme="http://dmlcoding.com/categories/intellij/"/>
     
     
-      <category term="intellij" scheme="http://yoursite.com/tags/intellij/"/>
+      <category term="intellij" scheme="http://dmlcoding.com/tags/intellij/"/>
     
-      <category term="mac" scheme="http://yoursite.com/tags/mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IntellijIdea使用笔记</title>
-    <link href="http://yoursite.com/2017/IntellijSkills/"/>
-    <id>http://yoursite.com/2017/IntellijSkills/</id>
-    <published>2017-03-02T09:00:00.000Z</published>
-    <updated>2017-03-02T10:25:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="给IDEA设置用户名"><a href="#给IDEA设置用户名" class="headerlink" title="给IDEA设置用户名"></a>给IDEA设置用户名</h3><p>其中${USER}将会被替换成当前登录操作系统的用户名，但有时我们的计算机名有可能是Administrator这样一类的，那应该怎样去修改这个 ${USER}呢？<br>答案在于IntelliJ IDEA的启动配置idea.exe.vmoptions，打开此文件，在最后加上一句：<br>-Duser.name=HuShiwei<br>这样就可以不使用默认的登录名了。<br><a id="more"></a></p>
-<h3 id="修改IntelljIDEA的背景色为护眼色"><a href="#修改IntelljIDEA的背景色为护眼色" class="headerlink" title="修改IntelljIDEA的背景色为护眼色"></a>修改IntelljIDEA的背景色为护眼色</h3><p><img src="/images/pics/intellijColor.png" alt="intellijColor"></p>
-<h3 id="将方法加入到Favorites"><a href="#将方法加入到Favorites" class="headerlink" title="将方法加入到Favorites"></a>将方法加入到Favorites</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alt+shift+f</div></pre></td></tr></table></figure>
-<h3 id="全局搜索内容"><a href="#全局搜索内容" class="headerlink" title="全局搜索内容"></a>全局搜索内容</h3><table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>shift+shift</td>
-<td>搜索所有</td>
-</tr>
-<tr>
-<td>ctrl+shift+f</td>
-<td>搜索内容</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+A</td>
-<td>搜索命令</td>
-</tr>
-</tbody>
-</table>
-<h3 id="书签功能"><a href="#书签功能" class="headerlink" title="书签功能"></a>书签功能</h3><table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + F11</td>
-<td>选中文件 / 文件夹，使用助记符设定 / 取消书签</td>
-</tr>
-<tr>
-<td>F11</td>
-<td>添加书签</td>
-</tr>
-<tr>
-<td>Shift + F11</td>
-<td>弹出书签显示层</td>
-</tr>
-<tr>
-<td>Ctrl + 1,2,3…9</td>
-<td>定位到对应数值的书签位置</td>
-</tr>
-<tr>
-<td>Ctrl + Shift + 1,2,3…9</td>
-<td>快速添加指定数值的书签</td>
-</tr>
-</tbody>
-</table>
-<h3 id="翻译插件"><a href="#翻译插件" class="headerlink" title="翻译插件"></a>翻译插件</h3><ul>
-<li>安装<ul>
-<li><a href="https://github.com/YiiGuxing/TranslationPlugin/releases/tag/v1.3.2" target="_blank" rel="external">离线下载地址</a></li>
-<li>在线安装:Preferences(Settings) &gt; Plugins &gt; Browse repositories… &gt; 搜索并找到”Translation” &gt;Install Plugin</li>
-<li>重启</li>
-</ul>
-</li>
-<li>使用<ul>
-<li>Translation: Alt + 0 打开翻译对话框，默认显示在工具栏上。 </li>
-<li>Translate: Alt + 1 取词并翻译。</li>
-<li>Translate(Inclusive): Alt + 2 取词并翻译。以最大范围自动取词，忽略手动选择的文本。 </li>
-<li>Translate(Exclusive): Alt + 3 取词并翻译。自动取单个词，忽略手动选择的文本</li>
-</ul>
-</li>
-<li>注意<ul>
-<li>设置有道 API KEY: 由于有道的 API 在查询请求数量上存在限制，如果在 1 小时内查询请求次数达到一定数量后将会暂时禁止查询一段时间（大概 1 小时）。如果很多人同时使用同一个 KEY，可能会很容易就达到了限制条件，这就可以通过使用自己的 KEY 来避免（一人一个 KEY 基本足够用了）。</li>
-<li>获取Preferences(Settings) &gt; Other Settings &gt; Translation &gt; 获取有道 API KEY</li>
-<li><a href="http://fanyi.youdao.com/openapi?path=data-mode" target="_blank" rel="external">申请地址</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://idea.iteblog.com/key.php</div></pre></td></tr></table></figure>
-<h3 id="IDEA中编译打包Scala和Java代码命令"><a href="#IDEA中编译打包Scala和Java代码命令" class="headerlink" title="IDEA中编译打包Scala和Java代码命令"></a>IDEA中编译打包Scala和Java代码命令</h3><p>原因是mvn clean package默认只处理java源代码的编译、打包，而不管scala，所以编译时遇到Hello这个由scala语言编写的class，此时scala还没编译生成class，所以找不到相应的调用入口。<br>解决办法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn clean scala:compile compile package</div></pre></td></tr></table></figure>
-<p>如上，在compile前加入scala:compile，这是maven-scala-plugin插件提供的选项，表示编译scala，这样一来，先编译scala，再编译java，最后打包，妥妥滴！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;给IDEA设置用户名&quot;&gt;&lt;a href=&quot;#给IDEA设置用户名&quot; class=&quot;headerlink&quot; title=&quot;给IDEA设置用户名&quot;&gt;&lt;/a&gt;给IDEA设置用户名&lt;/h3&gt;&lt;p&gt;其中${USER}将会被替换成当前登录操作系统的用户名，但有时我们的计算机名有可能是Administrator这样一类的，那应该怎样去修改这个 ${USER}呢？&lt;br&gt;答案在于IntelliJ IDEA的启动配置idea.exe.vmoptions，打开此文件，在最后加上一句：&lt;br&gt;-Duser.name=HuShiwei&lt;br&gt;这样就可以不使用默认的登录名了。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="intellij" scheme="http://yoursite.com/categories/intellij/"/>
-    
-    
-      <category term="intellij" scheme="http://yoursite.com/tags/intellij/"/>
+      <category term="mac" scheme="http://dmlcoding.com/tags/mac/"/>
     
   </entry>
   
   <entry>
     <title>Macbook下搭建开发环境</title>
-    <link href="http://yoursite.com/2017/MacbookEnr/"/>
-    <id>http://yoursite.com/2017/MacbookEnr/</id>
+    <link href="http://dmlcoding.com/2017/MacbookEnr/"/>
+    <id>http://dmlcoding.com/2017/MacbookEnr/</id>
     <published>2017-02-19T07:00:00.000Z</published>
     <updated>2017-04-10T10:08:09.000Z</updated>
     
@@ -1347,113 +1400,10 @@
     
     </summary>
     
-      <category term="macbook" scheme="http://yoursite.com/categories/macbook/"/>
+      <category term="macbook" scheme="http://dmlcoding.com/categories/macbook/"/>
     
     
-      <category term="macbook" scheme="http://yoursite.com/tags/macbook/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker 笔记</title>
-    <link href="http://yoursite.com/2017/DockerSkils/"/>
-    <id>http://yoursite.com/2017/DockerSkils/</id>
-    <published>2017-02-16T06:00:00.000Z</published>
-    <updated>2017-03-02T10:17:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="ubuntu安装docker"><a href="#ubuntu安装docker" class="headerlink" title="ubuntu安装docker"></a>ubuntu安装docker</h1><h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><blockquote>
-<p>Docker 要求 Ubuntu 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的Ubuntu版本是否支持 Docker 。<br>打开控制台使用 uname -r命令来查看你当前的内核版本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ uname -r </div><div class="line"> 3.11.0-15-generic</div></pre></td></tr></table></figure></p>
-</blockquote>
-<a id="more"></a>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get update $ sudo apt-get install wget  //安装wget</div><div class="line">wget -qO- https://get.docker.com/ | sh     //获取最新版本的 Docker 安装包，输入完成之后，就会下载脚本并且安装Docker及依赖包。</div><div class="line">docker info //验证安装结果</div></pre></td></tr></table></figure>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="Cannot-connect-to-the-Docker-daemon-Is-the-docker-daemon-running-on-this-host"><a href="#Cannot-connect-to-the-Docker-daemon-Is-the-docker-daemon-running-on-this-host" class="headerlink" title="Cannot connect to the Docker daemon. Is the docker daemon running on this host?"></a>Cannot connect to the Docker daemon. Is the docker daemon running on this host?</h3><ul>
-<li>解决:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo su -                       //切换到root</div><div class="line">service docker start      //启动docker service</div><div class="line">docker images              //显示所有images</div><div class="line">docker run hello-world  //重新运行</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>恩，是权限问题，当前用户没权限，root用户可以运行</p>
-<h1 id="图形化镜像"><a href="#图形化镜像" class="headerlink" title="图形化镜像"></a>图形化镜像</h1><p>docker-ubuntu-vnc-desktop</p>
-<h2 id="From-Docker-Index"><a href="#From-Docker-Index" class="headerlink" title="From Docker Index"></a>From Docker Index</h2><p>docker pull dorowu/ubuntu-desktop-lxde-vnc</p>
-<h2 id="Build-yourself"><a href="#Build-yourself" class="headerlink" title="Build yourself"></a>Build yourself</h2><p>git clone <a href="https://github.com/fcwu/docker-ubuntu-vnc-desktop.git" target="_blank" rel="external">https://github.com/fcwu/docker-ubuntu-vnc-desktop.git</a><br>docker build –rm -t dorowu/ubuntu-desktop-lxde-vnc docker-ubuntu-vnc-desktop</p>
-<h2 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h2><p>docker run -i -t -p 6080:6080 dorowu/ubuntu-desktop-lxde-vnc<br>Browse <a href="http://127.0.0.1:6080/vnc.html" target="_blank" rel="external">http://127.0.0.1:6080/vnc.html</a></p>
-<h1 id="docker-常用命令"><a href="#docker-常用命令" class="headerlink" title="docker 常用命令"></a>docker 常用命令</h1><h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>docker images</td>
-<td>列出所有的镜像</td>
-</tr>
-<tr>
-<td>docker search name</td>
-<td>搜索docker 容器,name是名字</td>
-</tr>
-<tr>
-<td>docker pull name</td>
-<td>下载容器，name是名字</td>
-</tr>
-<tr>
-<td>docker run -i -t name /bin/bash</td>
-<td>运行name镜像</td>
-</tr>
-<tr>
-<td>docker exec -i -t name/bin/bash</td>
-<td>进入容器中</td>
-</tr>
-<tr>
-<td>docker rmi XXXXXX</td>
-<td>删除一个docker镜像</td>
-</tr>
-<tr>
-<td>docker rm xxxxxx</td>
-<td>删除一个docker容器</td>
-</tr>
-<tr>
-<td>docker ps</td>
-<td>列出正在运行的(容器)containers</td>
-</tr>
-<tr>
-<td>docker ps -a</td>
-<td>查看容器状态</td>
-</tr>
-<tr>
-<td>docker commit 3a09b2588478 ubuntu:mynewimage</td>
-<td>把容器提交为一个镜像保存状态</td>
-</tr>
-</tbody>
-</table>
-<h2 id="获取-Ubuntu-镜像。"><a href="#获取-Ubuntu-镜像。" class="headerlink" title="获取 Ubuntu 镜像。"></a>获取 Ubuntu 镜像。</h2><p>   docker pull ubuntu<br>完成后执行 docker images 就能看到一个刚刚更新的镜像了。</p>
-<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><p>   docker run -it ubuntu</p>
-<h2 id="安装软件、配置环境变量"><a href="#安装软件、配置环境变量" class="headerlink" title="安装软件、配置环境变量"></a>安装软件、配置环境变量</h2><p>   首先更新apt-get<br>   apt-get update </p>
-<p>接下来就可以使用 apt-get install * 安装你需要的软件了，如果没有就下载安装包自行安装，同时配置好环境变量，这里就不赘述了。</p>
-<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>进入tomcat目录，启动服务，在浏览器打开 0.0.0.0:8080, 如果没有错的话你会看到该服务器无法访问。这是因为我们刚才启动的服务是在docker内，如果不做一些操作的话我们是无法访问到docker内部的服务的。</p>
-<h2 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h2><p>所以，我们先退出容器<br>   exit</p>
-<h2 id="退出之后执行"><a href="#退出之后执行" class="headerlink" title="退出之后执行"></a>退出之后执行</h2><p>   docker ps -a<br>就能看到我们刚才的容器依然还在，可能大多刚接触docker的人都会犯这个错误，以为退出容器之后容器就销毁了，其实不然。</p>
-<h2 id="再次进入容器"><a href="#再次进入容器" class="headerlink" title="再次进入容器"></a>再次进入容器</h2><p>如果我们想再进入这个容器可以执行下面的命令，容器ID请复制自己的。<br>   docker exec -it 容器ID bash</p>
-<h2 id="持久化容器"><a href="#持久化容器" class="headerlink" title="持久化容器"></a>持久化容器</h2><p>虽然容器还在运行，但是他并没有持久化，为了防止万一，在我们修改容器里面的内容之后尽快持久化。<br>   docker commit 容器ID java<br>这个命令的意思是将我们容器持久化为java镜像。如果镜像不存在就会新建一个。</p>
-<h2 id="启动这个新建的镜像。"><a href="#启动这个新建的镜像。" class="headerlink" title="启动这个新建的镜像。"></a>启动这个新建的镜像。</h2><p>docker run -it -p 8080:8080 java<br>注意看我们的启动命令发生了变化，多了一个 -P 这个命令的意思是将容器内的 8080 端口暴漏到宿主机上。<br>再次访问 0.0.0.0:8080，我们就能看到那只小花猫了，真可爱。<br>刚才那个容器还在占用我们的内存怎么办，干掉他。</p>
-<h2 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h2><p>   docker rm 容器ID</p>
-<p>至此我们的第一步已经完成了，接下来我们就要集成我们的代码了。</p>
-<h2 id="集成代码"><a href="#集成代码" class="headerlink" title="集成代码"></a>集成代码</h2><p>我们刚才启动的容器是一个完全的独立的黑盒子，它根本不知道我们的代码再哪里，所以我们就要使用docker的挂载卷让宿主机和容器可以共享目录。<br>不好意思，我们又要干掉刚才启动的那个容器了。<br>   docker run -it -v /Users/name/web:/opt/root -p 8080:8080 java</p>
-<p>我们的启动命令又加入了新成员 -v。这个命令的意思就是将用户根目录下的 web 目录挂在到容器中 /opt/root 目录下。<br>进入目录后我们就能发现web目录下的文件静静的躺在里面，像是沉睡多年的玛丽苏在等待你的呼唤。</p>
-<p>开始呼唤吧。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;ubuntu安装docker&quot;&gt;&lt;a href=&quot;#ubuntu安装docker&quot; class=&quot;headerlink&quot; title=&quot;ubuntu安装docker&quot;&gt;&lt;/a&gt;ubuntu安装docker&lt;/h1&gt;&lt;h2 id=&quot;前提条件&quot;&gt;&lt;a href=&quot;#前提条件&quot; class=&quot;headerlink&quot; title=&quot;前提条件&quot;&gt;&lt;/a&gt;前提条件&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Docker 要求 Ubuntu 系统的内核版本高于 3.10 ，查看本页面的前提条件来验证你的Ubuntu版本是否支持 Docker 。&lt;br&gt;打开控制台使用 uname -r命令来查看你当前的内核版本。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ uname -r &lt;/div&gt;&lt;div class=&quot;line&quot;&gt; 3.11.0-15-generic&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="docker" scheme="http://yoursite.com/categories/docker/"/>
-    
-    
-      <category term="docker" scheme="http://yoursite.com/tags/docker/"/>
+      <category term="macbook" scheme="http://dmlcoding.com/tags/macbook/"/>
     
   </entry>
   
