@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-07-13T10:30:54.000Z</updated>
+  <updated>2017-07-18T02:01:08.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>年中总结</title>
+    <link href="http://dmlcoding.com/2017/WhatIWriteIsShit/"/>
+    <id>http://dmlcoding.com/2017/WhatIWriteIsShit/</id>
+    <published>2017-07-16T02:20:00.000Z</published>
+    <updated>2017-07-18T02:01:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/beautifulPic/1.jpg" alt="风景"><br>写了这么多句,没有写出一句有意思的话;<br>写了这么多篇,没有写出一篇有深意的文章;<br>不是流水账,仍似流水账;</p>
+<a id="more"></a>
+<h1 id="我干了些啥"><a href="#我干了些啥" class="headerlink" title="我干了些啥"></a>我干了些啥</h1><blockquote>
+<p>2017已经过去了一半</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/beautifulPic/1.jpg&quot; alt=&quot;风景&quot;&gt;&lt;br&gt;写了这么多句,没有写出一句有意思的话;&lt;br&gt;写了这么多篇,没有写出一篇有深意的文章;&lt;br&gt;不是流水账,仍似流水账;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="think" scheme="http://dmlcoding.com/categories/think/"/>
+    
+    
+      <category term="think" scheme="http://dmlcoding.com/tags/think/"/>
+    
+  </entry>
   
   <entry>
     <title>逻辑回归笔记</title>
@@ -1028,6 +1055,108 @@
   </entry>
   
   <entry>
+    <title>IntellijIdea使用笔记</title>
+    <link href="http://dmlcoding.com/2017/IntellijSkills/"/>
+    <id>http://dmlcoding.com/2017/IntellijSkills/</id>
+    <published>2017-03-02T09:00:00.000Z</published>
+    <updated>2017-03-02T10:25:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="给IDEA设置用户名"><a href="#给IDEA设置用户名" class="headerlink" title="给IDEA设置用户名"></a>给IDEA设置用户名</h3><p>其中${USER}将会被替换成当前登录操作系统的用户名，但有时我们的计算机名有可能是Administrator这样一类的，那应该怎样去修改这个 ${USER}呢？<br>答案在于IntelliJ IDEA的启动配置idea.exe.vmoptions，打开此文件，在最后加上一句：<br>-Duser.name=HuShiwei<br>这样就可以不使用默认的登录名了。<br><a id="more"></a></p>
+<h3 id="修改IntelljIDEA的背景色为护眼色"><a href="#修改IntelljIDEA的背景色为护眼色" class="headerlink" title="修改IntelljIDEA的背景色为护眼色"></a>修改IntelljIDEA的背景色为护眼色</h3><p><img src="/images/pics/intellijColor.png" alt="intellijColor"></p>
+<h3 id="将方法加入到Favorites"><a href="#将方法加入到Favorites" class="headerlink" title="将方法加入到Favorites"></a>将方法加入到Favorites</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alt+shift+f</div></pre></td></tr></table></figure>
+<h3 id="全局搜索内容"><a href="#全局搜索内容" class="headerlink" title="全局搜索内容"></a>全局搜索内容</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shift+shift</td>
+<td>搜索所有</td>
+</tr>
+<tr>
+<td>ctrl+shift+f</td>
+<td>搜索内容</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+A</td>
+<td>搜索命令</td>
+</tr>
+</tbody>
+</table>
+<h3 id="书签功能"><a href="#书签功能" class="headerlink" title="书签功能"></a>书签功能</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + F11</td>
+<td>选中文件 / 文件夹，使用助记符设定 / 取消书签</td>
+</tr>
+<tr>
+<td>F11</td>
+<td>添加书签</td>
+</tr>
+<tr>
+<td>Shift + F11</td>
+<td>弹出书签显示层</td>
+</tr>
+<tr>
+<td>Ctrl + 1,2,3…9</td>
+<td>定位到对应数值的书签位置</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + 1,2,3…9</td>
+<td>快速添加指定数值的书签</td>
+</tr>
+</tbody>
+</table>
+<h3 id="翻译插件"><a href="#翻译插件" class="headerlink" title="翻译插件"></a>翻译插件</h3><ul>
+<li>安装<ul>
+<li><a href="https://github.com/YiiGuxing/TranslationPlugin/releases/tag/v1.3.2" target="_blank" rel="external">离线下载地址</a></li>
+<li>在线安装:Preferences(Settings) &gt; Plugins &gt; Browse repositories… &gt; 搜索并找到”Translation” &gt;Install Plugin</li>
+<li>重启</li>
+</ul>
+</li>
+<li>使用<ul>
+<li>Translation: Alt + 0 打开翻译对话框，默认显示在工具栏上。 </li>
+<li>Translate: Alt + 1 取词并翻译。</li>
+<li>Translate(Inclusive): Alt + 2 取词并翻译。以最大范围自动取词，忽略手动选择的文本。 </li>
+<li>Translate(Exclusive): Alt + 3 取词并翻译。自动取单个词，忽略手动选择的文本</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>设置有道 API KEY: 由于有道的 API 在查询请求数量上存在限制，如果在 1 小时内查询请求次数达到一定数量后将会暂时禁止查询一段时间（大概 1 小时）。如果很多人同时使用同一个 KEY，可能会很容易就达到了限制条件，这就可以通过使用自己的 KEY 来避免（一人一个 KEY 基本足够用了）。</li>
+<li>获取Preferences(Settings) &gt; Other Settings &gt; Translation &gt; 获取有道 API KEY</li>
+<li><a href="http://fanyi.youdao.com/openapi?path=data-mode" target="_blank" rel="external">申请地址</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://idea.iteblog.com/key.php</div></pre></td></tr></table></figure>
+<h3 id="IDEA中编译打包Scala和Java代码命令"><a href="#IDEA中编译打包Scala和Java代码命令" class="headerlink" title="IDEA中编译打包Scala和Java代码命令"></a>IDEA中编译打包Scala和Java代码命令</h3><p>原因是mvn clean package默认只处理java源代码的编译、打包，而不管scala，所以编译时遇到Hello这个由scala语言编写的class，此时scala还没编译生成class，所以找不到相应的调用入口。<br>解决办法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn clean scala:compile compile package</div></pre></td></tr></table></figure>
+<p>如上，在compile前加入scala:compile，这是maven-scala-plugin插件提供的选项，表示编译scala，这样一来，先编译scala，再编译java，最后打包，妥妥滴！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;给IDEA设置用户名&quot;&gt;&lt;a href=&quot;#给IDEA设置用户名&quot; class=&quot;headerlink&quot; title=&quot;给IDEA设置用户名&quot;&gt;&lt;/a&gt;给IDEA设置用户名&lt;/h3&gt;&lt;p&gt;其中${USER}将会被替换成当前登录操作系统的用户名，但有时我们的计算机名有可能是Administrator这样一类的，那应该怎样去修改这个 ${USER}呢？&lt;br&gt;答案在于IntelliJ IDEA的启动配置idea.exe.vmoptions，打开此文件，在最后加上一句：&lt;br&gt;-Duser.name=HuShiwei&lt;br&gt;这样就可以不使用默认的登录名了。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="intellij" scheme="http://dmlcoding.com/categories/intellij/"/>
+    
+    
+      <category term="intellij" scheme="http://dmlcoding.com/tags/intellij/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Intellij快捷键 for mac</title>
     <link href="http://dmlcoding.com/2017/IntellijIdeaForMac/"/>
     <id>http://dmlcoding.com/2017/IntellijIdeaForMac/</id>
@@ -1252,160 +1381,6 @@
       <category term="intellij" scheme="http://dmlcoding.com/tags/intellij/"/>
     
       <category term="mac" scheme="http://dmlcoding.com/tags/mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IntellijIdea使用笔记</title>
-    <link href="http://dmlcoding.com/2017/IntellijSkills/"/>
-    <id>http://dmlcoding.com/2017/IntellijSkills/</id>
-    <published>2017-03-02T09:00:00.000Z</published>
-    <updated>2017-03-02T10:25:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="给IDEA设置用户名"><a href="#给IDEA设置用户名" class="headerlink" title="给IDEA设置用户名"></a>给IDEA设置用户名</h3><p>其中${USER}将会被替换成当前登录操作系统的用户名，但有时我们的计算机名有可能是Administrator这样一类的，那应该怎样去修改这个 ${USER}呢？<br>答案在于IntelliJ IDEA的启动配置idea.exe.vmoptions，打开此文件，在最后加上一句：<br>-Duser.name=HuShiwei<br>这样就可以不使用默认的登录名了。<br><a id="more"></a></p>
-<h3 id="修改IntelljIDEA的背景色为护眼色"><a href="#修改IntelljIDEA的背景色为护眼色" class="headerlink" title="修改IntelljIDEA的背景色为护眼色"></a>修改IntelljIDEA的背景色为护眼色</h3><p><img src="/images/pics/intellijColor.png" alt="intellijColor"></p>
-<h3 id="将方法加入到Favorites"><a href="#将方法加入到Favorites" class="headerlink" title="将方法加入到Favorites"></a>将方法加入到Favorites</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alt+shift+f</div></pre></td></tr></table></figure>
-<h3 id="全局搜索内容"><a href="#全局搜索内容" class="headerlink" title="全局搜索内容"></a>全局搜索内容</h3><table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>shift+shift</td>
-<td>搜索所有</td>
-</tr>
-<tr>
-<td>ctrl+shift+f</td>
-<td>搜索内容</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+A</td>
-<td>搜索命令</td>
-</tr>
-</tbody>
-</table>
-<h3 id="书签功能"><a href="#书签功能" class="headerlink" title="书签功能"></a>书签功能</h3><table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + F11</td>
-<td>选中文件 / 文件夹，使用助记符设定 / 取消书签</td>
-</tr>
-<tr>
-<td>F11</td>
-<td>添加书签</td>
-</tr>
-<tr>
-<td>Shift + F11</td>
-<td>弹出书签显示层</td>
-</tr>
-<tr>
-<td>Ctrl + 1,2,3…9</td>
-<td>定位到对应数值的书签位置</td>
-</tr>
-<tr>
-<td>Ctrl + Shift + 1,2,3…9</td>
-<td>快速添加指定数值的书签</td>
-</tr>
-</tbody>
-</table>
-<h3 id="翻译插件"><a href="#翻译插件" class="headerlink" title="翻译插件"></a>翻译插件</h3><ul>
-<li>安装<ul>
-<li><a href="https://github.com/YiiGuxing/TranslationPlugin/releases/tag/v1.3.2" target="_blank" rel="external">离线下载地址</a></li>
-<li>在线安装:Preferences(Settings) &gt; Plugins &gt; Browse repositories… &gt; 搜索并找到”Translation” &gt;Install Plugin</li>
-<li>重启</li>
-</ul>
-</li>
-<li>使用<ul>
-<li>Translation: Alt + 0 打开翻译对话框，默认显示在工具栏上。 </li>
-<li>Translate: Alt + 1 取词并翻译。</li>
-<li>Translate(Inclusive): Alt + 2 取词并翻译。以最大范围自动取词，忽略手动选择的文本。 </li>
-<li>Translate(Exclusive): Alt + 3 取词并翻译。自动取单个词，忽略手动选择的文本</li>
-</ul>
-</li>
-<li>注意<ul>
-<li>设置有道 API KEY: 由于有道的 API 在查询请求数量上存在限制，如果在 1 小时内查询请求次数达到一定数量后将会暂时禁止查询一段时间（大概 1 小时）。如果很多人同时使用同一个 KEY，可能会很容易就达到了限制条件，这就可以通过使用自己的 KEY 来避免（一人一个 KEY 基本足够用了）。</li>
-<li>获取Preferences(Settings) &gt; Other Settings &gt; Translation &gt; 获取有道 API KEY</li>
-<li><a href="http://fanyi.youdao.com/openapi?path=data-mode" target="_blank" rel="external">申请地址</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://idea.iteblog.com/key.php</div></pre></td></tr></table></figure>
-<h3 id="IDEA中编译打包Scala和Java代码命令"><a href="#IDEA中编译打包Scala和Java代码命令" class="headerlink" title="IDEA中编译打包Scala和Java代码命令"></a>IDEA中编译打包Scala和Java代码命令</h3><p>原因是mvn clean package默认只处理java源代码的编译、打包，而不管scala，所以编译时遇到Hello这个由scala语言编写的class，此时scala还没编译生成class，所以找不到相应的调用入口。<br>解决办法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn clean scala:compile compile package</div></pre></td></tr></table></figure>
-<p>如上，在compile前加入scala:compile，这是maven-scala-plugin插件提供的选项，表示编译scala，这样一来，先编译scala，再编译java，最后打包，妥妥滴！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;给IDEA设置用户名&quot;&gt;&lt;a href=&quot;#给IDEA设置用户名&quot; class=&quot;headerlink&quot; title=&quot;给IDEA设置用户名&quot;&gt;&lt;/a&gt;给IDEA设置用户名&lt;/h3&gt;&lt;p&gt;其中${USER}将会被替换成当前登录操作系统的用户名，但有时我们的计算机名有可能是Administrator这样一类的，那应该怎样去修改这个 ${USER}呢？&lt;br&gt;答案在于IntelliJ IDEA的启动配置idea.exe.vmoptions，打开此文件，在最后加上一句：&lt;br&gt;-Duser.name=HuShiwei&lt;br&gt;这样就可以不使用默认的登录名了。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="intellij" scheme="http://dmlcoding.com/categories/intellij/"/>
-    
-    
-      <category term="intellij" scheme="http://dmlcoding.com/tags/intellij/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Macbook下搭建开发环境</title>
-    <link href="http://dmlcoding.com/2017/MacbookEnr/"/>
-    <id>http://dmlcoding.com/2017/MacbookEnr/</id>
-    <published>2017-02-19T07:00:00.000Z</published>
-    <updated>2017-04-10T10:08:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="切换root账号"><a href="#切换root账号" class="headerlink" title="切换root账号"></a>切换root账号</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">macbook pro启用root的方法</div><div class="line">用管理员帐号进入shell:</div><div class="line">　　1) sudo passwd root</div><div class="line">　　2) 输入新的root密码。</div><div class="line">　　3) su</div><div class="line">　　4) 使用新密码</div><div class="line">　　这样就进入到root帐号了</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h1 id="添加安装任何来源的文件"><a href="#添加安装任何来源的文件" class="headerlink" title="添加安装任何来源的文件"></a>添加安装任何来源的文件</h1><p>安装破解软件的时候,需要设置成-允许从任何来源,不然会出现<br>xxx.app已损坏,打不开.你应该将它移到废纸篓</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo spctl --master-disable</div></pre></td></tr></table></figure>
-<h1 id="安装brew包管理器"><a href="#安装brew包管理器" class="headerlink" title="安装brew包管理器"></a>安装brew包管理器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div><div class="line">更新 brew</div><div class="line">brew update</div></pre></td></tr></table></figure>
-<h1 id="重新安装-python"><a href="#重新安装-python" class="headerlink" title="重新安装 python"></a>重新安装 python</h1><p>Python会被安装到/usr/local/bin目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install python</div></pre></td></tr></table></figure></p>
-<h1 id="然后安装-ipython"><a href="#然后安装-ipython" class="headerlink" title="然后安装 ipython"></a>然后安装 ipython</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install ipython</div></pre></td></tr></table></figure>
-<h1 id="安装-wget"><a href="#安装-wget" class="headerlink" title="安装 wget"></a>安装 wget</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install wget</div></pre></td></tr></table></figure>
-<h1 id="安装-node"><a href="#安装-node" class="headerlink" title="安装 node"></a>安装 node</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install node</div></pre></td></tr></table></figure>
-<h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><ul>
-<li><p>下载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
-</li>
-<li><p>验证</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">输入 hexo 有提示就成了</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="配置-GitHub"><a href="#配置-GitHub" class="headerlink" title="配置 GitHub"></a>配置 GitHub</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">重新打开bash，输入：</div><div class="line">ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</div><div class="line">一路Enter过来就好，得到信息：</div><div class="line">Your public key has been saved in /Users/hushiwei/.ssh</div><div class="line">找到该文件，打开（sublime text），Ctrl + a复制里面的所有内容，然后进入Sign in to GitHub：</div><div class="line">New SSH key ——Title：blog —— Key：输入刚才复制的—— Add SSH key</div></pre></td></tr></table></figure>
-<h1 id="安装pip-如果重新用-brew-安装了-python-那么-pip-已经安装了"><a href="#安装pip-如果重新用-brew-安装了-python-那么-pip-已经安装了" class="headerlink" title="安装pip(如果重新用 brew 安装了 python,那么 pip 已经安装了)"></a>安装pip(如果重新用 brew 安装了 python,那么 pip 已经安装了)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget https://bootstrap.pypa.io/get-pip.py</div><div class="line">sudo python get-pip.py</div></pre></td></tr></table></figure>
-<h1 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h1><h1 id="配置scala-maven-环境变量"><a href="#配置scala-maven-环境变量" class="headerlink" title="配置scala,maven,环境变量"></a>配置scala,maven,环境变量</h1><ul>
-<li><p>maven和Scala</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.tgz</div><div class="line">解压：tar zxvf FileName.tgz</div><div class="line">压缩：tar zcvf FileName.tgz FileName</div></pre></td></tr></table></figure>
-</li>
-<li><p>环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">hushiweideMacBook-Pro:Downloads hushiwei$ more .bash_profile </div><div class="line">alias ll=&apos;ls -lF&apos;</div><div class="line">alias ll=&apos;ls -alF&apos;</div><div class="line">JAVA_HOME=`/usr/libexec/java_home`</div><div class="line">SCALA_HOME=/Users/hushiwei/devApps/scala-2.10.5</div><div class="line">MAVEN_HOME=/Users/hushiwei/devApps/maven-3.3.9</div><div class="line">CLASSPAHT=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</div><div class="line">PATH=$SCALA_HOME/bin:$MAVEN_HOME/bin:$JAVA_HOME/bin:$PATH:/usr/local/bin:</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h1><ul>
-<li>下载<br><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">下载地址</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;切换root账号&quot;&gt;&lt;a href=&quot;#切换root账号&quot; class=&quot;headerlink&quot; title=&quot;切换root账号&quot;&gt;&lt;/a&gt;切换root账号&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;macbook pro启用root的方法&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;用管理员帐号进入shell:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;　　1) sudo passwd root&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;　　2) 输入新的root密码。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;　　3) su&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;　　4) 使用新密码&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;　　这样就进入到root帐号了&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="macbook" scheme="http://dmlcoding.com/categories/macbook/"/>
-    
-    
-      <category term="macbook" scheme="http://dmlcoding.com/tags/macbook/"/>
     
   </entry>
   
