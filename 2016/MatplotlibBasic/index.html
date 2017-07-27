@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Hushiwei" />
+
+
+
+<meta name="description" content="Matplotlib是Python中最常用的可视化工具之一，可以非常方便地创建海量类型地2D图表和一些基本的3D图表。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 可视化包-Matplotlib">
+<meta property="og:url" content="http://dmlcoding.com/2016/MatplotlibBasic/index.html">
+<meta property="og:site_name" content="Time渐行渐远">
+<meta property="og:description" content="Matplotlib是Python中最常用的可视化工具之一，可以非常方便地创建海量类型地2D图表和一些基本的3D图表。">
+<meta property="og:image" content="http://dmlcoding.com/imges/python/ctr1.png">
+<meta property="og:image" content="http://dmlcoding.com/imges/python/ctr2.png">
+<meta property="og:updated_time" content="2017-07-27T06:25:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 可视化包-Matplotlib">
+<meta name="twitter:description" content="Matplotlib是Python中最常用的可视化工具之一，可以非常方便地创建海量类型地2D图表和一些基本的3D图表。">
+<meta name="twitter:image" content="http://dmlcoding.com/imges/python/ctr1.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Time渐行渐远" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/wei.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>python 可视化包-Matplotlib | Time渐行渐远</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?2a025c7742b90ad62b1e767e1b7f2f29";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</head>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/wei.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Hushiwei</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Coding Changing The World</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:hsw_v5@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/Timehsw" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/hsw_v5" title="知乎"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matplotlib/">Matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/beautifulsoup/">beautifulsoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bigdata/">bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centOS/">centOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/computer/">computer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data/">data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastructure/">datastructure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepin/">deepin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design/">design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/druid/">druid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flask/">flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fun/">fun</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hbase/">hbase</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intellij/">intellij</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">jekyll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macbook/">macbook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memory/">memory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ml/">ml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rdd/">rdd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/recursion/">recursion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/saltstack/">saltstack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scala/">scala</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shadowsocks/">shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spark/">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/system/">system</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tesseract/">tesseract</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/think/">think</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/">thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vps/">vps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/writer/">writer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zabbix/">zabbix</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://blog.hyperj.net/">HyperJ&#39;s Blog</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://91fz.org/">疯子的博客</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://oopsman.github.io">照见自在</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">自认为极客,专注于大数据开发.</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Hushiwei</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/wei.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Hushiwei</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Coding Changing The World</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:hsw_v5@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/Timehsw" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/hsw_v5" title="知乎"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-MatplotlibBasic" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/MatplotlibBasic/" class="article-date">
+      <time datetime="2016-12-09T10:24:00.000Z" itemprop="datePublished">2016-12-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python 可视化包-Matplotlib
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/python/">python</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matplotlib/">Matplotlib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Matplotlib是Python中最常用的可视化工具之一，可以非常方便地创建海量类型地2D图表和一些基本的3D图表。</p>
+<a id="more"></a>
+<h1 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># ubuntu上安装</div><div class="line">sudo apt install python-matplotlib</div><div class="line"># mac上安装</div><div class="line">pip install matplotlib</div></pre></td></tr></table></figure>
+<h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><h2 id="快速入门小例子1之画单个图"><a href="#快速入门小例子1之画单个图" class="headerlink" title="快速入门小例子1之画单个图"></a>快速入门小例子1之画单个图</h2><p>我们只要有x轴的数和y轴的数,那么就可以在坐标轴上画出图来了.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line">import matplotlib as mpl</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line"># 通过rcParams设置全局横纵轴字体大小</div><div class="line">mpl.rcParams[&apos;xtick.labelsize&apos;]=24</div><div class="line">mpl.rcParams[&apos;ytick.labelsize&apos;]=24</div><div class="line"></div><div class="line"># x轴的点</div><div class="line">x1 = np.arange(11)</div><div class="line"># y轴的点</div><div class="line">y1 = [</div><div class="line">    1.0847275042134147E-4,</div><div class="line">    2.0106877828356476E-4,</div><div class="line">    1.1836360644802181E-4,</div><div class="line">    0.043453404423487926,</div><div class="line">    0.03113001646083574,</div><div class="line">    0.06,</div><div class="line">    0.012709253496067191,</div><div class="line">    0.06,</div><div class="line">    3.284899860591644E-4,</div><div class="line">    0.015235253124714847,</div><div class="line">    0.0034946847451197242,</div><div class="line">]</div><div class="line"></div><div class="line"># 创建一个图,名字为ctr</div><div class="line">plt.figure(&quot;ctr&quot;)</div><div class="line"># 在图上绘制</div><div class="line">plt.plot(x1,y1)</div><div class="line"></div><div class="line"># 将当前figure的图像保存到文件result.png</div><div class="line">plt.savefig(&apos;result.pn</div><div class="line">g&apos;)</div><div class="line"># 一定要加上这句才能让画好的图显示在屏幕上</div><div class="line">plt.show()</div></pre></td></tr></table></figure></p>
+<p>如图所示:<br><img src="/imges/python/ctr1.png" alt=""></p>
+<p>看上面就没有几行代码,但是就画出了一个图.所以用Matplotlib可以非常方便的绘制我们想要的图形.这里这是用最简单的例子说明一下.</p>
+<h2 id="快速入门小例子2之把两组坐标画在一个图上进行比较"><a href="#快速入门小例子2之把两组坐标画在一个图上进行比较" class="headerlink" title="快速入门小例子2之把两组坐标画在一个图上进行比较"></a>快速入门小例子2之把两组坐标画在一个图上进行比较</h2><p>这里我们有两组数据,希望能够方便的比较这两组数据的差异,那么我们就可以把趋势都画在一个图上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line">import matplotlib as mpl</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line"># 通过rcParams设置全局横纵轴字体大小</div><div class="line">mpl.rcParams[&apos;xtick.labelsize&apos;]=24</div><div class="line">mpl.rcParams[&apos;ytick.labelsize&apos;]=24</div><div class="line"></div><div class="line"># x轴的点</div><div class="line">x1 = np.arange(11)</div><div class="line"># y轴的点</div><div class="line">y1 = [</div><div class="line">    1.0847275042134147E-4,</div><div class="line">    2.0106877828356476E-4,</div><div class="line">    1.1836360644802181E-4,</div><div class="line">    0.043453404423487926,</div><div class="line">    0.03113001646083574,</div><div class="line">    0.06,</div><div class="line">    0.012709253496067191,</div><div class="line">    0.06,</div><div class="line">    3.284899860591644E-4,</div><div class="line">    0.015235253124714847,</div><div class="line">    0.0034946847451197242,</div><div class="line">]</div><div class="line"></div><div class="line"># 创建一个图,名字为ctr</div><div class="line">#plt.figure(&quot;ctr&quot;)</div><div class="line"># 在图上绘制</div><div class="line">#plt.plot(x1,y1)</div><div class="line"></div><div class="line"></div><div class="line">x2 = np.arange(11)</div><div class="line"></div><div class="line">y2 = [</div><div class="line">    3.529088519807792E-5,</div><div class="line">    1.1895968858318187E-4,</div><div class="line">    0.0013049292594645469,</div><div class="line">    0.046417845349992326,</div><div class="line">    0.03282177644291713,</div><div class="line">    0.06,</div><div class="line">    0.013313023920004725,</div><div class="line">    0.06,</div><div class="line">    3.554547063283854E-4,</div><div class="line">    0.014309633417956262,</div><div class="line">    0.0034946847451197242,</div><div class="line">]</div><div class="line"></div><div class="line"></div><div class="line">#plt.figure(&quot;ctrEstimate&quot;)</div><div class="line">#plt.plot(x2,y2,&apos;k&apos;)</div><div class="line"></div><div class="line"></div><div class="line"># 两个图画一起</div><div class="line">plt.figure(&apos;ctr &amp; ctrEstimate&apos;)</div><div class="line">plt.plot(x1, y1)</div><div class="line"></div><div class="line"># scatter可以方便出散点图</div><div class="line"># plt.scatter(x1,y11,c=&apos;red&apos;,marker=&apos;v&apos;)</div><div class="line"></div><div class="line"># plt.scatter(x2,y22,marker=&apos;^&apos;)</div><div class="line"></div><div class="line"># &apos;r&apos;表示用红色线</div><div class="line">plt.plot(x2, y2, &apos;r&apos;)</div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure></p>
+<p>如图所示:<br><img src="/imges/python/ctr2.png" alt="crt2"></p>
+<h1 id="matplotlib画图api解释"><a href="#matplotlib画图api解释" class="headerlink" title="matplotlib画图api解释"></a>matplotlib画图api解释</h1><p>单独的讲解api很无聊.直接写代码画图,代码里都有详细的说明</p>
+<h2 id="画2维的柱图和饼图"><a href="#画2维的柱图和饼图" class="headerlink" title="画2维的柱图和饼图"></a>画2维的柱图和饼图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">import numpy as np</div><div class="line"></div><div class="line">import matplotlib as mpl</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line">mpl.rcParams[&apos;axes.titlesize&apos;] = 20</div><div class="line">mpl.rcParams[&apos;xtick.labelsize&apos;] = 16</div><div class="line">mpl.rcParams[&apos;ytick.labelsize&apos;] = 16</div><div class="line">mpl.rcParams[&apos;axes.labelsize&apos;] = 16</div><div class="line">mpl.rcParams[&apos;xtick.major.size&apos;] = 0</div><div class="line">mpl.rcParams[&apos;ytick.major.size&apos;] = 0</div><div class="line"></div><div class="line"># 包含了狗,猫和猎豹的最高奔跑速度,还有对应的可视化颜色</div><div class="line">speed_map = &#123;</div><div class="line">    &apos;dog&apos;: (48, &apos;#7199cf&apos;),</div><div class="line">    &apos;cat&apos;: (45, &apos;#4fc4aa&apos;),</div><div class="line">    &apos;cheetah&apos;: (120, &apos;#e1a7a2&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 整体图的标图</div><div class="line">fig=plt.figure(&apos;Bar chart &amp; Pie chart&apos;)</div><div class="line"></div><div class="line"># 在整张图上加入一个子图,121的意思是在一个1行2列的子图中的第一张</div><div class="line">ax=fig.add_subplot(121)</div><div class="line">ax.set_title(&quot;Running speed - bar chart&quot;)</div><div class="line"></div><div class="line"># 生成x轴每个元素的位置 0 1 2</div><div class="line">xticks=np.arange(3)</div><div class="line"></div><div class="line"># 定义柱状图每个柱的宽度</div><div class="line">bar_width=0.5</div><div class="line"></div><div class="line"># 动物名称</div><div class="line">animals=speed_map.keys()</div><div class="line"></div><div class="line"># 奔跑速度</div><div class="line">speeds=[x[0] for x in speed_map.values()]</div><div class="line"></div><div class="line"># 对应颜色</div><div class="line">colors=[x[1] for x in speed_map.values()]</div><div class="line"></div><div class="line"># 画柱状图,横轴是动物标签的位置,纵轴是速度,定义柱的宽度,同时设置柱的边缘为透明</div><div class="line">bars=ax.bar(xticks,speeds,width=bar_width,edgecolor=&apos;none&apos;)</div><div class="line"></div><div class="line"># 设置y轴的标图</div><div class="line">ax.set_ylabel(&apos;Speed(km/h)&apos;)</div><div class="line"></div><div class="line"># x轴每个标签的具体位置,设置为每个柱的中央</div><div class="line">ax.set_xticks(xticks+bar_width/2)</div><div class="line"></div><div class="line"># 设置每个标签的名字</div><div class="line">ax.set_xticklabels(animals)</div><div class="line"></div><div class="line"># 设置x轴的范围</div><div class="line">ax.set_xlim([bar_width/2-0.5,3-bar_width/2])</div><div class="line"></div><div class="line"># 设置y轴的范围</div><div class="line">ax.set_ylim([0,125])</div><div class="line"></div><div class="line"># 给每个bar分配指定的颜色</div><div class="line">for bar,color in zip(bars,colors):</div><div class="line">    bar.set_color(color)</div><div class="line"></div><div class="line"></div><div class="line"># 在122位置加入新的图</div><div class="line">ax=fig.add_subplot(122)</div><div class="line">ax.set_title(&apos;Running speed - pie chart&apos;)</div><div class="line">labels=[&apos;&#123;&#125;\n&#123;&#125; km/h&apos;.format(animal,speed) for animal,speed in zip(animals,speeds)]</div><div class="line"></div><div class="line"># 画饼状图,并指定标签和对应颜色</div><div class="line">ax.pie(speeds,labels=labels,colors=colors)</div><div class="line"># ax.plot(speeds)</div><div class="line"></div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/MatplotlibBasic/">python 可视化包-Matplotlib</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Hushiwei</a></p>
+        <p><span>发布时间:</span>2016-12-09, 18:24:00</p>
+        <p><span>最后更新:</span>2017-07-27, 14:25:38</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/MatplotlibBasic/" title="python 可视化包-Matplotlib">http://dmlcoding.com/2016/MatplotlibBasic/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://dmlcoding.com/2016/MatplotlibBasic/　　作者: Hushiwei" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/BeautifulSoup/">
+                    python beautifulsoup使用
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/sshlogin/">
+                    配置 ssh 免密码登录
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装方式"><span class="toc-number">1.</span> <span class="toc-text">安装方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速入门"><span class="toc-number">2.</span> <span class="toc-text">快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速入门小例子1之画单个图"><span class="toc-number">2.1.</span> <span class="toc-text">快速入门小例子1之画单个图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速入门小例子2之把两组坐标画在一个图上进行比较"><span class="toc-number">2.2.</span> <span class="toc-text">快速入门小例子2之把两组坐标画在一个图上进行比较</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#matplotlib画图api解释"><span class="toc-number">3.</span> <span class="toc-text">matplotlib画图api解释</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#画2维的柱图和饼图"><span class="toc-number">3.1.</span> <span class="toc-text">画2维的柱图和饼图</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"python 可视化包-Matplotlib　| Time渐行渐远　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2129881';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/BeautifulSoup/" title="上一篇: python beautifulsoup使用">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/sshlogin/" title="下一篇: 配置 ssh 免密码登录">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/TesseractBasic/">机器视觉处理与Tesseract介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/HbaseNotes/">Hbase笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/WhatIWriteIsShit/">年中总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/LogicalRegression/">逻辑回归笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/DruidQuickStart/">druid遇到的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/DockerInstallGitlab/">Ubuntu16.04使用Docker部署Gitlab</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/ReadConfigFile/">项目中配置文件的读取</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/PythonSplitFunc/">python 高级特性之切片</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/GitSkills/">Git 常用命令以及笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Zabbix/">zabbix 部署文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/SaltStackWeb/">saltstack web halite 界面部署文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/SaltStack/">saltstack部署文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/mysqlprivileges/">mysql赋给用户权限grant all privileges on</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/RsyncSkills/">Linux 文件同步工具——rsync</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/ShellSkills/"> Shell Skills</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/SendFileZeroCopy/">Zero-Copy&SendFile浅析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/BinaryAddition/">二进制加法与逻辑门的关系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/HexoBlog/">用hexo搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/mrs/">学习摩尔斯码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/ReadBooks33/">17年阅读书单</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/IntellijIdeaForMac/">Intellij快捷键 for mac</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/IntellijSkills/">IntellijIdea使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/MacbookEnr/">Macbook下搭建开发环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/DockerSkils/">Docker 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/KafkaEnr/">kafka 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/SparkBug/">spark开发中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/FlaskMail/">Flask框架中用QQ邮箱发邮件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/SparkRdd/">RDD究竟是什么</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/LinuxMem/">Linux进程分析之内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/DeepinSoft/">配置Ubuntu/Deepin下要安装的常用软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/UbuntuSocks/">Ubuntu/Deepin下用Shadowsocks实现翻墙上网</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/LinuxSymbolicLink/">linux创建软硬链接</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/BeautifulSoup/">python beautifulsoup使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/MatplotlibBasic/">python 可视化包-Matplotlib</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/sshlogin/">配置 ssh 免密码登录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/Queue/">Java数据结构之队列</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/JavaThread/">Java多线程总结笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/SparkExampleCSDN/">使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/VPSInstallJekyll/">在VPS上安装Jekyll,搭建自己的静态博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/linuxssh/">ssh 隧道转发</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/Recursion/">递归算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/VPSshadowsocks/">VPS服务器搭建Shadowsocks服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/CommandPattern/">设计模式之命令模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/linuxuser/">linux 添加用户、权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/SparkRDDOpe/">Spark的RDD基础操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/MakeData/">大数据学习时候,造数据的常用方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/SparkFunctions/">Spark算子详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/ScalaCollection/">Scala集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/ScalaArray/">Scala数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/DesignPattern/">设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/SparkExample/">PySpark做日志分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/ScalaNote/">ScalaNote</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/WriterLogical/">浅谈逻辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/DecisitionTree/">决策树</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/mysqlpasswd/">修改 mysql 用户密码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/GitOrder/">Git 命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/CentosEnr/">CentOS 常用开发环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/MavenSkills/">Maven 笔记</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 Hushiwei
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    <script src="/js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87931738-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+             github: ".github-widget a", 
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
