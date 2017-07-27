@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://dmlcoding.com/2017/TesseractBasic/</loc>
+    <lastmod>2017-07-27T01:44:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>机器视觉处理与Tesseract介绍</title>
+        <pubTime>2017-07-27T01:23:46.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>tesseract</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://dmlcoding.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2017/HbaseNotes/</loc>
+    <lastmod>2017-07-25T06:07:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hbase笔记</title>
+        <pubTime>2017-07-24T02:00:00.000Z</pubTime>
+        
+        <tag>hbase</tag>
+         
+        <tag>bigdata</tag>
+         
+         
+           
+             
+              <breadCrumb title="hbase" url="http://dmlcoding.com/categories/hbase/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://dmlcoding.com/2017/WhatIWriteIsShit/</loc>
     <lastmod>2017-07-18T02:01:08.000Z</lastmod>
     <data>
@@ -723,21 +767,21 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
+    <loc>http://dmlcoding.com/2016/BeautifulSoup/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Java多线程总结笔记</title>
-        <pubTime>2016-12-06T06:22:00.000Z</pubTime>
+        <title>python beautifulsoup使用</title>
+        <pubTime>2016-12-09T10:24:00.000Z</pubTime>
         
-        <tag>java</tag>
+        <tag>python</tag>
          
-        <tag>thread</tag>
+        <tag>beautifulsoup</tag>
          
          
            
              
-              <breadCrumb title="java" url="http://dmlcoding.com/categories/java/"/>
+              <breadCrumb title="python" url="http://dmlcoding.com/categories/python/"/>
           
         </display>
     </data>
@@ -767,21 +811,41 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/BeautifulSoup/</loc>
+    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>python beautifulsoup使用</title>
-        <pubTime>2016-12-09T10:24:00.000Z</pubTime>
+        <title>Flask框架中用QQ邮箱发邮件</title>
+        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
         
-        <tag>python</tag>
-         
-        <tag>beautifulsoup</tag>
+        <tag>flask</tag>
          
          
            
              
-              <breadCrumb title="python" url="http://dmlcoding.com/categories/python/"/>
+              <breadCrumb title="flask" url="http://dmlcoding.com/categories/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/Recursion/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>递归算法</title>
+        <pubTime>2016-11-27T01:50:00.000Z</pubTime>
+        
+        <tag>algorithm</tag>
+         
+        <tag>recursion</tag>
+         
+         
+           
+             
+              <breadCrumb title="algorithm" url="http://dmlcoding.com/categories/algorithm/"/>
           
         </display>
     </data>
@@ -813,28 +877,6 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu/Deepin下用Shadowsocks实现翻墙上网</title>
-        <pubTime>2016-12-11T02:01:00.000Z</pubTime>
-        
-        <tag>vps</tag>
-         
-        <tag>shadowsocks</tag>
-         
-         
-           
-             
-              <breadCrumb title="shadowsocks" url="http://dmlcoding.com/categories/shadowsocks/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -850,28 +892,6 @@
            
              
               <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/Recursion/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>递归算法</title>
-        <pubTime>2016-11-27T01:50:00.000Z</pubTime>
-        
-        <tag>algorithm</tag>
-         
-        <tag>recursion</tag>
-         
-         
-           
-             
-              <breadCrumb title="algorithm" url="http://dmlcoding.com/categories/algorithm/"/>
           
         </display>
     </data>
@@ -901,12 +921,12 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/VPSshadowsocks/</loc>
+    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>VPS服务器搭建Shadowsocks服务</title>
-        <pubTime>2016-11-22T06:23:22.000Z</pubTime>
+        <title>Ubuntu/Deepin下用Shadowsocks实现翻墙上网</title>
+        <pubTime>2016-12-11T02:01:00.000Z</pubTime>
         
         <tag>vps</tag>
          
@@ -945,19 +965,65 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/MakeData/</loc>
+    <loc>http://dmlcoding.com/2016/VPSshadowsocks/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>大数据学习时候,造数据的常用方式</title>
-        <pubTime>2016-11-16T02:51:00.000Z</pubTime>
+        <title>VPS服务器搭建Shadowsocks服务</title>
+        <pubTime>2016-11-22T06:23:22.000Z</pubTime>
         
-        <tag>data</tag>
+        <tag>vps</tag>
+         
+        <tag>shadowsocks</tag>
          
          
            
              
-              <breadCrumb title="bigdata" url="http://dmlcoding.com/categories/bigdata/"/>
+              <breadCrumb title="shadowsocks" url="http://dmlcoding.com/categories/shadowsocks/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
+        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
+        
+        <tag>ubuntu</tag>
+         
+        <tag>deepin</tag>
+         
+        <tag>jekyll</tag>
+         
+         
+           
+             
+              <breadCrumb title="ubuntu" url="http://dmlcoding.com/categories/ubuntu/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式</title>
+        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
+        
+        <tag>design</tag>
+         
+         
+           
+             
+              <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
           
         </display>
     </data>
@@ -985,19 +1051,21 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/ScalaCollection/</loc>
+    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Scala集合</title>
-        <pubTime>2016-11-14T05:37:00.000Z</pubTime>
+        <title>Java多线程总结笔记</title>
+        <pubTime>2016-12-06T06:22:00.000Z</pubTime>
         
-        <tag>scala</tag>
+        <tag>java</tag>
+         
+        <tag>thread</tag>
          
          
            
              
-              <breadCrumb title="scala" url="http://dmlcoding.com/categories/scala/"/>
+              <breadCrumb title="java" url="http://dmlcoding.com/categories/java/"/>
           
         </display>
     </data>
@@ -1005,19 +1073,19 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
+    <loc>http://dmlcoding.com/2016/MakeData/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Flask框架中用QQ邮箱发邮件</title>
-        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
+        <title>大数据学习时候,造数据的常用方式</title>
+        <pubTime>2016-11-16T02:51:00.000Z</pubTime>
         
-        <tag>flask</tag>
+        <tag>data</tag>
          
          
            
              
-              <breadCrumb title="flask" url="http://dmlcoding.com/categories/flask/"/>
+              <breadCrumb title="bigdata" url="http://dmlcoding.com/categories/bigdata/"/>
           
         </display>
     </data>
@@ -1047,43 +1115,19 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
+    <loc>http://dmlcoding.com/2016/ScalaCollection/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>设计模式</title>
-        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
+        <title>Scala集合</title>
+        <pubTime>2016-11-14T05:37:00.000Z</pubTime>
         
-        <tag>design</tag>
+        <tag>scala</tag>
          
          
            
              
-              <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
-        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
-        
-        <tag>ubuntu</tag>
-         
-        <tag>deepin</tag>
-         
-        <tag>jekyll</tag>
-         
-         
-           
-             
-              <breadCrumb title="ubuntu" url="http://dmlcoding.com/categories/ubuntu/"/>
+              <breadCrumb title="scala" url="http://dmlcoding.com/categories/scala/"/>
           
         </display>
     </data>

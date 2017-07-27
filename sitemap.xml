@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dmlcoding.com/2017/TesseractBasic/</loc>
+    
+    <lastmod>2017-07-27T01:44:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2017/HbaseNotes/</loc>
+    
+    <lastmod>2017-07-25T06:07:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2017/WhatIWriteIsShit/</loc>
     
     <lastmod>2017-07-18T02:01:08.000Z</lastmod>
@@ -254,7 +268,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
+    <loc>http://dmlcoding.com/2016/BeautifulSoup/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -268,28 +282,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/BeautifulSoup/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
+    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -303,6 +296,20 @@
   </url>
   
   <url>
+    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
@@ -310,7 +317,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/VPSshadowsocks/</loc>
+    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -324,35 +331,14 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/MakeData/</loc>
+    <loc>http://dmlcoding.com/2016/VPSshadowsocks/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/ScalaCollection/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/Queue/</loc>
+    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -366,7 +352,35 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
+    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/MakeData/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/Queue/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/ScalaCollection/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     

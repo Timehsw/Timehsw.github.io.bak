@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-07-18T02:01:08.000Z</updated>
+  <updated>2017-07-27T01:44:00.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -14,6 +14,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器视觉处理与Tesseract介绍</title>
+    <link href="http://dmlcoding.com/2017/TesseractBasic/"/>
+    <id>http://dmlcoding.com/2017/TesseractBasic/</id>
+    <published>2017-07-27T01:23:46.000Z</published>
+    <updated>2017-07-27T01:44:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在读取和处理图像、图像相关的机器学习以及创建图像等任务中，Python 一直都是非常出色的语言。虽然有很多库可以进行图像处理，但目前我只接触到Tesseract.</p>
+<a id="more"></a>
+<h1 id="Tesseract"><a href="#Tesseract" class="headerlink" title="Tesseract"></a>Tesseract</h1><p>Tesseract 是一个 OCR 库,目前由 Google 赞助(Google 也是一家以 OCR 和机器学习技术闻名于世的公司)。Tesseract 是目前公认最优秀、最精确的开源 OCR 系统。 除了极高的精确度,Tesseract 也具有很高的灵活性。它可以通过训练识别出任何字体，也可以识别出任何 Unicode 字符。</p>
+<h1 id="安装Tesseract"><a href="#安装Tesseract" class="headerlink" title="安装Tesseract"></a>安装Tesseract</h1><h2 id="Windows-系统"><a href="#Windows-系统" class="headerlink" title="Windows 系统"></a>Windows 系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">下载可执行安装文件https://code.google.com/p/tesseract-ocr/downloads/list安装。</div></pre></td></tr></table></figure>
+<h2 id="Linux-系统"><a href="#Linux-系统" class="headerlink" title="Linux 系统"></a>Linux 系统</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">可以通过 apt-get 安装: $sudo apt-get tesseract-ocr</div></pre></td></tr></table></figure>
+<h2 id="Mac-OS-X系统"><a href="#Mac-OS-X系统" class="headerlink" title="Mac OS X系统"></a>Mac OS X系统</h2><p>用 Homebrew(<a href="http://brew.sh/)等第三方库可以很方便地安装" target="_blank" rel="external">http://brew.sh/)等第三方库可以很方便地安装</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install tesseract</div></pre></td></tr></table></figure></p>
+<p>要使用 Tesseract 的功能，比如后面的示例中训练程序识别字母，要先在系统中设置一个新的环境变量 $TESSDATA_PREFIX，让 Tesseract 知道训练的数据文件存储在哪里，然后搞一份tessdata数据文件，放到Tesseract目录下。</p>
+<p>在大多数 Linux 系统和 Mac OS X 系统上,你可以这么设置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$export TESSDATA_PREFIX=/usr/local/share/Tesseract</div></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hushiwei@localhost  ~  more ~/.bash_profile</div><div class="line">alias l=&apos;ls -lF&apos;</div><div class="line">alias ll=&apos;ls -alF&apos;</div><div class="line">JAVA_HOME=`/usr/libexec/java_home`</div><div class="line">SCALA_HOME=/Users/hushiwei/devApps/scala-2.10.5</div><div class="line">MAVEN_HOME=/Users/hushiwei/devApps/maven-3.3.9</div><div class="line">TESSDATA_PREFIX=/Users/hushiwei/devApps/Tesseract</div></pre></td></tr></table></figure></p>
+<p>在 Windows 系统上也类似,你可以通过下面这行命令设置环境变量:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#setx TESSDATA_PREFIX C:\Program Files\Tesseract OCR\Tesseract</div></pre></td></tr></table></figure></p>
+<h1 id="安装pytesseract"><a href="#安装pytesseract" class="headerlink" title="安装pytesseract"></a>安装pytesseract</h1><p>Tesseract 是一个 Python 的命令行工具，不是通过 import 语句导入的库。安装之后,要用 tesseract 命令在 Python 的外面运行，但我们可以通过 pip 安装支持Python 版本的 Tesseract库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install pytesseract</div></pre></td></tr></table></figure></p>
+<h1 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h1><p>目前只能处理规范的文字,那么什么算<code>格式规范</code>呢?<br>格式规范的文字具有以下特点:</p>
+<ul>
+<li>使用一个标准字体(不包含手写体、草书,或者十分“花哨的”字体) • 虽然被复印或拍照,字体还是很清晰,没有多余的痕迹或污点</li>
+<li>排列整齐,没有歪歪斜斜的字</li>
+<li>没有超出图片范围,也没有残缺不全,或紧紧贴在图片的边缘</li>
+</ul>
+<p>格式规范的图片示例<br><img src="/images/python/test.png" alt="test图片"></p>
+<h2 id="命令行方式"><a href="#命令行方式" class="headerlink" title="命令行方式"></a>命令行方式</h2><p>那么试一试Tesseract,,看看效果如何.用起来也是非常简单.读取图片,然后把结果写入到一个文本文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hushiwei@localhost  ~/Desktop  tesseract test.png text</div><div class="line">Tesseract Open Source OCR Engine v3.05.01 with Leptonica</div><div class="line">Warning. Invalid resolution 0 dpi. Using 70 instead.</div></pre></td></tr></table></figure></p>
+<p>接着打开这个文本看看效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hushiwei@localhost  ~/Desktop  more text.txt</div><div class="line">This is some text, written in Arial, that will be read by</div><div class="line">Tesseract. Here are some symbols: !@#$%&quot;&amp;&apos;()</div></pre></td></tr></table></figure></p>
+<p>除了一个小符号没有识别出来,其他的字符基本上都识别对了.</p>
+<h2 id="python代码方式进行识别"><a href="#python代码方式进行识别" class="headerlink" title="python代码方式进行识别"></a>python代码方式进行识别</h2><p>用之前安装的<code>pytesseract</code>模块,就可以很方便的完成我们想要的效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">import pytesseract</div><div class="line"></div><div class="line">from PIL import Image</div><div class="line"></div><div class="line"># 打开一个图片</div><div class="line">image=Image.open(&apos;test.png&apos;)</div><div class="line"></div><div class="line"># 调用pytesseract的image_to_string方法识别出图片中的文字,返回识别出来的文字</div><div class="line">text=pytesseract.image_to_string(image)</div><div class="line"></div><div class="line"># 打印文字看看效果</div><div class="line">print text</div></pre></td></tr></table></figure>
+<p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">This is some text, written in Arial, that will be read by</div><div class="line">Tesseract. Here are some symbols: !@#$%&quot;&amp;&apos;()</div><div class="line"></div><div class="line">Process finished with exit code 0</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在读取和处理图像、图像相关的机器学习以及创建图像等任务中，Python 一直都是非常出色的语言。虽然有很多库可以进行图像处理，但目前我只接触到Tesseract.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://dmlcoding.com/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://dmlcoding.com/tags/python/"/>
+    
+      <category term="tesseract" scheme="http://dmlcoding.com/tags/tesseract/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hbase笔记</title>
+    <link href="http://dmlcoding.com/2017/HbaseNotes/"/>
+    <id>http://dmlcoding.com/2017/HbaseNotes/</id>
+    <published>2017-07-24T02:00:00.000Z</published>
+    <updated>2017-07-25T06:07:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在开发hbase过程中,遇到的一些问题.还有些许知识点的总结.<br><a id="more"></a></p>
+<h1 id="hbase的内存分配"><a href="#hbase的内存分配" class="headerlink" title="hbase的内存分配"></a>hbase的内存分配</h1><blockquote>
+<p>HBase的默认堆分配策略，40%给blockcache，40%给memstore<br>在HBase中，有两个在内存中的结构消费了绝大多数的heap空间。BlockCache缓存读操作的HFile block，Memstore缓存近期的写操作。</p>
+</blockquote>
+<ul>
+<li>hfile.block.cache.size(读多的场景下,适当增大这个参数的值)</li>
+<li>hbase.regionserver.global.memstore.upperLimit(写多的场景下,适当增大这个参数的值)</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在开发hbase过程中,遇到的一些问题.还有些许知识点的总结.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="hbase" scheme="http://dmlcoding.com/categories/hbase/"/>
+    
+    
+      <category term="hbase" scheme="http://dmlcoding.com/tags/hbase/"/>
+    
+      <category term="bigdata" scheme="http://dmlcoding.com/tags/bigdata/"/>
+    
+  </entry>
   
   <entry>
     <title>年中总结</title>
@@ -1051,336 +1131,6 @@
     
     
       <category term="book" scheme="http://dmlcoding.com/tags/book/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IntellijIdea使用笔记</title>
-    <link href="http://dmlcoding.com/2017/IntellijSkills/"/>
-    <id>http://dmlcoding.com/2017/IntellijSkills/</id>
-    <published>2017-03-02T09:00:00.000Z</published>
-    <updated>2017-03-02T10:25:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="给IDEA设置用户名"><a href="#给IDEA设置用户名" class="headerlink" title="给IDEA设置用户名"></a>给IDEA设置用户名</h3><p>其中${USER}将会被替换成当前登录操作系统的用户名，但有时我们的计算机名有可能是Administrator这样一类的，那应该怎样去修改这个 ${USER}呢？<br>答案在于IntelliJ IDEA的启动配置idea.exe.vmoptions，打开此文件，在最后加上一句：<br>-Duser.name=HuShiwei<br>这样就可以不使用默认的登录名了。<br><a id="more"></a></p>
-<h3 id="修改IntelljIDEA的背景色为护眼色"><a href="#修改IntelljIDEA的背景色为护眼色" class="headerlink" title="修改IntelljIDEA的背景色为护眼色"></a>修改IntelljIDEA的背景色为护眼色</h3><p><img src="/images/pics/intellijColor.png" alt="intellijColor"></p>
-<h3 id="将方法加入到Favorites"><a href="#将方法加入到Favorites" class="headerlink" title="将方法加入到Favorites"></a>将方法加入到Favorites</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alt+shift+f</div></pre></td></tr></table></figure>
-<h3 id="全局搜索内容"><a href="#全局搜索内容" class="headerlink" title="全局搜索内容"></a>全局搜索内容</h3><table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>shift+shift</td>
-<td>搜索所有</td>
-</tr>
-<tr>
-<td>ctrl+shift+f</td>
-<td>搜索内容</td>
-</tr>
-<tr>
-<td>Ctrl+Shift+A</td>
-<td>搜索命令</td>
-</tr>
-</tbody>
-</table>
-<h3 id="书签功能"><a href="#书签功能" class="headerlink" title="书签功能"></a>书签功能</h3><table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + F11</td>
-<td>选中文件 / 文件夹，使用助记符设定 / 取消书签</td>
-</tr>
-<tr>
-<td>F11</td>
-<td>添加书签</td>
-</tr>
-<tr>
-<td>Shift + F11</td>
-<td>弹出书签显示层</td>
-</tr>
-<tr>
-<td>Ctrl + 1,2,3…9</td>
-<td>定位到对应数值的书签位置</td>
-</tr>
-<tr>
-<td>Ctrl + Shift + 1,2,3…9</td>
-<td>快速添加指定数值的书签</td>
-</tr>
-</tbody>
-</table>
-<h3 id="翻译插件"><a href="#翻译插件" class="headerlink" title="翻译插件"></a>翻译插件</h3><ul>
-<li>安装<ul>
-<li><a href="https://github.com/YiiGuxing/TranslationPlugin/releases/tag/v1.3.2" target="_blank" rel="external">离线下载地址</a></li>
-<li>在线安装:Preferences(Settings) &gt; Plugins &gt; Browse repositories… &gt; 搜索并找到”Translation” &gt;Install Plugin</li>
-<li>重启</li>
-</ul>
-</li>
-<li>使用<ul>
-<li>Translation: Alt + 0 打开翻译对话框，默认显示在工具栏上。 </li>
-<li>Translate: Alt + 1 取词并翻译。</li>
-<li>Translate(Inclusive): Alt + 2 取词并翻译。以最大范围自动取词，忽略手动选择的文本。 </li>
-<li>Translate(Exclusive): Alt + 3 取词并翻译。自动取单个词，忽略手动选择的文本</li>
-</ul>
-</li>
-<li>注意<ul>
-<li>设置有道 API KEY: 由于有道的 API 在查询请求数量上存在限制，如果在 1 小时内查询请求次数达到一定数量后将会暂时禁止查询一段时间（大概 1 小时）。如果很多人同时使用同一个 KEY，可能会很容易就达到了限制条件，这就可以通过使用自己的 KEY 来避免（一人一个 KEY 基本足够用了）。</li>
-<li>获取Preferences(Settings) &gt; Other Settings &gt; Translation &gt; 获取有道 API KEY</li>
-<li><a href="http://fanyi.youdao.com/openapi?path=data-mode" target="_blank" rel="external">申请地址</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://idea.iteblog.com/key.php</div></pre></td></tr></table></figure>
-<h3 id="IDEA中编译打包Scala和Java代码命令"><a href="#IDEA中编译打包Scala和Java代码命令" class="headerlink" title="IDEA中编译打包Scala和Java代码命令"></a>IDEA中编译打包Scala和Java代码命令</h3><p>原因是mvn clean package默认只处理java源代码的编译、打包，而不管scala，所以编译时遇到Hello这个由scala语言编写的class，此时scala还没编译生成class，所以找不到相应的调用入口。<br>解决办法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn clean scala:compile compile package</div></pre></td></tr></table></figure>
-<p>如上，在compile前加入scala:compile，这是maven-scala-plugin插件提供的选项，表示编译scala，这样一来，先编译scala，再编译java，最后打包，妥妥滴！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;给IDEA设置用户名&quot;&gt;&lt;a href=&quot;#给IDEA设置用户名&quot; class=&quot;headerlink&quot; title=&quot;给IDEA设置用户名&quot;&gt;&lt;/a&gt;给IDEA设置用户名&lt;/h3&gt;&lt;p&gt;其中${USER}将会被替换成当前登录操作系统的用户名，但有时我们的计算机名有可能是Administrator这样一类的，那应该怎样去修改这个 ${USER}呢？&lt;br&gt;答案在于IntelliJ IDEA的启动配置idea.exe.vmoptions，打开此文件，在最后加上一句：&lt;br&gt;-Duser.name=HuShiwei&lt;br&gt;这样就可以不使用默认的登录名了。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="intellij" scheme="http://dmlcoding.com/categories/intellij/"/>
-    
-    
-      <category term="intellij" scheme="http://dmlcoding.com/tags/intellij/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Intellij快捷键 for mac</title>
-    <link href="http://dmlcoding.com/2017/IntellijIdeaForMac/"/>
-    <id>http://dmlcoding.com/2017/IntellijIdeaForMac/</id>
-    <published>2017-03-02T09:00:00.000Z</published>
-    <updated>2017-03-02T10:08:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Mac键盘符号和修饰键说明"><a href="#Mac键盘符号和修饰键说明" class="headerlink" title="Mac键盘符号和修饰键说明"></a>Mac键盘符号和修饰键说明</h1><ul>
-<li>⌘ Command</li>
-<li>⇧ Shift</li>
-<li>⌥ Option</li>
-<li>⌃ Control</li>
-<li>↩︎ Return/Enter<a id="more"></a></li>
-<li>⌫ Delete</li>
-<li>⌦ 向前删除键（Fn+Delete）</li>
-<li>↑ 上箭头</li>
-<li>↓ 下箭头</li>
-<li>← 左箭头</li>
-<li>→ 右箭头</li>
-<li>⇞ Page Up（Fn+↑）</li>
-<li>⇟ Page Down（Fn+↓）</li>
-<li>Home Fn + ←</li>
-<li>End Fn + →</li>
-<li>⇥ 右制表符（Tab键）</li>
-<li>⇤ 左制表符（Shift+Tab）</li>
-<li>⎋ Escape (Esc)<h1 id="一、Editing（编辑）"><a href="#一、Editing（编辑）" class="headerlink" title="一、Editing（编辑）"></a>一、Editing（编辑）</h1></li>
-<li>⌃Space 基本的代码补全（补全任何类、方法、变量）</li>
-<li>⌃⇧Space 智能代码补全（过滤器方法列表和变量的预期类型）</li>
-<li>⌘⇧↩ 自动结束代码，行末自动添加分号</li>
-<li>⌘P 显示方法的参数信息</li>
-<li>⌃J, Mid. button click 快速查看文档</li>
-<li>⇧F1 查看外部文档（在某些代码上会触发打开浏览器显示相关文档）</li>
-<li>⌘+鼠标放在代码上 显示代码简要信息</li>
-<li>⌘F1 在错误或警告处显示具体描述信息</li>
-<li>⌘N, ⌃↩, ⌃N 生成代码（getter、setter、构造函数、hashCode/equals,toString）</li>
-<li>⌃O 覆盖方法（重写父类方法）</li>
-<li>⌃I 实现方法（实现接口中的方法）</li>
-<li>⌘⌥T 包围代码（使用if..else, try..catch, for, synchronized等包围选中的代码）</li>
-<li>⌘/ 注释/取消注释与行注释</li>
-<li>⌘⌥/ 注释/取消注释与块注释</li>
-<li>⌥↑ 连续选中代码块</li>
-<li>⌥↓ 减少当前选中的代码块</li>
-<li>⌃⇧Q 显示上下文信息</li>
-<li>⌥↩ 显示意向动作和快速修复代码</li>
-<li>⌘⌥L 格式化代码</li>
-<li>⌃⌥O 优化import</li>
-<li>⌃⌥I 自动缩进线</li>
-<li>⇥ / ⇧⇥ 缩进代码 / 反缩进代码</li>
-<li>⌘X 剪切当前行或选定的块到剪贴板</li>
-<li>⌘C 复制当前行或选定的块到剪贴板</li>
-<li>⌘V 从剪贴板粘贴</li>
-<li>⌘⇧V 从最近的缓冲区粘贴</li>
-<li>⌘D 复制当前行或选定的块</li>
-<li>⌘⌫ 删除当前行或选定的块的行</li>
-<li>⌃⇧J 智能的将代码拼接成一行</li>
-<li>⌘↩ 智能的拆分拼接的行</li>
-<li>⇧↩ 开始新的一行</li>
-<li>⌘⇧U 大小写切换</li>
-<li>⌘⇧] / ⌘⇧[ 选择直到代码块结束/开始</li>
-<li>⌥⌦ 删除到单词的末尾（⌦键为Fn+Delete）</li>
-<li>⌥⌫ 删除到单词的开头</li>
-<li>⌘+ / ⌘- 展开 / 折叠代码块</li>
-<li>⌘⇧+ 展开所以代码块</li>
-<li>⌘⇧- 折叠所有代码块</li>
-<li>⌘W 关闭活动的编辑器选项卡<h1 id="二、Search-Replace（查询-替换）"><a href="#二、Search-Replace（查询-替换）" class="headerlink" title="二、Search/Replace（查询/替换）"></a>二、Search/Replace（查询/替换）</h1></li>
-<li>Double ⇧ 查询任何东西</li>
-<li>⌘F 文件内查找</li>
-<li>⌘G 查找模式下，向下查找</li>
-<li>⌘⇧G 查找模式下，向上查找</li>
-<li>⌘R 文件内替换</li>
-<li>⌘⇧F 全局查找（根据路径）</li>
-<li>⌘⇧R 全局替换（根据路径）</li>
-<li>⌘⇧S 查询结构（Ultimate Edition 版专用，需要在Keymap中设置）</li>
-<li>⌘⇧M 替换结构（Ultimate Edition 版专用，需要在Keymap中设置）<h1 id="三、Usage-Search（使用查询）"><a href="#三、Usage-Search（使用查询）" class="headerlink" title="三、Usage Search（使用查询）"></a>三、Usage Search（使用查询）</h1></li>
-<li>⌥F7 / ⌘F7 在文件中查找用法 / 在类中查找用法</li>
-<li>⌘⇧F7 在文件中突出显示的用法</li>
-<li>⌘⌥F7 显示用法<h1 id="四、Compile-and-Run（编译和运行）"><a href="#四、Compile-and-Run（编译和运行）" class="headerlink" title="四、Compile and Run（编译和运行）"></a>四、Compile and Run（编译和运行）</h1></li>
-<li>⌘F9 编译Project</li>
-<li>⌘⇧F9 编译选择的文件、包或模块</li>
-<li>⌃⌥R 弹出 Run 的可选择菜单</li>
-<li>⌃⌥D 弹出 Debug 的可选择菜单</li>
-<li>⌃R 运行</li>
-<li>⌃D 调试</li>
-<li>⌃⇧R, ⌃⇧D 从编辑器运行上下文环境配置<h1 id="五、Debugging（调试）"><a href="#五、Debugging（调试）" class="headerlink" title="五、Debugging（调试）"></a>五、Debugging（调试）</h1></li>
-<li>F8 进入下一步，如果当前行断点是一个方法，则不进入当前方法体内</li>
-<li>F7 进入下一步，如果当前行断点是一个方法，则进入当前方法体内，如果该方法体还有方法，则不会进入该内嵌的方法中</li>
-<li>⇧F7 智能步入，断点所在行上有多个方法调用，会弹出进入哪个方法</li>
-<li>⇧F8 跳出</li>
-<li>⌥F9 运行到光标处，如果光标前有其他断点会进入到该断点</li>
-<li>⌥F8 计算表达式（可以更改变量值使其生效）</li>
-<li>⌘⌥R 恢复程序运行，如果该断点下面代码还有断点则停在下一个断点上</li>
-<li>⌘F8 切换断点（若光标当前行有断点则取消断点，没有则加上断点）</li>
-<li>⌘⇧F8 查看断点信息<h1 id="六、Navigation（导航）"><a href="#六、Navigation（导航）" class="headerlink" title="六、Navigation（导航）"></a>六、Navigation（导航）</h1></li>
-<li>⌘O 查找类文件</li>
-<li>⌘⇧O 查找所有类型文件、打开文件、打开目录，打开目录需要在输入的内容前面或后面加一个反斜杠/</li>
-<li>⌘⌥O 前往指定的变量 / 方法</li>
-<li>⌃← / ⌃→ 左右切换打开的编辑tab页</li>
-<li>F12 返回到前一个工具窗口</li>
-<li>⎋ 从工具窗口进入代码文件窗口</li>
-<li>⇧⎋ 隐藏当前或最后一个活动的窗口，且光标进入代码文件窗口</li>
-<li>⌘⇧F4 关闭活动run/messages/find/… tab</li>
-<li>⌘L 在当前文件跳转到某一行的指定处</li>
-<li>⌘E 显示最近打开的文件记录列表</li>
-<li>⌘⌥← / ⌘⌥→ 退回 / 前进到上一个操作的地方</li>
-<li>⌘⇧⌫ 跳转到最后一个编辑的地方</li>
-<li>⌥F1 显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择(如在代码编辑窗口可以选择显示该文件的Finder)</li>
-<li>⌘B / ⌘ 鼠标点击 进入光标所在的方法/变量的接口或是定义处</li>
-<li>⌘⌥B 跳转到实现处，在某个调用的方法名上使用会跳到具体的实现处，可以跳过接口</li>
-<li>⌥ Space, ⌘Y 快速打开光标所在方法、类的定义</li>
-<li>⌃⇧B 跳转到类型声明处</li>
-<li>⌘U 前往当前光标所在方法的父类的方法 / 接口定义</li>
-<li>⌃↓ / ⌃↑ 当前光标跳转到当前文件的前一个/后一个方法名位置</li>
-<li>⌘] / ⌘[ 移动光标到当前所在代码的花括号开始/结束位置</li>
-<li>⌘F12 弹出当前文件结构层，可以在弹出的层上直接输入进行筛选（可用于搜索类中的方法）</li>
-<li>⌃H 显示当前类的层次结构</li>
-<li>⌘⇧H 显示方法层次结构</li>
-<li>⌃⌥H 显示调用层次结构</li>
-<li>F2 / ⇧F2 跳转到下一个/上一个突出错误或警告的位置</li>
-<li>F4 / ⌘↓ 编辑/查看代码源</li>
-<li>⌥ Home 显示到当前文件的导航条</li>
-<li>F3选中文件/文件夹/代码行，添加/取消书签</li>
-<li>⌥F3 选中文件/文件夹/代码行，使用助记符添加/取消书签</li>
-<li>⌃0…⌃9 定位到对应数值的书签位置</li>
-<li>⌘F3 显示所有书签<h1 id="七、Refactoring（重构）"><a href="#七、Refactoring（重构）" class="headerlink" title="七、Refactoring（重构）"></a>七、Refactoring（重构）</h1></li>
-<li>F5 复制文件到指定目录</li>
-<li>F6 移动文件到指定目录</li>
-<li>⌘⌫ 在文件上为安全删除文件，弹出确认框</li>
-<li>⇧F6 重命名文件</li>
-<li>⌘F6 更改签名</li>
-<li>⌘⌥N 一致性</li>
-<li>⌘⌥M 将选中的代码提取为方法</li>
-<li>⌘⌥V 提取变量</li>
-<li>⌘⌥F 提取字段</li>
-<li>⌘⌥C 提取常量</li>
-<li>⌘⌥P 提取参数<h1 id="八、VCS-Local-History（版本控制-本地历史记录）"><a href="#八、VCS-Local-History（版本控制-本地历史记录）" class="headerlink" title="八、VCS/Local History（版本控制/本地历史记录）"></a>八、VCS/Local History（版本控制/本地历史记录）</h1></li>
-<li>⌘K 提交代码到版本控制器</li>
-<li>⌘T 从版本控制器更新代码</li>
-<li>⌥⇧C 查看最近的变更记录</li>
-<li>⌃C 快速弹出版本控制器操作面板<h1 id="九、Live-Templates（动态代码模板）"><a href="#九、Live-Templates（动态代码模板）" class="headerlink" title="九、Live Templates（动态代码模板）"></a>九、Live Templates（动态代码模板）</h1></li>
-<li>⌘⌥J 弹出模板选择窗口，将选定的代码使用动态模板包住</li>
-<li>⌘J 插入自定义动态代码模板<h1 id="十、General（通用）"><a href="#十、General（通用）" class="headerlink" title="十、General（通用）"></a>十、General（通用）</h1></li>
-<li>⌘1…⌘9 打开相应编号的工具窗口</li>
-<li>⌘S 保存所有</li>
-<li>⌘⌥Y 同步、刷新</li>
-<li>⌃⌘F 切换全屏模式</li>
-<li>⌘⇧F12 切换最大化编辑器</li>
-<li>⌥⇧F 添加到收藏夹</li>
-<li>⌥⇧I 检查当前文件与当前的配置文件</li>
-<li>§⌃, ⌃` 快速切换当前的scheme（切换主题、代码样式等）</li>
-<li>⌘, 打开IDEA系统设置</li>
-<li>⌘; 打开项目结构对话框</li>
-<li>⇧⌘A 查找动作（可设置相关选项）</li>
-<li>⌃⇥ 编辑窗口标签和工具窗口之间切换（如果在切换的过程加按上delete，则是关闭对应选中的窗口）<h1 id="十一、Other（一些官方文档上没有体现的快捷键）"><a href="#十一、Other（一些官方文档上没有体现的快捷键）" class="headerlink" title="十一、Other（一些官方文档上没有体现的快捷键）"></a>十一、Other（一些官方文档上没有体现的快捷键）</h1></li>
-<li>⌘⇧8 竖编辑模式</li>
-</ul>
-<h1 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h1><ul>
-<li>⌘O 查找类文件 Ctrl + N</li>
-<li>⌘⌥O 前往指定的变量 / 方法 Ctrl + Shift + Alt + N</li>
-<li>⌃← / ⌃→ 左右切换打开的编辑tab页 Alt← / Alt→</li>
-<li>⎋ 从工具窗口进入代码文件窗口 ESC</li>
-<li>⌘L 在当前文件跳转到某一行的指定处 Ctrl + G</li>
-<li>⌘E 显示最近打开的文件记录列表 Ctrl + E</li>
-<li>⌘⌥← / ⌘⌥→ 退回 / 前进到上一个操作的地方 Ctrl + Alt + ← Ctrl + Alt + →</li>
-<li>⌘⇧⌫ 跳转到最后一个编辑的地方</li>
-<li>⌃H 显示当前类的层次结构 Ctrl + H</li>
-<li>⌘⇧H 显示方法层次结构</li>
-<li>⌃⌥H 显示调用层次结构</li>
-<li>F4 / ⌘↓ 编辑/查看代码源</li>
-<li>⌘⌥U 显示类UML图</li>
-<li>⌃J 查看注释<h1 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h1></li>
-<li>⌥⌦ 删除到单词的末尾（⌦键为Fn+Delete）</li>
-<li>⌥⌫ 删除到单词的开头</li>
-<li>⌘+ / ⌘- 展开 / 折叠代码块</li>
-<li>⌘F1 在错误或警告处显示具体描述信息</li>
-<li>⌘⌥L 格式化代码</li>
-<li>⌃⌥O 优化import</li>
-<li>⇧↩ 开始新的一行</li>
-<li>⌘⇧↩ 自动结束代码，行末自动添加分号</li>
-<li>⌃I 实现方法（实现接口中的方法）</li>
-<li>⇧F6 重命名文件或者变量</li>
-<li>⌘N, ⌃↩, ⌃N 生成代码（getter、setter、构造函数、hashCode/equals,toString）</li>
-<li>⌘P 显示方法的参数信息<h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1></li>
-<li>Double⇧ 查找任何东西</li>
-<li>⌘⇧F 全局查找（根据路径）</li>
-<li>⌘F 文件内查找</li>
-<li>⌘G 查找模式下，向下查找</li>
-<li>⌘⇧G 查找模式下，向上查找<h1 id="导航-1"><a href="#导航-1" class="headerlink" title="导航"></a>导航</h1></li>
-<li>⌘⌥B 跳转到接口的实现</li>
-<li>⌘U 查看接口定义</li>
-<li>⌘⌥← / ⌘⌥→ 退回 / 前进到上一个操作的地方</li>
-<li>⌘B / ⌘ 鼠标点击 进入光标所在的方法/变量的接口或是定义处</li>
-<li>⌃⇧B 跳转到类型声明处</li>
-<li>⌥ Space, ⌘Y 快速打开光标所在方法、类的定义</li>
-<li>⌘O 查找类文件</li>
-<li>⌘⇧O 查找所有类型文件、打开文件、打开目录，打开目录需要在输入的内容前面或后面加一个反斜杠/</li>
-<li>F12 返回到前一个工具窗口</li>
-<li>⎋ 从工具窗口进入代码文件窗口</li>
-<li>⇧⎋ 隐藏当前或最后一个活动的窗口，且光标进入代码文件窗口</li>
-<li>F3选中文件/文件夹/代码行，添加/取消书签</li>
-<li>⌥F3 选中文件/文件夹/代码行，使用助记符添加/取消书签</li>
-<li>⌃0…⌃9 定位到对应数值的书签位置</li>
-<li>⌘F3 显示所有书签</li>
-<li>⌥F1 显示当前文件选择目标弹出层，弹出层中有很多目标可以进行选择(如在代码编辑窗口可以选择显示该文件的Finder)</li>
-<li>⌘F12 弹出当前文件结构层，可以在弹出的层上直接输入进行筛选（可用于搜索类中的方法）<h1 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h1></li>
-<li>⌃⌘F 切换全屏模式</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Mac键盘符号和修饰键说明&quot;&gt;&lt;a href=&quot;#Mac键盘符号和修饰键说明&quot; class=&quot;headerlink&quot; title=&quot;Mac键盘符号和修饰键说明&quot;&gt;&lt;/a&gt;Mac键盘符号和修饰键说明&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;⌘ Command&lt;/li&gt;
-&lt;li&gt;⇧ Shift&lt;/li&gt;
-&lt;li&gt;⌥ Option&lt;/li&gt;
-&lt;li&gt;⌃ Control&lt;/li&gt;
-&lt;li&gt;↩︎ Return/Enter
-    
-    </summary>
-    
-      <category term="intellij" scheme="http://dmlcoding.com/categories/intellij/"/>
-    
-    
-      <category term="intellij" scheme="http://dmlcoding.com/tags/intellij/"/>
-    
-      <category term="mac" scheme="http://dmlcoding.com/tags/mac/"/>
     
   </entry>
   
