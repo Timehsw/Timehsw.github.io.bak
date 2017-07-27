@@ -15,25 +15,20 @@
 
 
 
-<meta name="description" content="下载安装小飞机12345sudo add-apt-repository ppa:hzwhuang/ss-qt5sudo apt-get updatesudo apt-get install shadowsocks-qt5">
+<meta name="description" content="Matplotlib是Python中最常用的可视化工具之一，可以非常方便地创建海量类型地2D图表和一些基本的3D图表。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu/Deepin下用Shadowsocks实现翻墙上网">
-<meta property="og:url" content="http://dmlcoding.com/2016/UbuntuSocks/index.html">
+<meta property="og:title" content="python 可视化包-Matplotlib">
+<meta property="og:url" content="http://dmlcoding.com/2017/MatplotlibBasic/index.html">
 <meta property="og:site_name" content="Time渐行渐远">
-<meta property="og:description" content="下载安装小飞机12345sudo add-apt-repository ppa:hzwhuang/ss-qt5sudo apt-get updatesudo apt-get install shadowsocks-qt5">
-<meta property="og:image" content="http://dmlcoding.com/images/pics/shadowsocksSoft.png">
-<meta property="og:image" content="http://dmlcoding.com/images/pics/SocksConf.png">
-<meta property="og:image" content="http://dmlcoding.com/images/pics/SocksConf2.png">
-<meta property="og:image" content="http://dmlcoding.com/images/pics/ubuntuSocks.png">
-<meta property="og:image" content="http://dmlcoding.com/images/pics/deepinSocks.png">
-<meta property="og:image" content="http://dmlcoding.com/images/pics/proxy1.png">
-<meta property="og:image" content="http://dmlcoding.com/images/pics/proxy2.png">
-<meta property="og:image" content="http://dmlcoding.com/images/pics/proxy3.png">
-<meta property="og:updated_time" content="2017-03-02T06:36:43.000Z">
+<meta property="og:description" content="Matplotlib是Python中最常用的可视化工具之一，可以非常方便地创建海量类型地2D图表和一些基本的3D图表。">
+<meta property="og:image" content="http://dmlcoding.com/images/python/ctr1.png">
+<meta property="og:image" content="http://dmlcoding.com/images/python/ctr2.png">
+<meta property="og:image" content="http://dmlcoding.com/images/python/subplot.png">
+<meta property="og:updated_time" content="2017-07-27T06:34:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu/Deepin下用Shadowsocks实现翻墙上网">
-<meta name="twitter:description" content="下载安装小飞机12345sudo add-apt-repository ppa:hzwhuang/ss-qt5sudo apt-get updatesudo apt-get install shadowsocks-qt5">
-<meta name="twitter:image" content="http://dmlcoding.com/images/pics/shadowsocksSoft.png">
+<meta name="twitter:title" content="python 可视化包-Matplotlib">
+<meta name="twitter:description" content="Matplotlib是Python中最常用的可视化工具之一，可以非常方便地创建海量类型地2D图表和一些基本的3D图表。">
+<meta name="twitter:image" content="http://dmlcoding.com/images/python/ctr1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -65,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Ubuntu/Deepin下用Shadowsocks实现翻墙上网 | Time渐行渐远</title>
+<title>python 可视化包-Matplotlib | Time渐行渐远</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -290,11 +285,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-UbuntuSocks" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-MatplotlibBasic" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/UbuntuSocks/" class="article-date">
-      <time datetime="2016-12-11T02:01:00.000Z" itemprop="datePublished">2016-12-11</time>
+      <a href="/2017/MatplotlibBasic/" class="article-date">
+      <time datetime="2017-07-26T15:24:00.000Z" itemprop="datePublished">2017-07-26</time>
 </a>
 
 
@@ -309,7 +304,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Ubuntu/Deepin下用Shadowsocks实现翻墙上网
+      python 可视化包-Matplotlib
     </h1>
   
 
@@ -318,13 +313,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/shadowsocks/">shadowsocks</a>
+    <a class="article-category-link" href="/categories/python/">python</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowsocks/">shadowsocks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vps/">vps</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matplotlib/">Matplotlib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -334,47 +329,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="下载安装小飞机"><a href="#下载安装小飞机" class="headerlink" title="下载安装小飞机"></a>下载安装小飞机</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5</div><div class="line"></div><div class="line">sudo apt-get update</div><div class="line"></div><div class="line">sudo apt-get install shadowsocks-qt5</div></pre></td></tr></table></figure>
+        <p>Matplotlib是Python中最常用的可视化工具之一，可以非常方便地创建海量类型地2D图表和一些基本的3D图表。</p>
 <a id="more"></a>
-<p><img src="/images/pics/shadowsocksSoft.png" alt="小飞机"></p>
-<h2 id="配置代理"><a href="#配置代理" class="headerlink" title="配置代理"></a>配置代理</h2><ul>
-<li>配置账号</li>
-</ul>
-<p>如图所示</p>
-<p>点击连接，配置自己的代理服务器的IP地址，密码，端口等。仿照我填的那样填写。</p>
-<p><img src="/images/pics/SocksConf.png" alt="socksConf"></p>
-<p>然后，点击测试延迟，看看有没有出现延迟，出现了，那么就是连接上了。</p>
-<p><img src="/images/pics/SocksConf2.png" alt="socksConf2"></p>
-<h2 id="本地配置"><a href="#本地配置" class="headerlink" title="本地配置"></a>本地配置</h2><p>代理那里，方法请选择<strong>手动</strong>，Socks主机位置填写的是你Shadowsocks里的本地地址IP，我的都是<strong>127.0.0.1</strong>，端口也是一样。<br>然后，点击应用到整个系统。</p>
-<ul>
-<li>Ubuntu这里是这样的</li>
-</ul>
-<p><img src="/images/pics/ubuntuSocks.png" alt="ubuntuSocks"></p>
-<ul>
-<li>Deepin是这样的</li>
-</ul>
-<p><img src="/images/pics/deepinSocks.png" alt="deepinSocks"></p>
-<h2 id="浏览器插件"><a href="#浏览器插件" class="headerlink" title="浏览器插件"></a>浏览器插件</h2><p>此时你并不能科学上网，因为这个方式并不是所谓”全局代理”，所以你需要配置一下你的浏览器。我所使用的是Chrome，然后安装SwitchySharp插件，市场访问不了可以搜一下墙内的资源，跨平台所以win的也能用，拖放进去而已。<br>记住要打开Chrome的扩展界面，才可以把离线插件拖进行进行安装。为了方便大家安装，这里我提供下载链接。链接失效请联系我.<br><a href="https://pan.baidu.com/s/1i5Pr3TF" target="_blank" rel="external">下载地址</a>  密码: fjfq</p>
-<h2 id="Chrome代理设置"><a href="#Chrome代理设置" class="headerlink" title="Chrome代理设置"></a>Chrome代理设置</h2><ol>
-<li>首先，我们确保已在Chrome浏览器中安装好了Proxy SwitchySharp扩展.</li>
-</ol>
-<p><img src="/images/pics/proxy1.png" alt="proxy1"></p>
-<p>进入选项页后，我们在情景模式中，新建一个模式。<br>名称随便填写<br>然后按照我的截图那样填写，千万不要填错了。<br>shadowsocks使用的就是SOCKS v5的协议，ip和端口号要跟系统设置的一致。<br>然后点击保存。</p>
-<p><img src="/images/pics/proxy2.png" alt="proxy2"></p>
-<p>2.设置切换规则</p>
-<p>然后点击“切换规则”，分别新建两条规则。</p>
-<ul>
-<li><p>本地规则，选择正则表达式<br>目的是让浏览器可以访问局域网等此类网址时候，不适用任何代理，即可直接访问。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">192\.168\.|localhost</div></pre></td></tr></table></figure>
-</li>
-<li><p>国外规则，选择正则表达式<br>让我们访问国外的网址的时候，就可以通过代理进行翻墙访问了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(fbcdn|akamaihd|pixnet)\.net|wretch\.cc|t\.co|goo\.gl|(google(usercontent|apis)*|chrome|staticflickr|imdb|ytimg|gstatic|html5rocks|amazonaws|github|tumblr|addthis|wordpress|blogger|(blog|app)spot|friendfeed|twitter|facebook|youtube|dropbox|feedburner|googleapis|android)\.com</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="/images/pics/proxy3.png" alt="proxy3"></p>
-<h2 id="自动切换代理"><a href="#自动切换代理" class="headerlink" title="自动切换代理"></a>自动切换代理</h2><p>最后保存之后，再点击浏览器上面的Proxy SwitchySharp扩展图标，点击勾选其中的<strong>自动却换模式</strong>,即可在浏览网页<br>时，让扩展自动根据之前的规则来判断使用何种代理了，而不需要我们自己受到切换了了。</p>
-<p>最后，根据自己的情况设置是否开机自启动。</p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>可以自由翻墙了。。。</p>
+<h1 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># ubuntu上安装</div><div class="line">sudo apt install python-matplotlib</div><div class="line"># mac上安装</div><div class="line">pip install matplotlib</div></pre></td></tr></table></figure>
+<h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><h2 id="快速入门小例子1之画单个图"><a href="#快速入门小例子1之画单个图" class="headerlink" title="快速入门小例子1之画单个图"></a>快速入门小例子1之画单个图</h2><p>我们只要有x轴的数和y轴的数,那么就可以在坐标轴上画出图来了.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line">import matplotlib as mpl</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line"># 通过rcParams设置全局横纵轴字体大小</div><div class="line">mpl.rcParams[&apos;xtick.labelsize&apos;]=24</div><div class="line">mpl.rcParams[&apos;ytick.labelsize&apos;]=24</div><div class="line"></div><div class="line"># x轴的点</div><div class="line">x1 = np.arange(11)</div><div class="line"># y轴的点</div><div class="line">y1 = [</div><div class="line">    1.0847275042134147E-4,</div><div class="line">    2.0106877828356476E-4,</div><div class="line">    1.1836360644802181E-4,</div><div class="line">    0.043453404423487926,</div><div class="line">    0.03113001646083574,</div><div class="line">    0.06,</div><div class="line">    0.012709253496067191,</div><div class="line">    0.06,</div><div class="line">    3.284899860591644E-4,</div><div class="line">    0.015235253124714847,</div><div class="line">    0.0034946847451197242,</div><div class="line">]</div><div class="line"></div><div class="line"># 创建一个图,名字为ctr</div><div class="line">plt.figure(&quot;ctr&quot;)</div><div class="line"># 在图上绘制</div><div class="line">plt.plot(x1,y1)</div><div class="line"></div><div class="line"># 将当前figure的图像保存到文件result.png</div><div class="line">plt.savefig(&apos;result.pn</div><div class="line">g&apos;)</div><div class="line"># 一定要加上这句才能让画好的图显示在屏幕上</div><div class="line">plt.show()</div></pre></td></tr></table></figure></p>
+<p>如图所示:<br><img src="/images/python/ctr1.png" alt="ctr1"></p>
+<p>看上面就没有几行代码,但是就画出了一个图.所以用Matplotlib可以非常方便的绘制我们想要的图形.这里这是用最简单的例子说明一下.</p>
+<h2 id="快速入门小例子2之把两组坐标画在一个图上进行比较"><a href="#快速入门小例子2之把两组坐标画在一个图上进行比较" class="headerlink" title="快速入门小例子2之把两组坐标画在一个图上进行比较"></a>快速入门小例子2之把两组坐标画在一个图上进行比较</h2><p>这里我们有两组数据,希望能够方便的比较这两组数据的差异,那么我们就可以把趋势都画在一个图上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line">import matplotlib as mpl</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line"># 通过rcParams设置全局横纵轴字体大小</div><div class="line">mpl.rcParams[&apos;xtick.labelsize&apos;]=24</div><div class="line">mpl.rcParams[&apos;ytick.labelsize&apos;]=24</div><div class="line"></div><div class="line"># x轴的点</div><div class="line">x1 = np.arange(11)</div><div class="line"># y轴的点</div><div class="line">y1 = [</div><div class="line">    1.0847275042134147E-4,</div><div class="line">    2.0106877828356476E-4,</div><div class="line">    1.1836360644802181E-4,</div><div class="line">    0.043453404423487926,</div><div class="line">    0.03113001646083574,</div><div class="line">    0.06,</div><div class="line">    0.012709253496067191,</div><div class="line">    0.06,</div><div class="line">    3.284899860591644E-4,</div><div class="line">    0.015235253124714847,</div><div class="line">    0.0034946847451197242,</div><div class="line">]</div><div class="line"></div><div class="line"># 创建一个图,名字为ctr</div><div class="line">#plt.figure(&quot;ctr&quot;)</div><div class="line"># 在图上绘制</div><div class="line">#plt.plot(x1,y1)</div><div class="line"></div><div class="line"></div><div class="line">x2 = np.arange(11)</div><div class="line"></div><div class="line">y2 = [</div><div class="line">    3.529088519807792E-5,</div><div class="line">    1.1895968858318187E-4,</div><div class="line">    0.0013049292594645469,</div><div class="line">    0.046417845349992326,</div><div class="line">    0.03282177644291713,</div><div class="line">    0.06,</div><div class="line">    0.013313023920004725,</div><div class="line">    0.06,</div><div class="line">    3.554547063283854E-4,</div><div class="line">    0.014309633417956262,</div><div class="line">    0.0034946847451197242,</div><div class="line">]</div><div class="line"></div><div class="line"></div><div class="line">#plt.figure(&quot;ctrEstimate&quot;)</div><div class="line">#plt.plot(x2,y2,&apos;k&apos;)</div><div class="line"></div><div class="line"></div><div class="line"># 两个图画一起</div><div class="line">plt.figure(&apos;ctr &amp; ctrEstimate&apos;)</div><div class="line">plt.plot(x1, y1)</div><div class="line"></div><div class="line"># scatter可以方便出散点图</div><div class="line"># plt.scatter(x1,y11,c=&apos;red&apos;,marker=&apos;v&apos;)</div><div class="line"></div><div class="line"># plt.scatter(x2,y22,marker=&apos;^&apos;)</div><div class="line"></div><div class="line"># &apos;r&apos;表示用红色线</div><div class="line">plt.plot(x2, y2, &apos;r&apos;)</div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure></p>
+<p>如图所示:<br><img src="/images/python/ctr2.png" alt="ctr2"></p>
+<h1 id="matplotlib画图api解释"><a href="#matplotlib画图api解释" class="headerlink" title="matplotlib画图api解释"></a>matplotlib画图api解释</h1><p>单独的讲解api很无聊.直接写代码画图,代码里都有详细的说明</p>
+<h2 id="画2维的柱图和饼图"><a href="#画2维的柱图和饼图" class="headerlink" title="画2维的柱图和饼图"></a>画2维的柱图和饼图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">import numpy as np</div><div class="line"></div><div class="line">import matplotlib as mpl</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line">mpl.rcParams[&apos;axes.titlesize&apos;] = 20</div><div class="line">mpl.rcParams[&apos;xtick.labelsize&apos;] = 16</div><div class="line">mpl.rcParams[&apos;ytick.labelsize&apos;] = 16</div><div class="line">mpl.rcParams[&apos;axes.labelsize&apos;] = 16</div><div class="line">mpl.rcParams[&apos;xtick.major.size&apos;] = 0</div><div class="line">mpl.rcParams[&apos;ytick.major.size&apos;] = 0</div><div class="line"></div><div class="line"># 包含了狗,猫和猎豹的最高奔跑速度,还有对应的可视化颜色</div><div class="line">speed_map = &#123;</div><div class="line">    &apos;dog&apos;: (48, &apos;#7199cf&apos;),</div><div class="line">    &apos;cat&apos;: (45, &apos;#4fc4aa&apos;),</div><div class="line">    &apos;cheetah&apos;: (120, &apos;#e1a7a2&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 整体图的标图</div><div class="line">fig=plt.figure(&apos;Bar chart &amp; Pie chart&apos;)</div><div class="line"></div><div class="line"># 在整张图上加入一个子图,121的意思是在一个1行2列的子图中的第一张</div><div class="line">ax=fig.add_subplot(121)</div><div class="line">ax.set_title(&quot;Running speed - bar chart&quot;)</div><div class="line"></div><div class="line"># 生成x轴每个元素的位置 0 1 2</div><div class="line">xticks=np.arange(3)</div><div class="line"></div><div class="line"># 定义柱状图每个柱的宽度</div><div class="line">bar_width=0.5</div><div class="line"></div><div class="line"># 动物名称</div><div class="line">animals=speed_map.keys()</div><div class="line"></div><div class="line"># 奔跑速度</div><div class="line">speeds=[x[0] for x in speed_map.values()]</div><div class="line"></div><div class="line"># 对应颜色</div><div class="line">colors=[x[1] for x in speed_map.values()]</div><div class="line"></div><div class="line"># 画柱状图,横轴是动物标签的位置,纵轴是速度,定义柱的宽度,同时设置柱的边缘为透明</div><div class="line">bars=ax.bar(xticks,speeds,width=bar_width,edgecolor=&apos;none&apos;)</div><div class="line"></div><div class="line"># 设置y轴的标图</div><div class="line">ax.set_ylabel(&apos;Speed(km/h)&apos;)</div><div class="line"></div><div class="line"># x轴每个标签的具体位置,设置为每个柱的中央</div><div class="line">ax.set_xticks(xticks+bar_width/2)</div><div class="line"></div><div class="line"># 设置每个标签的名字</div><div class="line">ax.set_xticklabels(animals)</div><div class="line"></div><div class="line"># 设置x轴的范围</div><div class="line">ax.set_xlim([bar_width/2-0.5,3-bar_width/2])</div><div class="line"></div><div class="line"># 设置y轴的范围</div><div class="line">ax.set_ylim([0,125])</div><div class="line"></div><div class="line"># 给每个bar分配指定的颜色</div><div class="line">for bar,color in zip(bars,colors):</div><div class="line">    bar.set_color(color)</div><div class="line"></div><div class="line"></div><div class="line"># 在122位置加入新的图</div><div class="line">ax=fig.add_subplot(122)</div><div class="line">ax.set_title(&apos;Running speed - pie chart&apos;)</div><div class="line">labels=[&apos;&#123;&#125;\n&#123;&#125; km/h&apos;.format(animal,speed) for animal,speed in zip(animals,speeds)]</div><div class="line"></div><div class="line"># 画饼状图,并指定标签和对应颜色</div><div class="line">ax.pie(speeds,labels=labels,colors=colors)</div><div class="line"># ax.plot(speeds)</div><div class="line"></div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<p><img src="/images/python/subplot.png" alt="subplot"></p>
 
       
     </div>
@@ -383,13 +348,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/UbuntuSocks/">Ubuntu/Deepin下用Shadowsocks实现翻墙上网</a></p>
+        <p><span>本文标题:</span><a href="/2017/MatplotlibBasic/">python 可视化包-Matplotlib</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hushiwei</a></p>
-        <p><span>发布时间:</span>2016-12-11, 10:01:00</p>
-        <p><span>最后更新:</span>2017-03-02, 14:36:43</p>
+        <p><span>发布时间:</span>2017-07-26, 23:24:00</p>
+        <p><span>最后更新:</span>2017-07-27, 14:34:39</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/UbuntuSocks/" title="Ubuntu/Deepin下用Shadowsocks实现翻墙上网">http://dmlcoding.com/2016/UbuntuSocks/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://dmlcoding.com/2016/UbuntuSocks/　　作者: Hushiwei" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/MatplotlibBasic/" title="python 可视化包-Matplotlib">http://dmlcoding.com/2017/MatplotlibBasic/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://dmlcoding.com/2017/MatplotlibBasic/　　作者: Hushiwei" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -402,15 +367,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/DeepinSoft/">
-                    配置Ubuntu/Deepin下要安装的常用软件
+                <a href="/2017/TesseractBasic/">
+                    机器视觉处理与Tesseract介绍
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/LinuxSymbolicLink/">
-                    linux创建软硬链接
+                <a href="/2017/HbaseNotes/">
+                    Hbase笔记
                 </a>
             </div>
         
@@ -422,7 +387,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载安装小飞机"><span class="toc-number">1.</span> <span class="toc-text">下载安装小飞机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置代理"><span class="toc-number">2.</span> <span class="toc-text">配置代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本地配置"><span class="toc-number">3.</span> <span class="toc-text">本地配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器插件"><span class="toc-number">4.</span> <span class="toc-text">浏览器插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chrome代理设置"><span class="toc-number">5.</span> <span class="toc-text">Chrome代理设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动切换代理"><span class="toc-number">6.</span> <span class="toc-text">自动切换代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完成"><span class="toc-number">7.</span> <span class="toc-text">完成</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装方式"><span class="toc-number">1.</span> <span class="toc-text">安装方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速入门"><span class="toc-number">2.</span> <span class="toc-text">快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速入门小例子1之画单个图"><span class="toc-number">2.1.</span> <span class="toc-text">快速入门小例子1之画单个图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速入门小例子2之把两组坐标画在一个图上进行比较"><span class="toc-number">2.2.</span> <span class="toc-text">快速入门小例子2之把两组坐标画在一个图上进行比较</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#matplotlib画图api解释"><span class="toc-number">3.</span> <span class="toc-text">matplotlib画图api解释</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#画2维的柱图和饼图"><span class="toc-number">3.1.</span> <span class="toc-text">画2维的柱图和饼图</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -458,7 +423,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Ubuntu/Deepin下用Shadowsocks实现翻墙上网　| Time渐行渐远　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"python 可视化包-Matplotlib　| Time渐行渐远　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -492,7 +457,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/DeepinSoft/" title="上一篇: 配置Ubuntu/Deepin下要安装的常用软件">
+            <a href="/2017/TesseractBasic/" title="上一篇: 机器视觉处理与Tesseract介绍">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -500,7 +465,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/LinuxSymbolicLink/" title="下一篇: linux创建软硬链接">
+            <a href="/2017/HbaseNotes/" title="下一篇: Hbase笔记">
                 <i class="fa fa-angle-right"></i>
             </a>
         

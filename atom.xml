@@ -64,6 +64,41 @@
   </entry>
   
   <entry>
+    <title>python 可视化包-Matplotlib</title>
+    <link href="http://dmlcoding.com/2017/MatplotlibBasic/"/>
+    <id>http://dmlcoding.com/2017/MatplotlibBasic/</id>
+    <published>2017-07-26T15:24:00.000Z</published>
+    <updated>2017-07-27T06:34:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Matplotlib是Python中最常用的可视化工具之一，可以非常方便地创建海量类型地2D图表和一些基本的3D图表。</p>
+<a id="more"></a>
+<h1 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># ubuntu上安装</div><div class="line">sudo apt install python-matplotlib</div><div class="line"># mac上安装</div><div class="line">pip install matplotlib</div></pre></td></tr></table></figure>
+<h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><h2 id="快速入门小例子1之画单个图"><a href="#快速入门小例子1之画单个图" class="headerlink" title="快速入门小例子1之画单个图"></a>快速入门小例子1之画单个图</h2><p>我们只要有x轴的数和y轴的数,那么就可以在坐标轴上画出图来了.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line">import matplotlib as mpl</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line"># 通过rcParams设置全局横纵轴字体大小</div><div class="line">mpl.rcParams[&apos;xtick.labelsize&apos;]=24</div><div class="line">mpl.rcParams[&apos;ytick.labelsize&apos;]=24</div><div class="line"></div><div class="line"># x轴的点</div><div class="line">x1 = np.arange(11)</div><div class="line"># y轴的点</div><div class="line">y1 = [</div><div class="line">    1.0847275042134147E-4,</div><div class="line">    2.0106877828356476E-4,</div><div class="line">    1.1836360644802181E-4,</div><div class="line">    0.043453404423487926,</div><div class="line">    0.03113001646083574,</div><div class="line">    0.06,</div><div class="line">    0.012709253496067191,</div><div class="line">    0.06,</div><div class="line">    3.284899860591644E-4,</div><div class="line">    0.015235253124714847,</div><div class="line">    0.0034946847451197242,</div><div class="line">]</div><div class="line"></div><div class="line"># 创建一个图,名字为ctr</div><div class="line">plt.figure(&quot;ctr&quot;)</div><div class="line"># 在图上绘制</div><div class="line">plt.plot(x1,y1)</div><div class="line"></div><div class="line"># 将当前figure的图像保存到文件result.png</div><div class="line">plt.savefig(&apos;result.pn</div><div class="line">g&apos;)</div><div class="line"># 一定要加上这句才能让画好的图显示在屏幕上</div><div class="line">plt.show()</div></pre></td></tr></table></figure></p>
+<p>如图所示:<br><img src="/images/python/ctr1.png" alt="ctr1"></p>
+<p>看上面就没有几行代码,但是就画出了一个图.所以用Matplotlib可以非常方便的绘制我们想要的图形.这里这是用最简单的例子说明一下.</p>
+<h2 id="快速入门小例子2之把两组坐标画在一个图上进行比较"><a href="#快速入门小例子2之把两组坐标画在一个图上进行比较" class="headerlink" title="快速入门小例子2之把两组坐标画在一个图上进行比较"></a>快速入门小例子2之把两组坐标画在一个图上进行比较</h2><p>这里我们有两组数据,希望能够方便的比较这两组数据的差异,那么我们就可以把趋势都画在一个图上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line">import matplotlib as mpl</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line"># 通过rcParams设置全局横纵轴字体大小</div><div class="line">mpl.rcParams[&apos;xtick.labelsize&apos;]=24</div><div class="line">mpl.rcParams[&apos;ytick.labelsize&apos;]=24</div><div class="line"></div><div class="line"># x轴的点</div><div class="line">x1 = np.arange(11)</div><div class="line"># y轴的点</div><div class="line">y1 = [</div><div class="line">    1.0847275042134147E-4,</div><div class="line">    2.0106877828356476E-4,</div><div class="line">    1.1836360644802181E-4,</div><div class="line">    0.043453404423487926,</div><div class="line">    0.03113001646083574,</div><div class="line">    0.06,</div><div class="line">    0.012709253496067191,</div><div class="line">    0.06,</div><div class="line">    3.284899860591644E-4,</div><div class="line">    0.015235253124714847,</div><div class="line">    0.0034946847451197242,</div><div class="line">]</div><div class="line"></div><div class="line"># 创建一个图,名字为ctr</div><div class="line">#plt.figure(&quot;ctr&quot;)</div><div class="line"># 在图上绘制</div><div class="line">#plt.plot(x1,y1)</div><div class="line"></div><div class="line"></div><div class="line">x2 = np.arange(11)</div><div class="line"></div><div class="line">y2 = [</div><div class="line">    3.529088519807792E-5,</div><div class="line">    1.1895968858318187E-4,</div><div class="line">    0.0013049292594645469,</div><div class="line">    0.046417845349992326,</div><div class="line">    0.03282177644291713,</div><div class="line">    0.06,</div><div class="line">    0.013313023920004725,</div><div class="line">    0.06,</div><div class="line">    3.554547063283854E-4,</div><div class="line">    0.014309633417956262,</div><div class="line">    0.0034946847451197242,</div><div class="line">]</div><div class="line"></div><div class="line"></div><div class="line">#plt.figure(&quot;ctrEstimate&quot;)</div><div class="line">#plt.plot(x2,y2,&apos;k&apos;)</div><div class="line"></div><div class="line"></div><div class="line"># 两个图画一起</div><div class="line">plt.figure(&apos;ctr &amp; ctrEstimate&apos;)</div><div class="line">plt.plot(x1, y1)</div><div class="line"></div><div class="line"># scatter可以方便出散点图</div><div class="line"># plt.scatter(x1,y11,c=&apos;red&apos;,marker=&apos;v&apos;)</div><div class="line"></div><div class="line"># plt.scatter(x2,y22,marker=&apos;^&apos;)</div><div class="line"></div><div class="line"># &apos;r&apos;表示用红色线</div><div class="line">plt.plot(x2, y2, &apos;r&apos;)</div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure></p>
+<p>如图所示:<br><img src="/images/python/ctr2.png" alt="ctr2"></p>
+<h1 id="matplotlib画图api解释"><a href="#matplotlib画图api解释" class="headerlink" title="matplotlib画图api解释"></a>matplotlib画图api解释</h1><p>单独的讲解api很无聊.直接写代码画图,代码里都有详细的说明</p>
+<h2 id="画2维的柱图和饼图"><a href="#画2维的柱图和饼图" class="headerlink" title="画2维的柱图和饼图"></a>画2维的柱图和饼图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">import numpy as np</div><div class="line"></div><div class="line">import matplotlib as mpl</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line">mpl.rcParams[&apos;axes.titlesize&apos;] = 20</div><div class="line">mpl.rcParams[&apos;xtick.labelsize&apos;] = 16</div><div class="line">mpl.rcParams[&apos;ytick.labelsize&apos;] = 16</div><div class="line">mpl.rcParams[&apos;axes.labelsize&apos;] = 16</div><div class="line">mpl.rcParams[&apos;xtick.major.size&apos;] = 0</div><div class="line">mpl.rcParams[&apos;ytick.major.size&apos;] = 0</div><div class="line"></div><div class="line"># 包含了狗,猫和猎豹的最高奔跑速度,还有对应的可视化颜色</div><div class="line">speed_map = &#123;</div><div class="line">    &apos;dog&apos;: (48, &apos;#7199cf&apos;),</div><div class="line">    &apos;cat&apos;: (45, &apos;#4fc4aa&apos;),</div><div class="line">    &apos;cheetah&apos;: (120, &apos;#e1a7a2&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 整体图的标图</div><div class="line">fig=plt.figure(&apos;Bar chart &amp; Pie chart&apos;)</div><div class="line"></div><div class="line"># 在整张图上加入一个子图,121的意思是在一个1行2列的子图中的第一张</div><div class="line">ax=fig.add_subplot(121)</div><div class="line">ax.set_title(&quot;Running speed - bar chart&quot;)</div><div class="line"></div><div class="line"># 生成x轴每个元素的位置 0 1 2</div><div class="line">xticks=np.arange(3)</div><div class="line"></div><div class="line"># 定义柱状图每个柱的宽度</div><div class="line">bar_width=0.5</div><div class="line"></div><div class="line"># 动物名称</div><div class="line">animals=speed_map.keys()</div><div class="line"></div><div class="line"># 奔跑速度</div><div class="line">speeds=[x[0] for x in speed_map.values()]</div><div class="line"></div><div class="line"># 对应颜色</div><div class="line">colors=[x[1] for x in speed_map.values()]</div><div class="line"></div><div class="line"># 画柱状图,横轴是动物标签的位置,纵轴是速度,定义柱的宽度,同时设置柱的边缘为透明</div><div class="line">bars=ax.bar(xticks,speeds,width=bar_width,edgecolor=&apos;none&apos;)</div><div class="line"></div><div class="line"># 设置y轴的标图</div><div class="line">ax.set_ylabel(&apos;Speed(km/h)&apos;)</div><div class="line"></div><div class="line"># x轴每个标签的具体位置,设置为每个柱的中央</div><div class="line">ax.set_xticks(xticks+bar_width/2)</div><div class="line"></div><div class="line"># 设置每个标签的名字</div><div class="line">ax.set_xticklabels(animals)</div><div class="line"></div><div class="line"># 设置x轴的范围</div><div class="line">ax.set_xlim([bar_width/2-0.5,3-bar_width/2])</div><div class="line"></div><div class="line"># 设置y轴的范围</div><div class="line">ax.set_ylim([0,125])</div><div class="line"></div><div class="line"># 给每个bar分配指定的颜色</div><div class="line">for bar,color in zip(bars,colors):</div><div class="line">    bar.set_color(color)</div><div class="line"></div><div class="line"></div><div class="line"># 在122位置加入新的图</div><div class="line">ax=fig.add_subplot(122)</div><div class="line">ax.set_title(&apos;Running speed - pie chart&apos;)</div><div class="line">labels=[&apos;&#123;&#125;\n&#123;&#125; km/h&apos;.format(animal,speed) for animal,speed in zip(animals,speeds)]</div><div class="line"></div><div class="line"># 画饼状图,并指定标签和对应颜色</div><div class="line">ax.pie(speeds,labels=labels,colors=colors)</div><div class="line"># ax.plot(speeds)</div><div class="line"></div><div class="line"></div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<p><img src="/images/python/subplot.png" alt="subplot"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Matplotlib是Python中最常用的可视化工具之一，可以非常方便地创建海量类型地2D图表和一些基本的3D图表。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://dmlcoding.com/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://dmlcoding.com/tags/python/"/>
+    
+      <category term="Matplotlib" scheme="http://dmlcoding.com/tags/Matplotlib/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hbase笔记</title>
     <link href="http://dmlcoding.com/2017/HbaseNotes/"/>
     <id>http://dmlcoding.com/2017/HbaseNotes/</id>
@@ -1008,129 +1043,6 @@
     
     
       <category term="fun" scheme="http://dmlcoding.com/tags/fun/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>17年阅读书单</title>
-    <link href="http://dmlcoding.com/2017/ReadBooks33/"/>
-    <id>http://dmlcoding.com/2017/ReadBooks33/</id>
-    <published>2017-03-02T14:00:00.000Z</published>
-    <updated>2017-03-03T08:44:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>书单很多,思考却不多.我们总是以为有了书单就有了知识一般.静下心来,好好看书吧!</p>
-</blockquote>
-<h1 id="优秀的程序员应该具备两方面能力"><a href="#优秀的程序员应该具备两方面能力" class="headerlink" title="优秀的程序员应该具备两方面能力"></a>优秀的程序员应该具备两方面能力</h1><ul>
-<li>良好的程序设计能力：<ul>
-<li>掌握常用的数据结构和算法（例如链表，栈，堆，队列，排序和散列）；</li>
-<li>理解计算机科学的核心概念（例如计算机系统结构、操作系统、编译原理和计算机网络）；</li>
-<li>熟悉至少两门以上编程语言（例如C++，Java，C#，和Python）；<a id="more"></a></li>
-</ul>
-</li>
-<li>专业的软件开发素养：<ul>
-<li>具备良好的编程实践，能够编写可测试（Testable），可扩展（Extensible），可维护（Maintainable）的代码；</li>
-<li>把握客户需求，按时交付客户所需要的软件产品；</li>
-<li>理解现代软件开发过程中的核心概念（例如面向对象程序设计，测试驱动开发，持续集成，和持续交付等等）。</li>
-</ul>
-</li>
-</ul>
-<h1 id="入门书籍"><a href="#入门书籍" class="headerlink" title="入门书籍"></a>入门书籍</h1><h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><ul>
-<li>基础理论：<a href="https://www.amazon.cn/gp/product/B009RSXIB4/ref=as_li_ss_tl?ie=UTF8&amp;camp=536&amp;tag=lucida-23&amp;creativeASIN=B009RSXIB4&amp;linkCode=as2&amp;creative=3132" target="_blank" rel="external">编码：隐匿在计算机软硬件背后的语言</a></li>
-<li>编程语言：<ul>
-<li>Java：Java核心技术（第9版）</li>
-<li>Python：Python基础教程（第二版）</li>
-</ul>
-</li>
-<li>编程语言理论：编程语言实现模式</li>
-<li>程序设计：程序设计方法</li>
-<li>算法与数据结构：算法（第4版）</li>
-<li>程序调试：调试九法——软硬件错误的排查之道</li>
-</ul>
-<h2 id="软件开发"><a href="#软件开发" class="headerlink" title="软件开发"></a>软件开发</h2><ul>
-<li>编程实践：程序设计实践</li>
-<li>面向对象程序设计：Head First设计模式</li>
-<li>重构：重构</li>
-<li>软件测试：How to Break Software</li>
-<li>项目管理：极客与团队</li>
-<li>专业开发：程序员修炼之道：从小工到专家</li>
-<li>大师之言：奇思妙想：15位计算机天才及其重大发现</li>
-<li>界面设计：写给大家看的设计书</li>
-<li>交互设计：通用设计法则</li>
-</ul>
-<h2 id="个人成长"><a href="#个人成长" class="headerlink" title="个人成长"></a>个人成长</h2><ul>
-<li>职业规划：软件开发者路线图</li>
-<li>思维方式：程序员的思维修炼：开发认知潜能的九堂课</li>
-<li>求职面试：金领简历：敲开苹果微软谷歌的大门</li>
-<li>英语写作：The Only Grammar Book You’ll Ever Need</li>
-</ul>
-<h1 id="必读书籍"><a href="#必读书籍" class="headerlink" title="必读书籍"></a>必读书籍</h1><h2 id="程序设计-1"><a href="#程序设计-1" class="headerlink" title="程序设计"></a>程序设计</h2><ul>
-<li>基础理论：<a href="https://www.amazon.cn/gp/product/B004BJ18KM/ref=as_li_ss_tl?ie=UTF8&amp;camp=536&amp;tag=lucida-23&amp;creativeASIN=B004BJ18KM&amp;linkCode=as2&amp;creative=3132" target="_blank" rel="external">深入理解计算机系统（第2版）</a></li>
-<li>编程语言：<ul>
-<li>Java：Effective Java（第2版）</li>
-<li>Python：Python参考手册（第4版）</li>
-</ul>
-</li>
-<li>编程语言理论：程序设计语言——实践之路（第3版）</li>
-<li>程序设计：计算机程序的构造与解释（第2版）</li>
-<li>算法与数据结构：编程珠玑（第2版）</li>
-<li>程序调试：调试九法——软硬件错误的排查之道</li>
-</ul>
-<h2 id="软件开发-1"><a href="#软件开发-1" class="headerlink" title="软件开发"></a>软件开发</h2><ul>
-<li>编程实践：代码大全（第2版）</li>
-<li>面向对象程序设计：设计模式</li>
-<li>重构：修改代码的艺术</li>
-<li>软件测试：xUnit Test Patterns</li>
-<li>项目管理：人月神话</li>
-<li>专业开发：程序员职业素养</li>
-<li>大师之言：编程人生：15位软件先驱访谈录</li>
-<li>界面设计：认知与设计：理解UI设计准则（第2版）</li>
-<li>交互设计：交互设计精髓（第3版）</li>
-</ul>
-<h2 id="个人成长-1"><a href="#个人成长-1" class="headerlink" title="个人成长"></a>个人成长</h2><ul>
-<li>职业规划：软件开发者路线图</li>
-<li>思维方式：如何把事情做到最好</li>
-<li>求职面试：程序员面试金典（第5版）</li>
-<li>英语写作：风格的要素</li>
-</ul>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><blockquote>
-<p>正是有前辈们无私的分享自己的经验,我们才能少走弯路,思考自己的职业生涯.</p>
-</blockquote>
-<h2 id="如何成为一个优秀的程序员而不是码农"><a href="#如何成为一个优秀的程序员而不是码农" class="headerlink" title="如何成为一个优秀的程序员而不是码农"></a>如何成为一个优秀的程序员而不是码农</h2><ul>
-<li>基础理论包括了程序员应该掌握的计算机基础知识；</li>
-<li>编程语言对软件开发至关重要，我选择了C，C++，Java，C#，Python，和JavaScript这六门主流编程语言进行介绍，如果想进一步理解编程语言，可以阅读编程语言理论里的书目；</li>
-<li>在理解编程语言的基础上，优秀的程序员还应该了解各种程序设计技巧，熟悉基本的算法数据结构，并且能够高效的进行程序调试。</li>
-<li>良好的程序设计能力是成为优秀程序员的前提，但软件开发知识也是必不可少的：优秀的程序员应具备良好的编程实践，知道如何利用面向对象，重构，和软件测试编写可复用，可扩展，可维护的代码，并具备软件项目管理知识和专业开发素养；</li>
-<li>就像我们可以从名人传记里学习名人的成功经验，程序员也可以通过追随优秀程序员的足迹使自己少走弯路。大师之言包含一系列对大师程序员/计算机科学家的访谈，任何程序员都可以从中获益良多；</li>
-<li>为了打造用户满意的软件产品，程序员应当掌握一定的界面设计知识和交互设计知识（是的，这些工作应该交给UI和UX，但如果你想独自打造一个产品呢？）；</li>
-<li>专业程序员应当对自己进行职业规划，并熟悉程序员求职面试的流程，以便在职业道路上越走越远；</li>
-<li>软件开发是一项需要不断学习的技能，学习思维方式可以有效的提升学习能力和学习效率；</li>
-<li>软件开发是一项国际化的工作，为了让更多的人了解你的代码（工作），良好的英语写作能力必不可少。</li>
-</ul>
-<h2 id="谢谢Lucida"><a href="#谢谢Lucida" class="headerlink" title="谢谢Lucida"></a>谢谢Lucida</h2><ul>
-<li>正是看了<a href="http://zh.lucida.me/" target="_blank" rel="external">Lucida大神</a>的博客,我才更清楚接下来如何更好的提高自己的能力.让自己成为一名优秀的程序员而不是一名普通的码农.</li>
-<li>书单和内容是<a href="http://zh.lucida.me/blog/developer-reading-list/" target="_blank" rel="external">Lucida博客里面的程序员必读书单 1.0</a>里的,这里我摘出来作为我接下来的书单.</li>
-<li>虽不认识Lucida大神,但真心谢谢你的无私分享.</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;书单很多,思考却不多.我们总是以为有了书单就有了知识一般.静下心来,好好看书吧!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;优秀的程序员应该具备两方面能力&quot;&gt;&lt;a href=&quot;#优秀的程序员应该具备两方面能力&quot; class=&quot;headerlink&quot; title=&quot;优秀的程序员应该具备两方面能力&quot;&gt;&lt;/a&gt;优秀的程序员应该具备两方面能力&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;良好的程序设计能力：&lt;ul&gt;
-&lt;li&gt;掌握常用的数据结构和算法（例如链表，栈，堆，队列，排序和散列）；&lt;/li&gt;
-&lt;li&gt;理解计算机科学的核心概念（例如计算机系统结构、操作系统、编译原理和计算机网络）；&lt;/li&gt;
-&lt;li&gt;熟悉至少两门以上编程语言（例如C++，Java，C#，和Python）；
-    
-    </summary>
-    
-      <category term="book" scheme="http://dmlcoding.com/categories/book/"/>
-    
-    
-      <category term="book" scheme="http://dmlcoding.com/tags/book/"/>
     
   </entry>
   
