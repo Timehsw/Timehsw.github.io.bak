@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dmlcoding.com/2017/HexoBlog/</loc>
+    
+    <lastmod>2017-08-04T10:07:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2017/JDKMemory/</loc>
     
     <lastmod>2017-08-04T02:03:37.000Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>http://dmlcoding.com/2017/PythonSplitFunc/</loc>
     
     <lastmod>2017-06-22T07:36:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2017/HexoBlog/</loc>
-    
-    <lastmod>2017-06-19T10:11:58.000Z</lastmod>
     
   </url>
   
@@ -310,7 +310,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/Recursion/</loc>
+    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -324,14 +324,14 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
+    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
+    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -352,14 +352,14 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/VPSshadowsocks/</loc>
+    <loc>http://dmlcoding.com/2016/Recursion/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
+    <loc>http://dmlcoding.com/2016/VPSshadowsocks/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -373,13 +373,6 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://dmlcoding.com/2016/ScalaCollection/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
@@ -387,7 +380,21 @@
   </url>
   
   <url>
+    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2016/Queue/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -402,13 +409,6 @@
   
   <url>
     <loc>http://dmlcoding.com/2016/SparkBug/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
