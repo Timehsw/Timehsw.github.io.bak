@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://dmlcoding.com/2017/HexoBlog/</loc>
-    <lastmod>2017-08-04T10:32:35.000Z</lastmod>
+    <lastmod>2017-08-04T10:39:42.000Z</lastmod>
     <data>
         <display>
         <title>用hexo搭建博客</title>
@@ -267,9 +267,9 @@
         <title>Ubuntu16.04使用Docker部署Gitlab</title>
         <pubTime>2017-07-05T10:24:00.000Z</pubTime>
         
-        <tag>ubuntu</tag>
-         
         <tag>docker</tag>
+         
+        <tag>ubuntu</tag>
          
          
            
@@ -793,26 +793,6 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/CentosEnr/</loc>
-    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>CentOS 常用开发环境</title>
-        <pubTime>2016-10-20T09:00:00.000Z</pubTime>
-        
-        <tag>centOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="centOS" url="http://dmlcoding.com/categories/centOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://dmlcoding.com/2017/IntellijIdeaForMac/</loc>
     <lastmod>2017-03-02T10:08:56.000Z</lastmod>
     <data>
@@ -828,6 +808,26 @@
            
              
               <breadCrumb title="intellij" url="http://dmlcoding.com/categories/intellij/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/CentosEnr/</loc>
+    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS 常用开发环境</title>
+        <pubTime>2016-10-20T09:00:00.000Z</pubTime>
+        
+        <tag>centOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="centOS" url="http://dmlcoding.com/categories/centOS/"/>
           
         </display>
     </data>
@@ -879,19 +879,19 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
+    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>设计模式</title>
-        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
+        <title>Flask框架中用QQ邮箱发邮件</title>
+        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
         
-        <tag>design</tag>
+        <tag>flask</tag>
          
          
            
              
-              <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
+              <breadCrumb title="flask" url="http://dmlcoding.com/categories/flask/"/>
           
         </display>
     </data>
@@ -905,50 +905,6 @@
         <display>
         <title>Spark的RDD基础操作</title>
         <pubTime>2016-11-17T09:23:00.000Z</pubTime>
-        
-        <tag>spark</tag>
-         
-        <tag>rdd</tag>
-         
-         
-           
-             
-              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux进程分析之内存</title>
-        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>memory</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>RDD究竟是什么</title>
-        <pubTime>2016-12-12T06:00:00.000Z</pubTime>
         
         <tag>spark</tag>
          
@@ -987,6 +943,28 @@
 
     
   <url>
+    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>RDD究竟是什么</title>
+        <pubTime>2016-12-12T06:00:00.000Z</pubTime>
+        
+        <tag>spark</tag>
+         
+        <tag>rdd</tag>
+         
+         
+           
+             
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -1002,26 +980,6 @@
            
              
               <breadCrumb title="shadowsocks" url="http://dmlcoding.com/categories/shadowsocks/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Scala数组</title>
-        <pubTime>2016-11-14T02:59:00.000Z</pubTime>
-        
-        <tag>scala</tag>
-         
-         
-           
-             
-              <breadCrumb title="scala" url="http://dmlcoding.com/categories/scala/"/>
           
         </display>
     </data>
@@ -1093,6 +1051,26 @@
 
     
   <url>
+    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Scala数组</title>
+        <pubTime>2016-11-14T02:59:00.000Z</pubTime>
+        
+        <tag>scala</tag>
+         
+         
+           
+             
+              <breadCrumb title="scala" url="http://dmlcoding.com/categories/scala/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -1117,21 +1095,21 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/Recursion/</loc>
+    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>递归算法</title>
-        <pubTime>2016-11-27T01:50:00.000Z</pubTime>
+        <title>Linux进程分析之内存</title>
+        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
         
-        <tag>algorithm</tag>
+        <tag>linux</tag>
          
-        <tag>recursion</tag>
+        <tag>memory</tag>
          
          
            
              
-              <breadCrumb title="algorithm" url="http://dmlcoding.com/categories/algorithm/"/>
+              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
           
         </display>
     </data>
@@ -1181,19 +1159,21 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
+    <loc>http://dmlcoding.com/2016/Recursion/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Flask框架中用QQ邮箱发邮件</title>
-        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
+        <title>递归算法</title>
+        <pubTime>2016-11-27T01:50:00.000Z</pubTime>
         
-        <tag>flask</tag>
+        <tag>algorithm</tag>
+         
+        <tag>recursion</tag>
          
          
            
              
-              <breadCrumb title="flask" url="http://dmlcoding.com/categories/flask/"/>
+              <breadCrumb title="algorithm" url="http://dmlcoding.com/categories/algorithm/"/>
           
         </display>
     </data>
@@ -1216,6 +1196,26 @@
            
              
               <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式</title>
+        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
+        
+        <tag>design</tag>
+         
+         
+           
+             
+              <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
           
         </display>
     </data>

@@ -523,9 +523,9 @@
       <category term="docker" scheme="http://dmlcoding.com/categories/docker/"/>
     
     
-      <category term="ubuntu" scheme="http://dmlcoding.com/tags/ubuntu/"/>
-    
       <category term="docker" scheme="http://dmlcoding.com/tags/docker/"/>
+    
+      <category term="ubuntu" scheme="http://dmlcoding.com/tags/ubuntu/"/>
     
   </entry>
   
