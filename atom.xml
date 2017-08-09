@@ -89,9 +89,9 @@
     <link href="http://dmlcoding.com/2017/JDKOrderConsole/"/>
     <id>http://dmlcoding.com/2017/JDKOrderConsole/</id>
     <published>2017-08-06T12:00:00.000Z</published>
-    <updated>2017-08-09T04:19:19.000Z</updated>
+    <updated>2017-08-09T04:23:55.000Z</updated>
     
-    <content type="html"><![CDATA[<p>除了JDK命令行工具,还有几个很强大的JDK可视化工具,希望接下来的学习,可以提高我们解决bug的能力</p>
+    <content type="html"><![CDATA[<p>除了JDK命令行工具,还有几个很强大的JDK可视化工具,希望接下来的学习,可以提高我们解决bug的能力<br><a id="more"></a></p>
 <h1 id="JConsole-Java监视与管理控制台"><a href="#JConsole-Java监视与管理控制台" class="headerlink" title="JConsole:Java监视与管理控制台"></a>JConsole:Java监视与管理控制台</h1><blockquote>
 <p>JConsole(Java Monitoring and Management Console)<br>JConsole是在JDK1.5时期就已经提供的虚拟机监控工具<br>JConsole是一款基于JMX的可视化监视和管理工具,它管理部分的功能是针对JMX MBean进行管理.</p>
 </blockquote>
@@ -105,8 +105,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;除了JDK命令行工具,还有几个很强大的JDK可视化工具,希望接下来的学习,可以提高我们解决bug的能力&lt;/p&gt;
-&lt;h1 id=&quot;JConsole-Java监视与管理控制台&quot;&gt;&lt;a href=&quot;#JConsole-Java监视与管理控制台&quot; class=&quot;headerlink
+      &lt;p&gt;除了JDK命令行工具,还有几个很强大的JDK可视化工具,希望接下来的学习,可以提高我们解决bug的能力&lt;br&gt;
     
     </summary>
     
