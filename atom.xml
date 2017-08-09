@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-08-09T04:19:13.000Z</updated>
+  <updated>2017-08-09T04:21:12.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spark On Yarn资源分配</title>
+    <link href="http://dmlcoding.com/2017/SparkOnYarn/"/>
+    <id>http://dmlcoding.com/2017/SparkOnYarn/</id>
+    <published>2017-08-08T02:00:00.000Z</published>
+    <updated>2017-08-09T04:21:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在spark on yarn  模式下如何合理的给程序分配资源<br><a id="more"></a><br><strong>yarn.nodemanager.resource.memory-mb</strong> 这个参数控制每台机器分配给yarn的内存<br><img src="../images/spark/nodemanagermb.png" alt="nodemanagermb"></p>
+<p><strong>yarn.nodemanager.resource.cpu-vcores</strong> 这个参数控制每台机器分配给yarn的核数<br><img src="../images/spark/nodemanagercpuvcores.png" alt="nodemanagercpuvcores"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在spark on yarn  模式下如何合理的给程序分配资源&lt;br&gt;
+    
+    </summary>
+    
+      <category term="spark" scheme="http://dmlcoding.com/categories/spark/"/>
+    
+    
+      <category term="spark" scheme="http://dmlcoding.com/tags/spark/"/>
+    
+      <category term="yarn" scheme="http://dmlcoding.com/tags/yarn/"/>
+    
+  </entry>
   
   <entry>
     <title>spark开发中遇到的问题</title>
@@ -55,34 +81,6 @@
       <category term="mysql" scheme="http://dmlcoding.com/tags/mysql/"/>
     
       <category term="hive" scheme="http://dmlcoding.com/tags/hive/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spark On Yarn资源分配</title>
-    <link href="http://dmlcoding.com/2017/SparkOnYarn/"/>
-    <id>http://dmlcoding.com/2017/SparkOnYarn/</id>
-    <published>2017-08-08T02:00:00.000Z</published>
-    <updated>2017-08-09T04:19:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在spark on yarn  模式下如何合理的给程序分配资源</p>
-<p><strong>yarn.nodemanager.resource.memory-mb</strong> 这个参数控制每台机器分配给yarn的内存<br><img src="../images/spark/nodemanagermb.png" alt="nodemanagermb"></p>
-<p><strong>yarn.nodemanager.resource.cpu-vcores</strong> 这个参数控制每台机器分配给yarn的核数<br><img src="../images/spark/nodemanagercpuvcores.png" alt="nodemanagercpuvcores"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在spark on yarn  模式下如何合理的给程序分配资源&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;yarn.nodemanager.resource.memory-mb&lt;/strong&gt; 这个参数控制每台机器分配给yarn的内存&lt;br&gt;&lt;img src=&quot;../images/s
-    
-    </summary>
-    
-      <category term="spark" scheme="http://dmlcoding.com/categories/spark/"/>
-    
-    
-      <category term="spark" scheme="http://dmlcoding.com/tags/spark/"/>
-    
-      <category term="yarn" scheme="http://dmlcoding.com/tags/yarn/"/>
     
   </entry>
   
