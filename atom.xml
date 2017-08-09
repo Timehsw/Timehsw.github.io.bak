@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-08-07T01:23:28.000Z</updated>
+  <updated>2017-08-09T04:19:13.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -14,6 +14,112 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spark开发中遇到的问题</title>
+    <link href="http://dmlcoding.com/2017/SparkBug/"/>
+    <id>http://dmlcoding.com/2017/SparkBug/</id>
+    <published>2017-08-08T02:00:00.000Z</published>
+    <updated>2017-08-09T04:19:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="spark连接mysql"><a href="#spark连接mysql" class="headerlink" title="spark连接mysql"></a>spark连接mysql</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="解决办法1"><a href="#解决办法1" class="headerlink" title="解决办法1"></a>解决办法1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1.提交任务的时候带上这个，手动指定mysql jar包的位置</div><div class="line">                    SPARK_CLASSPATH=/usr/local/spark-1.4.1-bin-hadoop2.6/lib/mysql-connector-java-5.1.38.jar ./bin/spark-submit --class sparkDemo /root/data/demon-parent-1.0-SNAPSHOT-jar-with-dependencies.jar hdfs://192.168.119.100:9000/examples/custom.txt</div></pre></td></tr></table></figure>
+<h2 id="解决办法2"><a href="#解决办法2" class="headerlink" title="解决办法2"></a>解决办法2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">修改了这个配置SPARK_HOME/conf/spark-env.sh文件，在里面加上了这个参数，就OK了</div><div class="line"></div><div class="line">export SPARK_CLASSPATH=$SPATH_CLASSPATH:/usr/hdp/2.4.0.0-169/spark/lib/mysql-connector-java-5.1.38.jar</div></pre></td></tr></table></figure>
+<h1 id="在spark中使用hive抛出错误"><a href="#在spark中使用hive抛出错误" class="headerlink" title="在spark中使用hive抛出错误"></a>在spark中使用hive抛出错误</h1><h1 id="报错日志"><a href="#报错日志" class="headerlink" title="报错日志"></a>报错日志</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">17/08/09 12:11:51 WARN DataNucleus.Persistence: Error creating validator of type org.datanucleus.properties.CorePropertyValidator</div><div class="line">ClassLoaderResolver for class &quot;&quot; gave error on creation : &#123;1&#125;</div><div class="line">org.datanucleus.exceptions.NucleusUserException: ClassLoaderResolver for class &quot;&quot; gave error on creation : &#123;1&#125;</div><div class="line">	at org.datanucleus.NucleusContext.getClassLoaderResolver(NucleusContext.java:1087)</div><div class="line">	at org.datanucleus.PersistenceConfiguration.validatePropertyValue(PersistenceConfiguration.java:797)</div><div class="line">	at org.datanucleus.PersistenceConfiguration.setProperty(PersistenceConfiguration.java:714)</div><div class="line">	at org.datanucleus.PersistenceConfiguration.setPersistenceProperties(PersistenceConfiguration.java:693)</div><div class="line">	at org.datanucleus.NucleusContext.&lt;init&gt;(NucleusContext.java:273)</div><div class="line">	at org.datanucleus.NucleusContext.&lt;init&gt;(NucleusContext.java:247)</div><div class="line">	at org.datanucleus.NucleusContext.&lt;init&gt;(NucleusContext.java:225)</div><div class="line">	at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.&lt;init&gt;(JDOPersistenceManagerFactory.java:416)</div><div class="line">	at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.createPersistenceManagerFactory(JDOPersistenceManagerFactory.java:301)</div><div class="line">	at org.datanucleus.api.jdo.JDOPersistenceManagerFactory.getPersistenceManagerFactory(JDOPersistenceManagerFactory.java:202)</div></pre></td></tr></table></figure>
+<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>看日志应该是缺少了hive的一些包,在网上搜了一下,是下面几个包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[hadoop@U007 lib]$ pwd</div><div class="line">/opt/spark-1.6.0/lib</div><div class="line">[hadoop@U007 lib]$ ll</div><div class="line">total 305220</div><div class="line">-rw-r--r-- 1 hadoop hadoop    339666 Apr 15  2016 datanucleus-api-jdo-3.2.6.jar</div><div class="line">-rw-r--r-- 1 hadoop hadoop   1890075 Apr 15  2016 datanucleus-core-3.2.10.jar</div><div class="line">-rw-r--r-- 1 hadoop hadoop   1809447 Apr 15  2016 datanucleus-rdbms-3.2.9.jar</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>所以在提交spark任务的时候,把这几个包加入到classpath中即可</p>
+<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>在提交spark的脚本中加上这几个jar包和hive-site.xml文件<br>如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">nohup spark-submit \</div><div class="line"> --master yarn \</div><div class="line"> --deploy-mode cluster \</div><div class="line"> --class $&#123;className&#125; \</div><div class="line"> --driver-memory 4g \</div><div class="line"> --executor-memory 2g \</div><div class="line"> --executor-cores 4 \</div><div class="line"> --num-executors 4 \</div><div class="line"> --jars ./lib/datanucleus-api-jdo-3.2.6.jar,./lib/datanucleus-core-3.2.10.jar,./lib/datanucleus-rdbms</div><div class="line">-3.2.9.jar  \</div><div class="line"> --files ./lib/hive-site.xml \</div><div class="line"> ./app-jar-with-dependencies.jar \</div></pre></td></tr></table></figure></p>
+<p>加上–jars 和 –files即可</p>
+<h1 id="在spark中将数据插入hive动态分区"><a href="#在spark中将数据插入hive动态分区" class="headerlink" title="在spark中将数据插入hive动态分区"></a>在spark中将数据插入hive动态分区</h1><h2 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我用standalone以及yarn-client模式进行提交任务的时候,不会报错.但是当我改成yarn-cluster模式进行提交任务,有时候就会报下面的错</p>
+<h2 id="报错日志-1"><a href="#报错日志-1" class="headerlink" title="报错日志"></a>报错日志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">17/08/09 10:08:01 ERROR scheduler.JobScheduler: Error running job streaming job 1502188440000 ms.0</div><div class="line">java.lang.NoSuchMethodException: org.apache.hadoop.hive.ql.metadata.Hive.loadDynamicPartitions(org.apache.hadoop.fs.Path, java.lang.String, java.util.Map, boolean, int, boolean, boolean)</div><div class="line">	at java.lang.Class.getMethod(Class.java:1670)</div><div class="line">	at org.apache.spark.sql.hive.client.Shim.findMethod(HiveShim.scala:114)</div><div class="line">	at org.apache.spark.sql.hive.client.Shim_v0_12.loadDynamicPartitionsMethod$lzycompute(HiveShim.scala:168)</div><div class="line">	at org.apache.spark.sql.hive.client.Shim_v0_12.loadDynamicPartitionsMethod(HiveShim.scala:167)</div><div class="line">	at org.apache.spark.sql.hive.client.Shim_v0_12.loadDynamicPartitions(HiveShim.scala:261)</div><div class="line">	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$loadDynamicPartitions$1.apply$mcV$sp(ClientWrapper.scala:560)</div><div class="line">	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$loadDynamicPartitions$1.apply(ClientWrapper.scala:560)</div><div class="line">	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$loadDynamicPartitions$1.apply(ClientWrapper.scala:560)</div><div class="line">	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$withHiveState$1.apply(ClientWrapper.scala:279)</div><div class="line">	at org.apache.spark.sql.hive.client.ClientWrapper.liftedTree1$1(ClientWrapper.scala:226)</div><div class="line">	at org.apache.spark.sql.hive.client.ClientWrapper.retryLocked(ClientWrapper.scala:225)</div><div class="line">	at org.apache.spark.sql.hive.client.ClientWrapper.withHiveState(ClientWrapper.scala:268)</div><div class="line">	at org.apache.spark.sql.hive.client.ClientWrapper.loadDynamicPartitions(ClientWrapper.scala:559)</div><div class="line">	at org.apache.spark.sql.hive.execution.InsertIntoHiveTable.sideEffectResult$lzycompute(InsertIntoHiveTable.scala:225)</div><div class="line">	at org.apache.spark.sql.hive.execution.InsertIntoHiveTable.sideEffectResult(InsertIntoHiveTable.scala:127)</div><div class="line">	at org.apache.spark.sql.hive.execution.InsertIntoHiveTable.doExecute(InsertIntoHiveTable.scala:276)</div><div class="line">	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$5.apply(SparkPlan.scala:132)</div><div class="line">	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$5.apply(SparkPlan.scala:130)</div><div class="line">	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:150)</div><div class="line">	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:130)</div><div class="line">	at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:55)</div><div class="line">	at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:55)</div><div class="line">	at org.apache.spark.sql.DataFrame.&lt;init&gt;(DataFrame.scala:145)</div><div class="line">	at org.apache.spark.sql.DataFrame.&lt;init&gt;(DataFrame.scala:130)</div><div class="line">	at org.apache.spark.sql.DataFrame$.apply(DataFrame.scala:52)</div><div class="line">	at org.apache.spark.sql.SQLContext.sql(SQLContext.scala:817)</div></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>用client模式的时候,是在13上运行的.没有问题<br>用cluster模式的时候,有时候报错,有时候没有报错<br>那不禁让我猜想,为啥cluster模式时而报错时而不报错呢?</p>
+<p>然后我用client模式,在14上提交,不出我所料,基本上每个job都抛出了那个错误.<br>所以定位到问题就是,除了13这个节点外,别的节点缺少了什么包,导致抛出了错误.<br>因为抛出来的错误是java.lang.NoSuchMethodException:,所以肯定是缺少了什么包.<br>之前cluster模式时而报错时而不报错的原因肯定是,当不报错的时候,正好driver端是在13上</p>
+<p>现在的问题就是找出别的机器缺少什么包了.</p>
+<p>然后我在spark的环境变量里面发现了这个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">spark.sql.hive.metastore.jars :	/usr/lib/hive/lib/*:/opt/spark-1.6.0/lib/spark-assembly-1.6.0-hadoop2.4.0.jar</div></pre></td></tr></table></figure></p>
+<p>我去,13上有这个/usr/lib/hive/lib/* 路径<br>14和15上都没有,,,<br>问题找到了</p>
+<h2 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h2><p>把13上这个路径/usr/lib/hive/lib/* 拷贝到14和15上,各自都有一份.这样无论driver端在哪里,都能找到相应的jar包.<br>就这样愉快的解决了.<br>所以遇到问题,慢慢分析,不要像无头苍蝇一样.<br>在网上搜的解决办法,都无法解决这个问题.所以有时候,具体问题具体分析,要慢慢的分析到出错原因.找到了原因,bug就能迎刃而解.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;spark连接mysql&quot;&gt;&lt;a href=&quot;#spark连接mysql&quot; class=&quot;headerlink&quot; title=&quot;spark连接mysql&quot;&gt;&lt;/a&gt;spark连接mysql&lt;/h1&gt;&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="spark" scheme="http://dmlcoding.com/categories/spark/"/>
+    
+    
+      <category term="spark" scheme="http://dmlcoding.com/tags/spark/"/>
+    
+      <category term="mysql" scheme="http://dmlcoding.com/tags/mysql/"/>
+    
+      <category term="hive" scheme="http://dmlcoding.com/tags/hive/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark On Yarn资源分配</title>
+    <link href="http://dmlcoding.com/2017/SparkOnYarn/"/>
+    <id>http://dmlcoding.com/2017/SparkOnYarn/</id>
+    <published>2017-08-08T02:00:00.000Z</published>
+    <updated>2017-08-09T04:19:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在spark on yarn  模式下如何合理的给程序分配资源</p>
+<p><strong>yarn.nodemanager.resource.memory-mb</strong> 这个参数控制每台机器分配给yarn的内存<br><img src="../images/spark/nodemanagermb.png" alt="nodemanagermb"></p>
+<p><strong>yarn.nodemanager.resource.cpu-vcores</strong> 这个参数控制每台机器分配给yarn的核数<br><img src="../images/spark/nodemanagercpuvcores.png" alt="nodemanagercpuvcores"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在spark on yarn  模式下如何合理的给程序分配资源&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;yarn.nodemanager.resource.memory-mb&lt;/strong&gt; 这个参数控制每台机器分配给yarn的内存&lt;br&gt;&lt;img src=&quot;../images/s
+    
+    </summary>
+    
+      <category term="spark" scheme="http://dmlcoding.com/categories/spark/"/>
+    
+    
+      <category term="spark" scheme="http://dmlcoding.com/tags/spark/"/>
+    
+      <category term="yarn" scheme="http://dmlcoding.com/tags/yarn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深入理解Java虚拟机之JDK可视化工具(二)</title>
+    <link href="http://dmlcoding.com/2017/JDKOrderConsole/"/>
+    <id>http://dmlcoding.com/2017/JDKOrderConsole/</id>
+    <published>2017-08-06T12:00:00.000Z</published>
+    <updated>2017-08-09T04:19:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>除了JDK命令行工具,还有几个很强大的JDK可视化工具,希望接下来的学习,可以提高我们解决bug的能力</p>
+<h1 id="JConsole-Java监视与管理控制台"><a href="#JConsole-Java监视与管理控制台" class="headerlink" title="JConsole:Java监视与管理控制台"></a>JConsole:Java监视与管理控制台</h1><blockquote>
+<p>JConsole(Java Monitoring and Management Console)<br>JConsole是在JDK1.5时期就已经提供的虚拟机监控工具<br>JConsole是一款基于JMX的可视化监视和管理工具,它管理部分的功能是针对JMX MBean进行管理.</p>
+</blockquote>
+<h2 id="启动JConsole"><a href="#启动JConsole" class="headerlink" title="启动JConsole"></a>启动JConsole</h2><ul>
+<li>1.安装的bin目录下执行<code>jconsole</code></li>
+<li>2.如果配置了 <strong>JAVA_HOME</strong> 直接输入<code>jconsole</code></li>
+</ul>
+<p>Jconsole启动后,会自动搜索出本机运行的所有虚拟机进程,不需要用户再使用jps来查询了,如下图所示,双击选择其中一个进程即可开始监控.当然也可以使用 <em>远程进程</em> 功能来连接远程服务器,对远程虚拟机进行监控<br><img src="/images/jdk/jconsole1.png" alt="jconsole1"></p>
+<p>栈内存     堆内存<br>-Xms100m -Xmx100m -XX:+UseSerialGC</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;除了JDK命令行工具,还有几个很强大的JDK可视化工具,希望接下来的学习,可以提高我们解决bug的能力&lt;/p&gt;
+&lt;h1 id=&quot;JConsole-Java监视与管理控制台&quot;&gt;&lt;a href=&quot;#JConsole-Java监视与管理控制台&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="java" scheme="http://dmlcoding.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://dmlcoding.com/tags/java/"/>
+    
+      <category term="jdk" scheme="http://dmlcoding.com/tags/jdk/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解Java虚拟机之Java内存区域与内存溢出</title>
@@ -140,11 +246,11 @@
   </entry>
   
   <entry>
-    <title>深入理解Java虚拟机之JDK命令行工具</title>
+    <title>深入理解Java虚拟机之JDK命令行工具(一)</title>
     <link href="http://dmlcoding.com/2017/JDKOrder/"/>
     <id>http://dmlcoding.com/2017/JDKOrder/</id>
     <published>2017-08-02T12:00:00.000Z</published>
-    <updated>2017-08-03T07:06:51.000Z</updated>
+    <updated>2017-08-09T02:55:59.000Z</updated>
     
     <content type="html"><![CDATA[<p>JDK命令行工具,是java提供给我们的礼物,我们怎么能拒绝他们的馈赠呢</p>
 <a id="more"></a>
@@ -242,7 +348,35 @@
 <h1 id="jmap-Java内存映像工具"><a href="#jmap-Java内存映像工具" class="headerlink" title="jmap:Java内存映像工具"></a>jmap:Java内存映像工具</h1><blockquote>
 <p>jmap(Memory Map For Java)<br>jmap是用于生成堆转储快照(一般称为Heapdump或dump文件).</p>
 </blockquote>
-<p>未完待续……</p>
+<h1 id="jstack-Java堆栈跟踪工具"><a href="#jstack-Java堆栈跟踪工具" class="headerlink" title="jstack:Java堆栈跟踪工具"></a>jstack:Java堆栈跟踪工具</h1><blockquote>
+<p>jstack(Stack Trace for Java)<br>jstack命令用于生成虚拟机当前时刻的线程快照(一般称为threaddump或javacore文件)</p>
+</blockquote>
+<p><strong>线程快照:</strong> 就是当前虚拟机内每一条线程正在执行的方法堆栈的集合,生成线程快照的主要目的是 <em>定位线程出现长时间停顿的原因</em>.</p>
+<p>线程长时间停顿的常见原因:<br>1.线程间死锁,死循环<br>2.请求外部资源导致的长时间等待<br>3.等等</p>
+<p>线程出现停顿的时候通过jstack来查看各个线程的调用堆栈,就可以知道没有响应的线程到底在后台做些什么事情,或者等待着什么资源.</p>
+<h2 id="jstack命令格式"><a href="#jstack命令格式" class="headerlink" title="jstack命令格式"></a>jstack命令格式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jstack [option] vmid</div></pre></td></tr></table></figure>
+<h2 id="jstack工具的主要选项"><a href="#jstack工具的主要选项" class="headerlink" title="jstack工具的主要选项"></a>jstack工具的主要选项</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-F</td>
+<td style="text-align:left">当正常输出的请求不被响应时,强制输出线程堆栈</td>
+</tr>
+<tr>
+<td style="text-align:center">-l</td>
+<td style="text-align:left">除堆栈外,显示关于锁的附加信息</td>
+</tr>
+<tr>
+<td style="text-align:center">-m</td>
+<td style="text-align:left">如果调用到本地方法的话,可以显示C/C++的堆栈</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     
     <summary type="html">
@@ -948,230 +1082,6 @@
     
     
       <category term="linux" scheme="http://dmlcoding.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> Shell Skills</title>
-    <link href="http://dmlcoding.com/2017/ShellSkills/"/>
-    <id>http://dmlcoding.com/2017/ShellSkills/</id>
-    <published>2017-03-12T10:24:00.000Z</published>
-    <updated>2017-03-20T10:54:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>写 shell 脚本两三技巧</p>
-</blockquote>
-<h1 id="Shell脚本编程30分钟入门"><a href="#Shell脚本编程30分钟入门" class="headerlink" title="Shell脚本编程30分钟入门"></a>Shell脚本编程30分钟入门</h1><p><a href="https://github.com/qinjx/30min_guides/blob/master/shell.md" target="_blank" rel="external">https://github.com/qinjx/30min_guides/blob/master/shell.md</a></p>
-<h1 id="获取脚本的所处的当前路径"><a href="#获取脚本的所处的当前路径" class="headerlink" title="获取脚本的所处的当前路径"></a>获取脚本的所处的当前路径</h1><a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DIR=&quot;$( cd &quot;$( dirname &quot;$&#123;BASH_SOURCE[0]&#125;&quot; )&quot; &amp;&amp; pwd )&quot;</div></pre></td></tr></table></figure>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><ul>
-<li><p>示例:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#DIR=&quot;$( cd &quot;$( dirname &quot;$&#123;BASH_SOURCE[0]&#125;&quot; )&quot; &amp;&amp; pwd )&quot;</div><div class="line"></div><div class="line">S0=&quot;$&#123;BASH_SOURCE[0]&#125;&quot;</div><div class="line"></div><div class="line">DIRNAME=&quot;$( dirname &quot;$S0&quot;)&quot;</div><div class="line"></div><div class="line">DIR=&quot;$( cd &quot;$DIRNAME&quot; &amp;&amp; pwd)&quot;</div><div class="line"></div><div class="line">echo &quot;$S0&quot;</div><div class="line"></div><div class="line">echo &quot;$DIRNAME&quot;</div><div class="line"></div><div class="line">echo &quot;$DIR&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>输出:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./ss.sh</div><div class="line">.</div><div class="line">/Users/hushiwei/Downloads</div></pre></td></tr></table></figure>
-</li>
-<li><p>解释:</p>
-</li>
-</ul>
-<p>S0是脚本相对于当前目录的路径，是相对路径</p>
-<p>再用dirname命令得到脚本的目录名，也是相对路径</p>
-<p>用cd命令切换到脚本所在目录，再执行pwd命令，</p>
-<p>就得到了脚本所在目录的绝对路径</p>
-<h2 id="后台运行脚本-输出日志"><a href="#后台运行脚本-输出日志" class="headerlink" title="后台运行脚本,输出日志"></a>后台运行脚本,输出日志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">nohup ./daily.sh &gt; data.log 2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure>
-<h2 id="给一个起始时间一个结束时间-按时间进行遍历"><a href="#给一个起始时间一个结束时间-按时间进行遍历" class="headerlink" title="给一个起始时间一个结束时间,按时间进行遍历"></a>给一个起始时间一个结束时间,按时间进行遍历</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#! /bin/sh</div><div class="line">date=`date -d &quot;+0 day $1&quot; +%Y%m%d`</div><div class="line">enddate=`date -d &quot;+1 day $2&quot; +%Y%m%d`</div><div class="line"></div><div class="line">echo &quot;------------------------------&quot;</div><div class="line">echo &quot;date=$date&quot;</div><div class="line">echo &quot;enddate=$enddate&quot;</div><div class="line">echo &quot;------------------------------&quot;</div><div class="line"></div><div class="line"></div><div class="line">while [[ $date &lt; $enddate  ]]</div><div class="line">do</div><div class="line">        echo $date</div><div class="line">        date=`date -d &quot;+1 day $date&quot; +%Y%m%d`</div><div class="line">done</div><div class="line"></div><div class="line">执行: ./dotime.sh 20170101 20170130</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;写 shell 脚本两三技巧&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;Shell脚本编程30分钟入门&quot;&gt;&lt;a href=&quot;#Shell脚本编程30分钟入门&quot; class=&quot;headerlink&quot; title=&quot;Shell脚本编程30分钟入门&quot;&gt;&lt;/a&gt;Shell脚本编程30分钟入门&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/qinjx/30min_guides/blob/master/shell.md&quot;&gt;https://github.com/qinjx/30min_guides/blob/master/shell.md&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;获取脚本的所处的当前路径&quot;&gt;&lt;a href=&quot;#获取脚本的所处的当前路径&quot; class=&quot;headerlink&quot; title=&quot;获取脚本的所处的当前路径&quot;&gt;&lt;/a&gt;获取脚本的所处的当前路径&lt;/h1&gt;
-    
-    </summary>
-    
-      <category term="shell" scheme="http://dmlcoding.com/categories/shell/"/>
-    
-    
-      <category term="shell" scheme="http://dmlcoding.com/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Zero-Copy&amp;SendFile浅析</title>
-    <link href="http://dmlcoding.com/2017/SendFileZeroCopy/"/>
-    <id>http://dmlcoding.com/2017/SendFileZeroCopy/</id>
-    <published>2017-03-06T03:00:00.000Z</published>
-    <updated>2017-03-06T03:38:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>为了减少不必要的文件内存拷贝和数据传输.直接在系统内核层进行数据传输会大大的提高速度.</p>
-</blockquote>
-<p>比如消息传输框架kafka,为了提高消息的传输性能,就是用到了 sendFile 机制.</p>
-<p> 要深入了解 zerocopy和 sendfile,可以参考一些博客<br><a id="more"></a></p>
-<ul>
-<li><a href="http://blog.csdn.net/oanqoanq/article/details/50865683" target="_blank" rel="external">http://blog.csdn.net/oanqoanq/article/details/50865683</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;为了减少不必要的文件内存拷贝和数据传输.直接在系统内核层进行数据传输会大大的提高速度.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;比如消息传输框架kafka,为了提高消息的传输性能,就是用到了 sendFile 机制.&lt;/p&gt;
-&lt;p&gt; 要深入了解 zerocopy和 sendfile,可以参考一些博客&lt;br&gt;
-    
-    </summary>
-    
-      <category term="system" scheme="http://dmlcoding.com/categories/system/"/>
-    
-    
-      <category term="system" scheme="http://dmlcoding.com/tags/system/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>二进制加法与逻辑门的关系</title>
-    <link href="http://dmlcoding.com/2017/BinaryAddition/"/>
-    <id>http://dmlcoding.com/2017/BinaryAddition/</id>
-    <published>2017-03-05T01:24:00.000Z</published>
-    <updated>2017-03-06T02:17:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>如何实现二进制加法,只需要简单的逻辑门就行</p>
-</blockquote>
-<h1 id="二进制相加"><a href="#二进制相加" class="headerlink" title="二进制相加"></a>二进制相加</h1><blockquote>
-<p>二进制相加将会产生一个加法位和一个进位位</p>
-</blockquote>
-<ul>
-<li>二进制的加法位</li>
-</ul>
-<a id="more"></a>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">+加和</th>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>二进制的进位位</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">+进位</th>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-</tr>
-</tbody>
-</table>
-<h1 id="那么如何用逻辑门来实现这个结果呢"><a href="#那么如何用逻辑门来实现这个结果呢" class="headerlink" title="那么如何用逻辑门来实现这个结果呢?"></a>那么如何用逻辑门来实现这个结果呢?</h1><blockquote>
-<p>正好可以用异或门和与门分别来实现这两个结果</p>
-</blockquote>
-<ul>
-<li>异或门</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">XOR</th>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>与门</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">AND</th>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-</tr>
-</tbody>
-</table>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>1.所以可以用两个逻辑门分别求出二进制的加法了.</p>
-<p>2.这里只是简单的说明二进制计算与逻辑门的关系.如果有兴趣可以看看&lt;&lt;编码：隐匿在计算机软硬件背后的语言&gt;&gt;</p>
-<p>3.确实是一本很棒的书.</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><h2 id="异或门是什么"><a href="#异或门是什么" class="headerlink" title="异或门是什么?"></a>异或门是什么?</h2><p>异或门的组成,如图所示:</p>
-<p><img src="/images/pics/yihuomen1.png" alt="异或门"></p>
-<p>表格显示更直观</p>
-<p><img src="/images/pics/yihuomen.png" alt="异或门"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;如何实现二进制加法,只需要简单的逻辑门就行&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;二进制相加&quot;&gt;&lt;a href=&quot;#二进制相加&quot; class=&quot;headerlink&quot; title=&quot;二进制相加&quot;&gt;&lt;/a&gt;二进制相加&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;二进制相加将会产生一个加法位和一个进位位&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;二进制的加法位&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="computer" scheme="http://dmlcoding.com/categories/computer/"/>
-    
-    
-      <category term="computer" scheme="http://dmlcoding.com/tags/computer/"/>
     
   </entry>
   
