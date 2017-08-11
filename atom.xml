@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-08-09T04:21:12.000Z</updated>
+  <updated>2017-08-09T09:40:45.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -16,37 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Spark On Yarn资源分配</title>
-    <link href="http://dmlcoding.com/2017/SparkOnYarn/"/>
-    <id>http://dmlcoding.com/2017/SparkOnYarn/</id>
-    <published>2017-08-08T02:00:00.000Z</published>
-    <updated>2017-08-09T04:21:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在spark on yarn  模式下如何合理的给程序分配资源<br><a id="more"></a><br><strong>yarn.nodemanager.resource.memory-mb</strong> 这个参数控制每台机器分配给yarn的内存<br><img src="../images/spark/nodemanagermb.png" alt="nodemanagermb"></p>
-<p><strong>yarn.nodemanager.resource.cpu-vcores</strong> 这个参数控制每台机器分配给yarn的核数<br><img src="../images/spark/nodemanagercpuvcores.png" alt="nodemanagercpuvcores"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在spark on yarn  模式下如何合理的给程序分配资源&lt;br&gt;
-    
-    </summary>
-    
-      <category term="spark" scheme="http://dmlcoding.com/categories/spark/"/>
-    
-    
-      <category term="spark" scheme="http://dmlcoding.com/tags/spark/"/>
-    
-      <category term="yarn" scheme="http://dmlcoding.com/tags/yarn/"/>
-    
-  </entry>
-  
-  <entry>
     <title>spark开发中遇到的问题</title>
     <link href="http://dmlcoding.com/2017/SparkBug/"/>
     <id>http://dmlcoding.com/2017/SparkBug/</id>
     <published>2017-08-08T02:00:00.000Z</published>
-    <updated>2017-08-09T04:19:13.000Z</updated>
+    <updated>2017-08-09T09:40:45.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="spark连接mysql"><a href="#spark连接mysql" class="headerlink" title="spark连接mysql"></a>spark连接mysql</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -64,7 +38,10 @@
 <p>现在的问题就是找出别的机器缺少什么包了.</p>
 <p>然后我在spark的环境变量里面发现了这个参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">spark.sql.hive.metastore.jars :	/usr/lib/hive/lib/*:/opt/spark-1.6.0/lib/spark-assembly-1.6.0-hadoop2.4.0.jar</div></pre></td></tr></table></figure></p>
 <p>我去,13上有这个/usr/lib/hive/lib/* 路径<br>14和15上都没有,,,<br>问题找到了</p>
-<h2 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h2><p>把13上这个路径/usr/lib/hive/lib/* 拷贝到14和15上,各自都有一份.这样无论driver端在哪里,都能找到相应的jar包.<br>就这样愉快的解决了.<br>所以遇到问题,慢慢分析,不要像无头苍蝇一样.<br>在网上搜的解决办法,都无法解决这个问题.所以有时候,具体问题具体分析,要慢慢的分析到出错原因.找到了原因,bug就能迎刃而解.</p>
+<h2 id="解决办法1-1"><a href="#解决办法1-1" class="headerlink" title="解决办法1"></a>解决办法1</h2><p>把13上这个路径/usr/lib/hive/lib/* 拷贝到14和15上,各自都有一份.这样无论driver端在哪里,都能找到相应的jar包.<br>就这样愉快的解决了.<br>所以遇到问题,慢慢分析,不要像无头苍蝇一样.<br>在网上搜的解决办法,都无法解决这个问题.所以有时候,具体问题具体分析,要慢慢的分析到出错原因.找到了原因,bug就能迎刃而解.</p>
+<h2 id="解决办法2-1"><a href="#解决办法2-1" class="headerlink" title="解决办法2"></a>解决办法2</h2><p>在spark的配置文件中把 <code>spark.sql.hive.metastore.jars</code> 给删了.因为你总不能在每个节点上去拷贝hive的一些依赖吧,如果以后hive升级了,还得替换hive的jar包,太麻烦.所以改成下面的解决办法更好.</p>
+<p>在pom文件中加上hive的依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.10 --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-core_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;!-- https://mvnrepository.com/artifact/org.apache.spark/spark-mllib_2.10 --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-mllib_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">    &lt;scope&gt;provided&lt;/scope&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-streaming_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-streaming-kafka_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-sql_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-hive_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;5.1.32&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.hive&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;hive-jdbc&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;0.13.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;!-- https://mvnrepository.com/artifact/org.apache.hive/hive-exec --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.hive&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;hive-exec&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;0.13.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -81,6 +58,33 @@
       <category term="mysql" scheme="http://dmlcoding.com/tags/mysql/"/>
     
       <category term="hive" scheme="http://dmlcoding.com/tags/hive/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spark On Yarn资源分配</title>
+    <link href="http://dmlcoding.com/2017/SparkOnYarn/"/>
+    <id>http://dmlcoding.com/2017/SparkOnYarn/</id>
+    <published>2017-08-08T02:00:00.000Z</published>
+    <updated>2017-08-09T06:37:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在spark on yarn  模式下如何合理的给程序分配资源<br><a id="more"></a><br><strong>yarn.nodemanager.resource.memory-mb</strong> 这个参数控制每台机器分配给yarn的内存<br><img src="../images/spark/nodemanagermb.png" alt="nodemanagermb"></p>
+<p><strong>yarn.nodemanager.resource.cpu-vcores</strong> 这个参数控制每台机器分配给yarn的核数<br><img src="../images/spark/nodemanagercpuvcores.png" alt="nodemanagercpuvcores"></p>
+<p><strong>yarn.scheduler.maximum-allocation-mb</strong> 这个参数控制了yarn上的每个contain最大内存.所以在spark on yarn中,这个参数限制了spark中的executor的最大内存</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在spark on yarn  模式下如何合理的给程序分配资源&lt;br&gt;
+    
+    </summary>
+    
+      <category term="spark" scheme="http://dmlcoding.com/categories/spark/"/>
+    
+    
+      <category term="spark" scheme="http://dmlcoding.com/tags/spark/"/>
+    
+      <category term="yarn" scheme="http://dmlcoding.com/tags/yarn/"/>
     
   </entry>
   
