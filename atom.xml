@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-08-09T09:40:45.000Z</updated>
+  <updated>2017-08-15T09:52:07.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>监控SparkStreaming程序脚本</title>
+    <link href="http://dmlcoding.com/2017/MonitorSparkStreamingOnYarn/"/>
+    <id>http://dmlcoding.com/2017/MonitorSparkStreamingOnYarn/</id>
+    <published>2017-08-15T02:00:00.000Z</published>
+    <updated>2017-08-15T09:52:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>虽然Spark on yarn非常的稳定,一般情况下是不会出问题的.但是我们的SparkStreaming程序是一直运行着出实时报表的.<br>我们必须得对SparkStreaming程序进行监控,在程序退出后,能够及时的重启.<br>基于此需求,我想到了通过调用yarn的rest接口来获取提交到yarn上的任务</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>调用yarn提供的rest接口</p>
+<ul>
+<li>curl –compressed -H “Accept: application/json” -X GET “<a href="http://master:8088/ws/v1/cluster/apps?states=RUNNING" target="_blank" rel="external">http://master:8088/ws/v1/cluster/apps?states=RUNNING</a>“</li>
+</ul>
+<h1 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line">&apos;&apos;&apos;</div><div class="line">    Created by hushiwei on 2017/7/20.</div><div class="line">&apos;&apos;&apos;</div><div class="line">&apos;&apos;&apos;</div><div class="line">通过调用yarn的rest接口,来监控sparkstreaming程序</div><div class="line">&apos;&apos;&apos;</div><div class="line">import json</div><div class="line">import subprocess</div><div class="line"></div><div class="line">apps = &#123;</div><div class="line">    &quot;com.xxx.streaming.ADXStreaming&quot;: &quot;sh ./start_adx_streaming_yarn.sh&quot;,</div><div class="line">    &quot;com.xxx.streaming.DSPStreaming&quot;: &quot;sh ./start_dsp_streaming_yarn.sh&quot;,</div><div class="line">    &quot;com.xxx.streaming.CPDAppStreaming&quot;: &quot;sh ./start_dsp_app_promotion_yarn.sh&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">def run_it(cmd):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    通过python执行shell命令</div><div class="line">    :param cmd:</div><div class="line">    :return:</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True,</div><div class="line">                         stderr=subprocess.PIPE)</div><div class="line">    # print (&apos;running:%s&apos; % cmd)</div><div class="line">    out, err = p.communicate()</div><div class="line">    if p.returncode != 0:</div><div class="line">        print (&quot;Non zero exit code:%s executing: %s \nerr course ---&gt; %s&quot; % (p.returncode, cmd, err))</div><div class="line">    return out</div><div class="line"></div><div class="line"></div><div class="line">def runSparkStreaming(packageName):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    调用执行脚本</div><div class="line">    :return:</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    print &quot;going to exec sparkstreaming program : %s&quot; % packageName</div><div class="line">    run_it(apps[packageName])</div><div class="line"></div><div class="line"></div><div class="line">def collectPackageName(str):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    获取正则运行的所有包名</div><div class="line">    :param str:</div><div class="line">    :return:</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    packages = &#123;&#125;</div><div class="line">    obj = json.loads(str)</div><div class="line">    apps = obj[&apos;apps&apos;][&apos;app&apos;]</div><div class="line">    for app in apps:</div><div class="line">        packages[app[&apos;name&apos;]] = app[&apos;state&apos;]</div><div class="line"></div><div class="line">    return packages</div><div class="line"></div><div class="line"></div><div class="line">def findPackage(packageNames, packages):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    根据包名判断该程序是否正在运行中,</div><div class="line">    若失败了,则执行重启任务的脚本</div><div class="line">    :param packageNames: 需要监控的包名们(list,可以监控多个包)</div><div class="line">    :param packages: yarn上正在执行的所有任务</div><div class="line">    :return:</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    for packageName in packageNames:</div><div class="line">        if packageName in packages.keys():</div><div class="line">            print packageName + &quot; is: &quot; + packages[packageName]</div><div class="line">        else:</div><div class="line">            print packageName + &quot; is failed! &quot;</div><div class="line">            runSparkStreaming(packageName)</div><div class="line"></div><div class="line"></div><div class="line">str = run_it(</div><div class="line">    &apos;curl --compressed -H &quot;Accept: application/json&quot; -X GET &quot;http://master:8088/ws/v1/cluster/apps?states=RUNNING&quot;&apos;)</div><div class="line">packages = collectPackageName(str)</div><div class="line"></div><div class="line">packageNames = [&apos;com.xxx.streaming.DSPStreaming&apos;,&apos;com.xxx.streaming.CPDAppStreaming&apos;,&apos;com.xxx.streaming.ADXStreaming&apos;]</div><div class="line">findPackage(packageNames, packages)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;虽然Spark on yarn非常的稳定,一般情况下是不会出问题的.但是我们的SparkStreaming程序是一直运行着出实时报表的.&lt;br&gt;我们必须得对SparkStreaming程序进行监控,在程序退出后,能够及时的重启.&lt;br&gt;基于此需求,我想到了通过调用yarn的
+    
+    </summary>
+    
+      <category term="spark" scheme="http://dmlcoding.com/categories/spark/"/>
+    
+    
+      <category term="spark" scheme="http://dmlcoding.com/tags/spark/"/>
+    
+      <category term="yarn" scheme="http://dmlcoding.com/tags/yarn/"/>
+    
+  </entry>
   
   <entry>
     <title>spark开发中遇到的问题</title>
@@ -981,108 +1011,6 @@
     
     
       <category term="mysql" scheme="http://dmlcoding.com/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 文件同步工具——rsync</title>
-    <link href="http://dmlcoding.com/2017/RsyncSkills/"/>
-    <id>http://dmlcoding.com/2017/RsyncSkills/</id>
-    <published>2017-03-22T02:24:00.000Z</published>
-    <updated>2017-03-23T08:04:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync<br><a id="more"></a></p>
-<h2 id="rsync服务器安装与搭建"><a href="#rsync服务器安装与搭建" class="headerlink" title="rsync服务器安装与搭建"></a>rsync服务器安装与搭建</h2><h3 id="软件包安装"><a href="#软件包安装" class="headerlink" title="软件包安装"></a>软件包安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　# sudo apt-get  install  rsync  注：在debian、ubuntu 等在线安装方法；</div><div class="line">　　# yum install rsync    注：Fedora、Redhat 等在线安装方法；</div><div class="line">　　# rpm -ivh rsync       注：Fedora、Redhat 等rpm包安装方法；</div></pre></td></tr></table></figure>
-<p>其它Linux发行版，请用相应的软件包管理方法来安装。</p>
-<h3 id="源码包安装"><a href="#源码包安装" class="headerlink" title="源码包安装"></a>源码包安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　tar xvf  rsync-xxx.tar.gz</div><div class="line">　　cd rsync-xxx</div><div class="line">　　./configure --prefix=/usr  ;make ;make install   注：在用源码包编译安装之前，您得安装gcc等编译工具才行；</div></pre></td></tr></table></figure>
-<h2 id="rsync-服务端配置"><a href="#rsync-服务端配置" class="headerlink" title="rsync 服务端配置"></a>rsync 服务端配置</h2><blockquote>
-<p>安装好 rsync 软件后,只需要创建配置好两个文件,然后开启 rsync 服务就可以了</p>
-</blockquote>
-<p>服务器配置文件(/etc/rsyncd.conf)，该文件默认不存在，请创建它。具体步骤如下</p>
-<ul>
-<li>用root用户创建：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#touch /etc/rsyncd.conf  #创建rsyncd.conf，这是rsync服务器的配置文件。</div><div class="line">#touch /etc/rsyncd.secrets  #创建rsyncd.secrets ，这是用户密码文件。这个密码文件很好的哦，你可以设置一个用户名：密码的数值对，然后在客户端设置一个密码文件，只写密码就可以了，一会细讲。</div><div class="line"></div><div class="line">#chmod 600 /etc/rsyncd.secrets  #将rsyncd.secrets这个密码文件的文件属性设为root拥有, 且权限要设为600, 否则无法备份成功!</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="修改rsyncd-conf文件"><a href="#修改rsyncd-conf文件" class="headerlink" title="修改rsyncd.conf文件"></a>修改rsyncd.conf文件</h3><blockquote>
-<p>rsyncd.conf是rsync服务器主要配置文件</p>
-</blockquote>
-<p>比如我想要把远程机器上的文件,拉到这个服务器上的/home/root/tmp_hsw位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">vi /etc/rsyncd.conf</div><div class="line"></div><div class="line">pid file = /var/run/rsyncd.pid</div><div class="line">port = 873</div><div class="line">uid = root</div><div class="line">gid = root</div><div class="line"></div><div class="line">use chroot = yes</div><div class="line">read only = no</div><div class="line"></div><div class="line">#limit access to private LANs</div><div class="line">hosts allow= 10.10.25.14</div><div class="line">hosts deny=*</div><div class="line"></div><div class="line">max connections = 5</div><div class="line">#motd file = /etc/rsyncd.motd</div><div class="line"></div><div class="line">#This will give you a separate log file</div><div class="line">log file = /var/log/rsync.log</div><div class="line"></div><div class="line">#This will log every file transferred - up to 85,000+ per user, per sync</div><div class="line">transfer logging = yes</div><div class="line"></div><div class="line">log format = %t %a %m %f %b</div><div class="line">syslog facility = local3</div><div class="line">timeout = 300</div><div class="line"></div><div class="line">[getcoolpaddata]</div><div class="line">path = /home/root/tmp_hsw/testRsync</div><div class="line">list=yes</div><div class="line">ignore errors</div><div class="line">auth users = root</div><div class="line">secrets file = /etc/rsyncd.secrets</div><div class="line">comment = This is test for get coolpad data</div><div class="line">#exclude = easylife/  samba/</div></pre></td></tr></table></figure>
-<ul>
-<li>注意: 关于auth users是必须在服务器上存在的真实的系统用户，如果你想用多个用户以,号隔开，比如auth users = easylife,root</li>
-</ul>
-<h4 id="解释rsyncd-conf文件配置项"><a href="#解释rsyncd-conf文件配置项" class="headerlink" title="解释rsyncd.conf文件配置项"></a>解释rsyncd.conf文件配置项</h4><blockquote>
-<p>在rsync 服务器中，全局定义有几个比较关健的，根据我们前面所给的配置文件 rsyncd.conf 文件</p>
-</blockquote>
-<ul>
-<li>全局配置<ul>
-<li>pid file = /var/run/rsyncd.pid              注：告诉进程写到 /var/run/rsyncd.pid 文件中；</li>
-<li>port = 873                                  注：指定运行端口，默认是873，您可以自己指定；</li>
-<li>uid = root   </li>
-<li>gid = root                                  注：服务器端传输文件时，要发哪个用户和用户组来执行，默认是nobody。 如果用nobody 用户和用户组，可能遇到权限问题，有些文件从服务器上拉不下来。所以我就偷懒，为了方便，用了root 。不过您可以在定义要同步的目录时定义的模块中指定用户来解决权限的问题。</li>
-<li>use chroot = yes</li>
-<li>read only = yes                             注：read only 是只读选择，也就是说，不让客户端上传文件到服务器上。还有一个 write only选项，自己尝试是做什么用的吧；</li>
-<li>hosts allow= 10.10.25.14                    注: 允许访问的主机 IP</li>
-<li>max connections = 5                         注：客户端最多连接数</li>
-<li>log file = /var/log/rsync.log               注：rsync 服务器的日志；</li>
-<li>transfer logging = yes                      注：这是传输文件的日志 </li>
-<li>log format = %t %a %m %f %b</li>
-<li>syslog facility = local3</li>
-<li>timeout = 300</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>模块定义什么呢？主要是定义服务器哪个目录要被同步。每个模块都要以[name]形式。这个名字就是在rsync 客户端看到的名字，其实有点象Samba服务器提供的共享名。而服务器真正同步的数据是通过path 指定的。我们可以根据自己的需要，来指定多个模块。每个模块要指定认证用户，密码文件、并排除并不是必须的文件</p>
-</blockquote>
-<ul>
-<li>模块定义<ul>
-<li>[getcoolpaddata]  #模块它为我们提供了一个链接的名字，在本模块中链接到了/home/root/tmp_hsw/testRsync目录；要用[name] 形式</li>
-<li>path = /home    #指定文件目录所在位置，这是必须指定的 </li>
-<li>auth users = root   #认证用户是root  ，是必须在服务器上存在的用户</li>
-<li>list=yes   #list 意思是把rsync 服务器上提供同步数据的目录在服务器上模块是否显示列出来。默认是yes 。如果你不想列出来，就no ；如果是no是比较安全的，至少别人不知道你的服务器上提供了哪些目录。你自己知道就行了；</li>
-<li>ignore errors  #忽略IO错误</li>
-<li>secrets file = /etc/rsyncd.secrets   #密码存在哪个文件</li>
-<li>comment = linuxsir home  data  #注释可以自己定义</li>
-<li>exclude = beinan/ samba/     # exclude是排除的意思，也就是说，要把/home目录下的easylife和samba排除在外； easylife/和samba/目录之间有空格分开</li>
-</ul>
-</li>
-</ul>
-<h3 id="设定密码文件-etc-rsyncd-secrets"><a href="#设定密码文件-etc-rsyncd-secrets" class="headerlink" title="设定密码文件/etc/rsyncd.secrets"></a>设定密码文件/etc/rsyncd.secrets</h3><p>密码文件格式很简单，rsyncd.secrets的内容格式为：</p>
-<p>　　用户名:密码</p>
-<p>比如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi /etc/rsyncd.secrets</div><div class="line"></div><div class="line">root:rsy123456</div></pre></td></tr></table></figure></p>
-<p>修改权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chown root.root rsyncd.secrets 　#修改属主</div><div class="line">chmod 600 rsyncd.secrets     #修改权限</div></pre></td></tr></table></figure></p>
-<ul>
-<li>注意<ul>
-<li>1、将rsyncd.secrets这个密码文件的文件属性设为root拥有, 且权限要设为600, 否则无法备份成功! 出于安全目的，文件的属性必需是只有属主可读。</li>
-<li>2、这里的密码值得注意，为了安全你不能把系统用户的密码写在这里。比如你的系统用户root密码是 helloworld，为了安全你可以让rsync中的rsyncd.secrets文件中的密码为为123456。这样，在客户端连接的时候，也是用这个123456会使用这个rsyncd.secrets作为认证文件，不和os有任何牵连。</li>
-</ul>
-</li>
-</ul>
-<h2 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h2><blockquote>
-<p>上面两个配置文件都是在启动 rsycn的服务器端,然而在我们的客户端,我们安装了 rsync后,只需要创建一个密码文件,里面放上服务器上定义的密码即可了</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root: vi /etc/rsyncd.passwd</div><div class="line">rsy123456</div></pre></td></tr></table></figure>
-<h2 id="启动rsync服务器及防火墙的设置"><a href="#启动rsync服务器及防火墙的设置" class="headerlink" title="启动rsync服务器及防火墙的设置"></a>启动rsync服务器及防火墙的设置</h2><blockquote>
-<p>启动rsync服务器相当简单</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">--daemon参数方式，是让rsync以服务器模式运行</div><div class="line"></div><div class="line"># /usr/bin/rsync --daemon  --config=/etc/rsyncd/rsyncd.conf 　#--config用于指定rsyncd.conf的位置,如果在/etc下可以不写</div></pre></td></tr></table></figure>
-<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>把客户端/home/root/tmp_hsw 路径下的文件同步到服务器下.路径为 path 里面定义的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rsync -avz --progress  --password-file=/etc/rsyncd.passwd --delete /home/root/tmp_hsw root@10.10.25.13::getcoolpaddata/</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1.在客户端的时候,你想用客户端的哪个用户传输数据,那么客户端上面的/etc/rsyncd.passwd文件就得是这个用户文件,并且权限是600<br>2.都使用 root 用户肯定是没有问题的<br>3.在服务端的时候,如果不想用 root 用户.那么那两个配置文件的权限都得是 root 用户,然后再 rsync.conf 里面把 uid,cid,auth users改成普通用户即可.</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>配置过程参考文章:<a href="http://blog.csdn.net/cymm_liu/article/details/31347531" target="_blank" rel="external">http://blog.csdn.net/cymm_liu/article/details/31347531</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;rsync是类unix系统下的数据镜像备份工具，从软件的命名上就可以看出来了——remote sync&lt;br&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="http://dmlcoding.com/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="http://dmlcoding.com/tags/linux/"/>
     
   </entry>
   

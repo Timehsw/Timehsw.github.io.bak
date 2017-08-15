@@ -15,16 +15,25 @@
 
 
 
-<meta name="description" content="有时候,说程序员是复制粘贴代码.我觉得你说得对.但是,得看你复制几手代码了.读源码,复制源码,学习源码.学习优秀程序员写代码的风格.">
+<meta name="description" content="虽然Spark on yarn非常的稳定,一般情况下是不会出问题的.但是我们的SparkStreaming程序是一直运行着出实时报表的.我们必须得对SparkStreaming程序进行监控,在程序退出后,能够及时的重启.基于此需求,我想到了通过调用yarn的rest接口来获取提交到yarn上的任务
+思路调用yarn提供的rest接口
+
+curl –compressed -H “Accept: ap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kafka 笔记">
-<meta property="og:url" content="http://dmlcoding.com/2016/KafkaEnr/index.html">
+<meta property="og:title" content="监控SparkStreaming程序脚本">
+<meta property="og:url" content="http://dmlcoding.com/2017/MonitorSparkStreamingOnYarn/index.html">
 <meta property="og:site_name" content="Time渐行渐远">
-<meta property="og:description" content="有时候,说程序员是复制粘贴代码.我觉得你说得对.但是,得看你复制几手代码了.读源码,复制源码,学习源码.学习优秀程序员写代码的风格.">
-<meta property="og:updated_time" content="2017-03-06T07:04:03.000Z">
+<meta property="og:description" content="虽然Spark on yarn非常的稳定,一般情况下是不会出问题的.但是我们的SparkStreaming程序是一直运行着出实时报表的.我们必须得对SparkStreaming程序进行监控,在程序退出后,能够及时的重启.基于此需求,我想到了通过调用yarn的rest接口来获取提交到yarn上的任务
+思路调用yarn提供的rest接口
+
+curl –compressed -H “Accept: ap">
+<meta property="og:updated_time" content="2017-08-15T09:52:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kafka 笔记">
-<meta name="twitter:description" content="有时候,说程序员是复制粘贴代码.我觉得你说得对.但是,得看你复制几手代码了.读源码,复制源码,学习源码.学习优秀程序员写代码的风格.">
+<meta name="twitter:title" content="监控SparkStreaming程序脚本">
+<meta name="twitter:description" content="虽然Spark on yarn非常的稳定,一般情况下是不会出问题的.但是我们的SparkStreaming程序是一直运行着出实时报表的.我们必须得对SparkStreaming程序进行监控,在程序退出后,能够及时的重启.基于此需求,我想到了通过调用yarn的rest接口来获取提交到yarn上的任务
+思路调用yarn提供的rest接口
+
+curl –compressed -H “Accept: ap">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +65,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>kafka 笔记 | Time渐行渐远</title>
+<title>监控SparkStreaming程序脚本 | Time渐行渐远</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -283,11 +292,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-KafkaEnr" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-MonitorSparkStreamingOnYarn" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/KafkaEnr/" class="article-date">
-      <time datetime="2016-12-25T06:00:00.000Z" itemprop="datePublished">2016-12-25</time>
+      <a href="/2017/MonitorSparkStreamingOnYarn/" class="article-date">
+      <time datetime="2017-08-15T02:00:00.000Z" itemprop="datePublished">2017-08-15</time>
 </a>
 
 
@@ -302,7 +311,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      kafka 笔记
+      监控SparkStreaming程序脚本
     </h1>
   
 
@@ -311,13 +320,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/kafka/">kafka</a>
+    <a class="article-category-link" href="/categories/spark/">spark</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kafka/">kafka</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yarn/">yarn</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -327,19 +336,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <blockquote>
-<p>有时候,说程序员是复制粘贴代码.我觉得你说得对.但是,得看你复制几手代码了.读源码,复制源码,学习源码.学习优秀程序员写代码的风格.<br><a id="more"></a></p>
-</blockquote>
-<p>我有时候看源码,喜欢找找工具类,看看能不能复用.<br>比如kafka的源码</p>
-<h1 id="看看源码工具类"><a href="#看看源码工具类" class="headerlink" title="看看源码工具类"></a>看看源码工具类</h1><h2 id="序列化字符串"><a href="#序列化字符串" class="headerlink" title="序列化字符串"></a>序列化字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">import kafka.utils.VerifiableProperties</div><div class="line"></div><div class="line">/**</div><div class="line"> * A decoder is a method of turning byte arrays into objects.</div><div class="line"> * An implementation is required to provide a constructor that</div><div class="line"> * takes a VerifiableProperties instance.</div><div class="line"> */</div><div class="line">trait Decoder[T] &#123;</div><div class="line">  def fromBytes(bytes: Array[Byte]): T</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The default implementation does nothing, just returns the same byte array it takes in.</div><div class="line"> */</div><div class="line">class DefaultDecoder(props: VerifiableProperties = null) extends Decoder[Array[Byte]] &#123;</div><div class="line">  def fromBytes(bytes: Array[Byte]): Array[Byte] = bytes</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The string encoder translates strings into bytes. It uses UTF8 by default but takes</div><div class="line"> * an optional property serializer.encoding to control this.</div><div class="line"> */</div><div class="line">class StringDecoder(props: VerifiableProperties = null) extends Decoder[String] &#123;</div><div class="line">  val encoding = </div><div class="line">    if(props == null)</div><div class="line">      &quot;UTF8&quot; </div><div class="line">    else</div><div class="line">      props.getString(&quot;serializer.encoding&quot;, &quot;UTF8&quot;)</div><div class="line">      </div><div class="line">  def fromBytes(bytes: Array[Byte]): String = &#123;</div><div class="line">    new String(bytes, encoding)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">import kafka.utils.VerifiableProperties</div><div class="line"></div><div class="line">/**</div><div class="line"> * An encoder is a method of turning objects into byte arrays.</div><div class="line"> * An implementation is required to provide a constructor that</div><div class="line"> * takes a VerifiableProperties instance.</div><div class="line"> */</div><div class="line">trait Encoder[T] &#123;</div><div class="line">  def toBytes(t: T): Array[Byte]</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The default implementation is a no-op, it just returns the same array it takes in</div><div class="line"> */</div><div class="line">class DefaultEncoder(props: VerifiableProperties = null) extends Encoder[Array[Byte]] &#123;</div><div class="line">  override def toBytes(value: Array[Byte]): Array[Byte] = value</div><div class="line">&#125;</div><div class="line"></div><div class="line">class NullEncoder[T](props: VerifiableProperties = null) extends Encoder[T] &#123;</div><div class="line">  override def toBytes(value: T): Array[Byte] = null</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The string encoder takes an optional parameter serializer.encoding which controls</div><div class="line"> * the character set used in encoding the string into bytes.</div><div class="line"> */</div><div class="line">class StringEncoder(props: VerifiableProperties = null) extends Encoder[String] &#123;</div><div class="line">  val encoding = </div><div class="line">    if(props == null) </div><div class="line">      &quot;UTF8&quot; </div><div class="line">    else </div><div class="line">      props.getString(&quot;serializer.encoding&quot;, &quot;UTF8&quot;)</div><div class="line">  </div><div class="line">  override def toBytes(s: String): Array[Byte] = </div><div class="line">    if(s == null)</div><div class="line">      null</div><div class="line">    else</div><div class="line">      s.getBytes(encoding)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Some common constants</div><div class="line"> */</div><div class="line">object Time &#123;</div><div class="line">  val NsPerUs = 1000</div><div class="line">  val UsPerMs = 1000</div><div class="line">  val MsPerSec = 1000</div><div class="line">  val NsPerMs = NsPerUs * UsPerMs</div><div class="line">  val NsPerSec = NsPerMs * MsPerSec</div><div class="line">  val UsPerSec = UsPerMs * MsPerSec</div><div class="line">  val SecsPerMin = 60</div><div class="line">  val MinsPerHour = 60</div><div class="line">  val HoursPerDay = 24</div><div class="line">  val SecsPerHour = SecsPerMin * MinsPerHour</div><div class="line">  val SecsPerDay = SecsPerHour * HoursPerDay</div><div class="line">  val MinsPerDay = MinsPerHour * HoursPerDay</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * A mockable interface for time functions</div><div class="line"> */</div><div class="line">trait Time &#123;</div><div class="line">  </div><div class="line">  def milliseconds: Long</div><div class="line"></div><div class="line">  def nanoseconds: Long</div><div class="line"></div><div class="line">  def sleep(ms: Long)</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * The normal system implementation of time functions</div><div class="line"> */</div><div class="line">object SystemTime extends Time &#123;</div><div class="line">  </div><div class="line">  def milliseconds: Long = System.currentTimeMillis</div><div class="line">  </div><div class="line">  def nanoseconds: Long = System.nanoTime</div><div class="line">  </div><div class="line">  def sleep(ms: Long): Unit = Thread.sleep(ms)</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="加载配置文件"><a href="#加载配置文件" class="headerlink" title="加载配置文件"></a>加载配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Read a properties file from the given path</div><div class="line"> * @param filename The path of the file to read</div><div class="line"> */</div><div class="line"> def loadProps(filename: String): Properties = &#123;</div><div class="line">   val props = new Properties()</div><div class="line">   var propStream: InputStream = null</div><div class="line">   try &#123;</div><div class="line">     propStream = new FileInputStream(filename)</div><div class="line">     props.load(propStream)</div><div class="line">   &#125; finally &#123;</div><div class="line">     if(propStream != null)</div><div class="line">       propStream.close</div><div class="line">   &#125;</div><div class="line">   props</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h2 id="等等"><a href="#等等" class="headerlink" title="等等"></a>等等</h2><ul>
-<li>比如还有一些 zkUtil,offerset 之类的.</li>
-<li>所以,当我们开发的时候,需要某个框架的某个功能的时候,我们不如简单看看源码,往往源码的测试类里都有我们需要的功能.</li>
-<li>这样,比找博客是不是更直接一点呢.</li>
+        <p>虽然Spark on yarn非常的稳定,一般情况下是不会出问题的.但是我们的SparkStreaming程序是一直运行着出实时报表的.<br>我们必须得对SparkStreaming程序进行监控,在程序退出后,能够及时的重启.<br>基于此需求,我想到了通过调用yarn的rest接口来获取提交到yarn上的任务</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>调用yarn提供的rest接口</p>
+<ul>
+<li>curl –compressed -H “Accept: application/json” -X GET “<a href="http://master:8088/ws/v1/cluster/apps?states=RUNNING" target="_blank" rel="external">http://master:8088/ws/v1/cluster/apps?states=RUNNING</a>“</li>
 </ul>
+<h1 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line">&apos;&apos;&apos;</div><div class="line">    Created by hushiwei on 2017/7/20.</div><div class="line">&apos;&apos;&apos;</div><div class="line">&apos;&apos;&apos;</div><div class="line">通过调用yarn的rest接口,来监控sparkstreaming程序</div><div class="line">&apos;&apos;&apos;</div><div class="line">import json</div><div class="line">import subprocess</div><div class="line"></div><div class="line">apps = &#123;</div><div class="line">    &quot;com.xxx.streaming.ADXStreaming&quot;: &quot;sh ./start_adx_streaming_yarn.sh&quot;,</div><div class="line">    &quot;com.xxx.streaming.DSPStreaming&quot;: &quot;sh ./start_dsp_streaming_yarn.sh&quot;,</div><div class="line">    &quot;com.xxx.streaming.CPDAppStreaming&quot;: &quot;sh ./start_dsp_app_promotion_yarn.sh&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">def run_it(cmd):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    通过python执行shell命令</div><div class="line">    :param cmd:</div><div class="line">    :return:</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True,</div><div class="line">                         stderr=subprocess.PIPE)</div><div class="line">    # print (&apos;running:%s&apos; % cmd)</div><div class="line">    out, err = p.communicate()</div><div class="line">    if p.returncode != 0:</div><div class="line">        print (&quot;Non zero exit code:%s executing: %s \nerr course ---&gt; %s&quot; % (p.returncode, cmd, err))</div><div class="line">    return out</div><div class="line"></div><div class="line"></div><div class="line">def runSparkStreaming(packageName):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    调用执行脚本</div><div class="line">    :return:</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    print &quot;going to exec sparkstreaming program : %s&quot; % packageName</div><div class="line">    run_it(apps[packageName])</div><div class="line"></div><div class="line"></div><div class="line">def collectPackageName(str):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    获取正则运行的所有包名</div><div class="line">    :param str:</div><div class="line">    :return:</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    packages = &#123;&#125;</div><div class="line">    obj = json.loads(str)</div><div class="line">    apps = obj[&apos;apps&apos;][&apos;app&apos;]</div><div class="line">    for app in apps:</div><div class="line">        packages[app[&apos;name&apos;]] = app[&apos;state&apos;]</div><div class="line"></div><div class="line">    return packages</div><div class="line"></div><div class="line"></div><div class="line">def findPackage(packageNames, packages):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    根据包名判断该程序是否正在运行中,</div><div class="line">    若失败了,则执行重启任务的脚本</div><div class="line">    :param packageNames: 需要监控的包名们(list,可以监控多个包)</div><div class="line">    :param packages: yarn上正在执行的所有任务</div><div class="line">    :return:</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    for packageName in packageNames:</div><div class="line">        if packageName in packages.keys():</div><div class="line">            print packageName + &quot; is: &quot; + packages[packageName]</div><div class="line">        else:</div><div class="line">            print packageName + &quot; is failed! &quot;</div><div class="line">            runSparkStreaming(packageName)</div><div class="line"></div><div class="line"></div><div class="line">str = run_it(</div><div class="line">    &apos;curl --compressed -H &quot;Accept: application/json&quot; -X GET &quot;http://master:8088/ws/v1/cluster/apps?states=RUNNING&quot;&apos;)</div><div class="line">packages = collectPackageName(str)</div><div class="line"></div><div class="line">packageNames = [&apos;com.xxx.streaming.DSPStreaming&apos;,&apos;com.xxx.streaming.CPDAppStreaming&apos;,&apos;com.xxx.streaming.ADXStreaming&apos;]</div><div class="line">findPackage(packageNames, packages)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -348,13 +350,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/KafkaEnr/">kafka 笔记</a></p>
+        <p><span>本文标题:</span><a href="/2017/MonitorSparkStreamingOnYarn/">监控SparkStreaming程序脚本</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hushiwei</a></p>
-        <p><span>发布时间:</span>2016-12-25, 14:00:00</p>
-        <p><span>最后更新:</span>2017-03-06, 15:04:03</p>
+        <p><span>发布时间:</span>2017-08-15, 10:00:00</p>
+        <p><span>最后更新:</span>2017-08-15, 17:52:07</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/KafkaEnr/" title="kafka 笔记">http://dmlcoding.com/2016/KafkaEnr/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://dmlcoding.com/2016/KafkaEnr/　　作者: Hushiwei" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/MonitorSparkStreamingOnYarn/" title="监控SparkStreaming程序脚本">http://dmlcoding.com/2017/MonitorSparkStreamingOnYarn/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://dmlcoding.com/2017/MonitorSparkStreamingOnYarn/　　作者: Hushiwei" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -366,16 +368,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/DockerSkils/">
-                    Docker 笔记
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/FlaskMail/">
-                    Flask框架中用QQ邮箱发邮件
+                <a href="/2017/SparkBug/">
+                    spark开发中遇到的问题
                 </a>
             </div>
         
@@ -387,7 +383,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#看看源码工具类"><span class="toc-number">1.</span> <span class="toc-text">看看源码工具类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化字符串"><span class="toc-number">1.1.</span> <span class="toc-text">序列化字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反序列化"><span class="toc-number">1.2.</span> <span class="toc-text">反序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时间"><span class="toc-number">1.3.</span> <span class="toc-text">时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加载配置文件"><span class="toc-number">1.4.</span> <span class="toc-text">加载配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#等等"><span class="toc-number">1.5.</span> <span class="toc-text">等等</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#脚本"><span class="toc-number">2.</span> <span class="toc-text">脚本</span></a></li></ol>
         
     </div>
     <style>
@@ -423,7 +419,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"kafka 笔记　| Time渐行渐远　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"监控SparkStreaming程序脚本　| Time渐行渐远　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -457,15 +453,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/DockerSkils/" title="上一篇: Docker 笔记">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/FlaskMail/" title="下一篇: Flask框架中用QQ邮箱发邮件">
+            <a href="/2017/SparkBug/" title="下一篇: spark开发中遇到的问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
