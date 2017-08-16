@@ -444,7 +444,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/SparkOnYarn/">Spark On Yarn资源分配</a>
+      <a class="article-title" href="/2017/SparkOnYarn/">YARN 资源分配的配置参数</a>
     </h1>
   
 
@@ -454,7 +454,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>在spark on yarn  模式下如何合理的给程序分配资源<br>
+              <p>无论是mapreduce程序或者是Spark程序,提交到Yarn上来进行资源管理与分配的时候.都是运行在Yarn的Container容器中.<br>而Container容器中是Yarn封装的内存和CPU资源.暂时还不支持对网络IO等资源进行封装分配.那么在开发调优过程中,我们肯定无法避免会对内存进行一些分配.那么Yarn的哪些配置参数是对哪个地方进行分配的,就很重要,也就值得记一记.<br>
           
       
     </div>
@@ -463,13 +463,13 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/spark/">spark</a>
+    <a class="article-category-link" href="/categories/yarn/">yarn</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spark/">spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yarn/">yarn</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yarn/">yarn</a></li></ul>
     </div>
 
       
