@@ -15,16 +15,15 @@
 
 
 
-<meta name="description" content="创建软链接或是硬链接在 linux 中是非常常用的,所以有必要记住掌握.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux创建软硬链接">
-<meta property="og:url" content="http://dmlcoding.com/2016/LinuxSymbolicLink/index.html">
+<meta property="og:title" content="诗经 <<伐檀>>">
+<meta property="og:url" content="http://dmlcoding.com/2017/fatan/index.html">
 <meta property="og:site_name" content="Time渐行渐远">
-<meta property="og:description" content="创建软链接或是硬链接在 linux 中是非常常用的,所以有必要记住掌握.">
-<meta property="og:updated_time" content="2017-04-10T10:04:37.000Z">
+<meta property="og:image" content="http://dmlcoding.com/images/beautifulPic/fatan.png">
+<meta property="og:updated_time" content="2017-08-24T12:59:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux创建软硬链接">
-<meta name="twitter:description" content="创建软链接或是硬链接在 linux 中是非常常用的,所以有必要记住掌握.">
+<meta name="twitter:title" content="诗经 <<伐檀>>">
+<meta name="twitter:image" content="http://dmlcoding.com/images/beautifulPic/fatan.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +55,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>linux创建软硬链接 | Time渐行渐远</title>
+<title>诗经 &lt;&lt;伐檀&gt;&gt; | Time渐行渐远</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -283,11 +282,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-LinuxSymbolicLink" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-fatan" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/LinuxSymbolicLink/" class="article-date">
-      <time datetime="2016-12-10T02:14:00.000Z" itemprop="datePublished">2016-12-10</time>
+      <a href="/2017/fatan/" class="article-date">
+      <time datetime="2017-08-23T12:30:00.000Z" itemprop="datePublished">2017-08-23</time>
 </a>
 
 
@@ -302,7 +301,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      linux创建软硬链接
+      诗经 &lt;&lt;伐檀&gt;&gt;
     </h1>
   
 
@@ -311,13 +310,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
+    <a class="article-category-link" href="/categories/book/">book</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/book/">book</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/think/">think</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -327,30 +326,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>创建软链接或是硬链接在 linux 中是非常常用的,所以有必要记住掌握.<br><a id="more"></a></p>
-<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>源文件 目标文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">root@localhost ~/demo ln</div><div class="line">usage: ln [-Ffhinsv] source_file [target_file]</div><div class="line">       ln [-Ffhinsv] source_file ... target_dir</div><div class="line">       link source_file target_file</div></pre></td></tr></table></figure>
-<h1 id="创建软链接"><a href="#创建软链接" class="headerlink" title="创建软链接"></a>创建软链接</h1><p>也就是创建一个快捷方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#创建test.log的一个符号连接文件test1.log</div><div class="line">ln -s test.log test1.log</div></pre></td></tr></table></figure>
-<h1 id="创建硬链接"><a href="#创建硬链接" class="headerlink" title="创建硬链接"></a>创建硬链接</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#创建test.log的一个硬连接文件test2.log</div><div class="line">ln test.log test2.log     </div><div class="line"></div><div class="line"># -i参数显示文件的inode节点信息</div><div class="line">ls -li</div></pre></td></tr></table></figure>
-<p>#软硬链接的区别</p>
-<ul>
-<li><p>硬链接文件有两个限制</p>
-<ul>
-<li>1)、不允许给目录创建硬链接；</li>
-<li>2)、只有在同一文件系统中的文件之间才能创建链接，而且只有超级用户才有建立硬链接权限。</li>
-</ul>
-</li>
-<li><p>对硬链接文件进行读写和删除操作时候，结果和软链接相同。但如果我们删除硬链接文件的源文件，硬链接文件仍然存在，而且保留了愿有的内容。</p>
-</li>
-<li>这时，系统就“忘记”了它曾经是硬链接文件。而把他当成一个普通文件。</li>
-<li>那么我们就可以这样理解：硬连接指通过索引节点来进行的连接，其作用是允许一个文件拥有多个有效路径名，能够达到误删除的作用。</li>
-<li>其原因是因为对应的文件的索引节点有一个以上的连接。只删除一个连接并不影响索引节点本身和其它的连接，只有当最后一个连接被删除后，文件的数据块及目录的连接才会被释放。文件才会被真正删除。</li>
-<li>软链接没有硬链接以上的两个限制，因而现在更为广泛使用，它具有更大的灵活性，甚至可以跨越不同机器、不同网络对文件进行链接。</li>
-<li>但是软链接的缺点在于：因为链接文件包含有原文件的路径信息，所以当原文件从一个目录下移到其他目录中，再访问链接文件，系统就找不到了，而硬链接就没有这个缺陷，你想怎么移就怎么移；</li>
-<li>但是硬链接它要系统分配额外的空间用于建立新的索引节点和保存原文件的路径.</li>
-</ul>
-<p>注：保存在磁盘分区中的文件不管是什么类型都给它分配一个编号，称为索引节点号(Inode Index即I节点)。          </p>
+        <p><img src="/images/beautifulPic/fatan.png" alt="fatan"></p>
+<a id="more"></a>
+<blockquote>
+<p>抄一首诗,换个心情…</p>
+</blockquote>
+<h1 id="伐檀"><a href="#伐檀" class="headerlink" title="伐檀"></a>伐檀</h1><p>坎坎伐檀兮，置之河之干兮，河水清且涟猗。<br>不稼不穑，胡取禾三百廛[1]兮？<br>不狩不猎，胡瞻尔庭有县[2]貆兮？<br>彼君子兮，不素餐兮！</p>
+<p>坎坎伐辐兮，置之河之侧兮，河水清且直猗。<br>不稼不穑，胡取禾三百亿兮？<br>不狩不猎，胡瞻尔庭有县特[3]兮？<br>彼君子兮，不素食兮！</p>
+<p>坎坎伐轮兮，置之河之漘[4]兮，河水清且沦猗。<br>不稼不穑，胡取禾三百囷[5]兮？<br>不狩不猎，胡瞻尔庭有县鹑兮？<br>彼君子兮，不素飧兮！</p>
+<h1 id="伐檀白话"><a href="#伐檀白话" class="headerlink" title="伐檀白话"></a>伐檀白话</h1><p>砍伐檀树声坎坎啊，<br>棵棵放倒堆河边啊，<br>河水清清微波转哟。<br>不播种来不收割，<br>为何三百捆禾往家搬啊？<br>不冬狩来不夜猎，<br>为何见你庭院猪獾悬啊？<br>那些老爷君子啊，<br>不会白吃闲饭啊！</p>
+<p>砍下檀树做车辐啊，<br>放在河边堆一处啊。<br>河水清清直流注哟。<br>不播种来不收割，<br>为何三百捆禾要独取啊？<br>不冬狩来不夜猎，<br>为何见你庭院兽悬柱啊？<br>那些老爷君子啊，<br>不会白吃饱腹啊！</p>
+<p>砍下檀树做车轮啊，<br>棵棵放倒河边屯啊。<br>河水清清起波纹啊。<br>不播种来不收割，<br>为何三百捆禾要独吞啊？<br>不冬狩来不夜猎，<br>为何见你庭院挂鹌鹑啊？<br>那些老爷君子啊，<br>可不白吃腥荤啊！</p>
 
       
     </div>
@@ -359,13 +345,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/LinuxSymbolicLink/">linux创建软硬链接</a></p>
+        <p><span>本文标题:</span><a href="/2017/fatan/">诗经 &lt;&lt;伐檀&gt;&gt;</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Hushiwei</a></p>
-        <p><span>发布时间:</span>2016-12-10, 10:14:00</p>
-        <p><span>最后更新:</span>2017-04-10, 18:04:37</p>
+        <p><span>发布时间:</span>2017-08-23, 20:30:00</p>
+        <p><span>最后更新:</span>2017-08-24, 20:59:50</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/LinuxSymbolicLink/" title="linux创建软硬链接">http://dmlcoding.com/2016/LinuxSymbolicLink/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://dmlcoding.com/2016/LinuxSymbolicLink/　　作者: Hushiwei" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/fatan/" title="诗经 &lt;&lt;伐檀&gt;&gt;">http://dmlcoding.com/2017/fatan/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://dmlcoding.com/2017/fatan/　　作者: Hushiwei" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -377,16 +363,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/UbuntuSocks/">
-                    Ubuntu/Deepin下用Shadowsocks实现翻墙上网
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/sshlogin/">
-                    配置 ssh 免密码登录
+                <a href="/2017/MacSsh/">
+                    ITerm2下使用ssh访问Linux(包括堡垒机)
                 </a>
             </div>
         
@@ -398,7 +378,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#命令"><span class="toc-number">1.</span> <span class="toc-text">命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建软链接"><span class="toc-number">2.</span> <span class="toc-text">创建软链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建硬链接"><span class="toc-number">3.</span> <span class="toc-text">创建硬链接</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#伐檀"><span class="toc-number">1.</span> <span class="toc-text">伐檀</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#伐檀白话"><span class="toc-number">2.</span> <span class="toc-text">伐檀白话</span></a></li></ol>
         
     </div>
     <style>
@@ -434,7 +414,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"linux创建软硬链接　| Time渐行渐远　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"诗经 <<伐檀>>　| Time渐行渐远　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -468,15 +448,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/UbuntuSocks/" title="上一篇: Ubuntu/Deepin下用Shadowsocks实现翻墙上网">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/sshlogin/" title="下一篇: 配置 ssh 免密码登录">
+            <a href="/2017/MacSsh/" title="下一篇: ITerm2下使用ssh访问Linux(包括堡垒机)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
