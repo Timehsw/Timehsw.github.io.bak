@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-08-24T13:00:16.000Z</updated>
+  <updated>2017-09-14T07:18:57.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python读取文件编码及内容</title>
+    <link href="http://dmlcoding.com/2017/PythonReadFiles/"/>
+    <id>http://dmlcoding.com/2017/PythonReadFiles/</id>
+    <published>2017-09-13T07:24:00.000Z</published>
+    <updated>2017-09-14T07:18:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>当你不知道文件的具体编码方式的时候,如何正确的读取文件内容呢?</p></blockquote><h1 id="报错日志"><a href="#报错日志" class="headerlink" title="报错日志"></a>报错日志</h1><p>当我们不知道文件编码方式的时候,贸然的读取文件,有时候就会出现这些问题<br><a id="more"></a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UnicodeDecodeError: &apos;gbk&apos; codec can&apos;t decode byte</div><div class="line">......</div></pre></td></tr></table></figure><h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>所以就是编码方式不对,那么需要先能识别文件的编码文件,然后根据此编码方式进行对文件编码，最后返回文件内容。<br>可以借助一个第三方库<code>chardet</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 安装chardet</div><div class="line">pip install chardet</div></pre></td></tr></table></figure></p><h1 id="正确实例"><a href="#正确实例" class="headerlink" title="正确实例"></a>正确实例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">with open(&quot;your_file&quot;, &apos;rb&apos;) as fp:</div><div class="line">    file_data = fp.read()</div><div class="line">    result = chardet.detect(file_data)</div><div class="line">    file_content = file_data.decode(encoding=result[&apos;encoding&apos;])</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;当你不知道文件的具体编码方式的时候,如何正确的读取文件内容呢?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;报错日志&quot;&gt;&lt;a href=&quot;#报错日志&quot; class=&quot;headerlink&quot; title=&quot;报错日志&quot;&gt;&lt;/a&gt;报错日志&lt;/h1&gt;&lt;p&gt;当我们不知道文件编码方式的时候,贸然的读取文件,有时候就会出现这些问题&lt;br&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://dmlcoding.com/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://dmlcoding.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>诗经 &lt;&lt;伐檀&gt;&gt;</title>
@@ -460,30 +485,6 @@
     
     
       <category term="zabbix" scheme="http://dmlcoding.com/tags/zabbix/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>saltstack web halite 界面部署文档</title>
-    <link href="http://dmlcoding.com/2017/SaltStackWeb/"/>
-    <id>http://dmlcoding.com/2017/SaltStackWeb/</id>
-    <published>2017-04-15T04:10:00.000Z</published>
-    <updated>2017-04-19T09:12:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>安装saltstack webui halite管理界面,方便查看和操作<br>安装部署自动化管理工具SaltStack.在管理多台服务器上,这个工具还是非常好使的,另外由于是 Python写的,也可以很方便的对其进行个性化修改.<br><a id="more"></a></p><h2 id="安装halite"><a href="#安装halite" class="headerlink" title="安装halite"></a>安装halite</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd /var/www/ </div><div class="line">git clone https://github.com/saltstack/halite</div><div class="line">[root@master halite]# pwd</div><div class="line">/var/www/halite/halite</div><div class="line">[root@master halite]# ./genindex.py -C #生成index.html文件:</div></pre></td></tr></table></figure><h2 id="安装salt-api"><a href="#安装salt-api" class="headerlink" title="安装salt-api"></a>安装salt-api</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install salt-api</div></pre></td></tr></table></figure><h2 id="配置salt-master文件"><a href="#配置salt-master文件" class="headerlink" title="配置salt master文件"></a>配置salt master文件</h2><p>配置salt的master文件，添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[root@master ~]# vim /etc/salt/master</div><div class="line">rest_cherrypy:</div><div class="line"> host: 0.0.0.0</div><div class="line"> port: 8080</div><div class="line"> debug: true</div><div class="line"> static: /var/www/halite/halite</div><div class="line"> app: /var/www/halite/halite/index.html</div><div class="line">external_auth:</div><div class="line">   pam:</div><div class="line">     rui:</div><div class="line">         - .*</div><div class="line">         - &apos;@runner&apos;</div><div class="line">         - &apos;@wheel&apos;</div></pre></td></tr></table></figure></p><h2 id="重启master"><a href="#重启master" class="headerlink" title="重启master"></a>重启master</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@master ~]# /etc/init.d/salt-master restart</div><div class="line">Stopping salt-master daemon: [ OK ]</div><div class="line">Starting salt-master daemon: [ OK ]</div></pre></td></tr></table></figure><h2 id="添加登陆用户"><a href="#添加登陆用户" class="headerlink" title="添加登陆用户"></a>添加登陆用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[root@master ~]# useradd rui</div><div class="line">[root@master ~]# passwd rui</div><div class="line">Changing password for user rui.</div><div class="line">New password:</div><div class="line">BAD PASSWORD: it is too short</div><div class="line">BAD PASSWORD: is too simple</div><div class="line">Retype new password:</div><div class="line">passwd: all authentication tokens updated successfully.</div></pre></td></tr></table></figure><h2 id="启动-salt-api"><a href="#启动-salt-api" class="headerlink" title="启动 salt-api"></a>启动 salt-api</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">salt-api -d 或 </div><div class="line">cd /var/www/halite/halite</div><div class="line">python server_bottle.py -d -C -l debug -s cherrypy</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[root@master ~]# cd /var/www/halite/halite/</div><div class="line">[root@master halite]# python server_bottle.py -d -C -l debug -s cherrypy</div><div class="line">20170415_103758.177076 Bottle: Running web application server &apos;cherrypy&apos; on 0.0.0.0:8080.</div><div class="line">20170415_103758.177237 Bottle: CORS is disabled.</div><div class="line">20170415_103758.177289 Bottle: TLS/SSL is disabled.</div><div class="line">20170415_103758.177335 Bottle: Server options:</div><div class="line">&#123;&#125;</div><div class="line">20170415_103758.417684 Bottle: Running web application server &apos;cherrypy&apos; on 0.0.0.0:8080.</div><div class="line">20170415_103758.417833 Bottle: CORS is disabled.</div><div class="line">20170415_103758.417886 Bottle: TLS/SSL is disabled.</div><div class="line">20170415_103758.417931 Bottle: Server options:</div><div class="line">&#123;&#125;</div><div class="line">Bottle v0.12-dev server starting up (using CherryPyServer())...</div><div class="line">Listening on http://0.0.0.0:8080/</div><div class="line">Hit Ctrl-C to quit.</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;安装saltstack webui halite管理界面,方便查看和操作&lt;br&gt;安装部署自动化管理工具SaltStack.在管理多台服务器上,这个工具还是非常好使的,另外由于是 Python写的,也可以很方便的对其进行个性化修改.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="http://dmlcoding.com/categories/python/"/>
-    
-    
-      <category term="python" scheme="http://dmlcoding.com/tags/python/"/>
-    
-      <category term="saltstack" scheme="http://dmlcoding.com/tags/saltstack/"/>
     
   </entry>
   
