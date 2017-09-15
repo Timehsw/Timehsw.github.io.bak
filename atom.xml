@@ -116,28 +116,6 @@
   </entry>
   
   <entry>
-    <title>YARN 资源分配的配置参数</title>
-    <link href="http://dmlcoding.com/2017/SparkOnYarn/"/>
-    <id>http://dmlcoding.com/2017/SparkOnYarn/</id>
-    <published>2017-08-08T02:00:00.000Z</published>
-    <updated>2017-08-16T07:36:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>无论是mapreduce程序或者是Spark程序,提交到Yarn上来进行资源管理与分配的时候.都是运行在Yarn的Container容器中.<br>而Container容器中是Yarn封装的内存和CPU资源.暂时还不支持对网络IO等资源进行封装分配.那么在开发调优过程中,我们肯定无法避免会对内存进行一些分配.那么Yarn的哪些配置参数是对哪个地方进行分配的,就很重要,也就值得记一记.<br><a id="more"></a></p><h1 id="内存资源"><a href="#内存资源" class="headerlink" title="内存资源"></a>内存资源</h1><h2 id="ResourceManager"><a href="#ResourceManager" class="headerlink" title="ResourceManager"></a>ResourceManager</h2><table><thead><tr><th style="text-align:left">配置参数</th><th style="text-align:left">说明</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">yarn.scheduler.minimum-allocation-mb</td><td style="text-align:left">单个任务可申请的最少物理内存量，默认是1024（MB），如果一个任务申请的物理内存量少于该值，则该对应的值改为这个数</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.scheduler.maximum-allocation-mb</td><td style="text-align:left">单个任务可申请的最多物理内存量，默认是8192（MB)</td></tr></tbody></table><p>说明:<br>也就是ResourceManager启动的Container容器的最大与最小内存.</p><h2 id="nodemanager"><a href="#nodemanager" class="headerlink" title="nodemanager"></a>nodemanager</h2><table><thead><tr><th style="text-align:left">配置参数</th><th style="text-align:left">说明</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">yarn.nodemanager.resource.memory-mb</td><td style="text-align:left">节点最大可用内存,默认8096M</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.nodemanager.vmem-pmem-ratio</td><td style="text-align:left">虚拟内存率，任务每使用1MB物理内存，最多可使用虚拟内存量，默认为 2.1</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.nodemanager.pmem-check-enabled</td><td style="text-align:left">是否启动一个线程检查每个任务正使用的物理内存量，如果任务超出分配值,则直接将其杀掉，默认是true</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.nodemanager.vmem-check-enabled</td><td style="text-align:left">是否启动一个线程检查每个任务正使用的虚拟内存量,如果任务超出分配值，则直接将其杀掉，默认是true</td></tr></tbody></table><p>说明:</p><ol><li>在 Centos/RHEL 6 下，由于虚拟内存的分配策略比较激进，可以调高 yarn.nodemanager.vmem-pmem-ratio 或者关闭 yarn.nodemanager.vmem-check-enabled。</li><li>不然的话有时候就会碰上抛出容器超出内存限制,然后容器被kill掉.</li><li>比如这个问题 <a href="https://stackoverflow.com/questions/21005643/container-is-running-beyond-memory-limits" target="_blank" rel="external">https://stackoverflow.com/questions/21005643/container-is-running-beyond-memory-limits</a></li></ol><h2 id="ApplicationMaster"><a href="#ApplicationMaster" class="headerlink" title="ApplicationMaster"></a>ApplicationMaster</h2><table><thead><tr><th style="text-align:left">配置参数</th><th style="text-align:left">说明</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">mapreduce.map.memory.mb</td><td style="text-align:left">分配给 Map Container的内存大小，运行时按需指定</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">mapreduce.reduce.memory.mb</td><td style="text-align:left">分配给 Reduce Container的内存大小，运行时按需指定</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">mapreduce.map.java.opts</td><td style="text-align:left">运行 Map 任务的 jvm 参数，如 -Xmx，-Xms 等选项</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">mapreduce.reduce.java.opts</td><td style="text-align:left">运行 Reduce 任务的 jvm 参数，如-Xmx，-Xms等选项</td></tr></tbody></table><h1 id="CPU资源"><a href="#CPU资源" class="headerlink" title="CPU资源"></a>CPU资源</h1><table><thead><tr><th style="text-align:left">配置参数</th><th style="text-align:left">说明</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">yarn.nodemanager.resource.cpu-vcores</td><td style="text-align:left">该节点上 YARN 可使用的虚拟 CPU 个数，默认是8</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.scheduler.minimum-allocation-vcores</td><td style="text-align:left">单个任务可申请的最小虚拟CPU个数, 默认是1</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.scheduler.maximum-allocation-vcores</td><td style="text-align:left">单个任务可申请的最多虚拟CPU个数，默认是32</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;无论是mapreduce程序或者是Spark程序,提交到Yarn上来进行资源管理与分配的时候.都是运行在Yarn的Container容器中.&lt;br&gt;而Container容器中是Yarn封装的内存和CPU资源.暂时还不支持对网络IO等资源进行封装分配.那么在开发调优过程中,我们肯定无法避免会对内存进行一些分配.那么Yarn的哪些配置参数是对哪个地方进行分配的,就很重要,也就值得记一记.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="yarn" scheme="http://dmlcoding.com/categories/yarn/"/>
-    
-    
-      <category term="yarn" scheme="http://dmlcoding.com/tags/yarn/"/>
-    
-  </entry>
-  
-  <entry>
     <title>spark开发中遇到的问题</title>
     <link href="http://dmlcoding.com/2017/SparkBug/"/>
     <id>http://dmlcoding.com/2017/SparkBug/</id>
@@ -160,6 +138,28 @@
       <category term="mysql" scheme="http://dmlcoding.com/tags/mysql/"/>
     
       <category term="hive" scheme="http://dmlcoding.com/tags/hive/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>YARN 资源分配的配置参数</title>
+    <link href="http://dmlcoding.com/2017/SparkOnYarn/"/>
+    <id>http://dmlcoding.com/2017/SparkOnYarn/</id>
+    <published>2017-08-08T02:00:00.000Z</published>
+    <updated>2017-08-16T07:36:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>无论是mapreduce程序或者是Spark程序,提交到Yarn上来进行资源管理与分配的时候.都是运行在Yarn的Container容器中.<br>而Container容器中是Yarn封装的内存和CPU资源.暂时还不支持对网络IO等资源进行封装分配.那么在开发调优过程中,我们肯定无法避免会对内存进行一些分配.那么Yarn的哪些配置参数是对哪个地方进行分配的,就很重要,也就值得记一记.<br><a id="more"></a></p><h1 id="内存资源"><a href="#内存资源" class="headerlink" title="内存资源"></a>内存资源</h1><h2 id="ResourceManager"><a href="#ResourceManager" class="headerlink" title="ResourceManager"></a>ResourceManager</h2><table><thead><tr><th style="text-align:left">配置参数</th><th style="text-align:left">说明</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">yarn.scheduler.minimum-allocation-mb</td><td style="text-align:left">单个任务可申请的最少物理内存量，默认是1024（MB），如果一个任务申请的物理内存量少于该值，则该对应的值改为这个数</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.scheduler.maximum-allocation-mb</td><td style="text-align:left">单个任务可申请的最多物理内存量，默认是8192（MB)</td></tr></tbody></table><p>说明:<br>也就是ResourceManager启动的Container容器的最大与最小内存.</p><h2 id="nodemanager"><a href="#nodemanager" class="headerlink" title="nodemanager"></a>nodemanager</h2><table><thead><tr><th style="text-align:left">配置参数</th><th style="text-align:left">说明</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">yarn.nodemanager.resource.memory-mb</td><td style="text-align:left">节点最大可用内存,默认8096M</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.nodemanager.vmem-pmem-ratio</td><td style="text-align:left">虚拟内存率，任务每使用1MB物理内存，最多可使用虚拟内存量，默认为 2.1</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.nodemanager.pmem-check-enabled</td><td style="text-align:left">是否启动一个线程检查每个任务正使用的物理内存量，如果任务超出分配值,则直接将其杀掉，默认是true</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.nodemanager.vmem-check-enabled</td><td style="text-align:left">是否启动一个线程检查每个任务正使用的虚拟内存量,如果任务超出分配值，则直接将其杀掉，默认是true</td></tr></tbody></table><p>说明:</p><ol><li>在 Centos/RHEL 6 下，由于虚拟内存的分配策略比较激进，可以调高 yarn.nodemanager.vmem-pmem-ratio 或者关闭 yarn.nodemanager.vmem-check-enabled。</li><li>不然的话有时候就会碰上抛出容器超出内存限制,然后容器被kill掉.</li><li>比如这个问题 <a href="https://stackoverflow.com/questions/21005643/container-is-running-beyond-memory-limits" target="_blank" rel="external">https://stackoverflow.com/questions/21005643/container-is-running-beyond-memory-limits</a></li></ol><h2 id="ApplicationMaster"><a href="#ApplicationMaster" class="headerlink" title="ApplicationMaster"></a>ApplicationMaster</h2><table><thead><tr><th style="text-align:left">配置参数</th><th style="text-align:left">说明</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">mapreduce.map.memory.mb</td><td style="text-align:left">分配给 Map Container的内存大小，运行时按需指定</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">mapreduce.reduce.memory.mb</td><td style="text-align:left">分配给 Reduce Container的内存大小，运行时按需指定</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">mapreduce.map.java.opts</td><td style="text-align:left">运行 Map 任务的 jvm 参数，如 -Xmx，-Xms 等选项</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">mapreduce.reduce.java.opts</td><td style="text-align:left">运行 Reduce 任务的 jvm 参数，如-Xmx，-Xms等选项</td></tr></tbody></table><h1 id="CPU资源"><a href="#CPU资源" class="headerlink" title="CPU资源"></a>CPU资源</h1><table><thead><tr><th style="text-align:left">配置参数</th><th style="text-align:left">说明</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">yarn.nodemanager.resource.cpu-vcores</td><td style="text-align:left">该节点上 YARN 可使用的虚拟 CPU 个数，默认是8</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.scheduler.minimum-allocation-vcores</td><td style="text-align:left">单个任务可申请的最小虚拟CPU个数, 默认是1</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">yarn.scheduler.maximum-allocation-vcores</td><td style="text-align:left">单个任务可申请的最多虚拟CPU个数，默认是32</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;无论是mapreduce程序或者是Spark程序,提交到Yarn上来进行资源管理与分配的时候.都是运行在Yarn的Container容器中.&lt;br&gt;而Container容器中是Yarn封装的内存和CPU资源.暂时还不支持对网络IO等资源进行封装分配.那么在开发调优过程中,我们肯定无法避免会对内存进行一些分配.那么Yarn的哪些配置参数是对哪个地方进行分配的,就很重要,也就值得记一记.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="yarn" scheme="http://dmlcoding.com/categories/yarn/"/>
+    
+    
+      <category term="yarn" scheme="http://dmlcoding.com/tags/yarn/"/>
     
   </entry>
   
