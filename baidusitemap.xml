@@ -5,11 +5,11 @@
     
   <url>
     <loc>http://dmlcoding.com/2017/ELKBuild/</loc>
-    <lastmod>2017-09-18T03:46:39.000Z</lastmod>
+    <lastmod>2017-09-18T05:12:53.000Z</lastmod>
     <data>
         <display>
         <title>ELK搭建使用</title>
-        <pubTime>2017-09-18T01:24:00.000Z</pubTime>
+        <pubTime>2017-09-17T01:24:00.000Z</pubTime>
         
         <tag>elasticsearch</tag>
          
@@ -488,9 +488,9 @@
         <title>Ubuntu16.04使用Docker部署Gitlab</title>
         <pubTime>2017-07-05T10:24:00.000Z</pubTime>
         
-        <tag>docker</tag>
-         
         <tag>ubuntu</tag>
+         
+        <tag>docker</tag>
          
          
            
@@ -1313,30 +1313,6 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
-        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
-        
-        <tag>ubuntu</tag>
-         
-        <tag>deepin</tag>
-         
-        <tag>jekyll</tag>
-         
-         
-           
-             
-              <breadCrumb title="ubuntu" url="http://dmlcoding.com/categories/ubuntu/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -1372,6 +1348,30 @@
            
              
               <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
+        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
+        
+        <tag>ubuntu</tag>
+         
+        <tag>deepin</tag>
+         
+        <tag>jekyll</tag>
+         
+         
+           
+             
+              <breadCrumb title="ubuntu" url="http://dmlcoding.com/categories/ubuntu/"/>
           
         </display>
     </data>
