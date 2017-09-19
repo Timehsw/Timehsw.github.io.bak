@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-09-18T09:09:29.000Z</updated>
+  <updated>2017-09-19T09:45:48.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>es学习</title>
-    <link href="http://dmlcoding.com/2017/ESLearning/"/>
-    <id>http://dmlcoding.com/2017/ESLearning/</id>
-    <published>2017-09-17T01:24:00.000Z</published>
-    <updated>2017-09-18T09:09:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>elk搭建记录,学习资料.</p></blockquote><h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>存储数据到 Elasticsearch 的行为叫做 索引 ，但在索引一个文档之前，需要确定将文档存储在哪里。</p><p>一个 Elasticsearch 集群可以 包含多个 索引 ，相应的每个索引可以包含多个 类型 。 这些不同的类型存储着多个 文档 ，每个文档又有 多个 属性 。<br>索引—&gt;类型—&gt;文档—&gt;属性</p><h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>GET /megacorp/employee/_search<br>GET /megacorp/employee/_search?q=hu</p><p>curl -XGET ‘localhost:9200/megacorp/employee/_search?pretty’ -H ‘Content-Type: application/json’ -d’<br>{<br>    “query” : {<br>        “match” : {<br>            “last_name” : “Smith”<br>        }<br>    }<br>}<br>‘</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;elk搭建记录,学习资料.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;结构&quot;&gt;&lt;a href=&quot;#结构&quot; class=&quot;headerlink&quot; title=&quot;结构&quot;&gt;&lt;/a&gt;结构&lt;/h1&gt;&lt;p&gt;存储数据到 Elasticsearch 的行
-      
-    
-    </summary>
-    
-      <category term="elk" scheme="http://dmlcoding.com/categories/elk/"/>
-    
-    
-      <category term="elasticsearch" scheme="http://dmlcoding.com/tags/elasticsearch/"/>
-    
-  </entry>
   
   <entry>
     <title>ELK搭建使用</title>
@@ -507,6 +479,28 @@
     
     
       <category term="python" scheme="http://dmlcoding.com/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 常用命令以及笔记</title>
+    <link href="http://dmlcoding.com/2017/GitSkills/"/>
+    <id>http://dmlcoding.com/2017/GitSkills/</id>
+    <published>2017-06-20T06:00:00.000Z</published>
+    <updated>2017-07-13T07:08:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>平时一直是用Intellij进行开发,git命令也不会用命令行去输入.导致有些命令都不太熟悉了,每次用到的时候都是google.<br>今天把平时用到的命令做个笔记记录一下.</p><a id="more"></a><h1 id="git分布式仓库工作流程"><a href="#git分布式仓库工作流程" class="headerlink" title="git分布式仓库工作流程"></a>git分布式仓库工作流程</h1><p>这里有个图,非常形象的展示了本地仓库和远程仓库以及常用的一些命令的作用范围.<br>一图胜千言,图片摘自<a href="http://krishnaiitd.github.io/gitcommands/git-workflow/" target="_blank" rel="external">http://krishnaiitd.github.io/gitcommands/git-workflow/</a><br><img src="/images/pics/GitWorkflow.png" alt="git工作流"><br><img src="../images/pics/GitWorkflow.png" alt="git工作流"></p><h1 id="设置-commit-的用户和邮箱"><a href="#设置-commit-的用户和邮箱" class="headerlink" title="设置 commit 的用户和邮箱"></a>设置 commit 的用户和邮箱</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git config user.name &quot;xx&quot;               #设置 commit 的用户</div><div class="line">git config user.email &quot;xx@xx.com&quot;       #设置 commit 的邮箱</div><div class="line">git commit --amend --author &quot;xxx &lt;xxx@gmail.com&gt;&quot;    #修改上次提交的用户信息</div><div class="line">git config format.pretty oneline        #显示历史记录时，每个提交的信息只显示一行</div></pre></td></tr></table></figure><h2 id="配置本地到github的免密"><a href="#配置本地到github的免密" class="headerlink" title="配置本地到github的免密"></a>配置本地到github的免密</h2><p>参考我之前写的 <a href="http://dmlcoding.com/2016/sshlogin/">http://dmlcoding.com/2016/sshlogin/</a></p><h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1><h2 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@server-name:path/repo-name.git  #添加一个远程库</div></pre></td></tr></table></figure><h2 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h2><blockquote><p>origin是远程仓库的别名,约定俗成的叫做original.</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote      #要查看远程库的信息</div><div class="line">git remote -v   #显示更详细的信息</div></pre></td></tr></table></figure><h2 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin master    #推送到远程master分支</div></pre></td></tr></table></figure><h2 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git clone git@server-name:path/repo-name.git   #克隆远程仓库到本地(能看到master分支)</div><div class="line">git checkout -b dev origin/dev  #创建远程origin的dev分支到本地，并命名为dev</div><div class="line">git checkout origin/dev --track #与上面效果一样</div><div class="line">git pull origin master          #从远程分支进行更新</div><div class="line">git fetch origin master         #获取远程分支上的数据</div></pre></td></tr></table></figure><h2 id="抓取GitHub上某个pull-request到本地"><a href="#抓取GitHub上某个pull-request到本地" class="headerlink" title="抓取GitHub上某个pull request到本地"></a>抓取GitHub上某个pull request到本地</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git fetch origin pull/ID/head:BRANCHNAME</div><div class="line">git checkout BRANCHNAME</div><div class="line">$ git branch --set-upstream branch-name origin/branch-name，可以建立起本地分支和远程分支的关联，之后可以直接git pull从远程抓取分支。</div><div class="line"></div><div class="line">另外，git pull = git fetch + merge to local</div></pre></td></tr></table></figure><h2 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git push origin --delete bugfix</div><div class="line">To https://github.com/wuchong/jacman</div><div class="line"> - [deleted]         bugfix</div><div class="line"># 或者直接push一个空分支</div><div class="line">$ git push origin :bugfix</div><div class="line">To https://github.com/wuchong/jacman</div><div class="line"> - [deleted]         bugfix</div></pre></td></tr></table></figure><h2 id="更新远程分支信息"><a href="#更新远程分支信息" class="headerlink" title="更新远程分支信息"></a>更新远程分支信息</h2><p>项目往前推进的过程中，远程仓库上经常会增加一些分支、删除一些分支。 所以有时需要与远程同步下分支信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch -p</div></pre></td></tr></table></figure></p><p>-p就是修剪的意思。它在fetch之后删除掉没有与远程分支对应的本地分支，并且同步一些远程新创建的分支和tag。</p><h1 id="历史管理"><a href="#历史管理" class="headerlink" title="历史管理"></a>历史管理</h1><h2 id="查看历史"><a href="#查看历史" class="headerlink" title="查看历史"></a>查看历史</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git log --pretty=oneline filename #一行显示</div><div class="line">git log -p -2      #显示最近2次提交内容的差异</div><div class="line">git show cb926e7   #查看某次修改</div></pre></td></tr></table></figure><h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD^    #回退到上一个版本</div><div class="line">git reset --hard cb926e7  #回退到具体某个版</div><div class="line">git reflog                #查看命令历史,常用于帮助找回丢失掉的commit</div></pre></td></tr></table></figure><p>用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，HEAD~100就是上100个版本。</p><h1 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git status              #查看工作区、暂存区的状态</div><div class="line">git checkout -- &lt;file&gt;  #丢弃工作区上某个文件的修改</div><div class="line">git reset HEAD &lt;file&gt;   #丢弃暂存区上某个文件的修改，重新放回工作区</div></pre></td></tr></table></figure><h2 id="查看差异"><a href="#查看差异" class="headerlink" title="查看差异"></a>查看差异</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git diff              #查看未暂存的文件更新</div><div class="line">git diff --cached     #查看已暂存文件的更新</div><div class="line">git diff HEAD -- readme.txt  #查看工作区和版本库里面最新版本的区别</div><div class="line">git diff &lt;source_branch&gt; &lt;target_branch&gt;  #在合并改动之前，预览两个分支的差异</div><div class="line">使用内建的图形化git：gitk，可以更方便清晰地查看差异。当然 Github 客户端也不错。</div></pre></td></tr></table></figure><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git rm &lt;file&gt;           #直接删除文件</div><div class="line">git rm --cached &lt;file&gt;  #删除文件暂存状态</div></pre></td></tr></table></figure><h2 id="储藏和恢复"><a href="#储藏和恢复" class="headerlink" title="储藏和恢复"></a>储藏和恢复</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git stash           #储藏当前工作</div><div class="line">git stash list      #查看储藏的工作现场</div><div class="line">git stash apply     #恢复工作现场，stash内容并不删除</div><div class="line">git stash pop       #恢复工作现场，并删除stash内容</div></pre></td></tr></table></figure><h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1><h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git branch develop              #只创建分支</div><div class="line">git checkout -b master develop  #创建并切换到 develop 分支</div></pre></td></tr></table></figure><h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master         #切换到主分支</div><div class="line">git merge --no-ff develop   #把 develop 合并到 master 分支，no-ff 选项的作用是保留原分支记录</div><div class="line">git branch -d develop       #删除 develop 分支</div></pre></td></tr></table></figure><h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><h2 id="显示标签"><a href="#显示标签" class="headerlink" title="显示标签"></a>显示标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag         #列出现有标签</div><div class="line">git show &lt;tagname&gt;  #显示标签信息</div></pre></td></tr></table></figure><h2 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git tag v0.1    #新建标签，默认位 HEAD</div><div class="line">git tag v0.1 cb926e7  #对指定的 commit id 打标签</div><div class="line">git tag -a v0.1 -m &apos;version 0.1 released&apos;   #新建带注释标签</div></pre></td></tr></table></figure><h2 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git checkout &lt;tagname&gt;        #切换到标签</div><div class="line">git push origin &lt;tagname&gt;     #推送分支到源上</div><div class="line">git push origin --tags        #一次性推送全部尚未推送到远程的本地标签</div><div class="line">git tag -d &lt;tagname&gt;          #删除标签</div><div class="line">git push origin :refs/tags/&lt;tagname&gt;      #删除远程标签</div><div class="line">Git 设置</div></pre></td></tr></table></figure><p><a href="http://wuchong.me/blog/2015/03/30/git-useful-skills/" target="_blank" rel="external">转载自Jark’s Blog</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;平时一直是用Intellij进行开发,git命令也不会用命令行去输入.导致有些命令都不太熟悉了,每次用到的时候都是google.&lt;br&gt;今天把平时用到的命令做个笔记记录一下.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="git" scheme="http://dmlcoding.com/categories/git/"/>
+    
+    
+      <category term="git" scheme="http://dmlcoding.com/tags/git/"/>
     
   </entry>
   
