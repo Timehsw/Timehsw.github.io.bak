@@ -103,7 +103,7 @@
 <meta property="og:url" content="http://dmlcoding.com/2016/MavenSkills/index.html">
 <meta property="og:site_name" content="Time渐行渐远">
 <meta property="og:description" content="maven 阿里云镜像123456&amp;lt;mirror&amp;gt;      &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt;      &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt;      &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;      &amp;lt;">
-<meta property="og:updated_time" content="2017-03-02T10:05:49.000Z">
+<meta property="og:updated_time" content="2017-10-11T09:54:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven 笔记">
 <meta name="twitter:description" content="maven 阿里云镜像123456&amp;lt;mirror&amp;gt;      &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt;      &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt;      &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;      &amp;lt;">
@@ -473,6 +473,7 @@
       
         <h1 id="maven-阿里云镜像"><a href="#maven-阿里云镜像" class="headerlink" title="maven 阿里云镜像"></a>maven 阿里云镜像</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;mirror&gt;</div><div class="line">      &lt;id&gt;alimaven&lt;/id&gt;</div><div class="line">      &lt;name&gt;aliyun maven&lt;/name&gt;</div><div class="line">      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</div><div class="line">      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        </div><div class="line">&lt;/mirror&gt;</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<h1 id="或者在pom-xml中写入"><a href="#或者在pom-xml中写入" class="headerlink" title="或者在pom.xml中写入"></a>或者在pom.xml中写入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;repositories&gt;</div><div class="line">        &lt;repository&gt;</div><div class="line">            &lt;id&gt;nexus-aliyun&lt;/id&gt;</div><div class="line">            &lt;name&gt;Nexus aliyun&lt;/name&gt;</div><div class="line">            &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</div><div class="line">        &lt;/repository&gt;</div><div class="line">    &lt;/repositories&gt;</div></pre></td></tr></table></figure>
 <h1 id="手动添加依赖到仓库"><a href="#手动添加依赖到仓库" class="headerlink" title="手动添加依赖到仓库"></a>手动添加依赖到仓库</h1><p>当mvn工程中，有依赖下载不下来的时候，手动添加依赖到仓库中的办法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">各个内容是以：分隔</div><div class="line">DgroupId：</div><div class="line">DartifactId：</div><div class="line">Dversion：</div><div class="line">Dfile：手动下载的jar包的位置</div><div class="line">mvn install:install-file -DgroupId=org.eclipse.paho -DartifactId=org.eclipse.paho.client.mqttv3 -Dversion=1.0.1 -Dpackaging=jar -Dfile=E:/org.eclipse.paho.client.mqttv3-1.0.1.jar</div><div class="line"></div><div class="line">然后再Dos窗口执行上面的命令即可</div></pre></td></tr></table></figure></p>
 <h1 id="maven-中打包的依赖"><a href="#maven-中打包的依赖" class="headerlink" title="maven 中打包的依赖"></a>maven 中打包的依赖</h1><ul>
 <li>注意：<br>放在pom的最后面, 改下你的jdk版本和代码路径</li>
@@ -649,7 +650,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -660,7 +661,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -671,7 +672,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -773,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#maven-阿里云镜像"><span class="nav-number">1.</span> <span class="nav-text">maven 阿里云镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#手动添加依赖到仓库"><span class="nav-number">2.</span> <span class="nav-text">手动添加依赖到仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#maven-中打包的依赖"><span class="nav-number">3.</span> <span class="nav-text">maven 中打包的依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译打包scala"><span class="nav-number">4.</span> <span class="nav-text">编译打包scala</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#maven-阿里云镜像"><span class="nav-number">1.</span> <span class="nav-text">maven 阿里云镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#或者在pom-xml中写入"><span class="nav-number">2.</span> <span class="nav-text">或者在pom.xml中写入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#手动添加依赖到仓库"><span class="nav-number">3.</span> <span class="nav-text">手动添加依赖到仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#maven-中打包的依赖"><span class="nav-number">4.</span> <span class="nav-text">maven 中打包的依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译打包scala"><span class="nav-number">5.</span> <span class="nav-text">编译打包scala</span></a></li></ol></div>
             
 
           </div>

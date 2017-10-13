@@ -3,6 +3,94 @@
 
 
     
+  <url>
+    <loc>http://dmlcoding.com/2017/SparkBug/</loc>
+    <lastmod>2017-10-13T02:30:51.000Z</lastmod>
+    <data>
+        <display>
+        <title>spark开发中遇到的问题</title>
+        <pubTime>2017-09-12T02:00:00.000Z</pubTime>
+        
+        <tag>kafka</tag>
+         
+        <tag>spark</tag>
+         
+        <tag>mysql</tag>
+         
+        <tag>hive</tag>
+         
+         
+           
+             
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2017/PrestoLearnning/</loc>
+    <lastmod>2017-10-13T02:27:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>Presto的学习笔记</title>
+        <pubTime>2017-10-11T02:00:00.000Z</pubTime>
+        
+        <tag>bigdata</tag>
+         
+        <tag>presto</tag>
+         
+         
+           
+             
+              <breadCrumb title="presto" url="http://dmlcoding.com/categories/presto/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2017/erbachangwei/</loc>
+    <lastmod>2017-10-13T02:16:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>二八定律与长尾理论</title>
+        <pubTime>2017-09-19T06:24:00.000Z</pubTime>
+        
+        <tag>computer</tag>
+         
+         
+           
+             
+              <breadCrumb title="computer" url="http://dmlcoding.com/categories/computer/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/MavenSkills/</loc>
+    <lastmod>2017-10-11T09:54:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>Maven 笔记</title>
+        <pubTime>2016-09-23T02:00:00.000Z</pubTime>
+        
+        <tag>maven</tag>
+         
+         
+           
+             
+              <breadCrumb title="maven" url="http://dmlcoding.com/categories/maven/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
@@ -147,30 +235,6 @@
         <tag>spark</tag>
          
         <tag>yarn</tag>
-         
-         
-           
-             
-              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2017/SparkBug/</loc>
-    <lastmod>2017-08-09T09:40:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>spark开发中遇到的问题</title>
-        <pubTime>2017-08-08T02:00:00.000Z</pubTime>
-        
-        <tag>spark</tag>
-         
-        <tag>mysql</tag>
-         
-        <tag>hive</tag>
          
          
            
@@ -1035,63 +1099,19 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/MavenSkills/</loc>
-    <lastmod>2017-03-02T10:05:49.000Z</lastmod>
-    <data>
-        <display>
-        <title>Maven 笔记</title>
-        <pubTime>2016-09-23T02:00:00.000Z</pubTime>
-        
-        <tag>maven</tag>
-         
-         
-           
-             
-              <breadCrumb title="maven" url="http://dmlcoding.com/categories/maven/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/Queue/</loc>
+    <loc>http://dmlcoding.com/2016/MakeData/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Java数据结构之队列</title>
-        <pubTime>2016-12-07T02:01:00.000Z</pubTime>
+        <title>大数据学习时候,造数据的常用方式</title>
+        <pubTime>2016-11-16T02:51:00.000Z</pubTime>
         
-        <tag>java</tag>
-         
-        <tag>datastructure</tag>
+        <tag>data</tag>
          
          
            
              
-              <breadCrumb title="datastructure" url="http://dmlcoding.com/categories/datastructure/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu/Deepin下用Shadowsocks实现翻墙上网</title>
-        <pubTime>2016-12-11T02:01:00.000Z</pubTime>
-        
-        <tag>vps</tag>
-         
-        <tag>shadowsocks</tag>
-         
-         
-           
-             
-              <breadCrumb title="shadowsocks" url="http://dmlcoding.com/categories/shadowsocks/"/>
+              <breadCrumb title="bigdata" url="http://dmlcoding.com/categories/bigdata/"/>
           
         </display>
     </data>
@@ -1121,6 +1141,26 @@
 
     
   <url>
+    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Scala数组</title>
+        <pubTime>2016-11-14T02:59:00.000Z</pubTime>
+        
+        <tag>scala</tag>
+         
+         
+           
+             
+              <breadCrumb title="scala" url="http://dmlcoding.com/categories/scala/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://dmlcoding.com/2016/VPSshadowsocks/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -1143,23 +1183,21 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
+    <loc>http://dmlcoding.com/2016/Queue/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据</title>
-        <pubTime>2016-12-01T06:22:00.000Z</pubTime>
+        <title>Java数据结构之队列</title>
+        <pubTime>2016-12-07T02:01:00.000Z</pubTime>
         
-        <tag>spark</tag>
+        <tag>java</tag>
          
-        <tag>scala</tag>
-         
-        <tag>rdd</tag>
+        <tag>datastructure</tag>
          
          
            
              
-              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
+              <breadCrumb title="datastructure" url="http://dmlcoding.com/categories/datastructure/"/>
           
         </display>
     </data>
@@ -1187,19 +1225,21 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/MakeData/</loc>
+    <loc>http://dmlcoding.com/2016/Recursion/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>大数据学习时候,造数据的常用方式</title>
-        <pubTime>2016-11-16T02:51:00.000Z</pubTime>
+        <title>递归算法</title>
+        <pubTime>2016-11-27T01:50:00.000Z</pubTime>
         
-        <tag>data</tag>
+        <tag>algorithm</tag>
+         
+        <tag>recursion</tag>
          
          
            
              
-              <breadCrumb title="bigdata" url="http://dmlcoding.com/categories/bigdata/"/>
+              <breadCrumb title="algorithm" url="http://dmlcoding.com/categories/algorithm/"/>
           
         </display>
     </data>
@@ -1251,28 +1291,6 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/Recursion/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>递归算法</title>
-        <pubTime>2016-11-27T01:50:00.000Z</pubTime>
-        
-        <tag>algorithm</tag>
-         
-        <tag>recursion</tag>
-         
-         
-           
-             
-              <breadCrumb title="algorithm" url="http://dmlcoding.com/categories/algorithm/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -1281,6 +1299,30 @@
         <pubTime>2016-11-17T09:23:00.000Z</pubTime>
         
         <tag>spark</tag>
+         
+        <tag>rdd</tag>
+         
+         
+           
+             
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用Spark分析泄露的2000W开房数据和600W条CSDN用户数据</title>
+        <pubTime>2016-12-01T06:22:00.000Z</pubTime>
+        
+        <tag>spark</tag>
+         
+        <tag>scala</tag>
          
         <tag>rdd</tag>
          
@@ -1315,39 +1357,21 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
+    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Scala数组</title>
-        <pubTime>2016-11-14T02:59:00.000Z</pubTime>
+        <title>RDD究竟是什么</title>
+        <pubTime>2016-12-12T06:00:00.000Z</pubTime>
         
-        <tag>scala</tag>
+        <tag>spark</tag>
+         
+        <tag>rdd</tag>
          
          
            
              
-              <breadCrumb title="scala" url="http://dmlcoding.com/categories/scala/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式</title>
-        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
-        
-        <tag>design</tag>
-         
-         
-           
-             
-              <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
           
         </display>
     </data>
@@ -1379,21 +1403,41 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
+    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>RDD究竟是什么</title>
-        <pubTime>2016-12-12T06:00:00.000Z</pubTime>
+        <title>设计模式</title>
+        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
         
-        <tag>spark</tag>
-         
-        <tag>rdd</tag>
+        <tag>design</tag>
          
          
            
              
-              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
+              <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu/Deepin下用Shadowsocks实现翻墙上网</title>
+        <pubTime>2016-12-11T02:01:00.000Z</pubTime>
+        
+        <tag>vps</tag>
+         
+        <tag>shadowsocks</tag>
+         
+         
+           
+             
+              <breadCrumb title="shadowsocks" url="http://dmlcoding.com/categories/shadowsocks/"/>
           
         </display>
     </data>

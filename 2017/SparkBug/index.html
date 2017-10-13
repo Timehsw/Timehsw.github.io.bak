@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="spark,mysql,hive," />
+  <meta name="keywords" content="kafka,spark,mysql,hive," />
 
 
 
@@ -103,7 +103,7 @@
 <meta property="og:url" content="http://dmlcoding.com/2017/SparkBug/index.html">
 <meta property="og:site_name" content="Time渐行渐远">
 <meta property="og:description" content="spark连接mysql问题描述1总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误">
-<meta property="og:updated_time" content="2017-08-09T09:40:45.000Z">
+<meta property="og:updated_time" content="2017-10-13T02:30:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spark开发中遇到的问题">
 <meta name="twitter:description" content="spark连接mysql问题描述1总是报no suitable driver以及   jdbc.mysql.driver类似这样的错误">
@@ -411,8 +411,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T10:00:00+08:00">
-                2017-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T10:00:00+08:00">
+                2017-09-12
               </time>
             
 
@@ -491,6 +491,11 @@
 <h2 id="解决办法2-1"><a href="#解决办法2-1" class="headerlink" title="解决办法2"></a>解决办法2</h2><p>在spark的配置文件中把 <code>spark.sql.hive.metastore.jars</code> 给删了.因为你总不能在每个节点上去拷贝hive的一些依赖吧,如果以后hive升级了,还得替换hive的jar包,太麻烦.所以改成下面的解决办法更好.</p>
 <p>在pom文件中加上hive的依赖</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.10 --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-core_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;!-- https://mvnrepository.com/artifact/org.apache.spark/spark-mllib_2.10 --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-mllib_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">    &lt;scope&gt;provided&lt;/scope&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-streaming_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-streaming-kafka_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-sql_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;spark-hive_2.10&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.6.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;5.1.32&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.hive&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;hive-jdbc&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;0.13.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line">&lt;!-- https://mvnrepository.com/artifact/org.apache.hive/hive-exec --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.apache.hive&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;hive-exec&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;0.13.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<h1 id="sparkstreaming读取kafka数据"><a href="#sparkstreaming读取kafka数据" class="headerlink" title="sparkstreaming读取kafka数据"></a>sparkstreaming读取kafka数据</h1><h2 id="问题描述Couldn’t-find-leaders-for-Set"><a href="#问题描述Couldn’t-find-leaders-for-Set" class="headerlink" title="问题描述Couldn’t find leaders for Set"></a>问题描述Couldn’t find leaders for Set</h2><p>SparkStreaming程序从Kafka读数据的程序运行期间报了描述中的异常.<br>通过监控分析发现,是由于有一个Broker挂掉了。可是对应Topic的replica设置的2，就算挂掉一个，应该有replica顶上啊。<br>后来发现，这是由于存在Partition的Replica没有跟Leader保持同步更新，也就是通常所说的“没追上”。 查看某个Topic是否存在没追上的情况：</p>
+<p>查看某个Topic是否存在没追上的情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kafka-topics.sh --describe --zookeeper XXX --topic XXX</div></pre></td></tr></table></figure></p>
+<h2 id="报错日志-2"><a href="#报错日志-2" class="headerlink" title="报错日志"></a>报错日志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">17/10/13 09:41:13 ERROR DirectKafkaInputDStream: ArrayBuffer(java.nio.channels.ClosedChannelException, org.apache.spark.SparkException: Couldn&apos;t find leader offsets for Set([dsp_request_event,2]))</div><div class="line">17/10/13 09:41:13 ERROR StreamingContext: Error starting the context, marking it as stopped</div><div class="line">org.apache.spark.SparkException: ArrayBuffer(java.nio.channels.ClosedChannelException, org.apache.spark.SparkException: Couldn&apos;t find leader offsets for Set([dsp_request_event,2]))</div><div class="line">	at org.apache.spark.streaming.kafka.DirectKafkaInputDStream.latestLeaderOffsets(DirectKafkaInputDStream.scala:123)</div><div class="line">	at org.apache.spark.streaming.kafka.DirectKafkaInputDStream.compute(DirectKafkaInputDStream.scala:145)</div><div class="line">	at org.apache.spark.streaming.dstream.DStream$$anonfun$getOrCompute$1$$anonfun$1$$anonfun$apply$7.apply(DStream.scala:352)</div><div class="line">	at org.apache.spark.streaming.dstream.DStream$$anonfun$getOrCompute$1$$anonfun$1$$anonfun$apply$7.apply(DStream.scala:352)</div></pre></td></tr></table></figure>
+<h2 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h2><p>观察其中的Replicas和Isr是否一致，如果出现Isr少于Replicas，则对应Partition存在没追上的情况<br>解决方法：<br>增大num.replica.fetchers的值，此参数是Replicas从Leader同步数据的线程数，默认为1，增大此参数即增大了同步IO。经过测试，增大此值后，不再有追不上的情况<br>确定问题已解决的方法：<br>启动出现问题的SparkStreaming程序，在程序正常计算的状态下，kill掉任意一个Broker后，再观察运行情况。在增大同步线程数之前，kill后SparkStreaming会报同样的异常，而增大后程序依然正常运行，问题解决。</p>
+<p>参考:<a href="http://blog.csdn.net/yanshu2012/article/details/53995159" target="_blank" rel="external">http://blog.csdn.net/yanshu2012/article/details/53995159</a></p>
 
       
     </div>
@@ -555,6 +560,8 @@
       
         <div class="post-tags">
           
+            <a href="/tags/kafka/" rel="tag"># kafka</a>
+          
             <a href="/tags/spark/" rel="tag"># spark</a>
           
             <a href="/tags/mysql/" rel="tag"># mysql</a>
@@ -572,8 +579,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/JDKOrderConsole/" rel="next" title="深入理解Java虚拟机之JDK可视化工具(二)">
-                <i class="fa fa-chevron-left"></i> 深入理解Java虚拟机之JDK可视化工具(二)
+              <a href="/2017/fatan/" rel="next" title="诗经 <<伐檀>>">
+                <i class="fa fa-chevron-left"></i> 诗经 <<伐檀>>
               </a>
             
           </div>
@@ -582,8 +589,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/SparkOnYarn/" rel="prev" title="YARN 资源分配的配置参数">
-                YARN 资源分配的配置参数 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/PythonReadFiles/" rel="prev" title="Python读取文件编码及内容">
+                Python读取文件编码及内容 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -666,7 +673,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -677,7 +684,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -688,7 +695,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -790,7 +797,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spark连接mysql"><span class="nav-number">1.</span> <span class="nav-text">spark连接mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法1"><span class="nav-number">1.2.</span> <span class="nav-text">解决办法1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法2"><span class="nav-number">1.3.</span> <span class="nav-text">解决办法2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在spark中使用hive抛出错误"><span class="nav-number">2.</span> <span class="nav-text">在spark中使用hive抛出错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#报错日志"><span class="nav-number">3.</span> <span class="nav-text">报错日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题分析"><span class="nav-number">4.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决办法"><span class="nav-number">5.</span> <span class="nav-text">解决办法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在spark中将数据插入hive动态分区"><span class="nav-number">6.</span> <span class="nav-text">在spark中将数据插入hive动态分区</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述-1"><span class="nav-number">6.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错日志-1"><span class="nav-number">6.2.</span> <span class="nav-text">报错日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">6.3.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法1-1"><span class="nav-number">6.4.</span> <span class="nav-text">解决办法1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法2-1"><span class="nav-number">6.5.</span> <span class="nav-text">解决办法2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spark连接mysql"><span class="nav-number">1.</span> <span class="nav-text">spark连接mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法1"><span class="nav-number">1.2.</span> <span class="nav-text">解决办法1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法2"><span class="nav-number">1.3.</span> <span class="nav-text">解决办法2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在spark中使用hive抛出错误"><span class="nav-number">2.</span> <span class="nav-text">在spark中使用hive抛出错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#报错日志"><span class="nav-number">3.</span> <span class="nav-text">报错日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题分析"><span class="nav-number">4.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决办法"><span class="nav-number">5.</span> <span class="nav-text">解决办法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在spark中将数据插入hive动态分区"><span class="nav-number">6.</span> <span class="nav-text">在spark中将数据插入hive动态分区</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述-1"><span class="nav-number">6.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错日志-1"><span class="nav-number">6.2.</span> <span class="nav-text">报错日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">6.3.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法1-1"><span class="nav-number">6.4.</span> <span class="nav-text">解决办法1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法2-1"><span class="nav-number">6.5.</span> <span class="nav-text">解决办法2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sparkstreaming读取kafka数据"><span class="nav-number">7.</span> <span class="nav-text">sparkstreaming读取kafka数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述Couldn’t-find-leaders-for-Set"><span class="nav-number">7.1.</span> <span class="nav-text">问题描述Couldn’t find leaders for Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错日志-2"><span class="nav-number">7.2.</span> <span class="nav-text">报错日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法-1"><span class="nav-number">7.3.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></div>
             
 
           </div>
