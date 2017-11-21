@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-10-13T02:27:01.000Z</updated>
+  <updated>2017-11-21T06:58:07.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Scikit-Learn 中文文档 】安装 scikit-learn | ApacheCN</title>
+    <link href="http://dmlcoding.com/2017/Scikit-Learn-Chinese/"/>
+    <id>http://dmlcoding.com/2017/Scikit-Learn-Chinese/</id>
+    <published>2017-11-20T01:24:00.000Z</published>
+    <updated>2017-11-21T06:58:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>1.安装 sciki-learn 中文文档: <a href="http://blog.csdn.net/u012185296/article/details/78582711" target="_blank" rel="external">http://blog.csdn.net/u012185296/article/details/78582711</a></li><li>2.使用 scikit-learn 介绍机器学习 : <a href="http://blog.csdn.net/u012185296/article/details/78583115" target="_blank" rel="external">http://blog.csdn.net/u012185296/article/details/78583115</a></li><li>3.广义线性模型: <a href="http://blog.csdn.net/u012185296/article/details/78583436" target="_blank" rel="external">http://blog.csdn.net/u012185296/article/details/78583436</a></li><li>4.线性和二次判别分析: <a href="http://blog.csdn.net/u012185296/article/details/78584918" target="_blank" rel="external">http://blog.csdn.net/u012185296/article/details/78584918</a></li><li>5.内核岭回归: <a href="http://blog.csdn.net/u012185296/article/details/78584989" target="_blank" rel="external">http://blog.csdn.net/u012185296/article/details/78584989</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;1.安装 sciki-learn 中文文档: &lt;a href=&quot;http://blog.csdn.net/u012185296/article/details/78582711&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blo
+      
+    
+    </summary>
+    
+      <category term="scikit-learn" scheme="http://dmlcoding.com/categories/scikit-learn/"/>
+    
+    
+      <category term="ml" scheme="http://dmlcoding.com/tags/ml/"/>
+    
+      <category term="python" scheme="http://dmlcoding.com/tags/python/"/>
+    
+      <category term="scikit-learn" scheme="http://dmlcoding.com/tags/scikit-learn/"/>
+    
+  </entry>
   
   <entry>
     <title>Presto的学习笔记</title>
@@ -489,30 +519,6 @@
       <category term="ubuntu" scheme="http://dmlcoding.com/tags/ubuntu/"/>
     
       <category term="docker" scheme="http://dmlcoding.com/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>项目中配置文件的读取</title>
-    <link href="http://dmlcoding.com/2017/ReadConfigFile/"/>
-    <id>http://dmlcoding.com/2017/ReadConfigFile/</id>
-    <published>2017-06-25T03:41:00.000Z</published>
-    <updated>2017-07-07T06:08:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在工作中,我们一般都不会把变化的地方写死.比如开发环境和测试环境的服务器地址,等等之类的信息.这些我们都会写入到配置文件中,方便修改.<br><a id="more"></a></p><h1 id="com-typesafe-config加载任意位置的配置文件"><a href="#com-typesafe-config加载任意位置的配置文件" class="headerlink" title="com.typesafe.config加载任意位置的配置文件"></a>com.typesafe.config加载任意位置的配置文件</h1><blockquote><p>typesafe下的config包可以用来读取配置文件，支持多种形式。</p></blockquote><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><blockquote><p>Typesafe的Config库，纯Java写成、零外部依赖、代码精简、功能灵活、API友好。支持Java properties、JSON、JSON超集格式HOCON以及环境变量。它也是Akka的配置管理库.</p></blockquote><p>如果没引上,使用如下依赖</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!-- https://mvnrepository.com/artifact/com.typesafe/config --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;com.typesafe&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;config&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.3.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure><ul><li>纯java实现，无任何依赖   </li><li>可以合并各种格式的配置文件  </li><li>可以通过文件、urls、classpath加载配置  </li><li>支持多层嵌套的配置方式  </li><li>可以转换长短，大小等单位  </li><li>类型转换  </li></ul><h2 id="加载配置文件的两种方式"><a href="#加载配置文件的两种方式" class="headerlink" title="加载配置文件的两种方式"></a>加载配置文件的两种方式</h2><p>目录结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> hushiwei@localhost  ~/IdeaProjects/testProject/src/main  tree</div><div class="line">.</div><div class="line">├── java</div><div class="line">│   └── com</div><div class="line">│       └── husw</div><div class="line">├── resources</div><div class="line">│   ├── conf</div><div class="line">│   │   └── application.conf</div><div class="line">│   ├── testlog.txt</div><div class="line">│   └── log4j.properties</div><div class="line">└── scala</div></pre></td></tr></table></figure></p><p>配置文件示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">kafka &#123;</div><div class="line">  topics = &quot;test_imp&quot; #注释</div><div class="line">  brokers = &quot;192.168.1.1:9092,192.168.2.1:9092&quot;</div><div class="line">  groupid=&quot;test_group1&quot;</div><div class="line">  offset_reset=&quot;smallest&quot; #smallest and largest</div><div class="line">&#125;</div><div class="line">spark &#123;</div><div class="line">  app_name = &quot;dsp_count&quot;</div><div class="line">  mode = &quot;local[2]&quot; #&quot;yarn-client&quot;</div><div class="line">  queue = &quot;normal&quot;</div><div class="line">  duration = 2</div><div class="line">  numFilesPerBatch = 1</div><div class="line">  stagingdir = &quot;/tmp/spark/checkpoint&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><h3 id="加载resources目录下的配置文件"><a href="#加载resources目录下的配置文件" class="headerlink" title="加载resources目录下的配置文件"></a>加载resources目录下的配置文件</h3><p>默认读取resources目录下的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val config = ConfigFactory.load(&quot;conf/application.conf&quot;)</div></pre></td></tr></table></figure></p><h3 id="加载任意指定位置的配置文件"><a href="#加载任意指定位置的配置文件" class="headerlink" title="加载任意指定位置的配置文件"></a>加载任意指定位置的配置文件</h3><p>路径可以写任意的绝对路径,或者相对路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val config = ConfigFactory.parseFile(new File(&quot;src/main/resources/conf/application.conf&quot;))</div></pre></td></tr></table></figure></p><h3 id="获取配置文件中的键值"><a href="#获取配置文件中的键值" class="headerlink" title="获取配置文件中的键值"></a>获取配置文件中的键值</h3><p>读取配置文件后返回了config对象.<br>直接调用config对象相应的api即可获取配置数据了<br><a href="http://typesafehub.github.io/config/latest/api/com/typesafe/config/ConfigFactory.html" target="_blank" rel="external">Api文档</a><br>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val topics = config.getString(&quot;kafka.topics&quot;).split(&quot;,&quot;).toSet</div><div class="line">println(topics)</div></pre></td></tr></table></figure></p><p>若要知道更详细的api说明,点击上面的链接即可.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在工作中,我们一般都不会把变化的地方写死.比如开发环境和测试环境的服务器地址,等等之类的信息.这些我们都会写入到配置文件中,方便修改.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://dmlcoding.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://dmlcoding.com/tags/java/"/>
-    
-      <category term="scala" scheme="http://dmlcoding.com/tags/scala/"/>
     
   </entry>
   
