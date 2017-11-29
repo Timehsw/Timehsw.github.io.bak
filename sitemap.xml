@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dmlcoding.com/2017/NaiveBayes/</loc>
+    
+    <lastmod>2017-11-29T08:42:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2017/LogicalRegression/</loc>
+    
+    <lastmod>2017-11-29T08:35:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/DecisitionTree/</loc>
+    
+    <lastmod>2017-11-29T08:35:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2017/Scikit-Learn-Chinese/</loc>
     
     <lastmod>2017-11-21T06:58:07.000Z</lastmod>
@@ -177,13 +198,6 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2017/LogicalRegression/</loc>
-    
-    <lastmod>2017-07-13T10:30:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://dmlcoding.com/2017/GitSkills/</loc>
     
     <lastmod>2017-07-13T07:08:04.000Z</lastmod>
@@ -345,13 +359,6 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/DecisitionTree/</loc>
-    
-    <lastmod>2017-03-03T01:04:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://dmlcoding.com/2017/IntellijSkills/</loc>
     
     <lastmod>2017-03-02T10:25:36.000Z</lastmod>
@@ -380,13 +387,6 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2017/IntellijIdeaForMac/</loc>
-    
-    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://dmlcoding.com/2016/CentosEnr/</loc>
     
     <lastmod>2017-03-02T10:08:56.000Z</lastmod>
@@ -394,7 +394,14 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
+    <loc>http://dmlcoding.com/2017/IntellijIdeaForMac/</loc>
+    
+    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -408,14 +415,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
+    <loc>http://dmlcoding.com/2016/VPSInstallJekyll/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -429,35 +429,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
+    <loc>http://dmlcoding.com/2016/Queue/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -471,7 +443,56 @@
   </url>
   
   <url>
+    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -485,21 +506,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/Queue/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://dmlcoding.com/2016/Recursion/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/VPSInstallJekyll/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
