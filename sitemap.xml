@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dmlcoding.com/2017/PrestoLearnning/</loc>
+    
+    <lastmod>2017-12-01T03:18:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2017/NaiveBayes/</loc>
     
     <lastmod>2017-11-29T08:42:12.000Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://dmlcoding.com/2017/SparkBug/</loc>
     
     <lastmod>2017-10-13T02:30:51.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2017/PrestoLearnning/</loc>
-    
-    <lastmod>2017-10-13T02:27:01.000Z</lastmod>
     
   </url>
   
@@ -387,13 +387,6 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/CentosEnr/</loc>
-    
-    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://dmlcoding.com/2017/IntellijIdeaForMac/</loc>
     
     <lastmod>2017-03-02T10:08:56.000Z</lastmod>
@@ -401,7 +394,21 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
+    <loc>http://dmlcoding.com/2016/CentosEnr/</loc>
+    
+    <lastmod>2017-03-02T10:08:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/MakeData/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -422,7 +429,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/ScalaCollection/</loc>
+    <loc>http://dmlcoding.com/2016/Recursion/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -436,42 +443,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/MakeData/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
+    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -485,7 +457,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
+    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -499,6 +471,13 @@
   </url>
   
   <url>
+    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
@@ -506,7 +485,28 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/Recursion/</loc>
+    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/ScalaCollection/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
