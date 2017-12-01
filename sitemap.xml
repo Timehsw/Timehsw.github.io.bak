@@ -408,28 +408,14 @@
   </url>
   
   <url>
+    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2016/VPSshadowsocks/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/VPSInstallJekyll/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/Recursion/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -444,6 +430,20 @@
   
   <url>
     <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/SparkExampleCSDN/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -492,7 +492,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
+    <loc>http://dmlcoding.com/2016/VPSInstallJekyll/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -506,21 +506,21 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
+    <loc>http://dmlcoding.com/2016/Recursion/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/ScalaNote/</loc>
+    <loc>http://dmlcoding.com/2016/SparkExample/</loc>
     
     <lastmod>2017-03-02T06:33:32.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/SparkExample/</loc>
+    <loc>http://dmlcoding.com/2016/ScalaNote/</loc>
     
     <lastmod>2017-03-02T06:33:32.000Z</lastmod>
     
