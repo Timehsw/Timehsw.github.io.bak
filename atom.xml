@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dmlcoding.com/"/>
-  <updated>2017-12-01T03:28:48.000Z</updated>
+  <updated>2017-12-12T03:43:50.000Z</updated>
   <id>http://dmlcoding.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Elasticsearch：用Curator辅助Marvel，实现自动删除旧marvel索引</title>
+    <link href="http://dmlcoding.com/2017/EsDeleteMarvel/"/>
+    <id>http://dmlcoding.com/2017/EsDeleteMarvel/</id>
+    <published>2017-12-11T01:24:00.000Z</published>
+    <updated>2017-12-12T03:43:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Marvel几乎是所有Elasticsearch用户的标配。Marvel保留观测数据的代价是，<br>它默认每天会新建一个index，命名规律像是这样：.marvel-2017-12-10。<br>marvel自建的索引一天可以产生大概500M的数据，而且将会越来越多，占的容量也将越来越大。<br>有没有什么办法能让它自动过期？比如说只保留最近两天的观测数据，其他的都抛弃掉。</p><p>当然有办法,curator就可以帮你实现.<br><a id="more"></a></p><h1 id="curator是什么？"><a href="#curator是什么？" class="headerlink" title="curator是什么？"></a>curator是什么？</h1><p>它是一个命令，可以帮助你管理你在Elasticsearch中的索引，帮你删除，关闭（close），<br>打开（open）它们。当然这是比较片面的说法，更完整的说明见：<br><a href="https://www.elastic.co/guide/en/elasticsearch/client/curator/current/index.html" target="_blank" rel="external">https://www.elastic.co/guide/en/elasticsearch/client/curator/current/index.html</a></p><h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1><p>我们集群里面安装的Elasticsearch的版本是2.1.1.<br>按照官网,我装了最新的5.x版本,显示版本不对.<br>按照 <a href="http://blog.csdn.net/hereiskxm/article/details/47423715" target="_blank" rel="external">http://blog.csdn.net/hereiskxm/article/details/47423715</a>  这个博客,我装了3.3.0版本.<br>显示也不对.</p><p>然后我搜了一下,感觉应该装一个中间的版本,因此我安装了4.0.0版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install elasticsearch-curator (4.0.0)</div></pre></td></tr></table></figure></p><p>然后我看了一下这个版本提供的参数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> curator --help</div><div class="line">Usage: curator [OPTIONS] ACTION_FILE</div><div class="line"></div><div class="line">  Curator for Elasticsearch indices.</div><div class="line"></div><div class="line">  See http://elastic.co/guide/en/elasticsearch/client/curator/current</div><div class="line"></div><div class="line">Options:</div><div class="line">  --config PATH  Path to configuration file. Default: ~/.curator/curator.yml</div><div class="line">  --dry-run      Do not perform any changes.</div><div class="line">  --version      Show the version and exit.</div><div class="line">  --help         Show this message and exit.</div></pre></td></tr></table></figure><p>和我安装最新的5.X的版本看起来是一致的.正好在这个站点看到配置的办法<br><a href="https://stackoverflow.com/questions/33430055/removing-old-indices-in-elasticsearch/42268400#42268400" target="_blank" rel="external">https://stackoverflow.com/questions/33430055/removing-old-indices-in-elasticsearch/42268400#42268400</a></p><p>之前在博客里面看到的那个3.3.0版本,还不兼容呢.</p><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><blockquote><p>目的是删除2天前以.marvel开头的索引</p></blockquote><p>新建目录 /opt/curator</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~ pwd</div><div class="line">/opt/curator</div><div class="line">~ ll</div><div class="line">total 12</div><div class="line">-rw-r--r-- 1 root root  184 Dec 12 10:48 config_file.yml</div><div class="line">-rw-r--r-- 1 root root 1311 Dec 12 10:37 delete_marvel_indices.yml</div><div class="line">drwxr-xr-x 2 root root 4096 Dec 12 10:49 logs</div></pre></td></tr></table></figure><h2 id="config-file-yml"><a href="#config-file-yml" class="headerlink" title="config_file.yml"></a>config_file.yml</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 记住,这个logfile得提前新建好.不然会启动报错.</div><div class="line">vim config_file.yml</div><div class="line"></div><div class="line">---</div><div class="line">client:</div><div class="line">  hosts:</div><div class="line">   - 10.10.25.217</div><div class="line">  port: 9200</div><div class="line">logging:</div><div class="line">  loglevel: INFO</div><div class="line">  logfile: &quot;/opt/curator/logs/actions.log&quot;</div><div class="line">  logformat: default</div><div class="line">  blacklist: [&apos;elasticsearch&apos;, &apos;urllib3&apos;]</div></pre></td></tr></table></figure><h2 id="delete-marvel-indices-yml"><a href="#delete-marvel-indices-yml" class="headerlink" title="delete_marvel_indices.yml"></a>delete_marvel_indices.yml</h2><p>删除以.marvel前缀且是2天之前的索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line"># Remember, leave a key empty if there is no value.  None will be a string,</div><div class="line"># not a Python &quot;NoneType&quot;</div><div class="line">#</div><div class="line"># Also remember that all examples have &apos;disable_action&apos; set to True.  If you</div><div class="line"># want to use this action as a template, be sure to set this to False after</div><div class="line"># copying it.</div><div class="line">actions:</div><div class="line">  1:</div><div class="line">    action: delete_indices</div><div class="line">    description: &gt;-</div><div class="line">      Delete indices older than 30 days (based on index name), for rc- prefixed indices.</div><div class="line">    options:</div><div class="line">      ignore_empty_list: True</div><div class="line">      timeout_override:</div><div class="line">      continue_if_exception: False</div><div class="line">      disable_action: False</div><div class="line">    filters:</div><div class="line">    - filtertype: pattern</div><div class="line">      kind: prefix</div><div class="line">      value: rc-</div><div class="line">      exclude:</div><div class="line">    - filtertype: age</div><div class="line">      source: name</div><div class="line">      direction: older</div><div class="line">      timestring: &apos;%Y.%m.%d&apos;</div><div class="line">      unit: days</div><div class="line">      unit_count: 30</div><div class="line">      exclude:</div><div class="line">  2:</div><div class="line">    action: delete_indices</div><div class="line">    description: &gt;-</div><div class="line"></div><div class="line">      Delete indices older than 2 days (based on index name), for .marvel prefixed indices.</div><div class="line">    options:</div><div class="line">      ignore_empty_list: True</div><div class="line">      timeout_override:</div><div class="line">      continue_if_exception: False</div><div class="line">      disable_action: False</div><div class="line">    filters:</div><div class="line">    - filtertype: pattern</div><div class="line">      kind: prefix</div><div class="line">      value: .marvel</div><div class="line">      exclude:</div><div class="line">    - filtertype: age</div><div class="line">      source: name</div><div class="line">      direction: older</div><div class="line">      timestring: &apos;%Y.%m.%d&apos;</div><div class="line">      unit: days</div><div class="line">      unit_count: 2</div><div class="line">      exclude:</div></pre></td></tr></table></figure></p><p>配置完成.</p><h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curator --config config_file.yml [--dry-run] delete_marvel_indices.yml</div></pre></td></tr></table></figure><p>注意:</p><ol><li>–dry-run 是可选参数,加上后不会真的删除,只会执行逻辑.你可以通过看日志来判断是否正确.<br>确认正确后,去掉–dry-run参数,再执行命令,既是真正的执行删除了.</li><li>如果没有在config_file.yml里面配置logfile参数,那么日志会在console打印出来.</li></ol><h1 id="配置日常任务"><a href="#配置日常任务" class="headerlink" title="配置日常任务"></a>配置日常任务</h1><p>很明显,我们需要自动化这个过程,让它每天自动执行,因此写一个脚本,让crontab每天自动调用即可</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">curator --config /opt/curator/config_file.yml  /opt/curator/delete_marvel_indices.yml</div><div class="line"></div><div class="line">echo &quot;delete success&quot;</div></pre></td></tr></table></figure><p>配置crontab</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 每天2点执行删除脚本</div><div class="line">0 2 * * * source /etc/profile;bash /opt/curator/delete_marvel_daily.sh &gt; /opt/curator/delete.log 2&gt;&amp;1</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Marvel几乎是所有Elasticsearch用户的标配。Marvel保留观测数据的代价是，&lt;br&gt;它默认每天会新建一个index，命名规律像是这样：.marvel-2017-12-10。&lt;br&gt;marvel自建的索引一天可以产生大概500M的数据，而且将会越来越多，占的容量也将越来越大。&lt;br&gt;有没有什么办法能让它自动过期？比如说只保留最近两天的观测数据，其他的都抛弃掉。&lt;/p&gt;
+&lt;p&gt;当然有办法,curator就可以帮你实现.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="elasticsearch" scheme="http://dmlcoding.com/categories/elasticsearch/"/>
+    
+    
+      <category term="elasticsearch" scheme="http://dmlcoding.com/tags/elasticsearch/"/>
+    
+      <category term="bigdata" scheme="http://dmlcoding.com/tags/bigdata/"/>
+    
+  </entry>
   
   <entry>
     <title>PythonVirtualenv总结</title>
@@ -472,9 +497,9 @@
       <category term="hbase" scheme="http://dmlcoding.com/categories/hbase/"/>
     
     
-      <category term="hbase" scheme="http://dmlcoding.com/tags/hbase/"/>
-    
       <category term="bigdata" scheme="http://dmlcoding.com/tags/bigdata/"/>
+    
+      <category term="hbase" scheme="http://dmlcoding.com/tags/hbase/"/>
     
   </entry>
   
@@ -497,30 +522,6 @@
     
     
       <category term="think" scheme="http://dmlcoding.com/tags/think/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习实战之逻辑回归</title>
-    <link href="http://dmlcoding.com/2017/LogicalRegression/"/>
-    <id>http://dmlcoding.com/2017/LogicalRegression/</id>
-    <published>2017-07-12T09:24:00.000Z</published>
-    <updated>2017-11-29T08:35:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>不知道什么是逻辑回归,但是也许看完接下来的文章,你会有个大概的印象吧<br><a id="more"></a></p><h1 id="简单介绍Logistic回归"><a href="#简单介绍Logistic回归" class="headerlink" title="简单介绍Logistic回归"></a>简单介绍Logistic回归</h1><h2 id="Logistic回归用到的知识点"><a href="#Logistic回归用到的知识点" class="headerlink" title="Logistic回归用到的知识点"></a>Logistic回归用到的知识点</h2><ul><li>Sigmoid函数和Logistic回归分类器</li><li>最优化理论初步</li><li>梯度下降最优化算法</li><li>数据中的缺失项处理</li></ul><h2 id="Logistic回归的一般过程"><a href="#Logistic回归的一般过程" class="headerlink" title="Logistic回归的一般过程"></a>Logistic回归的一般过程</h2><ul><li>1.收集数据:采用任意方法收集数据</li><li>2.准备数据:由于需要进行距离计算,因此要求数据类型为数值型.另外,结构化数据格式则最佳.</li><li>3.分析数据:采用任意方法对数据进行分析.</li><li>4.训练算法:大部分时间将用于训练,训练的目的是为了找到最佳的分类回归系数.</li><li>5.使用算法:首先,我们需要一些输入数据,并将其转换成对应的结构化数值;接着,基于训练好的回归系数就可以对这些数值进行简单的回归计算,判定他们属于哪个类别;在这之后,我们就可以在输出的类别上做一些其他分析工作.</li></ul><h1 id="基于Logistic回归和Sigmoid函数的分类"><a href="#基于Logistic回归和Sigmoid函数的分类" class="headerlink" title="基于Logistic回归和Sigmoid函数的分类"></a>基于Logistic回归和Sigmoid函数的分类</h1><h2 id="Logistic回归"><a href="#Logistic回归" class="headerlink" title="Logistic回归"></a>Logistic回归</h2><ul><li>优点<ul><li>计算代价不高</li><li>易于理解和实现</li></ul></li><li>缺点<ul><li>容易欠拟合</li><li>分类精度可能不高</li></ul></li><li>适用类型<ul><li>数值型(数值型目标变量则可以从无限的数值集合中取值，如0.100，42.001等 (数值型目标变量主要用于回归分析))</li><li>标称型数据(标称型目标变量的结果只在有限目标集中取值，如真与假(标称型目标变量主要用于分类))</li></ul></li></ul><p>基本公式:<br>Sigmoid函数具体的计算公式</p><math xmlns="http://www.w3.org/1998/Math/MathML">  <mstyle displaystyle="true">    <mi> &#x03C3;<!--greek small letter sigma--> </mi>    <mfenced>      <mrow>        <mi> z </mi>      </mrow>    </mfenced>    <mo> = </mo>    <mfrac>      <mrow>        <mn> 1 </mn>      </mrow>      <mrow>        <mn> 1 </mn>        <mo> + </mo>        <msup>          <mrow>            <mi> e </mi>          </mrow>          <mrow>            <mo> - </mo>            <mi> z </mi>          </mrow>        </msup>      </mrow>    </mfrac>  </mstyle></math>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;不知道什么是逻辑回归,但是也许看完接下来的文章,你会有个大概的印象吧&lt;br&gt;
-    
-    </summary>
-    
-      <category term="ml" scheme="http://dmlcoding.com/categories/ml/"/>
-    
-    
-      <category term="ml" scheme="http://dmlcoding.com/tags/ml/"/>
-    
-      <category term="python" scheme="http://dmlcoding.com/tags/python/"/>
     
   </entry>
   

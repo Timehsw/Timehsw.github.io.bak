@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://dmlcoding.com/2017/EsDeleteMarvel/</loc>
+    <lastmod>2017-12-12T03:43:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>Elasticsearch：用Curator辅助Marvel，实现自动删除旧marvel索引</title>
+        <pubTime>2017-12-11T01:24:00.000Z</pubTime>
+        
+        <tag>elasticsearch</tag>
+         
+        <tag>bigdata</tag>
+         
+         
+           
+             
+              <breadCrumb title="elasticsearch" url="http://dmlcoding.com/categories/elasticsearch/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://dmlcoding.com/2017/PythonVirtualenv/</loc>
     <lastmod>2017-12-01T03:28:48.000Z</lastmod>
     <data>
@@ -538,9 +560,9 @@
         <title>Hbase笔记</title>
         <pubTime>2017-07-24T02:00:00.000Z</pubTime>
         
-        <tag>hbase</tag>
-         
         <tag>bigdata</tag>
+         
+        <tag>hbase</tag>
          
          
            
@@ -1169,28 +1191,6 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/VPSInstallJekyll/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>在VPS上安装Jekyll,搭建自己的静态博客</title>
-        <pubTime>2016-11-27T09:24:00.000Z</pubTime>
-        
-        <tag>jekyll</tag>
-         
-        <tag>vps</tag>
-         
-         
-           
-             
-              <breadCrumb title="vps" url="http://dmlcoding.com/categories/vps/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://dmlcoding.com/2016/UbuntuSocks/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -1213,23 +1213,21 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
+    <loc>http://dmlcoding.com/2016/VPSInstallJekyll/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
-        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
+        <title>在VPS上安装Jekyll,搭建自己的静态博客</title>
+        <pubTime>2016-11-27T09:24:00.000Z</pubTime>
         
-        <tag>ubuntu</tag>
-         
-        <tag>deepin</tag>
-         
         <tag>jekyll</tag>
+         
+        <tag>vps</tag>
          
          
            
              
-              <breadCrumb title="ubuntu" url="http://dmlcoding.com/categories/ubuntu/"/>
+              <breadCrumb title="vps" url="http://dmlcoding.com/categories/vps/"/>
           
         </display>
     </data>
@@ -1259,28 +1257,6 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux进程分析之内存</title>
-        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>memory</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://dmlcoding.com/2016/Recursion/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
@@ -1296,88 +1272,6 @@
            
              
               <breadCrumb title="algorithm" url="http://dmlcoding.com/categories/algorithm/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/Queue/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Java数据结构之队列</title>
-        <pubTime>2016-12-07T02:01:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>datastructure</tag>
-         
-         
-           
-             
-              <breadCrumb title="datastructure" url="http://dmlcoding.com/categories/datastructure/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>Flask框架中用QQ邮箱发邮件</title>
-        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
-        
-        <tag>flask</tag>
-         
-         
-           
-             
-              <breadCrumb title="flask" url="http://dmlcoding.com/categories/flask/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式</title>
-        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
-        
-        <tag>design</tag>
-         
-         
-           
-             
-              <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://dmlcoding.com/2016/MakeData/</loc>
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>大数据学习时候,造数据的常用方式</title>
-        <pubTime>2016-11-16T02:51:00.000Z</pubTime>
-        
-        <tag>data</tag>
-         
-         
-           
-             
-              <breadCrumb title="bigdata" url="http://dmlcoding.com/categories/bigdata/"/>
           
         </display>
     </data>
@@ -1402,6 +1296,28 @@
            
              
               <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/Queue/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Java数据结构之队列</title>
+        <pubTime>2016-12-07T02:01:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>datastructure</tag>
+         
+         
+           
+             
+              <breadCrumb title="datastructure" url="http://dmlcoding.com/categories/datastructure/"/>
           
         </display>
     </data>
@@ -1451,21 +1367,19 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
+    <loc>http://dmlcoding.com/2016/MakeData/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>Spark的RDD基础操作</title>
-        <pubTime>2016-11-17T09:23:00.000Z</pubTime>
+        <title>大数据学习时候,造数据的常用方式</title>
+        <pubTime>2016-11-16T02:51:00.000Z</pubTime>
         
-        <tag>spark</tag>
-         
-        <tag>rdd</tag>
+        <tag>data</tag>
          
          
            
              
-              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
+              <breadCrumb title="bigdata" url="http://dmlcoding.com/categories/bigdata/"/>
           
         </display>
     </data>
@@ -1473,12 +1387,34 @@
 
     
   <url>
-    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
+    <loc>http://dmlcoding.com/2016/LinuxMem/</loc>
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     <data>
         <display>
-        <title>RDD究竟是什么</title>
-        <pubTime>2016-12-12T06:00:00.000Z</pubTime>
+        <title>Linux进程分析之内存</title>
+        <pubTime>2016-12-11T12:32:00.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>memory</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://dmlcoding.com/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Spark的RDD基础操作</title>
+        <pubTime>2016-11-17T09:23:00.000Z</pubTime>
         
         <tag>spark</tag>
          
@@ -1508,6 +1444,92 @@
            
              
               <breadCrumb title="scala" url="http://dmlcoding.com/categories/scala/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/FlaskMail/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Flask框架中用QQ邮箱发邮件</title>
+        <pubTime>2016-12-15T09:00:00.000Z</pubTime>
+        
+        <tag>flask</tag>
+         
+         
+           
+             
+              <breadCrumb title="flask" url="http://dmlcoding.com/categories/flask/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>RDD究竟是什么</title>
+        <pubTime>2016-12-12T06:00:00.000Z</pubTime>
+        
+        <tag>spark</tag>
+         
+        <tag>rdd</tag>
+         
+         
+           
+             
+              <breadCrumb title="spark" url="http://dmlcoding.com/categories/spark/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/DesignPattern/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式</title>
+        <pubTime>2016-11-13T05:34:00.000Z</pubTime>
+        
+        <tag>design</tag>
+         
+         
+           
+             
+              <breadCrumb title="designpattern" url="http://dmlcoding.com/categories/designpattern/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://dmlcoding.com/2016/DeepinSoft/</loc>
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>配置Ubuntu/Deepin下要安装的常用软件</title>
+        <pubTime>2016-12-11T06:00:00.000Z</pubTime>
+        
+        <tag>ubuntu</tag>
+         
+        <tag>deepin</tag>
+         
+        <tag>jekyll</tag>
+         
+         
+           
+             
+              <breadCrumb title="ubuntu" url="http://dmlcoding.com/categories/ubuntu/"/>
           
         </display>
     </data>
