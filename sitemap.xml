@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dmlcoding.com/2017/ShellSkills/</loc>
+    
+    <lastmod>2017-12-22T03:21:28.269Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2017/EsDeleteMarvel/</loc>
     
     <lastmod>2017-12-12T03:43:50.000Z</lastmod>
@@ -331,13 +338,6 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2017/ShellSkills/</loc>
-    
-    <lastmod>2017-03-20T10:54:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://dmlcoding.com/2016/KafkaEnr/</loc>
     
     <lastmod>2017-03-06T07:04:03.000Z</lastmod>
@@ -457,14 +457,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
-    
-    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
+    <loc>http://dmlcoding.com/2016/ScalaCollection/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -485,6 +478,13 @@
   </url>
   
   <url>
+    <loc>http://dmlcoding.com/2016/JavaThread/</loc>
+    
+    <lastmod>2017-03-02T06:36:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dmlcoding.com/2016/SparkRDDOpe/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
@@ -492,7 +492,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/ScalaCollection/</loc>
+    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     
@@ -506,7 +506,7 @@
   </url>
   
   <url>
-    <loc>http://dmlcoding.com/2016/SparkRdd/</loc>
+    <loc>http://dmlcoding.com/2016/ScalaArray/</loc>
     
     <lastmod>2017-03-02T06:36:43.000Z</lastmod>
     

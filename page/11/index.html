@@ -1135,7 +1135,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://dmlcoding.com/2016/ScalaNote/">
+    <link itemprop="mainEntityOfPage" href="http://dmlcoding.com/2016/SparkExample/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hushiwei">
@@ -1154,7 +1154,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/ScalaNote/" itemprop="url">ScalaNote</a></h1>
+                <a class="post-title-link" href="/2016/SparkExample/" itemprop="url">PySpark做日志分析</a></h1>
         
 
         <div class="post-meta">
@@ -1189,8 +1189,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/scala/" itemprop="url" rel="index">
-                    <span itemprop="name">scala</span>
+                  <a href="/categories/spark/" itemprop="url" rel="index">
+                    <span itemprop="name">spark</span>
                   </a>
                 </span>
 
@@ -1227,11 +1227,14 @@
 
       
         
-          <h2 id="1-sealed-trait"><a href="#1-sealed-trait" class="headerlink" title="1.sealed trait"></a>1.sealed trait</h2><blockquote>
-<p>被sealed 声明的 trait仅能被同一文件的的类继承。<br>  除了这个，我们通常将sealed用于枚举中，因为编译器在编译的时候知道这个trait被哪些类继承过，因此我们在match时对sealed trait进行case 的时候，如果你没有判断全部编译器在编译时就会报错。<br>
+          <h2 id="第一步-给你的样本日志目录修改这个参数"><a href="#第一步-给你的样本日志目录修改这个参数" class="headerlink" title="第一步:给你的样本日志目录修改这个参数"></a>第一步:给你的样本日志目录修改这个参数</h2><p>在这个例子里面，我们会用到这个样本文件”/databricks-datasets/sample_logs”,样本数据已经存储到DBFS(Databricks的文件系统)</p>
+<blockquote>
+<p>DBFS_SAMPLES_LOGS_FOLDER=”/databricks-datasets/samples_logs” #path to the log file to be analyzed</p>
+</blockquote>
+<h2 id="第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"><a href="#第二步-为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象" class="headerlink" title="第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象"></a>第二步:为Apache访问日志的每一行创建一个解析器以此来创建一个Row对象</h2>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/ScalaNote/#more" rel="contents">
+            <a class="btn" href="/2016/SparkExample/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
